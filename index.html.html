@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apothena Career Services</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+
+  /* ── TOKENS ── */
+  :root {
+    --ink:        #1A2E44;
+    --ink-soft:   #3A5068;
+    --ink-faint:  #7A96AA;
+    --paper:      #FFFFFF;
+    --paper-warm: #F0F6FF;
+    --stone:      #1A4B7A;
+    --stone-mid:  #1E5A96;
+    --amber:      #D4A017;
+    --amber-light:#F0C060;
+    --amber-pale: #FDF3D0;
+    --white:      #FFFFFF;
+    --rule:       rgba(212,160,23,0.35);
+  }
+
+  /* ── RESET ── */
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; font-size: 16px; }
+  body {
+    font-family: 'Lato', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+  img { display: block; max-width: 100%; }
+  a { text-decoration: none; color: inherit; }
+
+  /* ── GREEK KEY SVG PATTERN (inline, geometric only) ── */
+  .greek-key-top {
+    width: 100%;
+    height: 18px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='18'%3E%3Cpath d='M0 16 L0 2 L14 2 L14 8 L8 8 L8 14 L20 14 L20 2 L34 2 L34 8 L28 8 L28 14 L40 14 L40 16 Z' fill='none' stroke='%23D4A017' stroke-width='1.2' opacity='0.45'/%3E%3C/svg%3E");
+    background-repeat: repeat-x;
+    background-position: center;
+  }
+  .greek-key-bottom {
+    width: 100%;
+    height: 18px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='18'%3E%3Cpath d='M0 2 L0 16 L14 16 L14 10 L8 10 L8 4 L20 4 L20 16 L34 16 L34 10 L28 10 L28 4 L40 4 L40 2 Z' fill='none' stroke='%23D4A017' stroke-width='1.2' opacity='0.45'/%3E%3C/svg%3E");
+    background-repeat: repeat-x;
+    background-position: center;
+  }
+
+  /* ── TYPOGRAPHY ── */
+  h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+  }
+  .label {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--amber);
+  }
+  .rule-amber {
+    display: block;
+    width: 48px;
+    height: 2px;
+    background: var(--amber);
+    margin: 14px 0 20px;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 200;
+    background: #1A4B7A;
+    border-bottom: 1px solid rgba(212,160,23,0.2);
+    padding: 0 80px;
+    height: 68px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--amber-light);
+    text-decoration: none;
+  }
+  .nav-brand {
+    display: flex; flex-direction: column; gap: 2px; align-items: center;
+  }
+  .nav-brand-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--amber-light);
+    letter-spacing: 0.1em;
+  }
+  .nav-brand-sub {
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: rgba(212,169,106,0.5);
+  }
+  .nav-links {
+    display: flex; align-items: center; gap: 40px;
+    list-style: none;
+    margin-left: auto;
+    padding-left: 75px;
+  }
+  .nav-links a {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--amber-light);
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--amber-light); }
+  .nav-links .nav-contact {
+    padding: 9px 22px;
+    border: 1px solid rgba(212,160,23,0.6);
+    color: var(--amber-light);
+    transition: all 0.25s;
+  }
+  .nav-links .nav-contact:hover {
+    background: var(--amber);
+    border-color: var(--amber);
+    color: var(--white);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: stretch;
+    padding-top: 68px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Subtle texture overlay */
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 80% at 30% 50%, rgba(184,134,78,0.07) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 80px 64px 80px 64px;
+    position: relative; z-index: 2;
+  }
+  .hero-right {
+    display: flex; align-items: center; justify-content: center;
+    padding: 80px 64px 80px 40px;
+    position: relative; z-index: 2;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.4rem, 4vw, 3.6rem);
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 10px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--amber-light);
+  }
+  .hero-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    min-height: calc(100vh - 68px);
+  }
+  .hero-cta-group {
+    display: flex; gap: 16px; flex-wrap: wrap;
+  }
+  .btn-primary {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 14px 32px;
+    background: var(--amber);
+    color: var(--white);
+    border: 2px solid var(--amber);
+    cursor: pointer;
+    transition: all 0.25s;
+    display: inline-block;
+  }
+  .btn-primary:hover {
+    background: var(--amber-light);
+    border-color: var(--amber-light);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(184,134,78,0.28);
+  }
+  .btn-ghost {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 14px 32px;
+    background: transparent;
+    color: rgba(255,255,255,0.75);
+    border: 2px solid rgba(255,255,255,0.25);
+    cursor: pointer;
+    transition: all 0.25s;
+    display: inline-block;
+  }
+  .btn-ghost:hover {
+    border-color: rgba(255,255,255,0.6);
+    color: var(--white);
+  }
+
+  /* Hero image placeholder */
+  .hero-img-wrap {
+    width: 100%;
+    max-width: 420px;
+    aspect-ratio: 3/4;
+    background: var(--stone);
+    border: none;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 12px;
+    position: relative;
+    margin-top: 20px;
+  }
+  .hero-img-wrap::before { display: none; }
+  .placeholder-icon {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    border: 2px dashed rgba(184,134,78,0.4);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .placeholder-icon svg { opacity: 0.35; }
+  .placeholder-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(184,134,78,0.45);
+  }
+
+  /* ── SECTION SHARED ── */
+  section { position: relative; }
+  .section-inner {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 100px 64px;
+  }
+  .section-inner.narrow { max-width: 860px; }
+
+  /* ── ABOUT ── */
+  .about { background: var(--paper); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .about-photo-col { display: flex; flex-direction: column; gap: 20px; }
+  .about-headshot {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: var(--paper-warm);
+    border: 1px solid var(--rule);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 12px;
+  }
+  .about-headshot .placeholder-label { color: rgba(184,134,78,0.5); }
+
+  .about-photo-caption {
+    text-align: center;
+  }
+  .about-photo-caption .name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--ink);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .about-photo-caption .title {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--amber);
+  }
+
+  .about-text h2 {
+    font-size: clamp(1.8rem, 2.8vw, 2.6rem);
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .about-text p {
+    font-size: 1.05rem;
+    font-weight: 300;
+    line-height: 1.88;
+    color: var(--ink-soft);
+    margin-bottom: 20px;
+  }
+  .about-text p:last-child { margin-bottom: 0; }
+  .about-text strong {
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  /* Credential chips */
+  .credential-row {
+    display: flex; gap: 12px; flex-wrap: wrap;
+    margin: 28px 0 0;
+  }
+  .credential {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 7px 16px;
+    border: 1px solid var(--rule);
+    color: var(--amber);
+    background: var(--amber-pale);
+  }
+
+  /* ── SERVICES ── */
+  .services { background: var(--stone); }
+  .services .section-inner { padding-bottom: 80px; }
+  .services-header {
+    margin-bottom: 56px;
+  }
+  .services-header h2 {
+    font-size: clamp(1.8rem, 2.8vw, 2.6rem);
+    color: var(--white);
+    margin-bottom: 14px;
+  }
+  .services-header p {
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.55);
+    max-width: 520px;
+    line-height: 1.75;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+  }
+  .service-card {
+    background: var(--stone-mid);
+    padding: 0;
+    position: relative;
+  }
+  .service-card-content {
+    padding: 32px 32px 40px;
+    border-top: 2px solid rgba(212,160,23,0.3);
+  }
+
+  .service-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 14px;
+  }
+  .service-card p {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.75;
+  }
+
+  /* Service image placeholder */
+  .service-img-placeholder {
+    width: 100%;
+    aspect-ratio: 1/1;
+    background: rgba(255,255,255,0.04);
+    border: 1px dashed rgba(184,134,78,0.2);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 0;
+    overflow: hidden;
+  }
+  .service-img-placeholder span {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(184,134,78,0.35);
+  }
+
+  /* ── CONTACT ── */
+  .contact { background: var(--paper-warm); }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .contact-left h2 {
+    font-size: clamp(1.8rem, 2.8vw, 2.6rem);
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
+  .contact-left p {
+    font-size: 1.05rem;
+    font-weight: 300;
+    line-height: 1.82;
+    color: var(--ink-soft);
+    margin-bottom: 32px;
+  }
+  .contact-detail {
+    display: flex; align-items: center; gap: 14px;
+    margin-bottom: 16px;
+  }
+  .contact-detail-icon {
+    width: 38px; height: 38px;
+    border: 1px solid var(--rule);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .contact-detail-icon svg { color: var(--amber); }
+  .contact-detail-text {
+    font-size: 0.95rem;
+    color: var(--white);
+  }
+  .contact-detail-text a {
+    color: rgba(255,255,255,0.85);
+    transition: color 0.2s;
+  }
+  .contact-detail-text a:hover { color: var(--amber-light); }
+
+  /* Contact form */
+  .contact-form { display: flex; flex-direction: column; gap: 18px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: var(--ink);
+    background: var(--white);
+    border: 1px solid rgba(0,0,0,0.15);
+    padding: 12px 16px;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+    -webkit-appearance: none;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus {
+    border-color: var(--amber);
+  }
+  .form-group textarea { resize: vertical; min-height: 130px; }
+  .form-submit {
+    align-self: flex-start;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    padding: 52px 64px 36px;
+  }
+  .footer-top {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    padding-bottom: 36px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    margin-bottom: 28px;
+  }
+  .footer-brand-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--amber-light);
+    letter-spacing: 0.08em;
+    margin-bottom: 6px;
+  }
+  .footer-tagline-text {
+    font-size: 0.82rem;
+    font-style: italic;
+    color: rgba(255,255,255,0.35);
+    font-family: 'Playfair Display', serif;
+  }
+  .footer-links {
+    display: flex; gap: 32px; list-style: none;
+  }
+  .footer-links a {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--amber-light); }
+  .footer-bottom {
+    display: flex; justify-content: space-between; align-items: center;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .footer-copy {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.25);
+  }
+  .footer-greek {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.78rem;
+    font-style: italic;
+    color: rgba(184,134,78,0.35);
+    letter-spacing: 0.12em;
+  }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 1.6s ease,
+                transform 1.6s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal:nth-child(1) { transition-delay: 0s; }
+  .reveal:nth-child(2) { transition-delay: 0.12s; }
+  .reveal:nth-child(3) { transition-delay: 0.24s; }
+  .reveal:nth-child(4) { transition-delay: 0.36s; }
+  .reveal:nth-child(5) { transition-delay: 0.48s; }
+  .reveal:nth-child(6) { transition-delay: 0.60s; }
+  .services-grid .service-card:nth-child(1) { transition-delay: 0s; }
+  .services-grid .service-card:nth-child(2) { transition-delay: 0.15s; }
+  .services-grid .service-card:nth-child(3) { transition-delay: 0s; }
+  .services-grid .service-card:nth-child(4) { transition-delay: 0.15s; }
+
+  /* Section-specific stagger for about text children */
+  .about-text.visible ~ * .reveal,
+  .about-text .reveal:nth-child(1) { transition-delay: 0s; }
+  .about-text .reveal:nth-child(2) { transition-delay: 0.18s; }
+  .about-text .reveal:nth-child(3) { transition-delay: 0.36s; }
+
+  /* Contact form fields stagger */
+  .form-group:nth-child(1) { transition-delay: 0s; }
+  .form-group:nth-child(2) { transition-delay: 0.1s; }
+  .form-group:nth-child(3) { transition-delay: 0.2s; }
+  .form-group:nth-child(4) { transition-delay: 0.3s; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes softReveal {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes lineReveal {
+    from { opacity: 0; transform: translateY(100%); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-left > * {
+    animation: softReveal 1.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .hero-left > *:nth-child(1) { animation-delay: 0.2s; }
+  .hero-left > *:nth-child(2) { animation-delay: 0.45s; }
+  .hero-left > *:nth-child(3) { animation-delay: 0.7s; }
+  .hero-left > *:nth-child(4) { animation-delay: 0.95s; }
+  .hero-left > *:nth-child(5) { animation-delay: 1.2s; }
+  .hero-right {
+    animation: softReveal 1.7s 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+
+  /* ── MOBILE RESPONSIVE ── */
+  @media (max-width: 768px) {
+
+    /* ── NAV ── */
+    nav {
+      padding: 0 20px;
+      height: 56px;
+    }
+    .nav-links {
+      gap: 12px;
+      padding-left: 0;
+    }
+    .nav-links a {
+      font-size: 0.58rem;
+      letter-spacing: 0.08em;
+    }
+    .nav-links .nav-contact {
+      padding: 6px 12px;
+    }
+
+    /* ── HERO ── */
+    .hero-body {
+      grid-template-columns: 1fr;
+      min-height: auto;
+    }
+    .hero-left {
+      padding: 90px 24px 32px;
+      order: 1;
+    }
+    .hero-right {
+      padding: 0 24px 56px;
+      order: 2;
+    }
+    .hero-img-wrap {
+      max-width: 260px;
+      margin: 0 auto;
+    }
+    .hero-h1 {
+      font-size: clamp(1.9rem, 7vw, 2.6rem);
+    }
+
+    /* ── HIDE PILLARS ── */
+    section > div[style*="position:absolute;top:0;left:0;width:70px"],
+    section > div[style*="position:absolute;top:0;right:0;width:70px"] {
+      display: none;
+    }
+
+    /* ── SECTION INNER ── */
+    .section-inner {
+      padding: 56px 24px;
+    }
+
+    /* ── SERVICES ── */
+    #services > div[style*="padding:80px 100px"] {
+      padding: 56px 24px !important;
+    }
+    #services .reveal[style*="max-width:620px"],
+    #services > div > div[style*="max-width:620px"] {
+      max-width: 100% !important;
+    }
+    #services h2 {
+      font-size: clamp(1.6rem, 5vw, 2rem) !important;
+    }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    .about-photo-col {
+      padding-top: 0 !important;
+      max-width: 280px;
+      margin: 0 auto;
+      order: 1;
+    }
+    .about-headshot {
+      margin-top: 0 !important;
+    }
+    .about-text {
+      order: 2;
+      min-width: 0;
+      overflow: hidden;
+    }
+    .about-text h2 {
+      white-space: normal !important;
+      font-size: clamp(1.3rem, 4.5vw, 1.8rem) !important;
+    }
+
+    /* ── BOOKING ── */
+    #booking > div {
+      padding: 56px 24px !important;
+    }
+    #booking .section-inner {
+      padding: 56px 24px;
+    }
+
+    /* ── CONTACT ── */
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .contact-grid > div {
+      padding: 0 !important;
+    }
+
+    /* ── FOOTER ── */
+    .footer-top {
+      flex-direction: column;
+      gap: 32px;
+      align-items: flex-start;
+    }
+    .footer-links {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: flex-start;
+    }
+    .footer-bottom {
+      flex-direction: column;
+      gap: 8px;
+      align-items: flex-start;
+    }
+  }
+
+  @media (max-width: 480px) {
+
+    /* ── NAV — show only logo + CTA ── */
+    .nav-links li:not(:last-child) {
+      display: none;
+    }
+    nav {
+      padding: 0 16px;
+    }
+
+    /* ── HERO ── */
+    .hero-left {
+      padding: 80px 16px 28px;
+    }
+    .hero-right {
+      padding: 0 16px 48px;
+    }
+    .hero-h1 {
+      font-size: clamp(1.7rem, 8vw, 2.2rem);
+    }
+    #greek-container {
+      max-width: 100% !important;
+    }
+
+    /* ── SECTIONS ── */
+    .section-inner {
+      padding: 44px 16px;
+    }
+    #services > div[style*="padding"] {
+      padding: 44px 16px !important;
+    }
+    #booking > div {
+      padding: 44px 16px !important;
+    }
+
+    /* ── SERVICES CARDS ── */
+    #services div[style*="grid-template-columns:60px"] {
+      grid-template-columns: 48px 1fr !important;
+      gap: 14px !important;
+    }
+    #services div[style*="border-left:3px"] {
+      padding: 20px 16px 20px 16px !important;
+    }
+
+    /* ── ABOUT ── */
+    .about-photo-col {
+      max-width: 240px;
+    }
+
+    /* ── PROVERB ── */
+    div[style*="background:#0f1c2e"][style*="padding:48px"] {
+      padding: 44px 20px !important;
+    }
+
+    /* ── CONTACT ── */
+    section.contact {
+      padding: 0;
+    }
+    .contact-grid {
+      padding: 44px 16px !important;
+    }
+  }
+
+
+  @keyframes popIn {
+    0%   { opacity:0; transform:scale(0.92) translateY(16px); }
+    60%  { opacity:1; transform:scale(1.02) translateY(-2px); }
+    100% { opacity:1; transform:scale(1) translateY(0); }
+  }
+  .proverb-popin {
+    opacity:0;
+  }
+  .proverb-popin.visible {
+    animation: popIn 1.6s cubic-bezier(0.22,1,0.36,1) forwards;
+  }
+
+  .reveal-scale {
+    opacity: 0;
+    transform: scale(0.94) translateY(14px);
+    transition: opacity 1.6s ease,
+                transform 1.6s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+  .reveal-scale.visible {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="nav" id="nav">
+  <span class="nav-logo" style="cursor:default;">Apothena</span>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#booking" class="nav-contact">Book a Call</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero" id="hero" style="background-image: linear-gradient(rgba(26,75,122,0.75), rgba(26,75,122,0.75)), url('images/asset_01.jpeg'); background-size: cover; background-position: center;">
+  <div class="hero-body">
+    <div class="hero-left">
+      <h1 class="hero-h1">Illuminating Your Career Path<br>With Wisdom</h1>
+      <div id="greek-container" style="text-align:right;">
+    <p id="greek-p" style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem;color:rgba(255,255,255,0.45);line-height:1.5;margin-top:6px;margin-bottom:36px;">Φωτίζοντας την επαγγελματική σας πορεία με σοφία</p>
+  </div>
+  <script>
+  (function() {
+    function measureText(text, font) {
+      var c = document.createElement('canvas');
+      var ctx = c.getContext('2d');
+      ctx.font = font;
+      return ctx.measureText(text).width;
+    }
+    function alignGreek() {
+      var h1 = document.querySelector('.hero-h1');
+      var container = document.getElementById('greek-container');
+      if (!h1 || !container) return;
+      var h1Style = window.getComputedStyle(h1);
+      var h1Font = h1Style.fontStyle + ' ' + h1Style.fontWeight + ' ' + h1Style.fontSize + ' ' + h1Style.fontFamily;
+      var targetWidth = measureText('Illuminating Your', h1Font);
+      container.style.width = targetWidth + 'px';
+    }
+    document.fonts.ready.then(alignGreek);
+    window.addEventListener('resize', alignGreek);
+  })();
+  </script>
+      
+      <a href="#booking" class="btn-primary" style="align-self:flex-start;">Book a Free Strategy Call</a>
+    </div>
+    <div class="hero-right">
+      <div class="hero-img-wrap" style="background:transparent; border:none;">
+        <img src="images/asset_02.png" style="width:100%; height:100%; object-fit:contain; display:block;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="greek-key-top"></div>
+
+<!-- ── SERVICES ── -->
+<section class="services" id="services" style="position:relative;overflow:visible;background:linear-gradient(to bottom,transparent 50%,rgba(8,15,28,0.98) 100%),linear-gradient(to bottom left,transparent 55%,rgba(8,15,28,0.98) 100%),linear-gradient(to right,rgba(8,15,28,0.75) 0%,rgba(8,15,28,0.65) 55%,rgba(8,15,28,0.15) 100%),url('images/asset_03.jpeg') 100% 77%/cover no-repeat;">
+  <div style="position:relative;z-index:1;padding:80px 100px;">
+        <h2 class="reveal" style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,2.8vw,2.6rem);color:var(--amber-light);margin-bottom:8px;">Services</h2>
+    <p class="reveal" style="font-family:'Playfair Display',serif;font-style:italic;font-size:0.9rem;color:rgba(255,255,255,0.55);margin-bottom:40px;max-width:620px;">Personalized support tailored for you<br>so that you can confidently land your next role</p>
+    <div style="max-width:620px;">
+      <div class="reveal" style="background:linear-gradient(135deg,rgba(10,18,32,0.82) 0%,rgba(15,28,46,0.88) 100%);border:1px solid rgba(212,160,23,0.18);border-left:3px solid rgba(212,160,23,0.55);padding:28px 28px 28px 24px;position:relative;margin-bottom:16px;backdrop-filter:blur(2px);">
+          <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,rgba(212,160,23,0.45),transparent);"></div>
+          <div style="position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,rgba(212,160,23,0.15),transparent);"></div>
+          <div style="display:grid;grid-template-columns:60px 1fr;align-items:flex-start;gap:20px;">
+            <div style="width:60px;height:60px;display:flex;align-items:center;justify-content:center;">
+              <img src="images/asset_04.png" style="width:44px;height:44px;object-fit:contain;opacity:0.9;margin-left:23px;">
+            </div>
+            <div>
+              <h3 style="font-family:'Playfair Display',serif;font-size:1.1rem;color:#F0C060;margin-bottom:10px;">Career/Education Direction Coaching</h3>
+              <p style="font-size:0.88rem;font-weight:300;color:rgba(255,255,255,0.75);line-height:1.8;">If you're unsure what's next on your journey or feel pulled in multiple directions, we'll slow things down and create space to clearly define your path. Together, we'll explore your strengths, interests, and goals so you can move forward with confidence and intention.</p>
+            </div>
+          </div>
+        </div><div class="reveal" style="background:linear-gradient(135deg,rgba(10,18,32,0.82) 0%,rgba(15,28,46,0.88) 100%);border:1px solid rgba(212,160,23,0.18);border-left:3px solid rgba(212,160,23,0.55);padding:28px 28px 28px 24px;position:relative;margin-bottom:16px;backdrop-filter:blur(2px);">
+          <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,rgba(212,160,23,0.45),transparent);"></div>
+          <div style="position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,rgba(212,160,23,0.15),transparent);"></div>
+          <div style="display:grid;grid-template-columns:60px 1fr;align-items:flex-start;gap:20px;">
+            <div style="width:60px;height:60px;display:flex;align-items:center;justify-content:center;">
+              <img src="images/asset_05.png" style="width:44px;height:44px;object-fit:contain;opacity:0.9;">
+            </div>
+            <div>
+              <h3 style="font-family:'Playfair Display',serif;font-size:1.1rem;color:#F0C060;margin-bottom:10px;">Resume Building & LinkedIn Profile Optimization</h3>
+              <p style="font-size:0.88rem;font-weight:300;color:rgba(255,255,255,0.75);line-height:1.8;">Together, we'll craft a results-driven resume and LinkedIn profile that clearly communicate your strengths, showing your true potential. We will position your experience in a way that catches recruiter's attention and resonates with hiring managers.</p>
+            </div>
+          </div>
+        </div><div class="reveal" style="background:linear-gradient(135deg,rgba(10,18,32,0.82) 0%,rgba(15,28,46,0.88) 100%);border:1px solid rgba(212,160,23,0.18);border-left:3px solid rgba(212,160,23,0.55);padding:28px 28px 28px 24px;position:relative;margin-bottom:16px;backdrop-filter:blur(2px);">
+          <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,rgba(212,160,23,0.45),transparent);"></div>
+          <div style="position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,rgba(212,160,23,0.15),transparent);"></div>
+          <div style="display:grid;grid-template-columns:60px 1fr;align-items:flex-start;gap:20px;">
+            <div style="width:60px;height:60px;display:flex;align-items:center;justify-content:center;">
+              <img src="images/asset_06.png" style="width:44px;height:44px;object-fit:contain;opacity:0.9;">
+            </div>
+            <div>
+              <h3 style="font-family:'Playfair Display',serif;font-size:1.1rem;color:#F0C060;margin-bottom:10px;">Job Coaching & Interview Preparation</h3>
+              <p style="font-size:0.88rem;font-weight:300;color:rgba(255,255,255,0.75);line-height:1.8;">Interviews don't have to feel intimidating. We'll prepare together so you feel grounded, confident, and ready to communicate your strengths clearly. From mock interviews to job search strategy, I'll be there to support you every step of the way.</p>
+            </div>
+          </div>
+        </div><div class="reveal" style="background:linear-gradient(135deg,rgba(10,18,32,0.82) 0%,rgba(15,28,46,0.88) 100%);border:1px solid rgba(212,160,23,0.18);border-left:3px solid rgba(212,160,23,0.55);padding:28px 28px 28px 24px;position:relative;margin-bottom:16px;backdrop-filter:blur(2px);">
+          <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,rgba(212,160,23,0.45),transparent);"></div>
+          <div style="position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,rgba(212,160,23,0.15),transparent);"></div>
+          <div style="display:grid;grid-template-columns:60px 1fr;align-items:flex-start;gap:20px;">
+            <div style="width:60px;height:60px;display:flex;align-items:center;justify-content:center;">
+              <img src="images/asset_07.png" style="width:44px;height:44px;object-fit:contain;opacity:0.9;">
+            </div>
+            <div>
+              <h3 style="font-family:'Playfair Display',serif;font-size:1.1rem;color:#F0C060;margin-bottom:10px;">Cover Letter Writing</h3>
+              <p style="font-size:0.88rem;font-weight:300;color:rgba(255,255,255,0.75);line-height:1.8;">A strong cover letter adds depth to your application and can be the foot in the door that makes all the difference. We'll create thoughtful, personalized letters that connect your experience to the role, helping hiring managers recognize that you are the best fit for the position.</p>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</section>
+
+<div class="greek-key-top"></div>
+
+<!-- ── ABOUT ── -->
+<section class="about" id="about" style="position:relative;overflow:visible;">
+  <div style="position:absolute;top:0;left:0;width:70px;bottom:0;pointer-events:none;z-index:2;display:flex;flex-direction:column;">
+    <img src="images/asset_08.png" style="width:70px;height:53px;flex-shrink:0;display:block;">
+    <div style="flex:1;width:70px;background-image:url('images/asset_09.png');background-repeat:repeat-y;background-size:70px 1px;"></div>
+    <img src="images/asset_10.png" style="width:70px;height:40px;flex-shrink:0;display:block;">
+  </div>
+  <div style="position:absolute;top:0;right:0;width:70px;bottom:0;pointer-events:none;z-index:2;display:flex;flex-direction:column;">
+    <img src="images/asset_11.png" style="width:70px;height:53px;flex-shrink:0;display:block;">
+    <div style="flex:1;width:70px;background-image:url('images/asset_12.png');background-repeat:repeat-y;background-size:70px 1px;"></div>
+    <img src="images/asset_13.png" style="width:70px;height:40px;flex-shrink:0;display:block;">
+  </div>
+  <div class="section-inner">
+    <div class="about-grid reveal">
+      <div class="about-photo-col" style="padding-top:0;">
+        <div class="about-headshot reveal-scale" style="margin-top:clamp(5rem,8.5vw,8.5rem);transform-origin:center top;">
+          <img src="images/asset_14.jpeg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
+        </div>
+      </div>
+      <div class="about-text" style="min-width:0;overflow:hidden;">
+        <h2 style="font-family:'Playfair Display',serif; font-size:clamp(1.8rem,2.8vw,2.6rem); color:var(--amber-light); margin-bottom:24px; white-space:normal;">Meet Ryan: Your Guide on<br>Your Career Journey</h2>
+        
+        
+        <p>If navigating your career path in this current job market feels like scaling a mountain with no clear trail, you're not alone.</p>
+
+        <p>At Apothena, I work alongside you to create clarity and direction. Together we'll explore career paths that align with your strengths, refine your resume so it truly reflects your value, identify opportunities that genuinely excite you, and prepare you to show up confidently in interviews.</p>
+
+        <p>My name is Ryan, and I hold a dual B.A. in Psychology and Strategic Communication. That means I care deeply about both the human side of your journey as well as how you communicate your strengths professionally. I take the time to truly understand you and your goals, your motivations, and what success looks like for you. No two people are the same, so your strategy should be specifically tailored to you.</p>
+
+        <p>You might know exactly what you want. Or you might simply know it's time for a change. Either way, we'll work together to build a plan that feels clear, achievable, and aligned with who you are.</p>
+
+        <p>Let's work together to get you on your path to success!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="greek-key-top"></div>
+
+<!-- ── BOOKING ── -->
+<section id="booking" style="background:linear-gradient(rgba(15,28,46,0.82),rgba(15,28,46,0.82)),url('images/asset_15.jpeg') center/cover;position:relative;overflow:visible;">
+  <div style="position:absolute;top:0;left:0;width:70px;bottom:0;pointer-events:none;z-index:2;display:flex;flex-direction:column;">
+    <img src="images/asset_16.png" style="width:70px;height:53px;flex-shrink:0;display:block;">
+    <div style="flex:1;width:70px;background-image:url('images/asset_17.png');background-repeat:repeat-y;background-size:70px 1px;"></div>
+    <img src="images/asset_18.png" style="width:70px;height:40px;flex-shrink:0;display:block;">
+  </div>
+  <div style="position:absolute;top:0;right:0;width:70px;bottom:0;pointer-events:none;z-index:2;display:flex;flex-direction:column;">
+    <img src="images/asset_19.png" style="width:70px;height:53px;flex-shrink:0;display:block;">
+    <div style="flex:1;width:70px;background-image:url('images/asset_20.png');background-repeat:repeat-y;background-size:70px 1px;"></div>
+    <img src="images/asset_21.png" style="width:70px;height:40px;flex-shrink:0;display:block;">
+  </div>
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center;">
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,2.8vw,2.6rem);color:var(--white);margin-bottom:16px;">Let's talk about your goals!</h2>
+      <p style="font-size:1.05rem;font-weight:300;color:rgba(255,255,255,0.65);max-width:540px;margin:0 auto 32px;line-height:1.8;">Choose a time that works for you. In 30 minutes, we'll clarify your goals and outline your next best steps.</p>
+      <h3 style="font-family:'Lato',sans-serif;font-size:1.05rem;font-weight:300;color:var(--amber-light);margin-bottom:32px;line-height:1.8;">Book a 30 minute call in just 30 seconds!</h3>
+      <a href="https://calendar.app.google/1ea5MqwLMhdoDDZJ7" target="_blank" class="btn-primary reveal" style="display:inline-block;transition-delay:0.4s;">Book your free strategy call</a>
+    </div>
+  </div>
+</section>
+
+<div class="greek-key-top"></div>
+
+<!-- ── PROVERB BANNER ── -->
+<div class="proverb-popin" style="background:#0f1c2e;border-top:1px solid rgba(212,160,23,0.2);padding:48px 48px;text-align:center;position:relative;overflow:hidden;">
+  <div style="font-size:0.55rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(212,160,23,0.5);margin-bottom:20px;font-family:'Lato',sans-serif;font-weight:700;">Illuminating Your Journey with Ancient Wisdom</div>
+  <div id="proverb-en" style="animation-delay:0.15s;font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem;color:rgba(255,255,255,0.88);opacity:0;transition:opacity 1.4s ease,transform 1.4s ease;transform:translateY(8px);min-height:1.8em;"></div>
+  <div id="proverb-gr" style="animation-delay:0.3s;font-family:'Playfair Display',serif;font-style:italic;font-size:0.82rem;color:rgba(212,160,23,0.65);margin-top:10px;opacity:0;transition:opacity 1.4s ease 0.3s,transform 1.4s ease 0.3s;transform:translateY(6px);min-height:1.4em;"></div>
+  <div id="proverb-attr" style="font-size:0.58rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-top:14px;opacity:0;transition:opacity 1.2s ease 0.5s;font-family:'Lato',sans-serif;min-height:1em;"></div>
+</div>
+
+<script>
+(function() {
+  var proverbs = [
+    { en: "“Know thyself.”", gr: "Γνώθι σεαυτόν.", attr: "— Socrates" },
+    { en: "“The secret of change is to focus all your energy not on fighting the old, but on building the new.”", gr: "Το μυστικό της αλλαγής είναι να εστιάζεις όλη σου την ενέργεια στην οικοδόμηση του νέου.", attr: "— Socrates" },
+    { en: "“We are what we repeatedly do. Excellence, then, is not an act but a habit.”", gr: "Είμαστε αυτό που επαναλαμβάνουμε. Η αρετή δεν είναι πράξη αλλά έξις.", attr: "— Aristotle" },
+    { en: "“Beware the barrenness of a busy life.”", gr: "Προσέχε την ακαρπία μιας βιαστικής ζωής.", attr: "— Socrates" },
+    { en: "“Educating the mind without educating the heart is no education at all.”", gr: "Να εκπαιδεύεις το μυαλό χωρίς να εκπαιδεύεις την καρδιά δεν είναι καθόλου εκπαίδευση.", attr: "— Aristotle" },
+    { en: "“Happiness depends upon ourselves.”", gr: "Η ευτυχία εξαρτάται από εμάς τους ίδιους.", attr: "— Aristotle" },
+    { en: "“The roots of education are bitter, but the fruit is sweet.”", gr: "Τα θεμέλια της παιδείας είναι πικρά, αλλά ο καρπός είναι γλυκύς.", attr: "— Aristotle" },
+    { en: "“The unexamined life is not worth living.”", gr: "Ο ανεξέταστος βίος ου βιωτός.", attr: "— Socrates" },
+    { en: "“No man is free who is not master of himself.”", gr: "Κανείς δεν είναι ελεύθερος αν δεν είναι κύριος του εαυτού του.", attr: "— Epictetus" },
+    { en: "“Make the best use of what is in your power, and take the rest as it happens.”", gr: "Χρησιμοποίησε ό,τι είναι στην εξουσία σου.", attr: "— Epictetus" },
+    { en: "“Give me a place to stand, and I shall move the world.”", gr: "Δώστε μου πού να σταθώ και θα μετακινήσω τη Γη.", attr: "— Archimedes" },
+    { en: "“The whole is greater than the sum of its parts.”", gr: "Το όλο είναι μεγαλύτερο από το άθροισμα των μερών του.", attr: "— Aristotle" },
+    { en: "“You have power over your mind, not outside events. Realize this, and you will find strength.”", gr: "Έχεις εξουσία στο μυαλό σου, όχι στα εξωτερικά γεγονότα.", attr: "— Marcus Aurelius" },
+    { en: "“Waste no more time arguing about what a good man should be. Be one.”", gr: "Μην χάνεις άλλο χρόνο συζητώντας. Γίνε αυτός.", attr: "— Marcus Aurelius" },
+    { en: "“It is not enough to win a war; it is more important to organize the peace.”", gr: "Δεν αρκεί να νικήσεις τον πόλεμο• πιο σημαντικό είναι να οργανώνεις την ειρήνη.", attr: "— Aristotle" }
+  ];
+
+  var idx = 0;
+  var elEn   = document.getElementById('proverb-en');
+  var elGr   = document.getElementById('proverb-gr');
+  var elAttr = document.getElementById('proverb-attr');
+
+  function showProverb(i) {
+    var p = proverbs[i];
+    elEn.style.opacity   = '0';
+    elEn.style.transform = 'translateY(8px)';
+    elGr.style.opacity   = '0';
+    elGr.style.transform = 'translateY(6px)';
+    elAttr.style.opacity = '0';
+    setTimeout(function() {
+      elEn.textContent   = p.en;
+      elGr.textContent   = p.gr;
+      elAttr.textContent = p.attr;
+      elEn.style.opacity   = '1';
+      elEn.style.transform = 'translateY(0)';
+      elGr.style.opacity   = '1';
+      elGr.style.transform = 'translateY(0)';
+      elAttr.style.opacity = '1';
+    }, 600);
+  }
+
+  showProverb(0);
+  setInterval(function() {
+    idx = (idx + 1) % proverbs.length;
+    showProverb(idx);
+  }, 7000);
+})();
+</script>
+<div class="greek-key-top"></div>
+
+<!-- ── CONTACT ── -->
+<section class="contact" id="contact" style="border-top:1px solid rgba(212,160,23,0.2);position:relative;overflow:visible;background-image:linear-gradient(rgba(26,75,122,0.82),rgba(26,75,122,0.82)),url('images/asset_22.jpeg');background-size:cover;background-position:center;">
+  <div style="position:absolute;top:0;left:0;width:70px;bottom:0;pointer-events:none;z-index:2;display:flex;flex-direction:column;">
+    <img src="images/asset_23.png" style="width:70px;height:53px;flex-shrink:0;display:block;">
+    <div style="flex:1;width:70px;background-image:url('images/asset_24.png');background-repeat:repeat-y;background-size:70px 1px;"></div>
+    <img src="images/asset_25.png" style="width:70px;height:40px;flex-shrink:0;display:block;">
+  </div>
+  <div style="position:absolute;top:0;right:0;width:70px;bottom:0;pointer-events:none;z-index:2;display:flex;flex-direction:column;">
+    <img src="images/asset_26.png" style="width:70px;height:53px;flex-shrink:0;display:block;">
+    <div style="flex:1;width:70px;background-image:url('images/asset_27.png');background-repeat:repeat-y;background-size:70px 1px;"></div>
+    <img src="images/asset_28.png" style="width:70px;height:40px;flex-shrink:0;display:block;">
+  </div>
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div class="contact-left reveal">
+        
+        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,2.8vw,2.6rem);color:var(--amber-light);margin-bottom:24px;">Contact</h2>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" color="#B8864E">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <div class="contact-detail-text">Denver, Colorado</div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" color="#B8864E">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.06 6.06l1.14-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+          </div>
+          <div class="contact-detail-text">(720) 263-1144</div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" color="#B8864E">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </div>
+          <div class="contact-detail-text"><a href="/cdn-cgi/l/email-protection#3c6e455d527145594e4f7c7d4c53485459525d125f5351" style="color:inherit;text-decoration:none;"><span class="__cf_email__" data-cfemail="c496bda5aa89bda1b6b78485b4abb0aca1aaa5eaa7aba9">[email&#160;protected]</span></a></div>
+        </div>
+      </div>
+      <div class="contact-right reveal">
+        <form class="contact-form" onsubmit="return false;">
+          <div class="form-group">
+            <label for="name">Name <span style="color:var(--amber);">*</span></label>
+            <input type="text" id="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email <span style="color:var(--amber);">*</span></label>
+            <input type="email" id="email" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone">
+          </div>
+          <div class="form-group">
+            <label for="message">Message <span style="color:var(--amber);">*</span></label>
+            <textarea id="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn-primary reveal" style="width:100%;border:none;cursor:pointer;transition-delay:0.4s;">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="greek-key-top"></div>
+
+<!-- ── FOOTER ── -->
+<footer style="background-image:linear-gradient(rgba(15,28,46,0.85),rgba(15,28,46,0.85)),url('images/asset_29.jpeg');background-size:cover;background-position:center;">
+  <div class="footer-top reveal">
+    <div>
+      <div class="footer-brand-name reveal">Apothena</div>
+      <div class="footer-tagline-text reveal">Illuminating your career path with wisdom</div>
+      <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:0.72rem;color:rgba(255,255,255,0.25);margin-top:4px;">Φωτίζοντας την επαγγελματική σας πορεία με σοφία</div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:64px;">
+      <ul class="footer-links reveal">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#booking">Book a Call</a></li>
+      </ul>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;">
+        <a href="/cdn-cgi/l/email-protection#481a31292605312d3a3b080938273c202d2629662b2725" style="font-size:0.78rem;color:rgba(255,255,255,0.45);text-decoration:none;" onmouseover="this.style.color='#F0C060'" onmouseout="this.style.color='rgba(255,255,255,0.45)'"><span class="__cf_email__" data-cfemail="aefcd7cfc0e3d7cbdcddeeefdec1dac6cbc0cf80cdc1c3">[email&#160;protected]</span></a>
+        <span style="font-size:0.78rem;color:rgba(255,255,255,0.45);">(720) 263-1144</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">&copy; 2025 Apothena Career Services by Ryan Myers. All rights reserved.</span>
+    <span style="font-family:'Playfair Display',serif;font-size:0.75rem;color:rgba(212,160,23,0.45);letter-spacing:0.06em;">Apothena &nbsp;&middot;&nbsp; Αποθενα</span>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Nav scroll
+  window.addEventListener('scroll', () => {
+    document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Reveal on scroll with batched stagger
+  function initReveal() {
+    const reveals = Array.from(document.querySelectorAll('.reveal, .reveal-scale, .proverb-popin'));
+
+    if (!('IntersectionObserver' in window)) {
+      reveals.forEach(el => el.classList.add('visible'));
+      return;
+    }
+
+    // Track batch index per parent so siblings stagger together
+    const batchCount = new Map();
+
+    const io = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const parent = el.parentElement;
+
+        // Assign stagger index within this parent's batch
+        if (!batchCount.has(parent)) batchCount.set(parent, 0);
+        const idx = batchCount.get(parent);
+        batchCount.set(parent, idx + 1);
+
+        // Apply delay based on batch index (reset per parent)
+        el.style.transitionDelay = (idx * 0.15) + 's';
+        el.classList.add('visible');
+        observer.unobserve(el);
+      });
+    }, { root: null, rootMargin: '0px', threshold: 0.05 });
+
+    reveals.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      // Elements already in viewport on page load: show immediately
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        el.style.transitionDelay = '0s';
+        el.classList.add('visible');
+      } else {
+        io.observe(el);
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initReveal);
+  } else {
+    initReveal();
+  }
+</script>
+</body>
+</html>
