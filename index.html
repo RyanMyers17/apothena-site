@@ -795,9 +795,12 @@
   }
   .proverb-popin {
     opacity:0;
+    transform: translateY(14px);
+    transition: opacity 1.6s ease, transform 1.6s cubic-bezier(0.22, 1, 0.36, 1);
   }
   .proverb-popin.visible {
-    animation: popIn 1.6s cubic-bezier(0.22,1,0.36,1) forwards;
+    opacity:1;
+    transform: translateY(0);
   }
 
   .reveal-scale {
@@ -984,15 +987,9 @@
         <h2 style="font-family:'Playfair Display',serif; font-size:clamp(1.8rem,2.8vw,2.6rem); color:var(--amber-light); margin-bottom:24px; white-space:normal;">Meet Ryan: Your Guide on<br>Your Career Journey</h2>
         
         
-        <p>If navigating your career path in this current job market feels like scaling a mountain with no clear trail, you're not alone.</p>
-
-        <p>At Apothena, I work alongside you to create clarity and direction. Together we'll explore career paths that align with your strengths, refine your resume so it truly reflects your value, identify opportunities that genuinely excite you, and prepare you to show up confidently in interviews.</p>
-
-        <p>My name is Ryan, and I hold a dual B.A. in Psychology and Strategic Communication. That means I care deeply about both the human side of your journey as well as how you communicate your strengths professionally. I take the time to truly understand you and your goals, your motivations, and what success looks like for you. No two people are the same, so your strategy should be specifically tailored to you.</p>
-
-        <p>You might know exactly what you want. Or you might simply know it's time for a change. Either way, we'll work together to build a plan that feels clear, achievable, and aligned with who you are.</p>
-
-        <p>Let's work together to get you on your path to success!</p>
+        <p style="font-size:0.95rem;font-weight:300;color:rgba(255,255,255,0.75);line-height:1.9;margin-bottom:18px;" class="reveal">If navigating your career path in this current job market feels like scaling a mountain with no clear trail, you're not alone.</p>
+            <p style="font-size:0.95rem;font-weight:300;color:rgba(255,255,255,0.75);line-height:1.9;margin-bottom:18px;" class="reveal">My name is Ryan, and I hold a dual B.A. in Psychology and Strategic Communication. That means I care deeply about the human side of your journey and I can help teach you how to best communicate your strengths professionally. I take the time to truly understand your goals, your motivations, and what success looks like for you. No two people are the same, so your strategy should be specifically tailored to you.</p>
+            <p style="font-size:0.95rem;font-weight:300;color:rgba(255,255,255,0.75);line-height:1.9;margin-bottom:18px;" class="reveal">Let's work together to get you on your path to success!</p>
       </div>
     </div>
   </div>
