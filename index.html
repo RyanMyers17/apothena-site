@@ -724,10 +724,8 @@
     }
 
     /* ── MOBILE: HIDE DECORATIVE COLUMNS IN SERVICES & PROVERBS ── */
-    #services > div[style*="position:absolute;top:0;left:0;width:70px"],
-    #services > div[style*="position:absolute;top:0;right:0;width:70px"],
-    .proverb-popin > div[style*="position:absolute;top:0;left:0;width:70px"],
-    .proverb-popin > div[style*="position:absolute;top:0;right:0;width:70px"] {
+    #services > div[style*="position:absolute"],
+    .proverb-popin > div[style*="position:absolute"] {
       display: none !important;
     }
 
@@ -813,12 +811,22 @@
 
   @media (max-width: 480px) {
 
-    /* ── NAV — show only logo + CTA ── */
-    .nav-links li:not(:last-child) {
-      display: none;
-    }
+    /* ── NAV — show all links on mobile ── */
     nav {
-      padding: 0 16px;
+      padding: 0 12px;
+      height: auto;
+      min-height: 56px;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .nav-links {
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .nav-links a {
+      font-size: 0.52rem;
+      letter-spacing: 0.06em;
     }
 
     /* ── HERO ── */
@@ -1270,12 +1278,6 @@
       </ul>
     </div>
     <div style="display:flex;flex-direction:column;align-items:flex-end;gap:64px;">
-      <ul class="footer-links reveal">
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="#booking">Book a Call</a></li>
-      </ul>
       <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;">
         <a href="/cdn-cgi/l/email-protection#481a31292605312d3a3b080938273c202d2629662b2725" style="font-size:0.78rem;color:rgba(255,255,255,0.45);text-decoration:none;" onmouseover="this.style.color='#F0C060'" onmouseout="this.style.color='rgba(255,255,255,0.45)'"><span class="__cf_email__" data-cfemail="aefcd7cfc0e3d7cbdcddeeefdec1dac6cbc0cf80cdc1c3">[email&#160;protected]</span></a>
         <span style="font-size:0.78rem;color:rgba(255,255,255,0.45);">(720) 263-1144</span>
