@@ -722,6 +722,93 @@
       gap: 8px;
       align-items: flex-start;
     }
+
+    /* ── MOBILE: HIDE DECORATIVE COLUMNS IN SERVICES & PROVERBS ── */
+    #services > div[style*="position:absolute;top:0;left:0;width:70px"],
+    #services > div[style*="position:absolute;top:0;right:0;width:70px"],
+    .proverb-popin > div[style*="position:absolute;top:0;left:0;width:70px"],
+    .proverb-popin > div[style*="position:absolute;top:0;right:0;width:70px"] {
+      display: none !important;
+    }
+
+    /* ── MOBILE: HERO - MOVE LOGO ABOVE SLOGAN ── */
+    .hero-body {
+      display: flex !important;
+      flex-direction: column !important;
+    }
+    .hero-right {
+      order: 1 !important;
+      padding: 80px 24px 16px !important;
+    }
+    .hero-left {
+      order: 2 !important;
+      padding: 0 24px 48px !important;
+    }
+
+    /* ── MOBILE: ABOUT - IMAGE BETWEEN HEADER AND TEXT ── */
+    .about-grid {
+      display: flex !important;
+      flex-direction: column !important;
+    }
+    .about-text {
+      display: flex !important;
+      flex-direction: column !important;
+      order: 1 !important;
+    }
+    .about-photo-col {
+      order: 2 !important;
+      max-width: 280px !important;
+      margin: 0 auto 32px !important;
+      padding-top: 0 !important;
+    }
+    .about-headshot {
+      margin-top: 0 !important;
+    }
+    /* Move image to appear after h2 and before paragraphs */
+    .about-text h2 {
+      order: 1 !important;
+    }
+    .about-text p {
+      order: 3 !important;
+    }
+
+    /* ── MOBILE: PROVERB FIXED HEIGHT ── */
+    .proverb-popin {
+      min-height: 320px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+    }
+    #proverb-en {
+      min-height: 4em !important;
+    }
+    #proverb-gr {
+      min-height: 2.8em !important;
+    }
+    #proverb-attr {
+      min-height: 1.2em !important;
+    }
+
+    /* ── MOBILE: FOOTER SECTION LINKS ── */
+    .footer-mobile-links {
+      display: flex !important;
+    }
+    /* ── MOBILE: SHOW INLINE PHOTO, HIDE ORIGINAL PHOTO COL ── */
+    .about-mobile-photo {
+      display: block !important;
+    }
+    .about-photo-col {
+      display: none !important;
+    }
+    /* ── MOBILE: SHOW FOOTER NAV ── */
+    .footer-mobile-links {
+      display: flex !important;
+      flex-direction: column !important;
+    }
+    /* ── MOBILE: HIDE DESKTOP FOOTER LINKS ── */
+    .footer-links {
+      display: none !important;
+    }
   }
 
   @media (max-width: 480px) {
@@ -985,6 +1072,12 @@
       </div>
       <div class="about-text" style="min-width:0;overflow:hidden;">
         <h2 style="font-family:'Playfair Display',serif; font-size:clamp(1.8rem,2.8vw,2.6rem); color:var(--amber-light); margin-bottom:24px; white-space:normal;">Meet Ryan: Your Guide on<br>Your Career Journey</h2>
+        <!-- Mobile-only photo insert -->
+        <div class="about-mobile-photo" style="display:none;max-width:260px;margin:0 auto 28px;">
+          <div class="about-headshot reveal-scale" style="transform-origin:center top;">
+            <img src="images/asset_14.jpeg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
+          </div>
+        </div>
         
         
         <p style="font-size:0.95rem;font-weight:400;color:rgba(26,46,68,0.85);line-height:1.9;margin-bottom:18px;" class="reveal">If navigating your career path in this current job market feels like scaling a mountain with no clear trail, you're not alone.</p>
@@ -1168,6 +1261,13 @@
       <div class="footer-brand-name reveal">Apothena</div>
       <div class="footer-tagline-text reveal">Illuminating your career path with wisdom</div>
       <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:0.72rem;color:rgba(255,255,255,0.25);margin-top:4px;">Φωτίζοντας την επαγγελματική σας πορεία με σοφία</div>
+      <!-- Mobile-only footer nav -->
+      <ul class="footer-mobile-links" style="display:none;list-style:none;padding:0;margin:20px 0 0;display:flex;flex-direction:column;gap:10px;">
+        <li><a href="#services" style="font-size:0.72rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.55);text-decoration:none;">Services</a></li>
+        <li><a href="#about" style="font-size:0.72rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.55);text-decoration:none;">About</a></li>
+        <li><a href="#contact" style="font-size:0.72rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.55);text-decoration:none;">Contact</a></li>
+        <li><a href="#booking" style="font-size:0.72rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.55);text-decoration:none;">Book a Call</a></li>
+      </ul>
     </div>
     <div style="display:flex;flex-direction:column;align-items:flex-end;gap:64px;">
       <ul class="footer-links reveal">
