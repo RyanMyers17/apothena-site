@@ -524,18 +524,14 @@
     transition: color 0.2s;
   }
   .footer-links a:hover { color: var(--amber-light); }
-  .footer-contact-row {
-    display: flex;
-    align-items: center;
-    padding-bottom: 20px;
-    margin-bottom: 20px;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-  }
+  
   .footer-bottom {
-    display: flex; justify-content: space-between; align-items: center;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    margin-top: 28px;
   }
   .footer-copy {
     font-size: 0.78rem;
@@ -750,15 +746,11 @@
       justify-content: flex-start;
       margin-top: 0 !important;
     }
-    .footer-contact-row {
-      flex-direction: column !important;
-      align-items: flex-start !important;
-      gap: 4px !important;
-    }
+
     .footer-bottom {
-      flex-direction: column;
-      gap: 8px;
-      align-items: flex-start;
+      align-items: flex-end;
+      gap: 16px;
+      flex-wrap: wrap;
     }
 
     /* ── MOBILE: HIDE DECORATIVE COLUMNS IN ALL SECTIONS ── */
@@ -1091,7 +1083,7 @@
 <div class="greek-key-top"></div>
 
 <!-- ── ABOUT ── -->
-<section class="about" id="about" style="position:relative;overflow:visible;background:linear-gradient(rgba(255,255,255,0.88),rgba(255,255,255,0.88)),url('images/Mount_Olympus_Aerial_View.jpg') center/cover no-repeat;">
+<section class="about" id="about" style="position:relative;overflow:visible;background:linear-gradient(rgba(8,15,28,0.72),rgba(8,15,28,0.72)),url('images/asset_30.jpg') center/cover no-repeat;">
   <div style="position:absolute;top:0;left:0;width:70px;bottom:0;pointer-events:none;z-index:2;display:flex;flex-direction:column;">
     <img src="images/asset_08.png" style="width:70px;height:53px;flex-shrink:0;display:block;">
     <div style="flex:1;width:70px;background-image:url('images/asset_09.png');background-repeat:repeat-y;background-size:70px 1px;"></div>
@@ -1133,9 +1125,9 @@
         </div>
         
         
-        <p style="font-size:0.95rem;font-weight:400;color:rgba(26,46,68,0.85);line-height:1.9;margin-bottom:18px;" class="reveal">If navigating your career path in this current job market feels like scaling a mountain with no clear trail, you're not alone.</p>
-            <p style="font-size:0.95rem;font-weight:400;color:rgba(26,46,68,0.85);line-height:1.9;margin-bottom:18px;" class="reveal">My name is Ryan, and I hold a dual B.A. in Psychology and Strategic Communication. That means I care deeply about the human side of your journey and I can help teach you how to best communicate your strengths professionally. I take the time to truly understand your goals, your motivations, and what success looks like for you. No two people are the same, so your strategy should be specifically tailored to you.</p>
-            <p style="font-size:0.95rem;font-weight:400;color:rgba(26,46,68,0.85);line-height:1.9;margin-bottom:18px;" class="reveal">Let's work together to get you on your path to success!</p>
+        <p style="font-size:0.95rem;font-weight:400;color:rgba(255,255,255,0.85);line-height:1.9;margin-bottom:18px;" class="reveal">If navigating your career path in this current job market feels like scaling a mountain with no clear trail, you're not alone.</p>
+            <p style="font-size:0.95rem;font-weight:400;color:rgba(255,255,255,0.85);line-height:1.9;margin-bottom:18px;" class="reveal">My name is Ryan, and I hold a dual B.A. in Psychology and Strategic Communication. That means I care deeply about the human side of your journey and I can help teach you how to best communicate your strengths professionally. I take the time to truly understand your goals, your motivations, and what success looks like for you. No two people are the same, so your strategy should be specifically tailored to you.</p>
+            <p style="font-size:0.95rem;font-weight:400;color:rgba(255,255,255,0.85);line-height:1.9;margin-bottom:18px;" class="reveal">Let's work together to get you on your path to success!</p>
       </div>
     </div>
   </div>
@@ -1322,13 +1314,15 @@
       <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
-  <div class="footer-contact-row reveal">
-    <a href="/cdn-cgi/l/email-protection#481a31292605312d3a3b080938273c202d2629662b2725" style="font-size:0.78rem;color:rgba(212,160,23,0.75);text-decoration:none;" onmouseover="this.style.color='#F0C060'" onmouseout="this.style.color='rgba(212,160,23,0.75)'"><span class="__cf_email__" data-cfemail="aefcd7cfc0e3d7cbdcddeeefdec1dac6cbc0cf80cdc1c3">[email&#160;protected]</span></a>
-    <span style="font-size:0.78rem;color:rgba(212,160,23,0.75);">&nbsp;&nbsp;·&nbsp;&nbsp;(720) 263-1144</span>
-  </div>
   <div class="footer-bottom">
-    <span class="footer-copy">&copy; 2025 Apothena Career Services by Ryan Myers. All rights reserved.</span>
-    <span style="font-family:'Playfair Display',serif;font-size:0.75rem;color:rgba(212,160,23,0.45);letter-spacing:0.06em;">Apothena &nbsp;&middot;&nbsp; Αποθενα</span>
+    <div style="display:flex;flex-direction:column;gap:4px;">
+      <div style="display:flex;gap:0;align-items:center;">
+        <a href="/cdn-cgi/l/email-protection#481a31292605312d3a3b080938273c202d2629662b2725" style="font-size:0.75rem;color:rgba(212,160,23,0.75);text-decoration:none;" onmouseover="this.style.color='#F0C060'" onmouseout="this.style.color='rgba(212,160,23,0.75)'"><span class="__cf_email__" data-cfemail="aefcd7cfc0e3d7cbdcddeeefdec1dac6cbc0cf80cdc1c3">[email&#160;protected]</span></a>
+        <span style="font-size:0.75rem;color:rgba(212,160,23,0.75);">&nbsp;&nbsp;·&nbsp;&nbsp;(720) 263-1144</span>
+      </div>
+      <span class="footer-copy">&copy; 2025 Apothena Career Services by Ryan Myers. All rights reserved.</span>
+    </div>
+    <span class="footer-greek" style="font-family:'Playfair Display',serif;font-size:0.75rem;color:rgba(212,160,23,0.45);letter-spacing:0.06em;align-self:flex-end;">Apothena &nbsp;&middot;&nbsp; Αποθενα</span>
   </div>
 </footer>
 
