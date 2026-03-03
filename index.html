@@ -671,7 +671,7 @@
     }
     /* Mobile: show owl eyes, with overlay gradient */
     section#services {
-      background: linear-gradient(to bottom,transparent 50%,rgba(8,15,28,1.0) 100%),linear-gradient(to right,rgba(8,15,28,0.75) 0%,rgba(8,15,28,0.55) 55%,rgba(8,15,28,0.10) 100%),url('images/asset_03.jpeg') center 18%/cover no-repeat !important;
+      background: linear-gradient(to bottom,transparent 50%,rgba(8,15,28,1.0) 100%),linear-gradient(to right,rgba(8,15,28,0.75) 0%,rgba(8,15,28,0.55) 55%,rgba(8,15,28,0.10) 100%),url('images/asset_03.jpeg') center 22%/cover no-repeat !important;
     }
 
     /* ── ABOUT ── */
@@ -829,23 +829,15 @@
     }
 
     /* ── MOBILE: FOOTER SECTION LINKS ── */
-    .footer-mobile-links {
-      display: flex !important;
-    }
     /* ── MOBILE: SHOW INLINE PHOTO, HIDE ORIGINAL PHOTO COL ── */
-    .about-photo-col {
-      display: none !important;
-    }
+
 
     /* ── MOBILE: SHOW FOOTER NAV ── */
     .footer-mobile-links {
       display: flex !important;
       flex-direction: column !important;
     }
-    /* ── MOBILE: HIDE FOOTER MOBILE DUPLICATE LINKS (nav has them) ── */
-    .footer-mobile-links {
-      display: none !important;
-    }
+
   }
 
   @media (max-width: 480px) {
@@ -869,11 +861,11 @@
     }
 
     /* ── HERO ── */
-    .hero-left {
-      padding: 80px 16px 28px;
-    }
     .hero-right {
-      padding: 0 16px 48px;
+      padding: 60px 16px 12px !important;
+    }
+    .hero-left {
+      padding: 0 16px 40px !important;
     }
     .hero-h1 {
       font-size: clamp(1.7rem, 8vw, 2.2rem);
