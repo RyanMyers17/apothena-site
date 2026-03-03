@@ -640,6 +640,20 @@
     .hero-right {
       padding: 0 24px 48px;
       order: 2;
+      display: flex;
+      flex-direction: column;
+    }
+    /* Mobile: swap order — CTA first, then h1, then greek */
+    .hero-right .btn-primary {
+      order: 1;
+      align-self: flex-start;
+      margin-bottom: 24px;
+    }
+    .hero-right .hero-h1 {
+      order: 2;
+    }
+    #greek-container {
+      order: 3;
     }
     .hero-img-wrap {
       max-width: 260px;
