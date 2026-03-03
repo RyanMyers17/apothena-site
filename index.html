@@ -491,13 +491,13 @@
   /* ── FOOTER ── */
   footer {
     background: var(--ink);
-    padding: 52px 64px 36px;
+    padding: 72px 80px 52px;
   }
   .footer-top {
     display: flex; justify-content: space-between; align-items: flex-start;
-    padding-bottom: 36px;
+    padding-bottom: 52px;
     border-bottom: 1px solid rgba(255,255,255,0.08);
-    margin-bottom: 28px;
+    margin-bottom: 40px;
   }
   .footer-brand-name {
     font-family: 'Playfair Display', serif;
@@ -663,6 +663,10 @@
     #services h2 {
       font-size: clamp(1.6rem, 5vw, 2rem) !important;
     }
+    /* Mobile: show owl eyes, remove gradient overlay */
+    section#services {
+      background: url('images/asset_03.jpeg') center 18%/cover no-repeat !important;
+    }
 
     /* ── ABOUT ── */
     .about-grid {
@@ -686,6 +690,7 @@
     .about-text h2 {
       white-space: normal !important;
       font-size: clamp(1.3rem, 4.5vw, 1.8rem) !important;
+      text-align: center !important;
     }
 
     /* ── BOOKING ── */
@@ -797,7 +802,7 @@
     .about-mobile-photo {
       display: block !important;
       position: relative !important;
-      padding: 0 50px !important;
+      padding: 0 !important;
     }
     .about-photo-col {
       display: none !important;
@@ -1084,22 +1089,9 @@
       </div>
       <div class="about-text" style="min-width:0;overflow:hidden;">
         <h2 style="font-family:'Playfair Display',serif; font-size:clamp(1.8rem,2.8vw,2.6rem); color:var(--amber-light); margin-bottom:24px; white-space:normal;">Meet Ryan: Your Guide on<br>Your Career Journey</h2>
-        <!-- Mobile-only photo insert with flanking short columns -->
-        <div class="about-mobile-photo" style="display:none;margin:0 auto 28px;position:relative;display:none;">
-          <!-- Left short column -->
-          <div style="position:absolute;top:0;left:-50px;width:40px;bottom:0;pointer-events:none;z-index:2;display:flex;flex-direction:column;">
-            <img src="images/asset_08.png" style="width:40px;height:30px;flex-shrink:0;display:block;object-fit:cover;">
-            <div style="flex:1;width:40px;background-image:url('images/asset_09.png');background-repeat:repeat-y;background-size:40px 1px;"></div>
-            <img src="images/asset_10.png" style="width:40px;height:23px;flex-shrink:0;display:block;object-fit:cover;">
-          </div>
-          <!-- Right short column -->
-          <div style="position:absolute;top:0;right:-50px;width:40px;bottom:0;pointer-events:none;z-index:2;display:flex;flex-direction:column;">
-            <img src="images/asset_11.png" style="width:40px;height:30px;flex-shrink:0;display:block;object-fit:cover;">
-            <div style="flex:1;width:40px;background-image:url('images/asset_12.png');background-repeat:repeat-y;background-size:40px 1px;"></div>
-            <img src="images/asset_13.png" style="width:40px;height:23px;flex-shrink:0;display:block;object-fit:cover;">
-          </div>
-          <!-- Photo -->
-          <div class="about-headshot reveal-scale" style="transform-origin:center top;max-width:220px;margin:0 auto;">
+        <!-- Mobile-only photo insert (no columns) -->
+        <div class="about-mobile-photo" style="display:none;margin:0 auto 28px;max-width:220px;">
+          <div class="about-headshot reveal-scale" style="transform-origin:center top;">
             <img src="images/asset_14.jpeg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
           </div>
         </div>
@@ -1290,16 +1282,16 @@
       <ul class="footer-mobile-links" style="display:none;list-style:none;padding:0;margin:20px 0 0;display:flex;flex-direction:column;gap:10px;">
         <li><a href="#services" style="font-size:0.72rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.55);text-decoration:none;">Services</a></li>
         <li><a href="#about" style="font-size:0.72rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.55);text-decoration:none;">About</a></li>
-        <li><a href="#contact" style="font-size:0.72rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.55);text-decoration:none;">Contact</a></li>
         <li><a href="#booking" style="font-size:0.72rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.55);text-decoration:none;">Book a Call</a></li>
+        <li><a href="#contact" style="font-size:0.72rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.55);text-decoration:none;">Contact</a></li>
       </ul>
     </div>
     <div style="display:flex;flex-direction:column;align-items:flex-end;gap:64px;">
       <ul class="footer-links reveal">
         <li><a href="#services">Services</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
         <li><a href="#booking">Book a Call</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
       <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;">
         <a href="/cdn-cgi/l/email-protection#481a31292605312d3a3b080938273c202d2629662b2725" style="font-size:0.78rem;color:rgba(255,255,255,0.45);text-decoration:none;" onmouseover="this.style.color='#F0C060'" onmouseout="this.style.color='rgba(255,255,255,0.45)'"><span class="__cf_email__" data-cfemail="aefcd7cfc0e3d7cbdcddeeefdec1dac6cbc0cf80cdc1c3">[email&#160;protected]</span></a>
