@@ -921,7 +921,7 @@
     </div>
     <div class="hero-right">
       <h1 class="hero-h1 reveal" data-delay="0.4" style="transition-delay:0.4s;"><span id="illum-span">Illuminating Your</span> Career Path<br>With Wisdom</h1>
-      <div id="greek-container" style="margin-top:6px;margin-bottom:36px;overflow:hidden;">
+      <div id="greek-container" class="reveal" style="margin-top:6px;margin-bottom:36px;overflow:hidden;">
     <p id="greek-p" style="font-family:'Playfair Display',serif;font-style:italic;font-size:1rem;color:rgba(255,255,255,0.45);line-height:1.5;white-space:nowrap;display:inline-block;">Φωτίζοντας την επαγγελματική σας πορεία με σοφία</p>
   </div>
   <script>
@@ -1344,13 +1344,16 @@
 
   // Hero elements: animate on load with explicit timing (already in viewport)
   function initHeroAnimation() {
-    const logo = document.querySelector('.hero-img-wrap');
-    const h1 = document.querySelector('.hero-h1');
-    const cta = document.querySelector('.btn-primary.reveal');
+    const logo  = document.querySelector('.hero-img-wrap');
+    const h1    = document.querySelector('.hero-h1');
+    const greek = document.getElementById('greek-container');
+    const cta   = document.querySelector('.btn-primary.reveal');
 
-    if (logo) setTimeout(() => logo.classList.add('visible'), 100);
-    if (h1)   setTimeout(() => h1.classList.add('visible'),   500);
-    if (cta)  setTimeout(() => cta.classList.add('visible'),  800);
+    // Sequence: logo → slogan → greek → CTA
+    if (logo)  setTimeout(() => logo.classList.add('visible'),  150);
+    if (h1)    setTimeout(() => h1.classList.add('visible'),    500);
+    if (greek) setTimeout(() => greek.classList.add('visible'), 800);
+    if (cta)   setTimeout(() => cta.classList.add('visible'),  1100);
   }
 
   if (document.readyState === 'loading') {
