@@ -627,12 +627,12 @@
       grid-template-columns: 1fr;
       min-height: auto;
     }
-    .hero-left {
-      padding: 90px 24px 32px;
-      order: 1;
-    }
     .hero-right {
       padding: 0 24px 56px;
+      order: 1;
+    }
+    .hero-left {
+      padding: 20px 24px 32px;
       order: 2;
     }
     .hero-img-wrap {
@@ -667,7 +667,7 @@
     }
     /* Mobile: show owl eyes, with overlay gradient */
     section#services {
-      background: linear-gradient(to bottom,transparent 50%,rgba(8,15,28,1.0) 100%),linear-gradient(to right,rgba(8,15,28,0.75) 0%,rgba(8,15,28,0.55) 55%,rgba(8,15,28,0.10) 100%),url('images/asset_03.jpeg') center 22%/cover no-repeat !important;
+      background: linear-gradient(to bottom,transparent 42%,rgba(8,15,28,0.97) 80%),linear-gradient(to right,rgba(8,15,28,0.65) 0%,rgba(8,15,28,0.40) 55%,rgba(8,15,28,0.05) 100%),url('images/asset_03.jpeg') center 15%/cover no-repeat !important;
     }
 
     /* ── ABOUT ── */
@@ -949,10 +949,10 @@
 </nav>
 
 <!-- ── HERO ── -->
-<section class="hero" id="hero" style="background:linear-gradient(to right,rgba(8,15,28,0.77) 0%,rgba(8,15,28,0.60) 55%,rgba(8,15,28,0.15) 100%),url('images/asset_01.jpeg');background-size:cover;background-position:center;">
+<section class="hero" id="hero" style="background:linear-gradient(rgba(8,15,28,0.77),rgba(8,15,28,0.77)),url('images/asset_01.jpeg');background-size:cover;background-position:center;">
   <div class="hero-body">
     <div class="hero-left">
-      <h1 class="hero-h1 reveal" style="transition-delay:0.15s;"><span id="illum-span">Illuminating Your</span> Career Path<br>With Wisdom</h1>
+      <h1 class="hero-h1 reveal" style="transition-delay:0.35s;"><span id="illum-span">Illuminating Your</span> Career Path<br>With Wisdom</h1>
       <div id="greek-container" style="margin-top:6px;margin-bottom:36px;overflow:hidden;">
     <p id="greek-p" style="font-family:'Playfair Display',serif;font-style:italic;font-size:1rem;color:rgba(255,255,255,0.45);line-height:1.5;white-space:nowrap;display:inline-block;">Φωτίζοντας την επαγγελματική σας πορεία με σοφία</p>
   </div>
@@ -1002,7 +1002,7 @@
       <a href="#booking" class="btn-primary" style="align-self:flex-start;">Book a Free Strategy Call</a>
     </div>
     <div class="hero-right">
-      <div class="hero-img-wrap" style="background:transparent; border:none;">
+      <div class="hero-img-wrap reveal" style="background:transparent; border:none; transition-delay:0s;">
         <img src="images/asset_02.png" style="width:100%; height:100%; object-fit:contain; display:block;">
       </div>
     </div>
@@ -1083,7 +1083,7 @@
 <div class="greek-key-top"></div>
 
 <!-- ── ABOUT ── -->
-<section class="about" id="about" style="position:relative;overflow:visible;background:linear-gradient(rgba(8,15,28,0.72),rgba(8,15,28,0.72)),url('images/asset_30.jpg') center/cover no-repeat;">
+<section class="about" id="about" style="position:relative;overflow:visible;background:linear-gradient(rgba(8,15,28,0.77),rgba(8,15,28,0.77)),url('images/asset_30.jpg') center/cover no-repeat;">
   <div style="position:absolute;top:0;left:0;width:70px;bottom:0;pointer-events:none;z-index:2;display:flex;flex-direction:column;">
     <img src="images/asset_08.png" style="width:70px;height:53px;flex-shrink:0;display:block;">
     <div style="flex:1;width:70px;background-image:url('images/asset_09.png');background-repeat:repeat-y;background-size:70px 1px;"></div>
@@ -1136,7 +1136,7 @@
 <div class="greek-key-top"></div>
 
 <!-- ── BOOKING ── -->
-<section id="booking" style="background:linear-gradient(rgba(15,28,46,0.77),rgba(15,28,46,0.77)),url('images/asset_15.jpeg') center/cover;position:relative;overflow:visible;">
+<section id="booking" style="background:linear-gradient(rgba(8,15,28,0.77),rgba(8,15,28,0.77)),url('images/asset_15.jpeg') center/cover;position:relative;overflow:visible;">
   <div style="position:absolute;top:0;left:0;width:70px;bottom:0;pointer-events:none;z-index:2;display:flex;flex-direction:column;">
     <img src="images/asset_16.png" style="width:70px;height:53px;flex-shrink:0;display:block;">
     <div style="flex:1;width:70px;background-image:url('images/asset_17.png');background-repeat:repeat-y;background-size:70px 1px;"></div>
@@ -1231,7 +1231,7 @@
 <div class="greek-key-top"></div>
 
 <!-- ── CONTACT ── -->
-<section class="contact" id="contact" style="border-top:1px solid rgba(212,160,23,0.2);position:relative;overflow:visible;background-image:linear-gradient(rgba(26,75,122,0.77),rgba(26,75,122,0.77)),url('images/asset_22.jpeg');background-size:cover;background-position:center;">
+<section class="contact" id="contact" style="border-top:1px solid rgba(212,160,23,0.2);position:relative;overflow:visible;background-image:linear-gradient(rgba(8,15,28,0.77),rgba(8,15,28,0.77)),url('images/asset_22.jpeg');background-size:cover;background-position:center;">
   <div style="position:absolute;top:0;left:0;width:70px;bottom:0;pointer-events:none;z-index:2;display:flex;flex-direction:column;">
     <img src="images/asset_23.png" style="width:70px;height:53px;flex-shrink:0;display:block;">
     <div style="flex:1;width:70px;background-image:url('images/asset_24.png');background-repeat:repeat-y;background-size:70px 1px;"></div>
@@ -1300,7 +1300,7 @@
 <div class="greek-key-top"></div>
 
 <!-- ── FOOTER ── -->
-<footer style="background-image:linear-gradient(rgba(15,28,46,0.55),rgba(15,28,46,0.55)),url('images/asset_29.jpeg');background-size:cover;background-position:center;">
+<footer style="background-image:linear-gradient(rgba(8,15,28,0.77),rgba(8,15,28,0.77)),url('images/asset_29.jpeg');background-size:cover;background-position:center;">
   <div class="footer-top reveal">
     <div>
       <div class="footer-brand-name reveal">Apothena</div>
