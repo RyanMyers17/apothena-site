@@ -634,31 +634,30 @@
       flex-direction: column;
       min-height: auto;
     }
-    /* Mobile order: 1=logo, 2=CTA, 3=slogan, 4=greek */
+    /* Mobile order: 1=logo, 2=slogan, 3=greek, 4=CTA */
     .hero-left {
       order: 1;
       padding: 72px 24px 16px;
       display: flex;
       justify-content: center;
     }
-    /* CTA pulled OUT of hero-right flow and given its own order */
     .hero-right {
       order: 2;
       padding: 0 24px 48px;
       display: flex;
       flex-direction: column;
     }
-    .hero-right .btn-primary {
-      order: 1;
-      align-self: flex-start;
-      margin-bottom: 24px;
-    }
     .hero-right .hero-h1 {
-      order: 2;
+      order: 1;
     }
     #greek-container {
+      order: 2;
+      margin-bottom: 24px !important;
+    }
+    .hero-right .btn-primary {
       order: 3;
-      margin-bottom: 0 !important;
+      align-self: flex-start;
+      margin-top: 0;
     }
     .hero-img-wrap {
       max-width: 260px;
