@@ -630,20 +630,24 @@
 
     /* ── HERO ── */
     .hero-body {
-      grid-template-columns: 1fr;
+      display: flex;
+      flex-direction: column;
       min-height: auto;
     }
+    /* Mobile order: 1=logo, 2=CTA, 3=slogan, 4=greek */
     .hero-left {
-      padding: 60px 24px 12px;
       order: 1;
+      padding: 72px 24px 16px;
+      display: flex;
+      justify-content: center;
     }
+    /* CTA pulled OUT of hero-right flow and given its own order */
     .hero-right {
-      padding: 0 24px 48px;
       order: 2;
+      padding: 0 24px 48px;
       display: flex;
       flex-direction: column;
     }
-    /* Mobile: swap order — CTA first, then h1, then greek */
     .hero-right .btn-primary {
       order: 1;
       align-self: flex-start;
@@ -654,6 +658,7 @@
     }
     #greek-container {
       order: 3;
+      margin-bottom: 0 !important;
     }
     .hero-img-wrap {
       max-width: 260px;
