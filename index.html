@@ -741,6 +741,7 @@
     #services > div[style*="position:absolute"],
     #booking > div[style*="position:absolute"],
     #contact > div[style*="position:absolute"],
+    #about > div[style*="position:absolute"],
     .proverb-popin > div[style*="position:absolute"] {
       display: none !important;
     }
@@ -816,17 +817,7 @@
     .about-photo-col {
       display: none !important;
     }
-    /* Show short columns flanking header+photo on mobile */
-    .about-mobile-col-left {
-      display: flex !important;
-    }
-    .about-mobile-col-right {
-      display: flex !important;
-    }
-    /* Give the wrapper padding so columns don't overlap text */
-    .about-mobile-header-wrap {
-      padding: 0 36px !important;
-    }
+
     /* ── MOBILE: SHOW FOOTER NAV ── */
     .footer-mobile-links {
       display: flex !important;
@@ -1108,26 +1099,11 @@
         </div>
       </div>
       <div class="about-text" style="min-width:0;overflow:hidden;">
-        <!-- Mobile: header + photo wrapped with short flanking columns -->
-        <div class="about-mobile-header-wrap" style="position:relative;">
-          <!-- Left column (mobile only, hidden on desktop) -->
-          <div class="about-mobile-col-left" style="display:none;position:absolute;top:0;left:-8px;width:28px;bottom:0;pointer-events:none;z-index:2;flex-direction:column;">
-            <img src="images/asset_08.png" style="width:28px;height:21px;flex-shrink:0;display:block;object-fit:cover;">
-            <div style="flex:1;width:28px;background-image:url('images/asset_09.png');background-repeat:repeat-y;background-size:28px 1px;"></div>
-            <img src="images/asset_10.png" style="width:28px;height:16px;flex-shrink:0;display:block;object-fit:cover;">
-          </div>
-          <!-- Right column (mobile only, hidden on desktop) -->
-          <div class="about-mobile-col-right" style="display:none;position:absolute;top:0;right:-8px;width:28px;bottom:0;pointer-events:none;z-index:2;flex-direction:column;">
-            <img src="images/asset_11.png" style="width:28px;height:21px;flex-shrink:0;display:block;object-fit:cover;">
-            <div style="flex:1;width:28px;background-image:url('images/asset_12.png');background-repeat:repeat-y;background-size:28px 1px;"></div>
-            <img src="images/asset_13.png" style="width:28px;height:16px;flex-shrink:0;display:block;object-fit:cover;">
-          </div>
-          <h2 style="font-family:'Playfair Display',serif; font-size:clamp(1.8rem,2.8vw,2.6rem); color:var(--amber-light); margin-bottom:24px; white-space:normal;">Meet Ryan: Your Guide on<br>Your Career Journey</h2>
-          <!-- Mobile-only photo insert (no columns) -->
-          <div class="about-mobile-photo" style="display:none;margin:0 auto 28px;max-width:220px;">
-            <div class="about-headshot reveal-scale" style="transform-origin:center top;">
-              <img src="images/asset_14.jpeg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
-            </div>
+        <h2 style="font-family:'Playfair Display',serif; font-size:clamp(1.8rem,2.8vw,2.6rem); color:var(--amber-light); margin-bottom:24px; white-space:normal;">Meet Ryan: Your Guide on<br>Your Career Journey</h2>
+        <!-- Mobile-only photo insert -->
+        <div class="about-mobile-photo" style="display:none;margin:0 auto 28px;max-width:220px;">
+          <div class="about-headshot reveal-scale" style="transform-origin:center top;">
+            <img src="images/asset_14.jpeg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
           </div>
         </div>
         
