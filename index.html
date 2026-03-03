@@ -483,6 +483,44 @@
     letter-spacing: 0.12em;
   }
 
+
+  /* ── SERVICE CARDS ── */
+  .svc-card-inner {
+    background: linear-gradient(135deg,rgba(10,18,32,0.82) 0%,rgba(15,28,46,0.88) 100%);
+    border: 1px solid rgba(212,160,23,0.18);
+    padding: 28px 28px 32px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    height: 100%;
+  }
+  .svc-card-grid {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .svc-card-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .svc-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: #F0C060;
+    margin-bottom: 10px;
+  }
+  .svc-card-body {
+    font-size: 0.88rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.8;
+  }
+
   /* ── SCROLL REVEAL ── */
   .reveal {
     opacity: 0;
@@ -623,10 +661,7 @@
     }
 
     /* ── ABOUT ── */
-    .about-grid {
-      grid-template-columns: 1fr;
-      gap: 32px;
-    }
+
     .about-photo-col {
       padding-top: 0 !important;
       max-width: 280px;
@@ -636,15 +671,12 @@
     .about-headshot {
       margin-top: 0 !important;
     }
-    .about-text {
-      order: 2;
-      min-width: 0;
-      overflow: hidden;
-    }
+
     .about-text h2 {
       white-space: normal !important;
       font-size: clamp(1.3rem, 4.5vw, 1.8rem) !important;
       text-align: center !important;
+      order: 1 !important;
     }
     /* Mobile col wrap: add padding so pillars don't overlap text */
     .about-mobile-col-wrap {
@@ -718,16 +750,17 @@
     .about-grid {
       display: flex !important;
       flex-direction: column !important;
+      gap: 32px;
     }
     .about-text {
       display: flex !important;
       flex-direction: column !important;
       order: 1 !important;
+      min-width: 0;
+      overflow: hidden;
     }
 
-    .about-headshot {
-      margin-top: 0 !important;
-    }
+
     /* Move image to appear after h2 and before paragraphs */
     .about-text h2 {
       order: 1 !important;
@@ -957,52 +990,52 @@
         <h2 class="reveal" style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,2.8vw,2.6rem);color:var(--amber-light);margin-bottom:8px;">Services</h2>
     <p class="reveal" style="font-family:'Playfair Display',serif;font-style:italic;font-size:0.9rem;color:rgba(255,255,255,0.55);margin-bottom:40px;max-width:620px;">Personalized support tailored for you<br>so that you can confidently land your next role</p>
     <div style="max-width:620px;">
-      <div class="reveal" style="background:linear-gradient(135deg,rgba(10,18,32,0.82) 0%,rgba(15,28,46,0.88) 100%);border:1px solid rgba(212,160,23,0.18);border-left:3px solid rgba(212,160,23,0.55);padding:28px 28px 28px 24px;position:relative;margin-bottom:16px;backdrop-filter:blur(2px);">
+      <div class="reveal" class="svc-card-inner" style="border-left:3px solid rgba(212,160,23,0.55);">
           <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,rgba(212,160,23,0.45),transparent);"></div>
           <div style="position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,rgba(212,160,23,0.15),transparent);"></div>
-          <div style="display:grid;grid-template-columns:60px 1fr;align-items:flex-start;gap:20px;">
-            <div style="width:60px;height:60px;display:flex;align-items:center;justify-content:center;">
+          <div class="svc-card-grid">
+            <div class="svc-card-icon">
               <img loading="lazy" src="images/asset_04.png" alt="" style="width:44px;height:44px;object-fit:contain;opacity:0.9;margin-left:23px;">
             </div>
             <div>
-              <h3 style="font-family:'Playfair Display',serif;font-size:1.1rem;color:#F0C060;margin-bottom:10px;">Career/Education Direction Coaching</h3>
-              <p style="font-size:0.88rem;font-weight:300;color:rgba(255,255,255,0.75);line-height:1.8;">If you're unsure what's next on your journey or feel pulled in multiple directions, we'll slow things down and create space to clearly define your path. Together, we'll explore your strengths, interests, and goals so you can move forward with confidence and intention.</p>
+              <h3 class="svc-card-title">Career/Education Direction Coaching</h3>
+              <p class="svc-card-body">If you're unsure what's next on your journey or feel pulled in multiple directions, we'll slow things down and create space to clearly define your path. Together, we'll explore your strengths, interests, and goals so you can move forward with confidence and intention.</p>
             </div>
           </div>
-        </div><div class="reveal" style="background:linear-gradient(135deg,rgba(10,18,32,0.82) 0%,rgba(15,28,46,0.88) 100%);border:1px solid rgba(212,160,23,0.18);border-left:3px solid rgba(212,160,23,0.55);padding:28px 28px 28px 24px;position:relative;margin-bottom:16px;backdrop-filter:blur(2px);">
+        </div><div class="reveal" class="svc-card-inner" style="border-left:3px solid rgba(212,160,23,0.55);">
           <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,rgba(212,160,23,0.45),transparent);"></div>
           <div style="position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,rgba(212,160,23,0.15),transparent);"></div>
-          <div style="display:grid;grid-template-columns:60px 1fr;align-items:flex-start;gap:20px;">
-            <div style="width:60px;height:60px;display:flex;align-items:center;justify-content:center;">
+          <div class="svc-card-grid">
+            <div class="svc-card-icon">
               <img loading="lazy" src="images/asset_05.png" alt="" style="width:44px;height:44px;object-fit:contain;opacity:0.9;">
             </div>
             <div>
-              <h3 style="font-family:'Playfair Display',serif;font-size:1.1rem;color:#F0C060;margin-bottom:10px;">Resume Building & LinkedIn Profile Optimization</h3>
-              <p style="font-size:0.88rem;font-weight:300;color:rgba(255,255,255,0.75);line-height:1.8;">Together, we'll craft a results-driven resume and LinkedIn profile that clearly communicate your strengths, showing your true potential. We will position your experience in a way that catches recruiter's attention and resonates with hiring managers.</p>
+              <h3 class="svc-card-title">Resume Building & LinkedIn Profile Optimization</h3>
+              <p class="svc-card-body">Together, we'll craft a results-driven resume and LinkedIn profile that clearly communicate your strengths, showing your true potential. We will position your experience in a way that catches recruiter's attention and resonates with hiring managers.</p>
             </div>
           </div>
-        </div><div class="reveal" style="background:linear-gradient(135deg,rgba(10,18,32,0.82) 0%,rgba(15,28,46,0.88) 100%);border:1px solid rgba(212,160,23,0.18);border-left:3px solid rgba(212,160,23,0.55);padding:28px 28px 28px 24px;position:relative;margin-bottom:16px;backdrop-filter:blur(2px);">
+        </div><div class="reveal" class="svc-card-inner" style="border-left:3px solid rgba(212,160,23,0.55);">
           <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,rgba(212,160,23,0.45),transparent);"></div>
           <div style="position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,rgba(212,160,23,0.15),transparent);"></div>
-          <div style="display:grid;grid-template-columns:60px 1fr;align-items:flex-start;gap:20px;">
-            <div style="width:60px;height:60px;display:flex;align-items:center;justify-content:center;">
+          <div class="svc-card-grid">
+            <div class="svc-card-icon">
               <img loading="lazy" src="images/asset_06.png" alt="" style="width:44px;height:44px;object-fit:contain;opacity:0.9;">
             </div>
             <div>
-              <h3 style="font-family:'Playfair Display',serif;font-size:1.1rem;color:#F0C060;margin-bottom:10px;">Job Coaching & Interview Preparation</h3>
-              <p style="font-size:0.88rem;font-weight:300;color:rgba(255,255,255,0.75);line-height:1.8;">Interviews don't have to feel intimidating. We'll prepare together so you feel grounded, confident, and ready to communicate your strengths clearly. From mock interviews to job search strategy, I'll be there to support you every step of the way.</p>
+              <h3 class="svc-card-title">Job Coaching & Interview Preparation</h3>
+              <p class="svc-card-body">Interviews don't have to feel intimidating. We'll prepare together so you feel grounded, confident, and ready to communicate your strengths clearly. From mock interviews to job search strategy, I'll be there to support you every step of the way.</p>
             </div>
           </div>
-        </div><div class="reveal" style="background:linear-gradient(135deg,rgba(10,18,32,0.82) 0%,rgba(15,28,46,0.88) 100%);border:1px solid rgba(212,160,23,0.18);border-left:3px solid rgba(212,160,23,0.55);padding:28px 28px 28px 24px;position:relative;margin-bottom:16px;backdrop-filter:blur(2px);">
+        </div><div class="reveal" class="svc-card-inner" style="border-left:3px solid rgba(212,160,23,0.55);">
           <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,rgba(212,160,23,0.45),transparent);"></div>
           <div style="position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,rgba(212,160,23,0.15),transparent);"></div>
-          <div style="display:grid;grid-template-columns:60px 1fr;align-items:flex-start;gap:20px;">
-            <div style="width:60px;height:60px;display:flex;align-items:center;justify-content:center;">
+          <div class="svc-card-grid">
+            <div class="svc-card-icon">
               <img loading="lazy" src="images/asset_07.png" alt="" style="width:44px;height:44px;object-fit:contain;opacity:0.9;">
             </div>
             <div>
-              <h3 style="font-family:'Playfair Display',serif;font-size:1.1rem;color:#F0C060;margin-bottom:10px;">Cover Letter Writing</h3>
-              <p style="font-size:0.88rem;font-weight:300;color:rgba(255,255,255,0.75);line-height:1.8;">A strong cover letter adds depth to your application and can be the foot in the door that makes all the difference. We'll create thoughtful, personalized letters that connect your experience to the role, helping hiring managers recognize that you are the best fit for the position.</p>
+              <h3 class="svc-card-title">Cover Letter Writing</h3>
+              <p class="svc-card-body">A strong cover letter adds depth to your application and can be the foot in the door that makes all the difference. We'll create thoughtful, personalized letters that connect your experience to the role, helping hiring managers recognize that you are the best fit for the position.</p>
             </div>
           </div>
         </div>
@@ -1264,7 +1297,7 @@
 
   // Reveal on scroll with batched stagger
   function initReveal() {
-    const reveals = Array.from(document.querySelectorAll('.reveal, .reveal-scale, .proverb-popin'));
+    const reveals = Array.from(document.querySelectorAll('.reveal, .reveal-scale, .proverb-popin')).filter(el => !el.closest('.hero-body'));
 
     if (!('IntersectionObserver' in window)) {
       reveals.forEach(el => el.classList.add('visible'));
@@ -1309,10 +1342,22 @@
     });
   }
 
+  // Hero elements: animate on load with explicit timing (already in viewport)
+  function initHeroAnimation() {
+    const logo = document.querySelector('.hero-img-wrap');
+    const h1 = document.querySelector('.hero-h1');
+    const cta = document.querySelector('.btn-primary.reveal');
+
+    if (logo) setTimeout(() => logo.classList.add('visible'), 100);
+    if (h1)   setTimeout(() => h1.classList.add('visible'),   500);
+    if (cta)  setTimeout(() => cta.classList.add('visible'),  800);
+  }
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initReveal);
+    document.addEventListener('DOMContentLoaded', () => { initReveal(); initHeroAnimation(); });
   } else {
     initReveal();
+    initHeroAnimation();
   }
 </script>
 </body>
