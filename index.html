@@ -723,8 +723,10 @@
       align-items: flex-start;
     }
 
-    /* ── MOBILE: HIDE DECORATIVE COLUMNS IN SERVICES & PROVERBS ── */
+    /* ── MOBILE: HIDE DECORATIVE COLUMNS IN ALL SECTIONS ── */
     #services > div[style*="position:absolute"],
+    #booking > div[style*="position:absolute"],
+    #contact > div[style*="position:absolute"],
     .proverb-popin > div[style*="position:absolute"] {
       display: none !important;
     }
@@ -794,6 +796,8 @@
     /* ── MOBILE: SHOW INLINE PHOTO, HIDE ORIGINAL PHOTO COL ── */
     .about-mobile-photo {
       display: block !important;
+      position: relative !important;
+      padding: 0 50px !important;
     }
     .about-photo-col {
       display: none !important;
@@ -1080,9 +1084,22 @@
       </div>
       <div class="about-text" style="min-width:0;overflow:hidden;">
         <h2 style="font-family:'Playfair Display',serif; font-size:clamp(1.8rem,2.8vw,2.6rem); color:var(--amber-light); margin-bottom:24px; white-space:normal;">Meet Ryan: Your Guide on<br>Your Career Journey</h2>
-        <!-- Mobile-only photo insert -->
-        <div class="about-mobile-photo" style="display:none;max-width:260px;margin:0 auto 28px;">
-          <div class="about-headshot reveal-scale" style="transform-origin:center top;">
+        <!-- Mobile-only photo insert with flanking short columns -->
+        <div class="about-mobile-photo" style="display:none;margin:0 auto 28px;position:relative;display:none;">
+          <!-- Left short column -->
+          <div style="position:absolute;top:0;left:-50px;width:40px;bottom:0;pointer-events:none;z-index:2;display:flex;flex-direction:column;">
+            <img src="images/asset_08.png" style="width:40px;height:30px;flex-shrink:0;display:block;object-fit:cover;">
+            <div style="flex:1;width:40px;background-image:url('images/asset_09.png');background-repeat:repeat-y;background-size:40px 1px;"></div>
+            <img src="images/asset_10.png" style="width:40px;height:23px;flex-shrink:0;display:block;object-fit:cover;">
+          </div>
+          <!-- Right short column -->
+          <div style="position:absolute;top:0;right:-50px;width:40px;bottom:0;pointer-events:none;z-index:2;display:flex;flex-direction:column;">
+            <img src="images/asset_11.png" style="width:40px;height:30px;flex-shrink:0;display:block;object-fit:cover;">
+            <div style="flex:1;width:40px;background-image:url('images/asset_12.png');background-repeat:repeat-y;background-size:40px 1px;"></div>
+            <img src="images/asset_13.png" style="width:40px;height:23px;flex-shrink:0;display:block;object-fit:cover;">
+          </div>
+          <!-- Photo -->
+          <div class="about-headshot reveal-scale" style="transform-origin:center top;max-width:220px;margin:0 auto;">
             <img src="images/asset_14.jpeg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
           </div>
         </div>
@@ -1278,6 +1295,12 @@
       </ul>
     </div>
     <div style="display:flex;flex-direction:column;align-items:flex-end;gap:64px;">
+      <ul class="footer-links reveal">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#booking">Book a Call</a></li>
+      </ul>
       <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;">
         <a href="/cdn-cgi/l/email-protection#481a31292605312d3a3b080938273c202d2629662b2725" style="font-size:0.78rem;color:rgba(255,255,255,0.45);text-decoration:none;" onmouseover="this.style.color='#F0C060'" onmouseout="this.style.color='rgba(255,255,255,0.45)'"><span class="__cf_email__" data-cfemail="aefcd7cfc0e3d7cbdcddeeefdec1dac6cbc0cf80cdc1c3">[email&#160;protected]</span></a>
         <span style="font-size:0.78rem;color:rgba(255,255,255,0.45);">(720) 263-1144</span>
