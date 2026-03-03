@@ -525,13 +525,20 @@
   }
   .footer-links a:hover { color: var(--amber-light); }
   
+  .footer-contact-band {
+    display: flex;
+    align-items: center;
+    padding-bottom: 20px;
+    margin-top: 28px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 20px;
+  }
   .footer-bottom {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
     padding-top: 20px;
     border-top: 1px solid rgba(255,255,255,0.08);
-    margin-top: 28px;
   }
   .footer-copy {
     font-size: 0.78rem;
@@ -949,15 +956,15 @@
 </nav>
 
 <!-- ── HERO ── -->
-<section class="hero" id="hero" style="background:linear-gradient(rgba(8,15,28,0.77),rgba(8,15,28,0.77)),url('images/asset_01.jpeg');background-size:cover;background-position:center;">
+<section class="hero" id="hero" style="background:linear-gradient(rgba(8,15,28,0.90),rgba(8,15,28,0.90)),url('images/asset_01.jpeg');background-size:cover;background-position:center;">
   <div class="hero-body">
     <div class="hero-left">
-      <div class="hero-img-wrap reveal" style="background:transparent; border:none; transition-delay:0s;">
+      <div class="hero-img-wrap reveal" data-delay="0" style="background:transparent; border:none; transition-delay:0s;">
         <img src="images/asset_02.png" style="width:100%; height:100%; object-fit:contain; display:block;">
       </div>
     </div>
     <div class="hero-right">
-      <h1 class="hero-h1 reveal" style="transition-delay:0.35s;"><span id="illum-span">Illuminating Your</span> Career Path<br>With Wisdom</h1>
+      <h1 class="hero-h1 reveal" data-delay="0.4" style="transition-delay:0.4s;"><span id="illum-span">Illuminating Your</span> Career Path<br>With Wisdom</h1>
       <div id="greek-container" style="margin-top:6px;margin-bottom:36px;overflow:hidden;">
     <p id="greek-p" style="font-family:'Playfair Display',serif;font-style:italic;font-size:1rem;color:rgba(255,255,255,0.45);line-height:1.5;white-space:nowrap;display:inline-block;">Φωτίζοντας την επαγγελματική σας πορεία με σοφία</p>
   </div>
@@ -1004,7 +1011,8 @@
   })();
   </script>
       
-      <a href="#booking" class="btn-primary" style="align-self:flex-start;">Book a Free Strategy Call</a>
+      <a href="#booking" class="btn-primary reveal" data-delay="0.7" style="align-self:flex-start;transition-delay:0.7s;">Book a Free Strategy Call</a>
+    </div>Book a Free Strategy Call</a>
     </div>
    
     </div>
@@ -1085,7 +1093,7 @@
 <div class="greek-key-top"></div>
 
 <!-- ── ABOUT ── -->
-<section class="about" id="about" style="position:relative;overflow:visible;background:linear-gradient(rgba(8,15,28,0.77),rgba(8,15,28,0.77)),url('images/asset_30.jpg') center/cover no-repeat;">
+<section class="about" id="about" style="position:relative;overflow:visible;background:linear-gradient(rgba(8,15,28,0.90),rgba(8,15,28,0.90)),url('images/asset_30.jpg') center/cover no-repeat;">
   <div style="position:absolute;top:0;left:0;width:70px;bottom:0;pointer-events:none;z-index:2;display:flex;flex-direction:column;">
     <img src="images/asset_08.png" style="width:70px;height:53px;flex-shrink:0;display:block;">
     <div style="flex:1;width:70px;background-image:url('images/asset_09.png');background-repeat:repeat-y;background-size:70px 1px;"></div>
@@ -1138,7 +1146,7 @@
 <div class="greek-key-top"></div>
 
 <!-- ── BOOKING ── -->
-<section id="booking" style="background:linear-gradient(rgba(8,15,28,0.77),rgba(8,15,28,0.77)),url('images/asset_15.jpeg') center/cover;position:relative;overflow:visible;">
+<section id="booking" style="background:linear-gradient(rgba(8,15,28,0.90),rgba(8,15,28,0.90)),url('images/asset_15.jpeg') center/cover;position:relative;overflow:visible;">
   <div style="position:absolute;top:0;left:0;width:70px;bottom:0;pointer-events:none;z-index:2;display:flex;flex-direction:column;">
     <img src="images/asset_16.png" style="width:70px;height:53px;flex-shrink:0;display:block;">
     <div style="flex:1;width:70px;background-image:url('images/asset_17.png');background-repeat:repeat-y;background-size:70px 1px;"></div>
@@ -1233,7 +1241,7 @@
 <div class="greek-key-top"></div>
 
 <!-- ── CONTACT ── -->
-<section class="contact" id="contact" style="border-top:1px solid rgba(212,160,23,0.2);position:relative;overflow:visible;background-image:linear-gradient(rgba(8,15,28,0.77),rgba(8,15,28,0.77)),url('images/asset_22.jpeg');background-size:cover;background-position:center;">
+<section class="contact" id="contact" style="border-top:1px solid rgba(212,160,23,0.2);position:relative;overflow:visible;background-image:linear-gradient(rgba(8,15,28,0.90),rgba(8,15,28,0.90)),url('images/asset_22.jpeg');background-size:cover;background-position:center;">
   <div style="position:absolute;top:0;left:0;width:70px;bottom:0;pointer-events:none;z-index:2;display:flex;flex-direction:column;">
     <img src="images/asset_23.png" style="width:70px;height:53px;flex-shrink:0;display:block;">
     <div style="flex:1;width:70px;background-image:url('images/asset_24.png');background-repeat:repeat-y;background-size:70px 1px;"></div>
@@ -1302,16 +1310,12 @@
 <div class="greek-key-top"></div>
 
 <!-- ── FOOTER ── -->
-<footer style="background-image:linear-gradient(rgba(8,15,28,0.77),rgba(8,15,28,0.77)),url('images/asset_29.jpeg');background-size:cover;background-position:center;">
+<footer style="background-image:linear-gradient(rgba(8,15,28,0.90),rgba(8,15,28,0.90)),url('images/asset_29.jpeg');background-size:cover;background-position:center;">
   <div class="footer-top reveal">
     <div>
       <div class="footer-brand-name reveal">Apothena</div>
       <div class="footer-tagline-text reveal">Illuminating your career path with wisdom</div>
       <div class="footer-greek-sub" style="font-family:'Playfair Display',serif;font-style:italic;font-size:0.72rem;color:rgba(255,255,255,0.25);margin-top:4px;">Φωτίζοντας την επαγγελματική σας πορεία με σοφία</div>
-      <div style="display:flex;align-items:center;margin-top:20px;">
-        <a href="/cdn-cgi/l/email-protection#481a31292605312d3a3b080938273c202d2629662b2725" style="font-size:0.75rem;color:rgba(212,160,23,0.75);text-decoration:none;" onmouseover="this.style.color='#F0C060'" onmouseout="this.style.color='rgba(212,160,23,0.75)'"><span class="__cf_email__" data-cfemail="aefcd7cfc0e3d7cbdcddeeefdec1dac6cbc0cf80cdc1c3">[email&#160;protected]</span></a>
-        <span style="font-size:0.75rem;color:rgba(212,160,23,0.75);">&nbsp;&nbsp;·&nbsp;&nbsp;(720) 263-1144</span>
-      </div>
     </div>
     <ul class="footer-links reveal">
       <li><a href="#services">Services</a></li>
@@ -1319,6 +1323,10 @@
       <li><a href="#booking">Book a Call</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+  </div>
+  <div class="footer-contact-band">
+    <a href="/cdn-cgi/l/email-protection#481a31292605312d3a3b080938273c202d2629662b2725" style="font-size:0.75rem;color:rgba(212,160,23,0.75);text-decoration:none;" onmouseover="this.style.color='#F0C060'" onmouseout="this.style.color='rgba(212,160,23,0.75)'"><span class="__cf_email__" data-cfemail="aefcd7cfc0e3d7cbdcddeeefdec1dac6cbc0cf80cdc1c3">[email&#160;protected]</span></a>
+    <span style="font-size:0.75rem;color:rgba(212,160,23,0.75);">&nbsp;&nbsp;·&nbsp;&nbsp;(720) 263-1144</span>
   </div>
   <div class="footer-bottom">
     <div style="display:flex;flex-direction:column;gap:4px;">
@@ -1357,8 +1365,13 @@
         const idx = batchCount.get(parent);
         batchCount.set(parent, idx + 1);
 
-        // Apply delay based on batch index (reset per parent)
-        el.style.transitionDelay = (idx * 0.15) + 's';
+        // Respect data-delay if set (skip stagger for pinned elements like hero logo)
+        if (el.dataset.delay !== undefined) {
+          el.style.transitionDelay = el.dataset.delay + 's';
+        } else {
+          // Apply delay based on batch index (reset per parent)
+          el.style.transitionDelay = (idx * 0.15) + 's';
+        }
         el.classList.add('visible');
         observer.unobserve(el);
       });
