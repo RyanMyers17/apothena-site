@@ -829,16 +829,10 @@
     display: block; pointer-events: auto;
   }
 
-  @keyframes gpBackdrop {
-    0%   { opacity: 0; }
-    12%  { opacity: 1; }
-    78%  { opacity: 1; }
-    100% { opacity: 0; }
-  }
   .gpo-backdrop {
     position: absolute; inset: 0;
     background: rgba(8,15,28,0.75);
-    animation: gpBackdrop 3.6s ease forwards;
+    animation: gpBackdropStay 0.4s ease forwards;
   }
 
   @keyframes gpRing {
@@ -861,9 +855,12 @@
   @keyframes gpCard {
     0%   { opacity: 0; transform: translate(-50%,-50%) scale(0.8) translateY(20px); }
     50%  { opacity: 1; transform: translate(-50%,-50%) scale(1.02) translateY(-2px); }
-    65%  { opacity: 1; transform: translate(-50%,-50%) scale(1) translateY(0); }
-    87%  { opacity: 1; transform: translate(-50%,-50%) scale(1) translateY(0); }
-    100% { opacity: 0; transform: translate(-50%,-50%) scale(0.95) translateY(-8px); }
+    100% { opacity: 1; transform: translate(-50%,-50%) scale(1) translateY(0); }
+  }
+  @keyframes gpBackdropStay {
+    0%   { opacity: 0; }
+    12%  { opacity: 1; }
+    100% { opacity: 1; }
   }
   .gpo-card {
     position: absolute; top: 50%; left: 50%;
@@ -873,6 +870,25 @@
     padding: 52px 40px 44px;
     text-align: center; overflow: hidden;
     animation: gpCard 3.6s cubic-bezier(0.22,1,0.36,1) forwards;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+  }
+  /* X close button */
+  .gpo-close {
+    position: absolute; top: 14px; right: 16px;
+    width: 32px; height: 32px;
+    background: none; border: 1px solid rgba(212,160,23,0.35);
+    color: rgba(212,160,23,0.7);
+    font-size: 1.2rem; line-height: 1;
+    cursor: pointer; z-index: 10;
+    display: flex; align-items: center; justify-content: center;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+    font-family: 'Lato', sans-serif; font-weight: 300;
+  }
+  .gpo-close:hover {
+    border-color: var(--amber);
+    color: var(--amber-light);
+    background: rgba(212,160,23,0.08);
   }
   .gpo-card::before {
     content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
@@ -896,6 +912,12 @@
   @keyframes gpGlow {
     0%,100% { box-shadow: 0 0 0 0 rgba(212,160,23,0); }
     50%      { box-shadow: 0 0 24px 6px rgba(212,160,23,0.5), 0 0 48px 14px rgba(212,160,23,0.18); }
+  }
+  .gpo-icon {
+    width: 64px; height: 64px; object-fit: contain;
+    margin: 0 auto 16px; display: block;
+    position: relative; z-index: 1;
+    opacity: 0.9;
   }
   .gpo-circle {
     width: 80px; height: 80px; border-radius: 50%;
@@ -1422,16 +1444,18 @@
   </div>
   <div class="gpo-particles" id="gpo-particles"></div>
   <div class="gpo-card">
+    <button class="gpo-close" id="gpo-close" aria-label="Close">&times;</button>
     <div class="gpo-greek-key"></div>
+    <img src="images/asset_31.png" alt="" class="gpo-icon">
     <div class="gpo-circle">
       <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
         <polyline class="gpo-checkmark" points="7,19 15,27 29,11"
           stroke="#D4A017" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </div>
-    <div class="gpo-title">Message Sent</div>
+    <div class="gpo-title">Message Sent Successfully</div>
     <div class="gpo-divider"></div>
-    <div class="gpo-sub">Thank you for reaching out.<br>Ryan will be in touch with you shortly.</div>
+    <div class="gpo-sub">Thank you for reaching out!<br><br>I will respond within 1–2 business days.<br><br>I look forward to connecting with you!</div>
     <div class="gpo-divider"></div>
     <div class="gpo-greek-text">Apothena &nbsp;·&nbsp; Αποθενα</div>
   </div>
@@ -1482,15 +1506,17 @@
       pc.appendChild(p);
     }
     overlay.classList.add('active');
-    setTimeout(function() {
-      overlay.classList.remove('active');
-    }, 3700);
   }
 
+  function closeGoldPulse() {
+    document.getElementById('gold-pulse-overlay').classList.remove('active');
+  }
+
+  // X button
+  document.getElementById('gpo-close').addEventListener('click', closeGoldPulse);
+  // Backdrop click also closes
   document.addEventListener('click', function(e) {
-    if (e.target.classList.contains('gpo-backdrop')) {
-      document.getElementById('gold-pulse-overlay').classList.remove('active');
-    }
+    if (e.target.classList.contains('gpo-backdrop')) closeGoldPulse();
   });
 })();
 </script>
