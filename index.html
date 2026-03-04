@@ -791,6 +791,218 @@
   }
 
 
+  /* ── GOLD PULSE SUCCESS ANIMATION ── */
+
+  /* Ripple rings that burst outward from center */
+  @keyframes goldRipple {
+    0%   { transform: translate(-50%, -50%) scale(0);   opacity: 0.9; }
+    100% { transform: translate(-50%, -50%) scale(4.5); opacity: 0; }
+  }
+
+  /* Backdrop fade in/out */
+  @keyframes goldBackdropIn {
+    0%   { opacity: 0; }
+    15%  { opacity: 1; }
+    75%  { opacity: 1; }
+    100% { opacity: 0; }
+  }
+
+  /* Card pop in */
+  @keyframes goldCardIn {
+    0%   { opacity: 0; transform: translate(-50%, -50%) scale(0.78) translateY(18px); }
+    55%  { opacity: 1; transform: translate(-50%, -50%) scale(1.03) translateY(-3px); }
+    75%  { opacity: 1; transform: translate(-50%, -50%) scale(1) translateY(0); }
+    88%  { opacity: 1; transform: translate(-50%, -50%) scale(1) translateY(0); }
+    100% { opacity: 0; transform: translate(-50%, -50%) scale(0.94) translateY(-10px); }
+  }
+
+  /* Checkmark draw */
+  @keyframes checkDraw {
+    0%   { stroke-dashoffset: 60; opacity: 0; }
+    30%  { opacity: 1; }
+    100% { stroke-dashoffset: 0;  opacity: 1; }
+  }
+
+  /* Shimmer sweep across card */
+  @keyframes goldShimmer {
+    0%   { transform: translateX(-120%) skewX(-18deg); }
+    100% { transform: translateX(220%)  skewX(-18deg); }
+  }
+
+  /* Particle float */
+  @keyframes particleFloat {
+    0%   { transform: translate(0, 0)       scale(1);   opacity: 1; }
+    100% { transform: var(--px) var(--py)   scale(0.2); opacity: 0; }
+  }
+
+  /* Glow pulse on the check circle */
+  @keyframes circleGlow {
+    0%, 100% { box-shadow: 0 0 0   0   rgba(212,160,23,0.0),  0 0 0   0   rgba(212,160,23,0.0); }
+    50%       { box-shadow: 0 0 28px 6px rgba(212,160,23,0.55), 0 0 56px 16px rgba(212,160,23,0.2); }
+  }
+
+  /* ── OVERLAY WRAPPER ── */
+  #gold-pulse-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    display: none;
+  }
+  #gold-pulse-overlay.active {
+    display: block;
+    pointer-events: auto;
+  }
+
+  /* Semi-transparent dark backdrop */
+  .gpo-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(8, 15, 28, 0.72);
+    animation: goldBackdropIn 3.6s ease forwards;
+  }
+
+  /* Ripple ring container */
+  .gpo-ripples {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 0; height: 0;
+    pointer-events: none;
+  }
+  .gpo-ring {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    border: 2px solid rgba(212, 160, 23, 0.75);
+    animation: goldRipple 1.6s ease-out forwards;
+  }
+  .gpo-ring:nth-child(2) { animation-delay: 0.22s; border-color: rgba(240,192,96,0.55); }
+  .gpo-ring:nth-child(3) { animation-delay: 0.44s; border-color: rgba(212,160,23,0.35); }
+
+  /* Success card */
+  .gpo-card {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(420px, 88vw);
+    background: linear-gradient(158deg, #0d1e33 0%, #0a1525 100%);
+    border: 1px solid rgba(212,160,23,0.45);
+    padding: 52px 40px 44px;
+    text-align: center;
+    overflow: hidden;
+    animation: goldCardIn 3.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  /* Top accent line */
+  .gpo-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent 0%, var(--amber) 35%, var(--amber-light) 50%, var(--amber) 65%, transparent 100%);
+  }
+
+  /* Shimmer sweep */
+  .gpo-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg, transparent 40%, rgba(212,160,23,0.12) 50%, transparent 60%);
+    animation: goldShimmer 1.1s ease 0.5s forwards;
+  }
+
+  /* Greek key accent strip */
+  .gpo-greek {
+    position: absolute;
+    top: 3px; left: 0; right: 0;
+    height: 18px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='18'%3E%3Cpath d='M0 16 L0 2 L14 2 L14 8 L8 8 L8 14 L20 14 L20 2 L34 2 L34 8 L28 8 L28 14 L40 14 L40 16 Z' fill='none' stroke='%23D4A017' stroke-width='1.2' opacity='0.35'/%3E%3C/svg%3E");
+    background-repeat: repeat-x;
+    background-position: center;
+    pointer-events: none;
+  }
+
+  /* Check circle */
+  .gpo-circle {
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 35%, rgba(212,160,23,0.18) 0%, rgba(212,160,23,0.06) 100%);
+    border: 2px solid rgba(212,160,23,0.7);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 28px;
+    animation: circleGlow 1.6s ease 0.6s 2;
+    position: relative;
+    z-index: 1;
+  }
+  .gpo-circle svg {
+    width: 36px; height: 36px;
+  }
+  .gpo-checkmark {
+    stroke-dasharray: 60;
+    stroke-dashoffset: 60;
+    animation: checkDraw 0.7s cubic-bezier(0.22,1,0.36,1) 0.55s forwards;
+  }
+
+  /* Text */
+  .gpo-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--amber-light);
+    letter-spacing: 0.04em;
+    margin-bottom: 10px;
+    position: relative; z-index: 1;
+  }
+  .gpo-sub {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.65;
+    position: relative; z-index: 1;
+  }
+  .gpo-divider {
+    width: 56px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--amber), transparent);
+    margin: 20px auto;
+    position: relative; z-index: 1;
+  }
+  .gpo-greek-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 0.72rem;
+    color: rgba(212,160,23,0.45);
+    letter-spacing: 0.06em;
+    position: relative; z-index: 1;
+  }
+
+  /* Floating particles */
+  .gpo-particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .gpo-particle {
+    position: absolute;
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--amber);
+    opacity: 0;
+    animation: particleFloat 1.8s ease-out forwards;
+  }
+
+  @media (max-width: 480px) {
+    .gpo-card {
+      padding: 40px 24px 36px;
+      width: 92vw;
+    }
+    .gpo-title { font-size: 1.25rem; }
+    .gpo-circle { width: 68px; height: 68px; }
+    .gpo-circle svg { width: 30px; height: 30px; }
+  }
+
   @keyframes popIn {
     0%   { opacity:0; transform:scale(0.92) translateY(16px); }
     60%  { opacity:1; transform:scale(1.02) translateY(-2px); }
@@ -1144,7 +1356,7 @@
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
             </svg>
           </div>
-          <div class="contact-detail-text"><a href="mailto:RyanMyers@Apothena.com" style="color:inherit;text-decoration:none;">RyanMyers@Apothena.com</a></div>
+          <div class="contact-detail-text"><a href="/cdn-cgi/l/email-protection#613318000f2c180413122120110e1509040f004f020e0c" style="color:inherit;text-decoration:none;"><span class="__cf_email__" data-cfemail="c290bba3ac8fbba7b0b18283b2adb6aaa7aca3eca1adaf">[email&#160;protected]</span></a></div>
         </div>
       </div>
       <div class="contact-right reveal">
@@ -1190,7 +1402,7 @@
     </ul>
   </div>
   <div class="footer-contact-band">
-    <a href="mailto:RyanMyers@Apothena.com" style="font-size:0.75rem;color:rgba(212,160,23,0.75);text-decoration:none;" onmouseover="this.style.color='#F0C060'" onmouseout="this.style.color='rgba(212,160,23,0.75)'">RyanMyers@Apothena.com</a>
+    <a href="/cdn-cgi/l/email-protection#d381aab2bd9eaab6a1a09392a3bca7bbb6bdb2fdb0bcbe" style="font-size:0.75rem;color:rgba(212,160,23,0.75);text-decoration:none;" onmouseover="this.style.color='#F0C060'" onmouseout="this.style.color='rgba(212,160,23,0.75)'"><span class="__cf_email__" data-cfemail="c092b9a1ae8db9a5b2b38081b0afb4a8a5aea1eea3afad">[email&#160;protected]</span></a>
     <span style="font-size:0.75rem;color:rgba(212,160,23,0.75);">&nbsp;&nbsp;·&nbsp;&nbsp;<a href="tel:+17202631144" style="color:rgba(212,160,23,0.75);text-decoration:none;" onmouseover="this.style.color='#F0C060'" onmouseout="this.style.color='rgba(212,160,23,0.75)'">(720) 263-1144</a></span>
   </div>
   <div class="footer-bottom">
@@ -1201,7 +1413,99 @@
   </div>
 </footer>
 
-<script>
+<!-- ── GOLD PULSE SUCCESS OVERLAY ── -->
+<div id="gold-pulse-overlay" role="alertdialog" aria-live="polite" aria-label="Message sent successfully">
+  <div class="gpo-backdrop"></div>
+  <div class="gpo-ripples">
+    <div class="gpo-ring"></div>
+    <div class="gpo-ring"></div>
+    <div class="gpo-ring"></div>
+  </div>
+  <div class="gpo-particles" id="gpo-particles"></div>
+  <div class="gpo-card">
+    <div class="gpo-greek"></div>
+    <div class="gpo-circle">
+      <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polyline class="gpo-checkmark" points="7,19 15,27 29,11"
+          stroke="#D4A017" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div class="gpo-title">Message Sent</div>
+    <div class="gpo-divider"></div>
+    <div class="gpo-sub">Thank you for reaching out.<br>Ryan will be in touch with you shortly.</div>
+    <div class="gpo-divider"></div>
+    <div class="gpo-greek-text">Apothena &nbsp;·&nbsp; Αποθενα</div>
+  </div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // ── GOLD PULSE: trigger on contact form submit ──
+  (function() {
+    var form = document.querySelector('.contact-form');
+    if (!form) return;
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Basic validation — require name, email, message
+      var name    = document.getElementById('name');
+      var email   = document.getElementById('email');
+      var message = document.getElementById('message');
+      if (!name.value.trim() || !email.value.trim() || !message.value.trim()) return;
+
+      triggerGoldPulse();
+      form.reset();
+    });
+
+    function triggerGoldPulse() {
+      var overlay = document.getElementById('gold-pulse-overlay');
+      if (!overlay) return;
+
+      // Re-create overlay children so animations replay cleanly each time
+      overlay.classList.remove('active');
+
+      // Spawn gold particles at random positions
+      var container = document.getElementById('gpo-particles');
+      container.innerHTML = '';
+      var colors = ['#D4A017','#F0C060','#B8864E','#FFD97D'];
+      for (var i = 0; i < 22; i++) {
+        var p = document.createElement('div');
+        p.className = 'gpo-particle';
+        var startX = 30 + Math.random() * 40;  // % across card width
+        var startY = 35 + Math.random() * 30;
+        var dx = (Math.random() - 0.5) * 260;
+        var dy = -(60 + Math.random() * 180);
+        p.style.left  = startX + '%';
+        p.style.top   = startY + '%';
+        p.style.setProperty('--px', dx + 'px');
+        p.style.setProperty('--py', dy + 'px');
+        p.style.background = colors[Math.floor(Math.random() * colors.length)];
+        p.style.width  = (3 + Math.random() * 5) + 'px';
+        p.style.height = p.style.width;
+        p.style.animationDelay    = (0.35 + Math.random() * 0.55) + 's';
+        p.style.animationDuration = (1.2 + Math.random() * 0.8) + 's';
+        container.appendChild(p);
+      }
+
+      // Force reflow then activate
+      void overlay.offsetWidth;
+      overlay.classList.add('active');
+
+      // Auto-dismiss after animation completes (3.6s)
+      setTimeout(function() {
+        overlay.classList.remove('active');
+      }, 3700);
+    }
+
+    // Also dismiss on backdrop click (in case user wants to close early)
+    var backdrop = document.querySelector('.gpo-backdrop');
+    if (backdrop) {
+      backdrop.addEventListener('click', function() {
+        document.getElementById('gold-pulse-overlay').classList.remove('active');
+      });
+    }
+  })();
+
   // Nav scroll
   window.addEventListener('scroll', () => {
     document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
@@ -1263,17 +1567,4 @@
 
     // Sequence: logo → slogan → greek → CTA
     if (logo)  setTimeout(() => logo.classList.add('visible'),  150);
-    if (h1)    setTimeout(() => h1.classList.add('visible'),    500);
-    if (greek) setTimeout(() => greek.classList.add('visible'), 800);
-    if (cta)   setTimeout(() => cta.classList.add('visible'),  1100);
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => { initReveal(); initHeroAnimation(); });
-  } else {
-    initReveal();
-    initHeroAnimation();
-  }
-</script>
-</body>
-</html>
+    if (h1)    setTimeout(() => h1.classList.add
