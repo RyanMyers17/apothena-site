@@ -93,23 +93,6 @@
     color: var(--amber-light);
     text-decoration: none;
   }
-  .nav-brand {
-    display: flex; flex-direction: column; gap: 2px; align-items: center;
-  }
-  .nav-brand-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: var(--amber-light);
-    letter-spacing: 0.1em;
-  }
-  .nav-brand-sub {
-    font-size: 0.58rem;
-    font-weight: 700;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: rgba(212,169,106,0.5);
-  }
   .nav-links {
     display: flex; align-items: center; gap: 40px;
     list-style: none;
@@ -296,9 +279,6 @@
   /* ── SERVICES ── */
   .services { background: var(--stone); }
   .services .section-inner { padding-bottom: 80px; }
-  .services-header {
-    margin-bottom: 56px;
-  }
   .services-header h2 {
     font-size: clamp(1.8rem, 2.8vw, 2.6rem);
     color: var(--white);
@@ -310,21 +290,6 @@
     color: rgba(255,255,255,0.55);
     max-width: 520px;
     line-height: 1.75;
-  }
-
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2px;
-  }
-  .service-card {
-    background: var(--stone-mid);
-    padding: 0;
-    position: relative;
-  }
-  .service-card-content {
-    padding: 32px 32px 40px;
-    border-top: 2px solid rgba(212,160,23,0.3);
   }
 
   .service-card h3 {
@@ -539,12 +504,6 @@
   .hero-left > *:nth-child(5) { animation-delay: 1.2s; }
 
   /* ── MOBILE RESPONSIVE ── */
-  @media (min-width: 769px) {
-    #services {
-      background-position: 100% 77% !important;
-    }
-  }
-
   @media (max-width: 768px) {
 
     /* ── NAV ── */
@@ -618,9 +577,7 @@
     #services > div[style*="padding:80px 100px"] {
       padding: 56px 24px !important;
     }
-    #services {
-      background: linear-gradient(to bottom,transparent 50%,rgba(8,15,28,0.98) 100%),linear-gradient(to bottom left,transparent 55%,rgba(8,15,28,0.98) 100%),linear-gradient(to right,rgba(8,15,28,0.75) 0%,rgba(8,15,28,0.65) 55%,rgba(8,15,28,0.15) 100%),url('images/asset_03.jpeg') 50% 0%/cover no-repeat !important;
-    }
+
     #services .reveal[style*="max-width:620px"],
     #services > div > div[style*="max-width:620px"] {
       max-width: 100% !important;
@@ -632,13 +589,6 @@
     section
 
     /* ── ABOUT ── */
-
-    .about-photo-col {
-      padding-top: 0 !important;
-      max-width: 280px;
-      margin: 0 auto;
-      order: 1;
-    }
     .about-headshot {
       margin-top: 0 !important;
     }
@@ -740,9 +690,6 @@
 
 
     /* Move image to appear after h2 and before paragraphs */
-    .about-text h2 {
-      order: 1 !important;
-    }
     .about-text p {
       order: 3 !important;
     }
@@ -828,9 +775,6 @@
     }
 
     /* ── ABOUT ── */
-    .about-photo-col {
-      max-width: 240px;
-    }
 
     /* ── PROVERB ── */
     div[style*="background:#0f1c2e"][style*="padding:48px"] {
@@ -963,7 +907,7 @@
           <div style="position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,rgba(212,160,23,0.15),transparent);"></div>
           <div style="display:grid;grid-template-columns:60px 1fr;align-items:flex-start;gap:20px;">
             <div style="width:60px;height:60px;display:flex;align-items:center;justify-content:center;">
-              <img src="images/asset_04.png" style="width:44px;height:44px;object-fit:contain;opacity:0.9;margin-left:23px;">
+              <img loading="lazy" alt="" src="images/asset_04.png" style="width:44px;height:44px;object-fit:contain;opacity:0.9;margin-left:23px;">
             </div>
             <div>
               <h3 style="font-family:'Playfair Display',serif;font-size:1.1rem;color:#F0C060;margin-bottom:10px;">Career/Education Direction Coaching</h3>
@@ -975,7 +919,7 @@
           <div style="position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,rgba(212,160,23,0.15),transparent);"></div>
           <div style="display:grid;grid-template-columns:60px 1fr;align-items:flex-start;gap:20px;">
             <div style="width:60px;height:60px;display:flex;align-items:center;justify-content:center;">
-              <img src="images/asset_05.png" style="width:44px;height:44px;object-fit:contain;opacity:0.9;">
+              <img loading="lazy" alt="" src="images/asset_05.png" style="width:44px;height:44px;object-fit:contain;opacity:0.9;">
             </div>
             <div>
               <h3 style="font-family:'Playfair Display',serif;font-size:1.1rem;color:#F0C060;margin-bottom:10px;">Resume Building & LinkedIn Profile Optimization</h3>
@@ -987,7 +931,7 @@
           <div style="position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,rgba(212,160,23,0.15),transparent);"></div>
           <div style="display:grid;grid-template-columns:60px 1fr;align-items:flex-start;gap:20px;">
             <div style="width:60px;height:60px;display:flex;align-items:center;justify-content:center;">
-              <img src="images/asset_06.png" style="width:44px;height:44px;object-fit:contain;opacity:0.9;">
+              <img loading="lazy" alt="" src="images/asset_06.png" style="width:44px;height:44px;object-fit:contain;opacity:0.9;">
             </div>
             <div>
               <h3 style="font-family:'Playfair Display',serif;font-size:1.1rem;color:#F0C060;margin-bottom:10px;">Job Coaching & Interview Preparation</h3>
@@ -999,7 +943,7 @@
           <div style="position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,rgba(212,160,23,0.15),transparent);"></div>
           <div style="display:grid;grid-template-columns:60px 1fr;align-items:flex-start;gap:20px;">
             <div style="width:60px;height:60px;display:flex;align-items:center;justify-content:center;">
-              <img src="images/asset_07.png" style="width:44px;height:44px;object-fit:contain;opacity:0.9;">
+              <img loading="lazy" alt="" src="images/asset_07.png" style="width:44px;height:44px;object-fit:contain;opacity:0.9;">
             </div>
             <div>
               <h3 style="font-family:'Playfair Display',serif;font-size:1.1rem;color:#F0C060;margin-bottom:10px;">Cover Letter Writing</h3>
