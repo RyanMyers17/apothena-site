@@ -921,6 +921,12 @@
     background: linear-gradient(105deg, transparent 40%, rgba(212,160,23,0.1) 50%, transparent 60%);
     animation: gpShimmer 1.05s ease 0.525s forwards;
   }
+  .gpo-greek-key-bottom {
+    position: absolute; bottom: 3px; left: 0; right: 0; height: 18px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='18'%3E%3Cpath d='M0 16 L0 2 L14 2 L14 8 L8 8 L8 14 L20 14 L20 2 L34 2 L34 8 L28 8 L28 14 L40 14 L40 16 Z' fill='none' stroke='%23D4A017' stroke-width='1.2' opacity='0.3'/%3E%3C/svg%3E");
+    background-repeat: repeat-x; background-position: center;
+    pointer-events: none;
+  }
   .gpo-greek-key {
     position: absolute; top: 3px; left: 0; right: 0; height: 18px;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='18'%3E%3Cpath d='M0 16 L0 2 L14 2 L14 8 L8 8 L8 14 L20 14 L20 2 L34 2 L34 8 L28 8 L28 14 L40 14 L40 16 Z' fill='none' stroke='%23D4A017' stroke-width='1.2' opacity='0.3'/%3E%3C/svg%3E");
@@ -1492,11 +1498,12 @@
         </svg>
       </div>
     </div>
-    <div class="gpo-title">Message Sent Successfully</div>
+    <div class="gpo-title">Message Sent Successfully!</div>
     <div class="gpo-divider"></div>
-    <div class="gpo-sub">Thank you for reaching out!<br><br>I will respond within 1–2 business days.<br><br>I look forward to connecting with you!</div>
+    <div class="gpo-sub">Thank you for reaching out.<br><br>I will respond within 1-2 business days.<br><br>I look forward to connecting with you!</div>
     <div class="gpo-divider"></div>
     <div class="gpo-greek-text">Apothena &nbsp;·&nbsp; Αποθενα</div>
+    <div class="gpo-greek-key-bottom"></div>
   </div>
 </div>
 </div>
