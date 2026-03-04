@@ -821,7 +821,6 @@
   
   /* ── GOLD PULSE SUCCESS ANIMATION ── */
 
-  /* Overlay wrapper */
   #gold-pulse-overlay {
     position: fixed; inset: 0; z-index: 9999;
     pointer-events: none; display: none;
@@ -830,7 +829,6 @@
     display: block; pointer-events: auto;
   }
 
-  /* Backdrop */
   @keyframes gpBackdrop {
     0%   { opacity: 0; }
     12%  { opacity: 1; }
@@ -843,7 +841,6 @@
     animation: gpBackdrop 3.6s ease forwards;
   }
 
-  /* Ripple rings */
   @keyframes gpRing {
     0%   { transform: translate(-50%,-50%) scale(0);   opacity: 0.85; }
     100% { transform: translate(-50%,-50%) scale(4.5); opacity: 0; }
@@ -858,10 +855,9 @@
     border: 2px solid rgba(212,160,23,0.8);
     animation: gpRing 1.5s ease-out forwards;
   }
-  .gpo-ring:nth-child(2) { animation-delay: 0.2s;  border-color: rgba(240,192,96,0.55); }
-  .gpo-ring:nth-child(3) { animation-delay: 0.4s;  border-color: rgba(212,160,23,0.35); }
+  .gpo-ring:nth-child(2) { animation-delay: 0.2s; border-color: rgba(240,192,96,0.55); }
+  .gpo-ring:nth-child(3) { animation-delay: 0.4s; border-color: rgba(212,160,23,0.35); }
 
-  /* Card */
   @keyframes gpCard {
     0%   { opacity: 0; transform: translate(-50%,-50%) scale(0.8) translateY(20px); }
     50%  { opacity: 1; transform: translate(-50%,-50%) scale(1.02) translateY(-2px); }
@@ -878,12 +874,10 @@
     text-align: center; overflow: hidden;
     animation: gpCard 3.6s cubic-bezier(0.22,1,0.36,1) forwards;
   }
-  /* Gold top bar */
   .gpo-card::before {
     content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
     background: linear-gradient(90deg, transparent, #D4A017 35%, #F0C060 50%, #D4A017 65%, transparent);
   }
-  /* Shimmer sweep */
   @keyframes gpShimmer {
     0%   { transform: translateX(-130%) skewX(-18deg); }
     100% { transform: translateX(230%)  skewX(-18deg); }
@@ -893,16 +887,12 @@
     background: linear-gradient(105deg, transparent 40%, rgba(212,160,23,0.1) 50%, transparent 60%);
     animation: gpShimmer 1s ease 0.5s forwards;
   }
-
-  /* Greek key strip below top bar */
   .gpo-greek-key {
     position: absolute; top: 3px; left: 0; right: 0; height: 18px;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='18'%3E%3Cpath d='M0 16 L0 2 L14 2 L14 8 L8 8 L8 14 L20 14 L20 2 L34 2 L34 8 L28 8 L28 14 L40 14 L40 16 Z' fill='none' stroke='%23D4A017' stroke-width='1.2' opacity='0.3'/%3E%3C/svg%3E");
     background-repeat: repeat-x; background-position: center;
     pointer-events: none;
   }
-
-  /* Check circle */
   @keyframes gpGlow {
     0%,100% { box-shadow: 0 0 0 0 rgba(212,160,23,0); }
     50%      { box-shadow: 0 0 24px 6px rgba(212,160,23,0.5), 0 0 48px 14px rgba(212,160,23,0.18); }
@@ -916,8 +906,6 @@
     animation: gpGlow 1.5s ease 0.6s 2;
     position: relative; z-index: 1;
   }
-
-  /* Checkmark draw */
   @keyframes gpCheck {
     0%   { stroke-dashoffset: 60; opacity: 0; }
     25%  { opacity: 1; }
@@ -927,8 +915,6 @@
     stroke-dasharray: 60; stroke-dashoffset: 60;
     animation: gpCheck 0.65s cubic-bezier(0.22,1,0.36,1) 0.55s forwards;
   }
-
-  /* Text elements */
   .gpo-title {
     font-family: 'Playfair Display', serif;
     font-size: 1.5rem; font-weight: 600;
@@ -952,8 +938,6 @@
     color: rgba(212,160,23,0.45); letter-spacing: 0.06em;
     position: relative; z-index: 1;
   }
-
-  /* Particles */
   @keyframes gpParticle {
     0%   { opacity: 1; transform: translate(0,0) scale(1); }
     100% { opacity: 0; transform: translate(var(--dx),var(--dy)) scale(0.2); }
@@ -964,7 +948,6 @@
     animation: gpParticle var(--dur) ease-out var(--delay) forwards;
     opacity: 0;
   }
-
   @media (max-width: 480px) {
     .gpo-card { padding: 40px 24px 36px; }
     .gpo-title { font-size: 1.25rem; }
@@ -1298,7 +1281,7 @@
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
             </svg>
           </div>
-          <div class="contact-detail-text"><a href="/cdn-cgi/l/email-protection#0e5c776f6043776b7c7d4e4f7e617a666b606f206d6163" style="color:inherit;text-decoration:none;"><span class="__cf_email__" data-cfemail="2b79524a4566524e59586b6a5b445f434e454a05484446">[email&#160;protected]</span></a></div>
+          <div class="contact-detail-text"><a href="/cdn-cgi/l/email-protection#45173c242b083c2037360504352a312d202b246b262a28" style="color:inherit;text-decoration:none;"><span class="__cf_email__" data-cfemail="7c2e051d123105190e0f3c3d0c13081419121d521f1311">[email&#160;protected]</span></a></div>
         </div>
       </div>
       <div class="contact-right reveal">
@@ -1344,7 +1327,7 @@
     </ul>
   </div>
   <div class="footer-contact-band">
-    <a href="/cdn-cgi/l/email-protection#b5e7ccd4dbf8ccd0c7c6f5f4c5dac1ddd0dbd49bd6dad8" style="font-size:0.75rem;color:rgba(212,160,23,0.75);text-decoration:none;" onmouseover="this.style.color='#F0C060'" onmouseout="this.style.color='rgba(212,160,23,0.75)'"><span class="__cf_email__" data-cfemail="aaf8d3cbc4e7d3cfd8d9eaebdac5dec2cfc4cb84c9c5c7">[email&#160;protected]</span></a>
+    <a href="/cdn-cgi/l/email-protection#22705b434c6f5b4750516263524d564a474c430c414d4f" style="font-size:0.75rem;color:rgba(212,160,23,0.75);text-decoration:none;" onmouseover="this.style.color='#F0C060'" onmouseout="this.style.color='rgba(212,160,23,0.75)'"><span class="__cf_email__" data-cfemail="07557e66694a7e62757447467768736f6269662964686a">[email&#160;protected]</span></a>
     <span style="font-size:0.75rem;color:rgba(212,160,23,0.75);">&nbsp;&nbsp;·&nbsp;&nbsp;<a href="tel:+17202631144" style="color:rgba(212,160,23,0.75);text-decoration:none;" onmouseover="this.style.color='#F0C060'" onmouseout="this.style.color='rgba(212,160,23,0.75)'">(720) 263-1144</a></span>
   </div>
   <div class="footer-bottom">
@@ -1417,7 +1400,18 @@
 
     // Sequence: logo → slogan → greek → CTA
     if (logo)  setTimeout(() => logo.classList.add('visible'),  150);
-    if (h1)    setTimeout(() => h1.classList.add
+    if (h1)    setTimeout(() => h1.classList.add('visible'),  400);
+    if (greek) setTimeout(() => greek.classList.add('visible'),  650);
+    if (cta)   setTimeout(() => cta.classList.add('visible'),    900);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    initReveal();
+    initHeroAnimation();
+  });
+</script>
+</body>
+</html>
 <!-- ── GOLD PULSE SUCCESS OVERLAY ── -->
 <div id="gold-pulse-overlay" aria-live="polite" aria-label="Message sent successfully">
   <div class="gpo-backdrop"></div>
@@ -1461,12 +1455,8 @@
   function showGoldPulse() {
     var overlay = document.getElementById('gold-pulse-overlay');
     if (!overlay) return;
-
-    // Reset — force reflow so animations restart cleanly
     overlay.classList.remove('active');
     void overlay.offsetWidth;
-
-    // Spawn particles
     var pc = document.getElementById('gpo-particles');
     pc.innerHTML = '';
     var colors = ['#D4A017','#F0C060','#B8864E','#FFD97D','#E8B84B'];
@@ -1491,16 +1481,12 @@
       ].join(';');
       pc.appendChild(p);
     }
-
     overlay.classList.add('active');
-
-    // Auto-dismiss after animation ends
     setTimeout(function() {
       overlay.classList.remove('active');
     }, 3700);
   }
 
-  // Click backdrop to dismiss early
   document.addEventListener('click', function(e) {
     if (e.target.classList.contains('gpo-backdrop')) {
       document.getElementById('gold-pulse-overlay').classList.remove('active');
