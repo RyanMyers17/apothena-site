@@ -613,7 +613,7 @@
       padding: 56px 24px !important;
     }
     #services {
-      background: linear-gradient(to bottom,transparent 50%,rgba(8,15,28,0.98) 100%),linear-gradient(to bottom left,transparent 55%,rgba(8,15,28,0.98) 100%),linear-gradient(to right,rgba(8,15,28,0.75) 0%,rgba(8,15,28,0.65) 55%,rgba(8,15,28,0.15) 100%),url('images/asset_03.jpeg') 50% 0%/cover no-repeat !important;
+      background: linear-gradient(to bottom,transparent 50%,rgba(8,15,28,0.98) 100%),linear-gradient(to bottom left,transparent 55%,rgba(8,15,28,0.98) 100%),linear-gradient(to right,rgba(8,15,28,0.75) 0%,rgba(8,15,28,0.65) 55%,rgba(8,15,28,0.15) 100%),url('images/asset_03.jpeg') 100% 77%/cover no-repeat !important;
     }
     #services .reveal[style*="max-width:620px"],
     #services > div > div[style*="max-width:620px"] {
@@ -1254,6 +1254,12 @@
 </footer>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Mobile services owl position
+  if (window.innerWidth <= 768) {
+    var svc = document.getElementById('services');
+    if (svc) svc.style.backgroundPosition = '50% 0%';
+  }
+
   // Nav scroll
   window.addEventListener('scroll', () => {
     document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
