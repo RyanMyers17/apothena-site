@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apothena Career Services</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon_32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon_16.png">
@@ -11,11 +14,10 @@
   <meta property="og:description" content="Personalized career coaching, resume building, LinkedIn optimization, and interview preparation. Illuminating your career path with wisdom.">
   <meta property="og:url" content="https://apothena.com">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="https://apothena.com/images/asset_02.png">
   <meta name="theme-color" content="#0A1220">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Apothena Career Services</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preload" as="image" href="images/asset_01.jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
@@ -215,7 +217,6 @@
     margin: 0 auto;
     padding: 100px 64px;
   }
-  .section-inner
 
   /* ── ABOUT ── */
   .about { background: var(--paper); }
@@ -235,9 +236,9 @@
     align-items: center; justify-content: center;
     gap: 12px;
   }
-  .about-headshot 
 
   
+
   .about-photo-caption .name {
     font-family: 'Playfair Display', serif;
     font-size: 1.1rem;
@@ -791,11 +792,6 @@
   }
 
 
-  @keyframes popIn {
-    0%   { opacity:0; transform:scale(0.92) translateY(16px); }
-    60%  { opacity:1; transform:scale(1.02) translateY(-2px); }
-    100% { opacity:1; transform:scale(1) translateY(0); }
-  }
   .proverb-popin {
     opacity:0;
     transform: translateY(14px);
@@ -1036,6 +1032,7 @@
 </nav>
 
 <!-- ── HERO ── -->
+<main id="main-content">
 <section class="hero" id="hero" style="background:linear-gradient(rgba(8,15,28,0.44),rgba(8,15,28,0.44)),url('images/asset_01.jpeg');background-size:cover;background-position:center;">
   <div class="hero-body">
     <div class="hero-left">
@@ -1350,22 +1347,22 @@
         </div>
       </div>
       <div class="contact-right reveal">
-        <form class="contact-form" onsubmit="return false;">
+        <form class="contact-form">
           <div class="form-group">
             <label for="name">Name <span style="color:var(--amber);">*</span></label>
-            <input type="text" id="name" required>
+            <input type="text" id="name" name="name" required>
           </div>
           <div class="form-group">
             <label for="email">Email <span style="color:var(--amber);">*</span></label>
-            <input type="email" id="email" required>
+            <input type="email" id="email" name="email" required>
           </div>
           <div class="form-group">
             <label for="phone">Phone</label>
-            <input type="tel" id="phone">
+            <input type="tel" id="phone" name="phone">
           </div>
           <div class="form-group">
             <label for="message">Message <span style="color:var(--amber);">*</span></label>
-            <textarea id="message" rows="5" required></textarea>
+            <textarea id="message" name="message" rows="5" required></textarea>
           </div>
           <button type="submit" class="btn-primary" style="width:100%;border:none;cursor:pointer;">Send Message</button>
         </form>
@@ -1375,6 +1372,8 @@
 </section>
 
 <div class="greek-key-top"></div>
+
+</main>
 
 <!-- ── FOOTER ── -->
 <footer style="background-image:linear-gradient(rgba(8,15,28,0.44),rgba(8,15,28,0.44)),url('images/asset_29.jpeg');background-size:cover;background-position:center;">
@@ -1397,7 +1396,7 @@
   </div>
   <div class="footer-bottom">
     <div style="display:flex;flex-direction:column;gap:4px;">
-      <span class="footer-copy">&copy; 2025 Apothena Career Services by Ryan Myers. All rights reserved.</span>
+      <span class="footer-copy">&copy; <span id="footer-year"></span> Apothena Career Services by Ryan Myers. All rights reserved.</span>
     </div>
     <span class="footer-greek" style="font-family:'Playfair Display',serif;font-size:0.75rem;color:rgba(212,160,23,0.45);letter-spacing:0.06em;align-self:flex-end;">Apothena &nbsp;&middot;&nbsp; Αποθενα</span>
   </div>
@@ -1473,6 +1472,9 @@
   document.addEventListener('DOMContentLoaded', () => {
     initReveal();
     initHeroAnimation();
+    // Dynamic copyright year
+    var yearEl = document.getElementById('footer-year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
   });
 </script>
 
@@ -1524,8 +1526,23 @@
     var message = document.getElementById('message');
     if (!name || !email || !message) return;
     if (!name.value.trim() || !email.value.trim() || !message.value.trim()) return;
-    showGoldPulse();
-    form.reset();
+
+    var btn = form.querySelector('button[type="submit"]');
+    if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+
+    fetch('https://formspree.io/f/xojngogp', {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(function(res) {
+      if (res.ok) { showGoldPulse(); form.reset(); }
+      else { alert('Something went wrong. Please try again.'); }
+    })
+    .catch(function() { alert('Network error. Please try again.'); })
+    .finally(function() {
+      if (btn) { btn.disabled = false; btn.textContent = 'Send Message'; }
+    });
   });
 
   function showGoldPulse() {
