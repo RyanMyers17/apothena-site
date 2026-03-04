@@ -853,9 +853,9 @@
   .gpo-ring:nth-child(3) { animation-delay: 0.4s; border-color: rgba(212,160,23,0.35); }
 
   @keyframes gpCard {
-    0%   { opacity: 0; transform: translate(-50%,-50%) scale(0.8) translateY(20px); }
-    50%  { opacity: 1; transform: translate(-50%,-50%) scale(1.02) translateY(-2px); }
-    100% { opacity: 1; transform: translate(-50%,-50%) scale(1) translateY(0); }
+    0%   { opacity: 0; transform: translateY(20px) scale(0.8); }
+    50%  { opacity: 1; transform: translateY(-2px) scale(1.02); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
   }
   @keyframes gpBackdropStay {
     0%   { opacity: 0; }
@@ -863,8 +863,8 @@
     100% { opacity: 1; }
   }
   .gpo-card {
-    position: absolute; top: 50%; left: 50%;
-    width: min(420px, 88vw);
+    position: relative;
+    width: 100%;
     background: linear-gradient(158deg, #0d1e33 0%, #0a1525 100%);
     border: 1px solid rgba(212,160,23,0.45);
     padding: 52px 40px 44px;
@@ -873,23 +873,41 @@
     animation-fill-mode: forwards;
     animation-play-state: running;
   }
-  /* X close button */
+  /* Wrapper that allows close btn to escape card overflow */
+  .gpo-card-wrap {
+    position: absolute; top: 50%; left: 50%;
+    width: min(420px, 88vw);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+  .gpo-card-wrap .gpo-close {
+    pointer-events: auto;
+  }
+  /* Close button — floats above and outside the card, top-right corner */
   .gpo-close {
-    position: absolute; top: 14px; right: 16px;
-    width: 32px; height: 32px;
-    background: none; border: 1px solid rgba(212,160,23,0.35);
-    color: rgba(212,160,23,0.7);
-    font-size: 1.2rem; line-height: 1;
-    cursor: pointer; z-index: 10;
+    position: absolute;
+    top: -18px; right: -18px;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1a3a5c, #0d1e33);
+    border: 1.5px solid rgba(212,160,23,0.7);
+    cursor: pointer; z-index: 20;
     display: flex; align-items: center; justify-content: center;
-    transition: border-color 0.2s, color 0.2s, background 0.2s;
-    font-family: 'Lato', sans-serif; font-weight: 300;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    box-shadow: 0 0 10px rgba(212,160,23,0.2);
+    padding: 0;
   }
   .gpo-close:hover {
-    border-color: var(--amber);
-    color: var(--amber-light);
-    background: rgba(212,160,23,0.08);
+    border-color: #F0C060;
+    box-shadow: 0 0 18px rgba(212,160,23,0.45);
+    transform: scale(1.1) rotate(90deg);
   }
+  .gpo-close svg {
+    width: 14px; height: 14px;
+    stroke: rgba(212,160,23,0.85);
+    transition: stroke 0.2s;
+  }
+  .gpo-close:hover svg { stroke: #F0C060; }
   .gpo-card::before {
     content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
     background: linear-gradient(90deg, transparent, #D4A017 35%, #F0C060 50%, #D4A017 65%, transparent);
@@ -1443,8 +1461,14 @@
     <div class="gpo-ring"></div>
   </div>
   <div class="gpo-particles" id="gpo-particles"></div>
+  <div class="gpo-card-wrap">
+  <button class="gpo-close" id="gpo-close" aria-label="Close">
+    <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="2" y1="2" x2="12" y2="12" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="12" y1="2" x2="2" y2="12" stroke-width="1.8" stroke-linecap="round"/>
+    </svg>
+  </button>
   <div class="gpo-card">
-    <button class="gpo-close" id="gpo-close" aria-label="Close">&times;</button>
     <div class="gpo-greek-key"></div>
     <img src="images/asset_31.png" alt="" class="gpo-icon">
     <div class="gpo-circle">
@@ -1459,6 +1483,7 @@
     <div class="gpo-divider"></div>
     <div class="gpo-greek-text">Apothena &nbsp;·&nbsp; Αποθενα</div>
   </div>
+</div>
 </div>
 <script>
 (function() {
