@@ -1165,7 +1165,7 @@
             <label for="message">Message <span style="color:var(--amber);">*</span></label>
             <textarea id="message" rows="5" required></textarea>
           </div>
-          <button type="submit" class="btn-primary reveal" style="width:100%;border:none;cursor:pointer;transition-delay:0.4s;">Send Message</button>
+          <button type="submit" class="btn-primary" style="width:100%;border:none;cursor:pointer;">Send Message</button>
         </form>
       </div>
     </div>
@@ -1240,7 +1240,7 @@
         el.classList.add('visible');
         observer.unobserve(el);
       });
-    }, { root: null, rootMargin: '0px', threshold: 0.05 });
+    }, { root: null, rootMargin: '0px 0px 100px 0px', threshold: 0.05 });
 
     reveals.forEach(el => {
       const rect = el.getBoundingClientRect();
