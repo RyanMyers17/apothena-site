@@ -173,6 +173,8 @@
     gap: 0;
   }
   
+  .mobile-br { display: none; }
+
   .btn-primary {
     font-size: 0.72rem;
     font-weight: 700;
@@ -537,7 +539,7 @@
     /* Mobile order: 1=logo, 2=slogan, 3=greek, 4=CTA */
     .hero-left {
       order: 1;
-      padding: 72px 24px 16px;
+      padding: 72px 24px 36px;
       display: flex;
       justify-content: center;
     }
@@ -551,14 +553,18 @@
     .hero-right .hero-h1 {
       order: 1;
     }
+    .mobile-br { display: inline !important; }
     #greek-container {
       order: 2;
       margin-bottom: 24px !important;
     }
     .hero-right .btn-primary {
       order: 3;
-      align-self: flex-start;
+      align-self: center;
       margin-top: 0;
+      white-space: nowrap;
+      font-size: 0.6rem;
+      padding: 12px 20px;
     }
     .hero-img-wrap {
       max-width: 92vw;
@@ -1047,7 +1053,7 @@
       </div>
     </div>
     <div class="hero-right">
-      <h1 class="hero-h1 reveal" data-delay="0.4" style="transition-delay:0.4s; text-align:center;"><span id="illum-span">Illuminating Your</span> Career Path<br>With Wisdom</h1>
+      <h1 class="hero-h1 reveal" data-delay="0.4" style="transition-delay:0.4s; text-align:center;"><span id="illum-span">Illuminating Your</span><br class="mobile-br"> Career Path<br>With Wisdom</h1>
       <div id="greek-container" class="reveal" style="margin-top:6px;margin-bottom:36px;overflow:hidden; text-align:center;">
     <p id="greek-p" style="font-family:'Playfair Display',serif;font-style:italic;font-size:1rem;color:rgba(255,255,255,0.45);line-height:1.5;white-space:nowrap;display:inline-block;">Φωτίζοντας την επαγγελματική σας πορεία με σοφία</p>
   </div>
