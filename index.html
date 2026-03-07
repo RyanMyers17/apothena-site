@@ -1047,45 +1047,44 @@
     <div class="hero-right">
       <h1 class="hero-h1 reveal" data-delay="0.4" style="transition-delay:0.4s; text-align:center;"><span id="illum-span">Illuminating Your</span> Career Path<br>With Wisdom</h1>
       <div id="greek-container" class="reveal" style="margin-top:6px;margin-bottom:36px;overflow:hidden; text-align:center;">
-    <p id="greek-p" style="font-family:'Playfair Display',serif;font-style:italic;font-size:1rem;color:rgba(255,255,255,0.45);line-height:1.5;white-space:nowrap;display:inline-block;">Φωτίζοντας την επαγγελματική σας πορεία με σοφία</p>
+    <p id="greek-p" style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.4rem;color:rgba(255,255,255,0.45);line-height:1.5;white-space:nowrap;display:inline-block;">Φωτίζοντας την επαγγελματική σας πορεία με σοφία</p>
   </div>
   <script>
   (function() {
     function fitGreek() {
-      var span = document.getElementById('illum-span');
+      var h1 = document.querySelector('.hero-h1');
       var container = document.getElementById('greek-container');
       var p = document.getElementById('greek-p');
-      if (!span || !container || !p) return;
+      if (!h1 || !container || !p) return;
 
-      // Get the exact rendered width of "Illuminating Your"
-      var targetWidth = span.getBoundingClientRect().width;
+      // Target width = full rendered width of the h1 element
+      // This spans from "I" of Illuminating to "h" of Path (the h1's content width)
+      var targetWidth = h1.getBoundingClientRect().width;
       if (targetWidth < 10) return;
 
-      // Set container to that exact width
+      // Set container to that exact width, centered
       container.style.width = targetWidth + 'px';
       container.style.maxWidth = '100%';
 
-      // Reset font size and measure Greek text width
-      p.style.fontSize = '1rem';
+      // Reset to base font size and measure
+      p.style.fontSize = '1.4rem';
       p.style.transform = 'none';
+      p.style.transformOrigin = 'left center';
 
-      // Scale the Greek text to fit using transform (no reflow, no font loading issues)
+      // Use scrollWidth for accurate unwrapped text width
       var pWidth = p.scrollWidth;
-      if (pWidth > 0) {
+      if (pWidth > 0 && pWidth !== targetWidth) {
         var scale = targetWidth / pWidth;
-        p.style.transformOrigin = 'left center';
         p.style.transform = 'scaleX(' + scale + ')';
       }
     }
 
-    // Run after fonts load
     document.fonts.ready.then(function() {
       fitGreek();
-      // Also use ResizeObserver for live updates
       if (window.ResizeObserver) {
         var ro = new ResizeObserver(fitGreek);
-        var span = document.getElementById('illum-span');
-        if (span) ro.observe(span);
+        var h1 = document.querySelector('.hero-h1');
+        if (h1) ro.observe(h1);
       }
       window.addEventListener('resize', fitGreek);
     });
