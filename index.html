@@ -543,9 +543,10 @@
     }
     .hero-right {
       order: 2;
-      padding: 0 24px 48px;
+      padding: 0 12px 48px;
       display: flex;
       flex-direction: column;
+      width: 100%;
     }
     .hero-right .hero-h1 {
       order: 1;
@@ -560,7 +561,8 @@
       margin-top: 0;
     }
     .hero-img-wrap {
-      max-width: 260px;
+      max-width: 92vw;
+      width: 92vw;
       margin: 0 auto;
     }
     .hero-h1 {
@@ -1047,7 +1049,7 @@
     <div class="hero-right">
       <h1 class="hero-h1 reveal" data-delay="0.4" style="transition-delay:0.4s; text-align:center;"><span id="illum-span">Illuminating Your</span> Career Path<br>With Wisdom</h1>
       <div id="greek-container" class="reveal" style="margin-top:6px;margin-bottom:36px;overflow:hidden; text-align:center;">
-    <p id="greek-p" style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.4rem;color:rgba(255,255,255,0.45);line-height:1.5;white-space:nowrap;display:inline-block;">Φωτίζοντας την επαγγελματική σας πορεία με σοφία</p>
+    <p id="greek-p" style="font-family:'Playfair Display',serif;font-style:italic;font-size:1rem;color:rgba(255,255,255,0.45);line-height:1.5;white-space:nowrap;display:inline-block;">Φωτίζοντας την επαγγελματική σας πορεία με σοφία</p>
   </div>
   <script>
   (function() {
@@ -1057,26 +1059,27 @@
       var p = document.getElementById('greek-p');
       if (!h1 || !container || !p) return;
 
-      // Target width = full rendered width of the h1 element
-      // This spans from "I" of Illuminating to "h" of Path (the h1's content width)
+      // Target: full rendered width of h1 (from "I" of Illuminating to "h" of Path)
       var targetWidth = h1.getBoundingClientRect().width;
       if (targetWidth < 10) return;
 
-      // Set container to that exact width, centered
       container.style.width = targetWidth + 'px';
       container.style.maxWidth = '100%';
 
-      // Reset to base font size and measure
-      p.style.fontSize = '1.4rem';
+      // Use font-size scaling (not scaleX) so text grows proportionally
       p.style.transform = 'none';
-      p.style.transformOrigin = 'left center';
+      p.style.whiteSpace = 'nowrap';
 
-      // Use scrollWidth for accurate unwrapped text width
-      var pWidth = p.scrollWidth;
-      if (pWidth > 0 && pWidth !== targetWidth) {
-        var scale = targetWidth / pWidth;
-        p.style.transform = 'scaleX(' + scale + ')';
+      // Binary search for the font-size that makes p exactly fit targetWidth
+      var lo = 0.4, hi = 6, mid, pWidth;
+      for (var i = 0; i < 24; i++) {
+        mid = (lo + hi) / 2;
+        p.style.fontSize = mid + 'rem';
+        pWidth = p.scrollWidth;
+        if (pWidth < targetWidth) lo = mid;
+        else hi = mid;
       }
+      p.style.fontSize = lo + 'rem';
     }
 
     document.fonts.ready.then(function() {
