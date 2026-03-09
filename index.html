@@ -591,8 +591,8 @@
       padding: 56px 24px !important;
     }
 
-    #services .reveal[style*="max-width:620px"],
-    #services > div > div[style*="max-width:620px"] {
+    .services-grid {
+      grid-template-columns: 1fr !important;
       max-width: 100% !important;
     }
     #services h2 {
@@ -1108,12 +1108,12 @@
 <div class="greek-key-top"></div>
 
 <!-- ── SERVICES ── -->
-<section class="services" id="services" style="position:relative;overflow:visible;background:linear-gradient(to bottom,transparent 50%,rgba(8,15,28,0.98) 100%),linear-gradient(to bottom left,transparent 55%,rgba(8,15,28,0.98) 100%),linear-gradient(to right,rgba(8,15,28,0.75) 0%,rgba(8,15,28,0.65) 55%,rgba(8,15,28,0.15) 100%),url('images/asset_03.jpeg') 50% -180px/cover no-repeat;">
+<section class="services" id="services" style="position:relative;overflow:visible;background:linear-gradient(to bottom,transparent 50%,rgba(8,15,28,0.98) 100%),linear-gradient(to bottom left,transparent 55%,rgba(8,15,28,0.98) 100%),linear-gradient(to right,rgba(8,15,28,0.75) 0%,rgba(8,15,28,0.65) 55%,rgba(8,15,28,0.15) 100%),url('images/asset_03.jpeg') 50% 0px/cover no-repeat;">
   <div style="position:relative;z-index:1;padding:80px 100px;">
         <h2 class="reveal" style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,2.8vw,2.6rem);color:var(--amber-light);margin-bottom:8px;">Services</h2>
     <p class="reveal" style="font-family:'Playfair Display',serif;font-style:italic;font-size:0.9rem;color:rgba(255,255,255,0.55);margin-bottom:40px;max-width:620px;">Personalized support tailored for you<br>so that you can confidently land your next role</p>
-    <div style="max-width:620px;">
-      <div class="reveal" style="background:linear-gradient(135deg,rgba(10,18,32,0.72) 0%,rgba(15,28,46,0.78) 100%);border:1px solid rgba(212,160,23,0.18);border-left:3px solid rgba(212,160,23,0.55);padding:28px 28px 28px 24px;position:relative;margin-bottom:16px;backdrop-filter:blur(2px);">
+    <div class="services-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:1100px;">
+      <div class="reveal service-card" style="background:linear-gradient(135deg,rgba(10,18,32,0.72) 0%,rgba(15,28,46,0.78) 100%);border:1px solid rgba(212,160,23,0.18);border-left:3px solid rgba(212,160,23,0.55);padding:28px 28px 28px 24px;position:relative;backdrop-filter:blur(2px);">
           <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,rgba(212,160,23,0.45),transparent);"></div>
           <div style="position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,rgba(212,160,23,0.15),transparent);"></div>
           <div style="display:grid;grid-template-columns:60px 1fr;align-items:flex-start;gap:20px;">
@@ -1125,7 +1125,7 @@
               <p style="font-size:0.88rem;font-weight:300;color:rgba(255,255,255,0.75);line-height:1.8;">If you're unsure what's next on your journey or feel pulled in multiple directions, we'll slow things down and create space to clearly define your path. Together, we'll explore your strengths, interests, and goals so you can move forward with confidence and intention.</p>
             </div>
           </div>
-        </div><div class="reveal" style="background:linear-gradient(135deg,rgba(10,18,32,0.72) 0%,rgba(15,28,46,0.78) 100%);border:1px solid rgba(212,160,23,0.18);border-left:3px solid rgba(212,160,23,0.55);padding:28px 28px 28px 24px;position:relative;margin-bottom:16px;backdrop-filter:blur(2px);">
+        </div><div class="reveal service-card" style="background:linear-gradient(135deg,rgba(10,18,32,0.72) 0%,rgba(15,28,46,0.78) 100%);border:1px solid rgba(212,160,23,0.18);border-left:3px solid rgba(212,160,23,0.55);padding:28px 28px 28px 24px;position:relative;backdrop-filter:blur(2px);">
           <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,rgba(212,160,23,0.45),transparent);"></div>
           <div style="position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,rgba(212,160,23,0.15),transparent);"></div>
           <div style="display:grid;grid-template-columns:60px 1fr;align-items:flex-start;gap:20px;">
@@ -1137,7 +1137,7 @@
               <p style="font-size:0.88rem;font-weight:300;color:rgba(255,255,255,0.75);line-height:1.8;">Together, we'll craft a results-driven resume and LinkedIn profile that clearly communicate your strengths, showing your true potential. We will position your experience in a way that catches recruiter's attention and resonates with hiring managers.</p>
             </div>
           </div>
-        </div><div class="reveal" style="background:linear-gradient(135deg,rgba(10,18,32,0.72) 0%,rgba(15,28,46,0.78) 100%);border:1px solid rgba(212,160,23,0.18);border-left:3px solid rgba(212,160,23,0.55);padding:28px 28px 28px 24px;position:relative;margin-bottom:16px;backdrop-filter:blur(2px);">
+        </div><div class="reveal service-card" style="background:linear-gradient(135deg,rgba(10,18,32,0.72) 0%,rgba(15,28,46,0.78) 100%);border:1px solid rgba(212,160,23,0.18);border-left:3px solid rgba(212,160,23,0.55);padding:28px 28px 28px 24px;position:relative;backdrop-filter:blur(2px);">
           <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,rgba(212,160,23,0.45),transparent);"></div>
           <div style="position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,rgba(212,160,23,0.15),transparent);"></div>
           <div style="display:grid;grid-template-columns:60px 1fr;align-items:flex-start;gap:20px;">
@@ -1149,7 +1149,7 @@
               <p style="font-size:0.88rem;font-weight:300;color:rgba(255,255,255,0.75);line-height:1.8;">Interviews don't have to feel intimidating. We'll prepare together so you feel grounded, confident, and ready to communicate your strengths clearly. From mock interviews to job search strategy, I'll be there to support you every step of the way.</p>
             </div>
           </div>
-        </div><div class="reveal" style="background:linear-gradient(135deg,rgba(10,18,32,0.72) 0%,rgba(15,28,46,0.78) 100%);border:1px solid rgba(212,160,23,0.18);border-left:3px solid rgba(212,160,23,0.55);padding:28px 28px 28px 24px;position:relative;margin-bottom:16px;backdrop-filter:blur(2px);">
+        </div><div class="reveal service-card" style="background:linear-gradient(135deg,rgba(10,18,32,0.72) 0%,rgba(15,28,46,0.78) 100%);border:1px solid rgba(212,160,23,0.18);border-left:3px solid rgba(212,160,23,0.55);padding:28px 28px 28px 24px;position:relative;backdrop-filter:blur(2px);">
           <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,rgba(212,160,23,0.45),transparent);"></div>
           <div style="position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,rgba(212,160,23,0.15),transparent);"></div>
           <div style="display:grid;grid-template-columns:60px 1fr;align-items:flex-start;gap:20px;">
