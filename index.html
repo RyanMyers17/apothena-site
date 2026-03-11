@@ -598,10 +598,6 @@
     #services h2 {
       font-size: clamp(1.6rem, 5vw, 2rem) !important;
     }
-    /* Mobile: reset services background to center */
-    #services {
-      background-position: 50% -180px !important;
-    }
     /* Mobile: show owl eyes, with overlay gradient */
     section
 
@@ -1373,7 +1369,8 @@
         </div>
       </div>
       <div class="contact-right reveal">
-        <form class="contact-form" onsubmit="return false;">
+        <form class="contact-form">
+          <input type="hidden" name="_subject" id="_subject" value="New Contact Form Submission">
           <div class="form-group">
             <label for="name">Name <span style="color:var(--amber);">*</span></label>
             <input type="text" id="name" name="name" required>
@@ -1556,6 +1553,14 @@
     var btn = form.querySelector('button[type="submit"]');
     if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
 
+    // Set a unique subject so each submission gets its own email thread
+    var subjectField = document.getElementById('_subject');
+    if (subjectField) {
+      var nameVal = (name.value.trim() || 'Unknown').split(' ')[0];
+      var timestamp = new Date().toISOString().replace('T', ' ').slice(0, 16);
+      subjectField.value = 'New Inquiry from ' + nameVal + ' \u2014 ' + timestamp;
+    }
+
     fetch('https://formspree.io/f/xojngogp', {
       method: 'POST',
       body: new FormData(form),
@@ -1606,22 +1611,4 @@
     if (icon) { icon.classList.remove('fading'); void icon.offsetWidth; icon.classList.add('fading'); }
   }
 
-  function dismissGoldPulse() {
-    var overlay = document.getElementById('gold-pulse-overlay');
-    if (!overlay) return;
-    overlay.classList.remove('active');
-  }
-
-  // Close on backdrop click or close button
-  var overlay = document.getElementById('gold-pulse-overlay');
-  if (overlay) {
-    overlay.addEventListener('click', function(e) {
-      if (e.target === overlay || e.target.closest('.gpo-close')) {
-        dismissGoldPulse();
-      }
-    });
-  }
-})();
-</script>
-</body>
-</html>
+  function 
