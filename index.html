@@ -96,31 +96,147 @@
     text-decoration: none;
   }
   .nav-links {
-    display: flex; align-items: center; gap: 40px;
+    display: flex; align-items: center; gap: 24px;
     list-style: none;
     margin-left: auto;
-    padding-left: 75px;
+    padding-left: 40px;
   }
   .nav-links a {
-    font-size: 0.72rem;
+    font-size: 0.68rem;
     font-weight: 700;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.13em;
     text-transform: uppercase;
     color: var(--amber-light);
     transition: color 0.2s;
   }
-  .nav-links a:hover { color: var(--amber-light); }
+  .nav-links a:hover { color: var(--white); }
+  .nav-links button.nav-plain {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--amber-light);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  .nav-links button.nav-plain:hover { color: var(--white); }
   .nav-links .nav-contact {
-    padding: 9px 22px;
+    padding: 8px 18px;
     border: 1px solid rgba(212,160,23,0.6);
     color: var(--amber-light);
     transition: all 0.25s;
+    white-space: nowrap;
   }
   .nav-links .nav-contact:hover {
     background: var(--amber);
     border-color: var(--amber);
     color: var(--white);
   }
+
+  /* ── PASSWORD MODAL ── */
+  #pw-modal-overlay {
+    position: fixed; inset: 0; z-index: 9000;
+    background: rgba(8,15,28,0.82);
+    display: none; align-items: center; justify-content: center;
+    backdrop-filter: blur(3px);
+  }
+  #pw-modal-overlay.active { display: flex; }
+  #pw-modal {
+    position: relative;
+    background: linear-gradient(158deg, #0d1e33 0%, #0a1525 100%);
+    border: 1px solid rgba(212,160,23,0.45);
+    width: min(400px, 90vw);
+    padding: 48px 36px 40px;
+    text-align: center;
+    animation: gpCard 0.45s cubic-bezier(0.22,1,0.36,1) both;
+  }
+  #pw-modal::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, transparent, #D4A017 35%, #F0C060 50%, #D4A017 65%, transparent);
+  }
+  .pw-greek-key {
+    position: absolute; top: 3px; left: 0; right: 0; height: 18px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='18'%3E%3Cpath d='M0 16 L0 2 L14 2 L14 8 L8 8 L8 14 L20 14 L20 2 L34 2 L34 8 L28 8 L28 14 L40 14 L40 16 Z' fill='none' stroke='%23D4A017' stroke-width='1.2' opacity='0.3'/%3E%3C/svg%3E");
+    background-repeat: repeat-x; background-position: center;
+    pointer-events: none;
+  }
+  #pw-modal h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem; font-weight: 600;
+    color: var(--amber-light);
+    margin-bottom: 8px;
+  }
+  #pw-modal p {
+    font-size: 0.8rem; font-weight: 300;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 28px;
+    letter-spacing: 0.04em;
+  }
+  #pw-input {
+    width: 100%;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: var(--white);
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(212,160,23,0.35);
+    padding: 11px 16px;
+    outline: none;
+    text-align: center;
+    letter-spacing: 0.12em;
+    transition: border-color 0.2s;
+    margin-bottom: 16px;
+  }
+  #pw-input:focus { border-color: var(--amber); }
+  #pw-submit {
+    width: 100%;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 12px 24px;
+    background: var(--amber);
+    color: var(--white);
+    border: 2px solid var(--amber);
+    cursor: pointer;
+    transition: all 0.25s;
+  }
+  #pw-submit:hover {
+    background: var(--amber-light);
+    border-color: var(--amber-light);
+  }
+  #pw-error {
+    font-size: 0.72rem;
+    color: #e05555;
+    margin-top: 12px;
+    min-height: 1.1em;
+    letter-spacing: 0.06em;
+    transition: opacity 0.2s;
+  }
+  #pw-close {
+    position: absolute; top: -16px; right: -16px;
+    width: 34px; height: 34px; border-radius: 50%;
+    background: linear-gradient(135deg, #1a3a5c, #0d1e33);
+    border: 1.5px solid rgba(212,160,23,0.7);
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  #pw-close:hover { border-color: #F0C060; transform: scale(1.1) rotate(90deg); }
+  #pw-close svg { stroke: rgba(212,160,23,0.85); transition: stroke 0.2s; }
+  #pw-close:hover svg { stroke: #F0C060; }
+  @keyframes pwShake {
+    0%,100% { transform: translateX(0); }
+    20%      { transform: translateX(-8px); }
+    40%      { transform: translateX(8px); }
+    60%      { transform: translateX(-6px); }
+    80%      { transform: translateX(6px); }
+  }
+  #pw-modal.shake { animation: pwShake 0.4s ease; }
 
   /* ── HERO ── */
   .hero {
@@ -519,15 +635,21 @@
       height: 56px;
     }
     .nav-links {
-      gap: 12px;
+      gap: 10px;
       padding-left: 0;
     }
     .nav-links a {
-      font-size: 0.58rem;
-      letter-spacing: 0.08em;
+      font-size: 0.54rem;
+      letter-spacing: 0.07em;
+    }
+    .nav-links button.nav-plain {
+      font-size: 0.54rem;
+      letter-spacing: 0.07em;
     }
     .nav-links .nav-contact {
-      padding: 6px 12px;
+      padding: 6px 10px;
+      font-size: 0.54rem;
+      letter-spacing: 0.07em;
     }
 
     /* ── HERO ── */
@@ -659,8 +781,9 @@
     }
     .footer-links {
       flex-direction: row !important;
-      flex-wrap: nowrap;
-      justify-content: space-between;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      gap: 10px 18px;
       width: 100%;
       margin-top: 0 !important;
     }
@@ -735,22 +858,38 @@
 
   @media (max-width: 480px) {
 
-    /* ── NAV — show all links on mobile ── */
+    /* ── NAV — mobile wrap ── */
     nav {
       padding: 0 12px;
       height: auto;
       min-height: 56px;
       flex-wrap: wrap;
-      gap: 6px;
+      gap: 0;
+      align-items: center;
+      padding-top: 8px;
+      padding-bottom: 8px;
+    }
+    .nav-logo {
+      flex: 0 0 auto;
     }
     .nav-links {
-      gap: 8px;
+      gap: 6px 10px;
       flex-wrap: wrap;
       justify-content: flex-end;
+      flex: 1;
     }
     .nav-links a {
-      font-size: 0.52rem;
-      letter-spacing: 0.06em;
+      font-size: 0.48rem;
+      letter-spacing: 0.05em;
+    }
+    .nav-links button.nav-plain {
+      font-size: 0.48rem;
+      letter-spacing: 0.05em;
+    }
+    .nav-links .nav-contact {
+      padding: 5px 9px;
+      font-size: 0.48rem;
+      letter-spacing: 0.05em;
     }
 
     /* ── HERO ── */
@@ -1039,6 +1178,8 @@
     <li><a href="#services">Services</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#contact">Contact</a></li>
+    <li><button class="nav-plain" onclick="openPwModal()">Assessments</button></li>
+    <li><a href="https://job-coach-krrrq8rhx-ryanmyers-6940s-projects.vercel.app/" target="_blank" rel="noopener">Job Board</a></li>
     <li><a href="#booking" class="nav-contact">Book a Call</a></li>
   </ul>
 </nav>
@@ -1409,8 +1550,10 @@
     <ul class="footer-links reveal">
       <li><a href="#services">Services</a></li>
       <li><a href="#about">About</a></li>
-      <li><a href="#booking">Book a Call</a></li>
       <li><a href="#contact">Contact</a></li>
+      <li><a href="assessments.html">Assessments</a></li>
+      <li><a href="https://job-coach-krrrq8rhx-ryanmyers-6940s-projects.vercel.app/" target="_blank" rel="noopener">Job Board</a></li>
+      <li><a href="#booking">Book a Call</a></li>
     </ul>
   </div>
   <div class="footer-contact-band">
@@ -1611,4 +1754,84 @@
     if (icon) { icon.classList.remove('fading'); void icon.offsetWidth; icon.classList.add('fading'); }
   }
 
-  function 
+  function closeGoldPulse() {
+    var overlay = document.getElementById('gold-pulse-overlay');
+    if (overlay) { overlay.classList.remove('active'); }
+  }
+})();
+</script>
+
+<!-- ── PASSWORD MODAL ── -->
+<div id="pw-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="pw-modal-title">
+  <div id="pw-modal">
+    <div class="pw-greek-key"></div>
+    <button id="pw-close" aria-label="Close" onclick="closePwModal()">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke-width="1.8" stroke-linecap="round">
+        <line x1="2" y1="2" x2="10" y2="10"/><line x1="10" y1="2" x2="2" y2="10"/>
+      </svg>
+    </button>
+    <h3 id="pw-modal-title">Assessments</h3>
+    <p>This area is for authorized staff only.<br>Please enter your access code to continue.</p>
+    <input type="password" id="pw-input" placeholder="Enter password" autocomplete="current-password" onkeydown="if(event.key==='Enter')submitPw()">
+    <button id="pw-submit" onclick="submitPw()">Enter</button>
+    <div id="pw-error" aria-live="polite"></div>
+  </div>
+</div>
+
+<script>
+(function() {
+  function openPwModal() {
+    var overlay = document.getElementById('pw-modal-overlay');
+    var input   = document.getElementById('pw-input');
+    var err     = document.getElementById('pw-error');
+    if (!overlay) return;
+    err.textContent = '';
+    if (input) { input.value = ''; }
+    overlay.classList.add('active');
+    setTimeout(function() { if (input) input.focus(); }, 80);
+  }
+
+  function closePwModal() {
+    var overlay = document.getElementById('pw-modal-overlay');
+    if (overlay) overlay.classList.remove('active');
+  }
+
+  function submitPw() {
+    var input = document.getElementById('pw-input');
+    var err   = document.getElementById('pw-error');
+    var modal = document.getElementById('pw-modal');
+    if (!input || !err || !modal) return;
+    var val = input.value;
+    if (val === 'Glaux3000') {
+      closePwModal();
+      window.location.href = 'assessments.html';
+    } else {
+      err.textContent = 'Incorrect password. Please try again.';
+      input.value = '';
+      modal.classList.remove('shake');
+      void modal.offsetWidth;
+      modal.classList.add('shake');
+      setTimeout(function() { modal.classList.remove('shake'); }, 420);
+      input.focus();
+    }
+  }
+
+  // Close on backdrop click
+  document.getElementById('pw-modal-overlay').addEventListener('click', function(e) {
+    if (e.target === this) closePwModal();
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closePwModal();
+  });
+
+  // Expose to global scope for inline onclick handlers
+  window.openPwModal  = openPwModal;
+  window.closePwModal = closePwModal;
+  window.submitPw     = submitPw;
+})();
+</script>
+
+</body>
+</html>
