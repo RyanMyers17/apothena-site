@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assessments — Apothena Career Services</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon_32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon_16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+
+  /* ── TOKENS ── */
+  :root {
+    --ink:        #1A2E44;
+    --ink-soft:   #3A5068;
+    --ink-faint:  #7A96AA;
+    --paper:      #FFFFFF;
+    --paper-warm: #F0F6FF;
+    --stone:      #1A4B7A;
+    --stone-mid:  #1E5A96;
+    --amber:      #D4A017;
+    --amber-light:#F0C060;
+    --amber-pale: #FDF3D0;
+    --white:      #FFFFFF;
+    --rule:       rgba(212,160,23,0.35);
+  }
+
+  /* ── RESET ── */
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; font-size: 16px; }
+  body {
+    font-family: 'Lato', sans-serif;
+    background: #080f1c;
+    color: var(--white);
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  img { display: block; max-width: 100%; }
+  a { text-decoration: none; color: inherit; }
+
+  /* ── GREEK KEY ── */
+  .greek-key-top {
+    width: 100%;
+    height: 18px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='18'%3E%3Cpath d='M0 16 L0 2 L14 2 L14 8 L8 8 L8 14 L20 14 L20 2 L34 2 L34 8 L28 8 L28 14 L40 14 L40 16 Z' fill='none' stroke='%23D4A017' stroke-width='1.2' opacity='0.45'/%3E%3C/svg%3E");
+    background-repeat: repeat-x;
+    background-position: center;
+  }
+
+  /* ── TYPOGRAPHY ── */
+  h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  .label {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--amber);
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky; top: 0; left: 0; right: 0;
+    z-index: 200;
+    background: #1A4B7A;
+    border-bottom: 1px solid rgba(212,160,23,0.2);
+    padding: 0 80px;
+    height: 68px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--amber-light);
+    text-decoration: none;
+  }
+  .nav-links {
+    display: flex; align-items: center; gap: 24px;
+    list-style: none;
+    margin-left: auto;
+    padding-left: 40px;
+  }
+  .nav-links a, .nav-links button.nav-plain {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--amber-light);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover,
+  .nav-links button.nav-plain:hover { color: var(--white); }
+  .nav-links .nav-contact {
+    padding: 8px 18px;
+    border: 1px solid rgba(212,160,23,0.6);
+    color: var(--amber-light);
+    transition: all 0.25s;
+    white-space: nowrap;
+  }
+  .nav-links .nav-contact:hover {
+    background: var(--amber);
+    border-color: var(--amber);
+    color: var(--white);
+  }
+  /* Current page highlight */
+  .nav-links .nav-current {
+    color: var(--white);
+    border-bottom: 1px solid rgba(212,160,23,0.6);
+    padding-bottom: 2px;
+  }
+
+  /* ── MAIN CONTENT ── */
+  main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── PAGE HERO BAND ── */
+  .page-hero {
+    background: linear-gradient(135deg, #0a1220 0%, #0d1e33 60%, #0a1525 100%);
+    border-bottom: 1px solid rgba(212,160,23,0.15);
+    padding: 72px 80px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 100% at 50% 100%, rgba(212,160,23,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .page-hero .label {
+    margin-bottom: 16px;
+    display: block;
+  }
+  .page-hero h1 {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+  .page-hero h1 em {
+    font-style: italic;
+    color: var(--amber-light);
+  }
+  .page-hero p {
+    font-size: 1rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.5);
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.8;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+  }
+
+  /* ── CARDS SECTION ── */
+  .cards-section {
+    flex: 1;
+    padding: 72px 80px 80px;
+    background: linear-gradient(to bottom, #0d1e33 0%, #080f1c 100%);
+  }
+  .cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* ── ASSESSMENT CARD ── */
+  .assess-card {
+    position: relative;
+    background: linear-gradient(155deg, rgba(10,18,32,0.9) 0%, rgba(15,28,46,0.95) 100%);
+    border: 1px solid rgba(212,160,23,0.22);
+    border-left: 3px solid rgba(212,160,23,0.6);
+    padding: 44px 36px 40px;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    backdrop-filter: blur(2px);
+    /* Reveal animation start state */
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  .assess-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, rgba(212,160,23,0.5), transparent);
+  }
+  .assess-card::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, rgba(212,160,23,0.18), transparent);
+  }
+  .assess-card:hover {
+    border-color: rgba(212,160,23,0.5);
+    border-left-color: var(--amber);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.4), 0 0 0 1px rgba(212,160,23,0.1);
+  }
+  .assess-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.9s cubic-bezier(0.22,1,0.36,1),
+                transform 0.9s cubic-bezier(0.22,1,0.36,1),
+                border-color 0.3s,
+                box-shadow 0.3s;
+  }
+  /* Stagger second card */
+  .assess-card:nth-child(2) {
+    transition-delay: 0.18s;
+  }
+
+  .card-icon {
+    width: 52px; height: 52px;
+    border: 1px solid rgba(212,160,23,0.35);
+    background: rgba(212,160,23,0.06);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .card-icon svg {
+    width: 26px; height: 26px;
+    stroke: var(--amber);
+    fill: none;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .card-label {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 6px;
+  }
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.25;
+    margin-bottom: 12px;
+  }
+  .card-desc {
+    font-size: 0.88rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.8;
+  }
+  .card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 8px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--amber-light);
+    transition: gap 0.25s, color 0.25s;
+  }
+  .assess-card:hover .card-cta {
+    gap: 14px;
+    color: var(--white);
+  }
+  .card-cta svg {
+    width: 14px; height: 14px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+  }
+  .card-divider {
+    width: 40px; height: 1px;
+    background: linear-gradient(90deg, rgba(212,160,23,0.5), transparent);
+    margin: 4px 0;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    padding: 52px 80px 36px;
+    background-image: linear-gradient(rgba(8,15,28,0.7), rgba(8,15,28,0.7)), url('images/asset_29.jpeg');
+    background-size: cover;
+    background-position: center;
+  }
+  .footer-top {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    padding-bottom: 32px;
+  }
+  .footer-brand-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--amber-light);
+    letter-spacing: 0.08em;
+    margin-bottom: 6px;
+  }
+  .footer-tagline-text {
+    font-size: 0.82rem;
+    font-style: italic;
+    color: rgba(255,255,255,0.35);
+    font-family: 'Playfair Display', serif;
+  }
+  .footer-greek-sub {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.25);
+    margin-top: 4px;
+  }
+  .footer-links {
+    display: flex; gap: 28px; list-style: none;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  .footer-links a,
+  .footer-links button.footer-btn-plain {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(212,160,23,0.75);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover,
+  .footer-links button.footer-btn-plain:hover { color: var(--amber-light); }
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .footer-copy {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.25);
+  }
+  .footer-greek {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.75rem;
+    font-style: italic;
+    color: rgba(212,160,23,0.45);
+    letter-spacing: 0.06em;
+  }
+
+  /* ── GOLD PULSE ANIMATION ── (identical to main site) ── */
+  #gold-pulse-overlay {
+    position: fixed; inset: 0; z-index: 9999;
+    pointer-events: none; display: none;
+  }
+  #gold-pulse-overlay.active {
+    display: block; pointer-events: auto;
+  }
+  .gpo-backdrop {
+    position: absolute; inset: 0;
+    background: rgba(8,15,28,0.75);
+    animation: gpBackdropStay 0.42s ease forwards;
+  }
+  @keyframes gpRing {
+    0%   { transform: translate(-50%,-50%) scale(0);   opacity: 0.85; }
+    100% { transform: translate(-50%,-50%) scale(4.5); opacity: 0; }
+  }
+  .gpo-ripples {
+    position: absolute; top: 50%; left: 50%; width: 0; height: 0;
+    pointer-events: none;
+  }
+  .gpo-ring {
+    position: absolute; top: 50%; left: 50%;
+    width: 180px; height: 180px; border-radius: 50%;
+    border: 2px solid rgba(212,160,23,0.8);
+    animation: gpRing 1.575s ease-out forwards;
+  }
+  .gpo-ring:nth-child(2) { animation-delay: 0.2s; border-color: rgba(240,192,96,0.55); }
+  .gpo-ring:nth-child(3) { animation-delay: 0.4s; border-color: rgba(212,160,23,0.35); }
+  @keyframes gpCard {
+    0%   { opacity: 0; transform: translateY(20px) scale(0.8); }
+    50%  { opacity: 1; transform: translateY(-2px) scale(1.02); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  @keyframes gpBackdropStay {
+    0%   { opacity: 0; }
+    12%  { opacity: 1; }
+    100% { opacity: 1; }
+  }
+  .gpo-card {
+    position: relative;
+    width: 100%;
+    background: linear-gradient(158deg, #0d1e33 0%, #0a1525 100%);
+    border: 1px solid rgba(212,160,23,0.45);
+    padding: 52px 40px 44px;
+    text-align: center; overflow: hidden;
+    animation: gpCard 0.84s cubic-bezier(0.22,1,0.36,1) forwards;
+  }
+  .gpo-card-wrap {
+    position: absolute; top: 50%; left: 50%;
+    width: min(420px, 88vw);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+  .gpo-card-wrap .gpo-close { pointer-events: auto; }
+  .gpo-close {
+    position: absolute; top: -18px; right: -18px;
+    width: 36px; height: 36px; border-radius: 50%;
+    background: linear-gradient(135deg, #1a3a5c, #0d1e33);
+    border: 1.5px solid rgba(212,160,23,0.7);
+    cursor: pointer; z-index: 20;
+    display: flex; align-items: center; justify-content: center;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    box-shadow: 0 0 10px rgba(212,160,23,0.2);
+    padding: 0;
+  }
+  .gpo-close:hover {
+    border-color: #F0C060;
+    box-shadow: 0 0 18px rgba(212,160,23,0.45);
+    transform: scale(1.1) rotate(90deg);
+  }
+  .gpo-close svg {
+    width: 14px; height: 14px;
+    stroke: rgba(212,160,23,0.85);
+    transition: stroke 0.2s;
+  }
+  .gpo-close:hover svg { stroke: #F0C060; }
+  .gpo-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, transparent, #D4A017 35%, #F0C060 50%, #D4A017 65%, transparent);
+  }
+  @keyframes gpShimmer {
+    0%   { transform: translateX(-130%) skewX(-18deg); }
+    100% { transform: translateX(230%)  skewX(-18deg); }
+  }
+  .gpo-card::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(105deg, transparent 40%, rgba(212,160,23,0.08) 50%, transparent 60%);
+    animation: gpShimmer 1.05s ease 0.3s forwards;
+  }
+  .gpo-greek-key-bottom {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 21px;
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='18'%3E%3Cpath d='M0 16 L0 2 L14 2 L14 8 L8 8 L8 14 L20 14 L20 2 L34 2 L34 8 L28 8 L28 14 L40 14 L40 16 Z' fill='none' stroke='%23D4A017' stroke-width='1.2' opacity='0.3'/%3E%3C/svg%3E"),
+      linear-gradient(90deg, transparent, #D4A017 35%, #F0C060 50%, #D4A017 65%, transparent);
+    background-size: 40px 18px, 100% 3px;
+    background-repeat: repeat-x, no-repeat;
+    background-position: top center, bottom;
+    pointer-events: none;
+  }
+  .gpo-greek-key {
+    position: absolute; top: 3px; left: 0; right: 0; height: 18px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='18'%3E%3Cpath d='M0 16 L0 2 L14 2 L14 8 L8 8 L8 14 L20 14 L20 2 L34 2 L34 8 L28 8 L28 14 L40 14 L40 16 Z' fill='none' stroke='%23D4A017' stroke-width='1.2' opacity='0.3'/%3E%3C/svg%3E");
+    background-repeat: repeat-x; background-position: center;
+    pointer-events: none;
+  }
+  @keyframes gpGlow {
+    0%,100% { box-shadow: 0 0 0 0 rgba(212,160,23,0); }
+    50%      { box-shadow: 0 0 24px 6px rgba(212,160,23,0.5), 0 0 48px 14px rgba(212,160,23,0.18); }
+  }
+  .gpo-icon-wrap {
+    position: relative;
+    width: 80px; height: 80px;
+    margin: 0 auto 28px;
+  }
+  .gpo-icon {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%; object-fit: contain;
+    border-radius: 50%; z-index: 1;
+  }
+  @keyframes gpIconFade {
+    0%   { opacity: 1; }
+    60%  { opacity: 1; }
+    100% { opacity: 0; }
+  }
+  .gpo-icon.fading {
+    animation: gpIconFade 0.6825s ease 0.5775s forwards;
+  }
+  .gpo-circle {
+    position: absolute; inset: 0;
+    width: 80px; height: 80px; border-radius: 50%;
+    background: radial-gradient(circle at 40% 35%, rgba(212,160,23,0.16), rgba(212,160,23,0.05));
+    border: 2px solid rgba(212,160,23,0.7);
+    display: flex; align-items: center; justify-content: center;
+    animation: gpGlow 1.575s ease 0.63s 2;
+    z-index: 2;
+  }
+  @keyframes gpCheck {
+    0%   { stroke-dashoffset: 60; opacity: 0; }
+    25%  { opacity: 1; }
+    100% { stroke-dashoffset: 0;  opacity: 1; }
+  }
+  .gpo-checkmark {
+    stroke-dasharray: 60; stroke-dashoffset: 60;
+    animation: gpCheck 0.6825s cubic-bezier(0.22,1,0.36,1) 0.5775s forwards;
+  }
+  .gpo-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; font-weight: 600;
+    color: #F0C060; letter-spacing: 0.04em;
+    margin-bottom: 10px; position: relative; z-index: 1;
+  }
+  .gpo-divider {
+    width: 56px; height: 1px;
+    background: linear-gradient(90deg, transparent, #D4A017, transparent);
+    margin: 18px auto; position: relative; z-index: 1;
+  }
+  .gpo-sub {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.88rem; font-weight: 300;
+    color: rgba(255,255,255,0.65); line-height: 1.65;
+    position: relative; z-index: 1;
+  }
+  .gpo-greek-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic; font-size: 0.72rem;
+    color: rgba(212,160,23,0.45); letter-spacing: 0.06em;
+    position: relative; z-index: 1;
+  }
+  @keyframes gpParticle {
+    0%   { opacity: 1; transform: translate(0,0) scale(1); }
+    100% { opacity: 0; transform: translate(var(--dx),var(--dy)) scale(0.2); }
+  }
+  .gpo-particles { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+  .gpo-particle {
+    position: absolute; border-radius: 50%;
+    animation: gpParticle var(--dur) ease-out var(--delay) forwards;
+    opacity: 0;
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    nav {
+      padding: 0 20px;
+      height: 56px;
+    }
+    .nav-links {
+      gap: 10px;
+      padding-left: 0;
+    }
+    .nav-links a,
+    .nav-links button.nav-plain {
+      font-size: 0.54rem;
+      letter-spacing: 0.07em;
+    }
+    .nav-links .nav-contact {
+      padding: 6px 10px;
+      font-size: 0.54rem;
+    }
+    .page-hero {
+      padding: 52px 24px 44px;
+    }
+    .cards-section {
+      padding: 48px 24px 56px;
+    }
+    .cards-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    footer {
+      padding: 44px 24px 28px;
+    }
+    .footer-top {
+      flex-direction: column;
+      gap: 24px;
+    }
+    .footer-links {
+      justify-content: flex-start;
+      gap: 12px 20px;
+    }
+    .footer-bottom {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+  }
+  @media (max-width: 480px) {
+    nav {
+      padding: 8px 12px;
+      height: auto;
+      min-height: 56px;
+      flex-wrap: wrap;
+    }
+    .nav-links {
+      gap: 6px 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      flex: 1;
+    }
+    .nav-links a,
+    .nav-links button.nav-plain {
+      font-size: 0.48rem;
+      letter-spacing: 0.05em;
+    }
+    .nav-links .nav-contact {
+      padding: 5px 9px;
+      font-size: 0.48rem;
+    }
+    .assess-card {
+      padding: 32px 24px 28px;
+    }
+    .gpo-card { padding: 40px 24px 36px; }
+    .gpo-title { font-size: 1.25rem; }
+    .gpo-circle { width: 66px; height: 66px; }
+    .gpo-circle svg { width: 28px; height: 28px; }
+  }
+
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a class="nav-logo" href="index.html">Apothena</a>
+  <ul class="nav-links">
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+    <li><a class="nav-current" href="assessments.html">Assessments</a></li>
+    <li><a href="https://job-coach-krrrq8rhx-ryanmyers-6940s-projects.vercel.app/" target="_blank" rel="noopener">Job Board</a></li>
+    <li><a href="index.html#booking" class="nav-contact">Book a Call</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <!-- ── PAGE HERO BAND ── -->
+  <div class="page-hero">
+    <span class="label">Apothena Career Services</span>
+    <h1>Select an <em>Assessment</em></h1>
+    <p>Choose a tool below to begin. Each assessment is designed to bring clarity and direction to your next step.</p>
+  </div>
+
+  <div class="greek-key-top"></div>
+
+  <!-- ── ASSESSMENT CARDS ── -->
+  <section class="cards-section">
+    <div class="cards-grid">
+
+      <!-- Card 1: Career Assessment -->
+      <a class="assess-card" href="apothena-career-charting.html" id="card-career">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <div>
+          <div class="card-label">Assessment Tool</div>
+          <div class="card-title">Career Assessment</div>
+          <div class="card-divider"></div>
+          <p class="card-desc">Map your strengths, interests, and career values across a structured charting process. Ideal for clients exploring direction or evaluating their current path.</p>
+        </div>
+        <div class="card-cta">
+          Begin Assessment
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+      </a>
+
+      <!-- Card 2: Education Assessment -->
+      <a class="assess-card" href="apothena-education-path-planner.html" id="card-edu">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+          </svg>
+        </div>
+        <div>
+          <div class="card-label">Assessment Tool</div>
+          <div class="card-title">Education Assessment</div>
+          <div class="card-divider"></div>
+          <p class="card-desc">Explore education and training pathways aligned with your goals. This planner helps clients identify the most effective route toward their target career.</p>
+        </div>
+        <div class="card-cta">
+          Begin Assessment
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+</main>
+
+<div class="greek-key-top"></div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-name">Apothena</div>
+      <div class="footer-tagline-text">Illuminating your career path with wisdom</div>
+      <div class="footer-greek-sub">Φωτίζοντας την επαγγελματική σας πορεία με σοφία</div>
+    </div>
+    <ul class="footer-links">
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="assessments.html">Assessments</a></li>
+      <li><a href="https://job-coach-krrrq8rhx-ryanmyers-6940s-projects.vercel.app/" target="_blank" rel="noopener">Job Board</a></li>
+      <li><a href="index.html#booking">Book a Call</a></li>
+    </ul>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">&copy; <span id="footer-year"></span> Apothena Career Services by Ryan Myers. All rights reserved.</span>
+    <span class="footer-greek">Apothena &nbsp;&middot;&nbsp; Αποθενα</span>
+  </div>
+</footer>
+
+<!-- ── GOLD PULSE OVERLAY ── -->
+<div id="gold-pulse-overlay">
+  <div class="gpo-backdrop"></div>
+  <div class="gpo-ripples">
+    <div class="gpo-ring"></div>
+    <div class="gpo-ring"></div>
+    <div class="gpo-ring"></div>
+  </div>
+  <div id="gpo-particles" class="gpo-particles"></div>
+  <div class="gpo-card-wrap">
+    <div class="gpo-card">
+      <div class="gpo-greek-key"></div>
+      <button class="gpo-close" onclick="closeGoldPulse()" aria-label="Close">
+        <svg viewBox="0 0 12 12" fill="none" stroke-width="1.8" stroke-linecap="round">
+          <line x1="2" y1="2" x2="10" y2="10"/><line x1="10" y1="2" x2="2" y2="10"/>
+        </svg>
+      </button>
+      <div class="gpo-icon-wrap">
+        <img class="gpo-icon" src="images/apothena-logo.png" alt="">
+        <div class="gpo-circle">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+            <polyline class="gpo-checkmark" points="7,19 15,27 29,11"
+              stroke="#D4A017" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+      <div class="gpo-title">Assessments</div>
+      <div class="gpo-divider"></div>
+      <div class="gpo-sub">Welcome back.<br><br>Select an assessment below<br>to get started.</div>
+      <div class="gpo-divider"></div>
+      <div class="gpo-greek-text">Apothena &nbsp;·&nbsp; Αποθενα</div>
+      <div class="gpo-greek-key-bottom"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+
+  // ── FOOTER YEAR ──
+  var fy = document.getElementById('footer-year');
+  if (fy) fy.textContent = new Date().getFullYear();
+
+  // ── CARD REVEAL ──
+  // Trigger after gold pulse closes or after 2s — whichever comes first
+  function revealCards() {
+    var cards = document.querySelectorAll('.assess-card');
+    cards.forEach(function(card) {
+      card.classList.add('visible');
+    });
+  }
+
+  // ── GOLD PULSE ──
+  function spawnParticles() {
+    var pc = document.getElementById('gpo-particles');
+    if (!pc) return;
+    pc.innerHTML = '';
+    var colors = ['#D4A017','#F0C060','#B8864E','#FFD97D','#E8B84B'];
+    for (var i = 0; i < 20; i++) {
+      var p = document.createElement('div');
+      p.className = 'gpo-particle';
+      var sx  = 25 + Math.random() * 50;
+      var sy  = 30 + Math.random() * 40;
+      var dx  = (Math.random() - 0.5) * 260;
+      var dy  = -(60 + Math.random() * 200);
+      var sz  = (3 + Math.random() * 5) + 'px';
+      p.style.cssText = [
+        'left:'       + sx + '%',
+        'top:'        + sy + '%',
+        'width:'      + sz,
+        'height:'     + sz,
+        'background:' + colors[i % colors.length],
+        '--dx:'       + dx + 'px',
+        '--dy:'       + dy + 'px',
+        '--dur:'      + (1.2 + Math.random() * 0.9) + 's',
+        '--delay:'    + (0.3 + Math.random() * 0.6) + 's'
+      ].join(';');
+      pc.appendChild(p);
+    }
+  }
+
+  function showGoldPulse() {
+    var overlay = document.getElementById('gold-pulse-overlay');
+    if (!overlay) return;
+    spawnParticles();
+    overlay.classList.add('active');
+    var icon = overlay.querySelector('.gpo-icon');
+    if (icon) {
+      icon.classList.remove('fading');
+      void icon.offsetWidth;
+      icon.classList.add('fading');
+    }
+    // Auto-close after 3.5s and reveal cards
+    setTimeout(function() {
+      closeGoldPulse();
+    }, 3500);
+  }
+
+  function closeGoldPulse() {
+    var overlay = document.getElementById('gold-pulse-overlay');
+    if (overlay) overlay.classList.remove('active');
+    revealCards();
+  }
+
+  // Close on backdrop click
+  document.getElementById('gold-pulse-overlay').addEventListener('click', function(e) {
+    if (e.target === this || e.target.classList.contains('gpo-backdrop')) {
+      closeGoldPulse();
+    }
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeGoldPulse();
+  });
+
+  window.closeGoldPulse = closeGoldPulse;
+
+  // ── FIRE ON PAGE LOAD ──
+  // Small delay so page renders first, then pulse fires
+  window.addEventListener('load', function() {
+    setTimeout(showGoldPulse, 300);
+  });
+
+})();
+</script>
+
+</body>
+</html>
