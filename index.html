@@ -1179,7 +1179,7 @@
     <li><a href="#about">About</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><button class="nav-plain" onclick="openPwModal()">Assessments</button></li>
-    <li><a href="https://job-coach-krrrq8rhx-ryanmyers-6940s-projects.vercel.app/" target="_blank" rel="noopener">Job Board</a></li>
+    <li><a href="https://job-coach-krrrq8rhx-ryanmyers-6940s-projects.vercel.app/" target="_blank" rel="noopener" onclick="launchJobBoard(event)">Job Board</a></li>
     <li><a href="#booking" class="nav-contact">Book a Call</a></li>
   </ul>
 </nav>
@@ -1552,7 +1552,7 @@
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="assessments.html">Assessments</a></li>
-      <li><a href="https://job-coach-krrrq8rhx-ryanmyers-6940s-projects.vercel.app/" target="_blank" rel="noopener">Job Board</a></li>
+      <li><a href="https://job-coach-krrrq8rhx-ryanmyers-6940s-projects.vercel.app/" target="_blank" rel="noopener" onclick="launchJobBoard(event)">Job Board</a></li>
       <li><a href="#booking">Book a Call</a></li>
     </ul>
   </div>
@@ -1758,6 +1758,25 @@
     var overlay = document.getElementById('gold-pulse-overlay');
     if (overlay) { overlay.classList.remove('active'); }
   }
+
+  // Expose to global scope so the close button onclick can reach it
+  window.closeGoldPulse = closeGoldPulse;
+
+  // Close on backdrop click
+  var overlay = document.getElementById('gold-pulse-overlay');
+  if (overlay) {
+    overlay.addEventListener('click', function(e) {
+      if (e.target === this || e.target.classList.contains('gpo-backdrop')) closeGoldPulse();
+    });
+  }
+
+  // Close on Escape
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      var o = document.getElementById('gold-pulse-overlay');
+      if (o && o.classList.contains('active')) closeGoldPulse();
+    }
+  });
 })();
 </script>
 
@@ -1830,6 +1849,70 @@
   window.openPwModal  = openPwModal;
   window.closePwModal = closePwModal;
   window.submitPw     = submitPw;
+
+  // ── JOB BOARD LAUNCH ANIMATION ──
+  // Fires the gold pulse on the homepage, then opens the Job Board in a new tab
+  function launchJobBoard(e) {
+    e.preventDefault();
+    var url = 'https://job-coach-krrrq8rhx-ryanmyers-6940s-projects.vercel.app/';
+    var overlay = document.getElementById('gold-pulse-overlay');
+    if (!overlay) { window.open(url, '_blank', 'noopener'); return; }
+
+    // Reuse the gold pulse — swap the title text temporarily
+    var titleEl = overlay.querySelector('.gpo-title');
+    var subEl   = overlay.querySelector('.gpo-sub');
+    var origTitle = titleEl ? titleEl.textContent : '';
+    var origSub   = subEl   ? subEl.innerHTML     : '';
+
+    if (titleEl) titleEl.textContent = 'Opening Job Board';
+    if (subEl)   subEl.innerHTML     = 'Launching the Apothena<br>Job Board now&hellip;';
+
+    // Spawn particles and show
+    var pc = document.getElementById('gpo-particles');
+    if (pc) {
+      pc.innerHTML = '';
+      var colors = ['#D4A017','#F0C060','#B8864E','#FFD97D','#E8B84B'];
+      for (var i = 0; i < 20; i++) {
+        var p  = document.createElement('div');
+        p.className = 'gpo-particle';
+        var sx = 25 + Math.random() * 50;
+        var sy = 30 + Math.random() * 40;
+        var dx = (Math.random() - 0.5) * 260;
+        var dy = -(60 + Math.random() * 200);
+        var sz = (3 + Math.random() * 5) + 'px';
+        p.style.cssText = [
+          'left:'+sx+'%','top:'+sy+'%',
+          'width:'+sz,'height:'+sz,
+          'background:'+colors[i%colors.length],
+          '--dx:'+dx+'px','--dy:'+dy+'px',
+          '--dur:'+(1.2+Math.random()*0.9)+'s',
+          '--delay:'+(0.3+Math.random()*0.6)+'s'
+        ].join(';');
+        pc.appendChild(p);
+      }
+    }
+
+    overlay.classList.remove('active');
+    void overlay.offsetWidth;
+    overlay.classList.add('active');
+
+    var icon = overlay.querySelector('.gpo-icon');
+    if (icon) { icon.classList.remove('fading'); void icon.offsetWidth; icon.classList.add('fading'); }
+
+    // Open the tab immediately (avoids popup blockers — called within the click event)
+    var tab = window.open(url, '_blank', 'noopener');
+
+    // Close overlay after 2s and restore original text
+    setTimeout(function() {
+      window.closeGoldPulse();
+      if (titleEl) titleEl.textContent = origTitle;
+      if (subEl)   subEl.innerHTML     = origSub;
+      // Fallback: if popup was blocked, navigate current tab
+      if (!tab) window.location.href = url;
+    }, 2000);
+  }
+
+  window.launchJobBoard = launchJobBoard;
 })();
 </script>
 
