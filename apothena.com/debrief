@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assessment Debrief Guide — Apothena Career Services</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1220;
+    --navy-mid: #0d1e33;
+    --stone: #1A4B7A;
+    --amber: #D4A017;
+    --amber-light: #F0C060;
+    --amber-pale: #FDF3D0;
+    --white: #FFFFFF;
+    --ink: #1A2E44;
+    --ink-soft: #3A5068;
+    --text: rgba(255,255,255,0.88);
+    --text-soft: rgba(255,255,255,0.65);
+    --text-faint: rgba(255,255,255,0.4);
+    --rule: rgba(212,160,23,0.25);
+    --rule-bright: rgba(212,160,23,0.5);
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { font-size: 16px; scroll-behavior: smooth; }
+  body {
+    font-family: 'Lato', sans-serif;
+    background: var(--navy);
+    color: var(--text);
+    line-height: 1.8;
+    min-height: 100vh;
+  }
+  a { color: var(--amber-light); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* ── GREEK KEY ── */
+  .greek-key {
+    width: 100%;
+    height: 18px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='18'%3E%3Cpath d='M0 16 L0 2 L14 2 L14 8 L8 8 L8 14 L20 14 L20 2 L34 2 L34 8 L28 8 L28 14 L40 14 L40 16 Z' fill='none' stroke='%23D4A017' stroke-width='1.2' opacity='0.45'/%3E%3C/svg%3E");
+    background-repeat: repeat-x;
+    background-position: center;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: linear-gradient(135deg, #0a1220 0%, #0d1e33 60%, #0a1525 100%);
+    border-bottom: 1px solid var(--rule-bright);
+    padding: 56px 80px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 100% at 50% 100%, rgba(212,160,23,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .header-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .header-label {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 14px;
+    display: block;
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 8px;
+    line-height: 1.15;
+  }
+  header h1 em {
+    font-style: italic;
+    color: var(--amber-light);
+  }
+  .header-sub {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--text-soft);
+    margin-bottom: 32px;
+  }
+  .header-meta {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .meta-pill {
+    background: rgba(212,160,23,0.08);
+    border: 1px solid var(--rule);
+    padding: 6px 16px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--amber-light);
+  }
+
+  /* ── LAYOUT ── */
+  .page-body {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 56px 80px 80px;
+  }
+
+  /* ── TABLE OF CONTENTS ── */
+  .toc {
+    background: rgba(212,160,23,0.04);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--amber);
+    padding: 32px 36px;
+    margin-bottom: 56px;
+  }
+  .toc-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--amber-light);
+    letter-spacing: 0.06em;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+  }
+  .toc-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 32px;
+  }
+  .toc-list a {
+    font-size: 0.88rem;
+    color: var(--text-soft);
+    transition: color 0.2s;
+  }
+  .toc-list a:hover { color: var(--amber-light); text-decoration: none; }
+
+  /* ── HOW TO USE TABLE ── */
+  .how-to-use {
+    margin-bottom: 56px;
+  }
+
+  /* ── PART HEADER ── */
+  .part-header {
+    background: linear-gradient(135deg, rgba(212,160,23,0.08) 0%, rgba(212,160,23,0.03) 100%);
+    border: 1px solid var(--rule-bright);
+    border-top: 3px solid var(--amber);
+    padding: 36px 40px;
+    margin: 56px 0 40px;
+    position: relative;
+  }
+  .part-header::before {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, var(--amber), transparent);
+  }
+  .part-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 8px;
+    display: block;
+  }
+  .part-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+  .part-header p {
+    font-size: 0.92rem;
+    color: var(--text-soft);
+    max-width: 560px;
+    line-height: 1.7;
+  }
+  .part-meta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 18px;
+  }
+  .part-meta span {
+    background: rgba(212,160,23,0.1);
+    border: 1px solid var(--rule);
+    padding: 4px 12px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--amber-light);
+  }
+
+  /* ── SESSION HEADER ── */
+  .session-header {
+    border-bottom: 1px solid var(--rule-bright);
+    padding-bottom: 16px;
+    margin: 48px 0 32px;
+  }
+  .session-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 6px;
+    display: block;
+  }
+  .session-header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--white);
+  }
+
+  /* ── FRAMEWORK SECTION ── */
+  .framework {
+    margin-bottom: 48px;
+    padding-left: 20px;
+    border-left: 2px solid var(--rule);
+  }
+  .framework-number {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 4px;
+    display: block;
+  }
+  .framework h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--amber-light);
+    margin-bottom: 16px;
+  }
+
+  /* ── CONTENT BLOCKS ── */
+  .block {
+    margin-bottom: 24px;
+  }
+  .block-label {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 8px;
+    display: block;
+  }
+  p {
+    font-size: 0.95rem;
+    color: var(--text-soft);
+    margin-bottom: 12px;
+    line-height: 1.8;
+  }
+
+  /* ── QUOTE BLOCK ── */
+  .quote-block {
+    background: rgba(212,160,23,0.05);
+    border-left: 3px solid var(--amber);
+    padding: 16px 20px;
+    margin: 16px 0;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 0.92rem;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.7;
+  }
+
+  /* ── PROMPT LIST ── */
+  .prompt-list {
+    list-style: none;
+    margin: 12px 0;
+  }
+  .prompt-list li {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.7);
+    padding: 10px 0 10px 20px;
+    border-bottom: 1px solid rgba(212,160,23,0.1);
+    position: relative;
+    line-height: 1.65;
+  }
+  .prompt-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--amber);
+  }
+  .prompt-list li:last-child { border-bottom: none; }
+
+  /* ── REFERENCE TABLE ── */
+  .ref-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 24px;
+    font-size: 0.85rem;
+  }
+  .ref-table th {
+    background: rgba(212,160,23,0.1);
+    border: 1px solid var(--rule);
+    padding: 10px 14px;
+    text-align: left;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--amber-light);
+  }
+  .ref-table td {
+    border: 1px solid rgba(212,160,23,0.12);
+    padding: 10px 14px;
+    color: var(--text-soft);
+    vertical-align: top;
+    line-height: 1.65;
+  }
+  .ref-table tr:nth-child(even) td {
+    background: rgba(255,255,255,0.02);
+  }
+
+  /* ── COACH NOTE ── */
+  .coach-note {
+    background: rgba(212,160,23,0.06);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--amber-light);
+    padding: 16px 20px;
+    margin: 20px 0;
+    font-size: 0.88rem;
+    color: var(--text-soft);
+    line-height: 1.7;
+  }
+  .coach-note strong {
+    color: var(--amber-light);
+    font-weight: 700;
+  }
+
+  /* ── WATCH FOR ── */
+  .watch-list {
+    list-style: none;
+    margin: 12px 0;
+  }
+  .watch-list li {
+    font-size: 0.88rem;
+    color: var(--text-soft);
+    padding: 8px 0 8px 20px;
+    border-bottom: 1px solid rgba(212,160,23,0.08);
+    position: relative;
+    line-height: 1.65;
+  }
+  .watch-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--amber);
+    font-weight: 700;
+  }
+  .watch-list li:last-child { border-bottom: none; }
+
+  /* ── ACTION ITEMS TABLE ── */
+  .action-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 0.85rem;
+  }
+  .action-table th {
+    background: rgba(212,160,23,0.08);
+    border: 1px solid var(--rule);
+    padding: 8px 14px;
+    text-align: left;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--amber);
+  }
+  .action-table td {
+    border: 1px solid rgba(212,160,23,0.1);
+    padding: 10px 14px;
+    color: var(--text-faint);
+    min-height: 36px;
+  }
+  .action-table td:first-child {
+    width: 40px;
+    text-align: center;
+    color: var(--amber);
+    font-weight: 700;
+  }
+
+  /* ── SYNTHESIS TABLE ── */
+  .synthesis-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 0.85rem;
+  }
+  .synthesis-table th {
+    background: rgba(212,160,23,0.08);
+    border: 1px solid var(--rule);
+    padding: 8px 14px;
+    text-align: left;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--amber);
+  }
+  .synthesis-table td {
+    border: 1px solid rgba(212,160,23,0.1);
+    padding: 10px 14px;
+    color: var(--text-faint);
+    min-height: 40px;
+  }
+
+  /* ── DIVIDER ── */
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, var(--amber), transparent);
+    margin: 40px 0;
+    opacity: 0.4;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--rule);
+    padding: 32px 80px;
+    text-align: center;
+    background: rgba(0,0,0,0.3);
+  }
+  .footer-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--amber-light);
+    letter-spacing: 0.08em;
+  }
+  .footer-copy {
+    font-size: 0.75rem;
+    color: var(--text-faint);
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: #fff; color: #000; }
+    .toc, .coach-note, .quote-block { border-color: #ccc; background: #f9f9f9; }
+    header { background: #fff; border-bottom: 2px solid #D4A017; }
+    .part-header { background: #f5f5f5; }
+    a { color: #000; }
+  }
+
+  @media (max-width: 768px) {
+    header { padding: 40px 24px 36px; }
+    .page-body { padding: 40px 24px 56px; }
+    .toc-list { grid-template-columns: 1fr; }
+    .ref-table { font-size: 0.78rem; }
+    footer { padding: 24px; }
+    .footer-inner { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="greek-key"></div>
+
+<header>
+  <div class="header-inner">
+    <span class="header-label">Apothena Career Services — Internal Reference</span>
+    <h1>Assessment <em>Debrief Guide</em></h1>
+    <p class="header-sub">Coach's Reference for Interpreting Assessment Results Across All Sessions</p>
+    <div class="header-meta">
+      <span class="meta-pill">Part A — Career Charting</span>
+      <span class="meta-pill">Part B — Education Planner</span>
+      <span class="meta-pill">Part C — Combined Profile</span>
+    </div>
+  </div>
+</header>
+
+<div class="greek-key"></div>
+
+<div class="page-body">
+
+  <!-- TABLE OF CONTENTS -->
+  <div class="toc">
+    <div class="toc-title">Contents</div>
+    <ul class="toc-list">
+      <li><a href="#how-to-use">How to Use This Guide</a></li>
+      <li><a href="#official-instruments">Official Instrument Referrals</a></li>
+      <li><a href="#intake-context">Reading Intake Context Fields</a></li>
+      <li><a href="#part-a">Part A — Career Charting</a></li>
+      <li><a href="#session-a1">Session 1 — Work Values + Holland</a></li>
+      <li><a href="#session-a2">Session 2 — DISC + VIA</a></li>
+      <li><a href="#part-b">Part B — Education Path Planner</a></li>
+      <li><a href="#session-b1">Session 1 — Holland RIASEC</a></li>
+      <li><a href="#session-b2">Session 2 — VARK + VIA</a></li>
+      <li><a href="#session-b3">Session 3 — Academic Interests + Practical Priorities</a></li>
+      <li><a href="#part-c">Part C — Combined Profile</a></li>
+    </ul>
+  </div>
+
+  <!-- HOW TO USE -->
+  <section id="how-to-use" class="how-to-use">
+    <span class="part-label">Reference</span>
+    <h2 style="font-family:'Playfair Display',serif;font-size:1.6rem;color:#fff;margin-bottom:20px;">How to Use This Guide</h2>
+    <p>Each framework section follows the same five-step pattern. Use it consistently across every section in every session.</p>
+    <table class="ref-table" style="margin-top:20px;">
+      <thead>
+        <tr>
+          <th>Step</th>
+          <th>What to Do</th>
+          <th>Why It Matters</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong style="color:var(--amber-light);">1. Orient</strong></td><td>Briefly explain what the framework measures and why it matters.</td><td>Gives context before results — prevents misinterpretation.</td></tr>
+        <tr><td><strong style="color:var(--amber-light);">2. Present</strong></td><td>State the result clearly. Read the description. Then pause.</td><td>Silence after presenting gives the client space to react authentically.</td></tr>
+        <tr><td><strong style="color:var(--amber-light);">3. Validate</strong></td><td>Use the validation prompt before offering any interpretation.</td><td>The client's first reaction is often the most diagnostic data in the session.</td></tr>
+        <tr><td><strong style="color:var(--amber-light);">4. Probe</strong></td><td>Use the coaching prompts to deepen the conversation.</td><td>Prompts move the session from data review to genuine self-discovery.</td></tr>
+        <tr><td><strong style="color:var(--amber-light);">5. Connect</strong></td><td>Link this result to others across frameworks.</td><td>Cross-framework convergence is the strongest signal in the entire assessment.</td></tr>
+      </tbody>
+    </table>
+    <div class="coach-note">
+      <strong>Coach Note:</strong> The most valuable moment in any debrief is when a client says "That's exactly right" or "That's not me at all." Both reactions are equally useful. Build around confirmations. Investigate disagreements.
+    </div>
+  </section>
+
+  <!-- OFFICIAL INSTRUMENTS -->
+  <section id="official-instruments">
+    <span class="part-label">Reference</span>
+    <h2 style="font-family:'Playfair Display',serif;font-size:1.6rem;color:#fff;margin-bottom:20px;">Official Instrument Referrals</h2>
+    <p>Both assessments direct clients to full official versions on the results page. Reinforce these referrals in the debrief.</p>
+    <table class="ref-table">
+      <thead><tr><th>Framework</th><th>Official Assessment</th><th>Access</th></tr></thead>
+      <tbody>
+        <tr><td>Work Values (DOL)</td><td>CareerOneStop Work Values Matcher</td><td>careeronestop.org (free)</td></tr>
+        <tr><td>Holland RIASEC</td><td>Self-Directed Search (SDS) by PAR</td><td>self-directed-search.com</td></tr>
+        <tr><td>DISC Profile</td><td>Everything DiSC by Wiley</td><td>discprofile.com</td></tr>
+        <tr><td>VIA Character Strengths</td><td>VIA Survey by VIA Institute</td><td>viacharacter.org (free)</td></tr>
+        <tr><td>VARK Learning Styles</td><td>Official VARK Questionnaire</td><td>vark-learn.com (free)</td></tr>
+        <tr><td>Career Data</td><td>O*NET OnLine</td><td>onetonline.org (free)</td></tr>
+        <tr><td>Program Data</td><td>College Scorecard</td><td>collegescorecard.ed.gov (free)</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- INTAKE CONTEXT -->
+  <section id="intake-context">
+    <span class="part-label">Reference</span>
+    <h2 style="font-family:'Playfair Display',serif;font-size:1.6rem;color:#fff;margin-bottom:20px;">Reading Intake Context Fields</h2>
+    <p>Both assessments capture several unscored intake fields that appear verbatim on the results page. These qualitative responses are often more diagnostic than any scored section.</p>
+    <table class="ref-table">
+      <thead><tr><th>Intake Field</th><th>What It Reveals</th><th>How to Use in Debrief</th></tr></thead>
+      <tbody>
+        <tr><td>Career Transition Stage</td><td>Where the client is in their career arc.</td><td>Calibrates ambition level. New entrants need different guidance than mid-career changers.</td></tr>
+        <tr><td>Peak Professional Experience</td><td>When and why they felt most alive at work.</td><td>Read their words back verbatim. Identify which frameworks their peak story confirms or contradicts.</td></tr>
+        <tr><td>Barriers &amp; Motivators</td><td>What has held them back and what would excite them.</td><td>Most actionable coaching conversation. Return to these explicitly in every session.</td></tr>
+        <tr><td>Work Environment Preferences</td><td>Concrete working conditions they need.</td><td>Filter career direction suggestions.</td></tr>
+        <tr><td>Career Destination Vision (Edu)</td><td>Where the student imagines themselves at 30.</td><td>The gut-check for every program recommendation.</td></tr>
+        <tr><td>Exploration Readiness (Edu)</td><td>Whether the student is genuinely open or under pressure.</td><td>Shapes the entire coaching posture.</td></tr>
+        <tr><td>Academic Self-Efficacy (Edu)</td><td>How confident the student is academically.</td><td>Low: prioritize accessible programs. High: do not undersell options based on GPA alone.</td></tr>
+        <tr><td>Support System &amp; Expectations (Edu)</td><td>Who else is influencing this decision.</td><td>Surfaces external pressure.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- PART A -->
+  <div class="part-header" id="part-a">
+    <span class="part-label">Part A</span>
+    <h2>Career Charting Debrief Guide</h2>
+    <p>The Career Charting assessment spans 2 sessions across 4 frameworks: Work Values Inventory, Holland RIASEC, DISC, and VIA. Total question count: 70.</p>
+    <div class="part-meta">
+      <span>2 Sessions</span>
+      <span>4 Frameworks</span>
+      <span>70 Questions</span>
+    </div>
+    <table class="ref-table" style="margin-top:24px;">
+      <thead><tr><th>Session</th><th>Frameworks</th><th>Questions</th><th>Focus</th><th>Approx. Length</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Work Values + Holland</td><td>38</td><td>Who are you and what environments fit you?</td><td>60–90 min assessment + 30–45 min debrief</td></tr>
+        <tr><td>2</td><td>DISC + VIA</td><td>32</td><td>How do you operate and what drives you?</td><td>30–45 min assessment + 45–60 min debrief</td></tr>
+      </tbody>
+    </table>
+    <div class="coach-note" style="margin-top:16px;">
+      <strong>Coach Note:</strong> Session 2 carries the heavier debrief load. VIA benefits most from extended conversation — character strengths are harder to self-identify than behavioral style. The Barriers and Motivators intake fields should be revisited explicitly in Session 2.
+    </div>
+  </div>
+
+  <!-- SESSION A1 -->
+  <div class="session-header" id="session-a1">
+    <span class="session-label">Part A — Session 1</span>
+    <h3>Work Values Inventory &amp; Holland RIASEC</h3>
+  </div>
+
+  <p>Begin Session 1 debrief after the client completes both Work Values and Holland sections. These two frameworks together answer the foundational career question: What environments fit this person, and what do they most need from work to feel satisfied?</p>
+  <div class="quote-block">"Last session we gathered the data. Today we look at what it means together — and more importantly, what you think it means. I'll share each result and I want your honest reaction before I interpret anything."</div>
+
+  <!-- Framework 1: Work Values -->
+  <div class="framework">
+    <span class="framework-number">Framework 1</span>
+    <h4>Work Values Inventory (DOL)</h4>
+
+    <div class="block">
+      <span class="block-label">Framework Purpose</span>
+      <p>Identifies which of six occupational value domains are most important to the client: Achievement, Independence, Recognition, Relationships, Support, and Working Conditions. Work value alignment is one of the strongest long-term predictors of career satisfaction and retention.</p>
+    </div>
+
+    <div class="block">
+      <span class="block-label">Validation Prompt</span>
+      <div class="quote-block">"Before I say anything — when you see that your top value is [name], does that feel like the real reason you work, or like what you think sounds most professional?"</div>
+    </div>
+
+    <div class="block">
+      <span class="block-label">Coaching Prompts</span>
+      <ul class="prompt-list">
+        <li>"Think about the role where you felt most satisfied. What did it provide that honored this value? What has every other role been missing?"</li>
+        <li>"Have you ever explicitly factored this value into a career decision? If not — what would change if you started?"</li>
+        <li>"If you could only preserve one of your top two values in your next role — which one is truly non-negotiable?"</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <span class="block-label">Value-to-Career Reference</span>
+      <table class="ref-table">
+        <thead><tr><th>Top Value</th><th>Strong Career Directions</th></tr></thead>
+        <tbody>
+          <tr><td>Achievement</td><td>Roles with clear performance metrics and merit-based advancement — engineering, consulting, research, competitive sales.</td></tr>
+          <tr><td>Independence</td><td>Roles with autonomy and self-direction — entrepreneurship, independent consulting, remote research, creative direction.</td></tr>
+          <tr><td>Recognition</td><td>Roles with visibility and advancement track — management, law, politics, public-facing leadership, performing arts.</td></tr>
+          <tr><td>Relationships</td><td>Roles centered on people — healthcare, social work, education, coaching, community development, client services.</td></tr>
+          <tr><td>Support</td><td>Roles within organizations known for investing in people — mission-driven nonprofits, progressive corporations, people-first healthcare.</td></tr>
+          <tr><td>Working Conditions</td><td>Roles with competitive compensation and stability — government, established corporations, healthcare administration, trades.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="block">
+      <span class="block-label">Coach Notes — Work Values</span>
+      <div style="min-height:80px;border:1px dashed rgba(212,160,23,0.2);padding:12px;"></div>
+    </div>
+  </div>
+
+  <!-- Framework 2: Holland -->
+  <div class="framework">
+    <span class="framework-number">Framework 2</span>
+    <h4>Holland RIASEC</h4>
+
+    <div class="block">
+      <span class="block-label">Framework Purpose</span>
+      <p>Maps interest patterns to career environments using a three-letter code. Holland code match is the single highest-validity predictor of career satisfaction. The bar chart is often more useful than the code itself — it shows the full interest profile. Refer clients to the full Self-Directed Search at self-directed-search.com when any two dimensions score within 5 points of each other.</p>
+    </div>
+
+    <div class="block">
+      <span class="block-label">How to Present the Result</span>
+      <p>Show the bar chart first. Let the client absorb the visual shape before naming the code. Then state the three-letter code and ask the validation prompt.</p>
+    </div>
+
+    <div class="block">
+      <span class="block-label">Validation Prompt</span>
+      <div class="quote-block">"Looking at this bar chart — does the shape feel like an honest picture of what genuinely interests you? Or does it reflect what you think you should be interested in?"</div>
+    </div>
+
+    <div class="block">
+      <span class="block-label">Coaching Prompts</span>
+      <ul class="prompt-list">
+        <li>"When have you lost track of time at work? What were you doing, and which letter does that fall under?"</li>
+        <li>"Is your highest-scoring area something you've had real opportunity to explore professionally, or is it mostly untested?"</li>
+        <li>"If you had to design a role from scratch using your top two letters, what would it look like?"</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <span class="block-label">Cross-Reference: Work Values + Holland</span>
+      <table class="ref-table">
+        <thead><tr><th>Top Value</th><th>Holland Combination</th><th>Refined Direction</th></tr></thead>
+        <tbody>
+          <tr><td>Achievement</td><td>RIE / IER</td><td>Applied technical engineering or research leadership where excellence is measurable.</td></tr>
+          <tr><td>Achievement</td><td>ESC / ECS</td><td>Business leadership, management consulting, or competitive commercial roles.</td></tr>
+          <tr><td>Independence</td><td>AIE / IAE</td><td>Independent creative research, design, writing, or consulting with full creative control.</td></tr>
+          <tr><td>Relationships</td><td>SAI / SIA</td><td>Counseling, healthcare, social work, teaching, or community-centered human services.</td></tr>
+          <tr><td>Recognition</td><td>ESA / EAS</td><td>Public leadership, law, advocacy, marketing, or performance roles with high visibility.</td></tr>
+          <tr><td>Working Conditions</td><td>CSE / CES</td><td>Finance, government, healthcare administration, or compliance — stable and well-compensated.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="block">
+      <span class="block-label">Coach Notes — Holland RIASEC</span>
+      <div style="min-height:80px;border:1px dashed rgba(212,160,23,0.2);padding:12px;"></div>
+    </div>
+  </div>
+
+  <div class="block">
+    <span class="block-label">Session 1 Cross-Framework Synthesis</span>
+    <table class="synthesis-table">
+      <thead><tr><th>Theme / Pattern</th><th>Frameworks Supporting It</th><th>Confidence Level</th><th>Direction to Explore</th></tr></thead>
+      <tbody>
+        <tr><td style="min-height:40px;"></td><td></td><td></td><td></td></tr>
+        <tr><td style="min-height:40px;"></td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="block">
+    <span class="block-label">Session 1 Action Items</span>
+    <table class="action-table">
+      <thead><tr><th>#</th><th>Action Item</th><th>Deadline</th><th>Done?</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td></td><td></td><td></td></tr>
+        <tr><td>2</td><td></td><td></td><td></td></tr>
+        <tr><td>3</td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SESSION A2 -->
+  <div class="session-header" id="session-a2">
+    <span class="session-label">Part A — Session 2</span>
+    <h3>DISC &amp; VIA Character Strengths</h3>
+  </div>
+
+  <p>Begin Session 2 with a two-minute recap of Work Values and Holland before moving into DISC and VIA. Session 2 is the deeper behavioral and values layer — it explains how the client operates within the environments Session 1 identified.</p>
+  <div class="quote-block">"Before we look at today's results — has anything shifted since our last session? Do the Work Values and Holland results still ring true, or do you see them differently now?"</div>
+
+  <!-- Framework 3: DISC -->
+  <div class="framework">
+    <span class="framework-number">Framework 3</span>
+    <h4>DISC Profile</h4>
+
+    <div class="block">
+      <span class="block-label">Framework Purpose</span>
+      <p>Describes behavioral style — how the client communicates, handles pressure, responds to conflict, and prefers to work with others. DISC is the most immediately actionable result for job search: it directly informs resume language, interview preparation, and role fit. Refer clients to the full Everything DiSC at discprofile.com for blended style profiles.</p>
+    </div>
+
+    <div class="block">
+      <span class="block-label">Validation Prompt</span>
+      <div class="quote-block">"Does this feel like an accurate picture of how you naturally show up at work — or more like how you're trying to show up?"</div>
+    </div>
+
+    <div class="block">
+      <span class="block-label">Coaching Prompts</span>
+      <ul class="prompt-list">
+        <li>"Think of a week at work where you felt completely in your element. What was the environment, team, and type of task?"</li>
+        <li>"When have you felt most frustrated or drained? What does that tell us about what your style genuinely needs?"</li>
+        <li>"How has your natural style been your greatest asset? Where has it created the most friction?"</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <span class="block-label">Style Reference</span>
+      <table class="ref-table">
+        <thead><tr><th>Style</th><th>Thrives In</th><th>Drains When</th><th>Strong Role Fits</th></tr></thead>
+        <tbody>
+          <tr><td><strong style="color:var(--amber-light);">D</strong></td><td>Autonomy, authority, fast decisions, competitive stakes</td><td>Bureaucracy, slow consensus, micromanagement</td><td>Executive, entrepreneur, operations lead, sales director</td></tr>
+          <tr><td><strong style="color:var(--amber-light);">I</strong></td><td>Collaboration, recognition, variety, social energy</td><td>Isolation, rigid process, detailed solo work</td><td>Sales, marketing, communications, coaching, PR, training</td></tr>
+          <tr><td><strong style="color:var(--amber-light);">S</strong></td><td>Stability, clear roles, team harmony, reliable rhythms</td><td>Constant change, conflict, unclear expectations</td><td>HR, healthcare, social work, support services, coordination</td></tr>
+          <tr><td><strong style="color:var(--amber-light);">C</strong></td><td>Accuracy, expertise, high standards, structured processes</td><td>Rushing, ambiguity, frequent interruptions</td><td>Finance, research, engineering, compliance, data analysis</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="block">
+      <span class="block-label">Coach Notes — DISC</span>
+      <div style="min-height:80px;border:1px dashed rgba(212,160,23,0.2);padding:12px;"></div>
+    </div>
+  </div>
+
+  <!-- Framework 4: VIA -->
+  <div class="framework">
+    <span class="framework-number">Framework 4</span>
+    <h4>VIA Character Strengths</h4>
+
+    <div class="block">
+      <span class="block-label">Framework Purpose</span>
+      <p>Identifies the client's core character strengths — stable, values-based qualities that feel most authentic and energizing. VIA is the only framework in Career Charting that addresses why a client works. It is particularly powerful for clients who are technically skilled but feel chronically empty. Refer every client to the full free VIA at viacharacter.org.</p>
+    </div>
+
+    <div class="block">
+      <span class="block-label">Validation Prompt</span>
+      <div class="quote-block">"When you hear that your signature strength is [name] — does that feel like the real you, or like who you think you should be?"</div>
+    </div>
+
+    <div class="block">
+      <span class="block-label">Coaching Prompts</span>
+      <ul class="prompt-list">
+        <li>"Think of a week where you felt most like yourself professionally. What were you doing that activated this strength?"</li>
+        <li>"What would your work look like if you were using this strength every single day in a way that genuinely mattered?"</li>
+        <li>"Is there a role or environment from your past where this strength was actively suppressed? What was the cost of that?"</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <span class="block-label">What to Watch For</span>
+      <ul class="watch-list">
+        <li>High Humanity scores (Kindness, Love, Social Intelligence) in data-heavy or isolated roles almost always explain chronic dissatisfaction — even in well-compensated positions.</li>
+        <li>High Courage scores (Bravery, Perseverance, Zest) suggest the client needs high-stakes environments. They may be underperforming in roles that are too comfortable.</li>
+        <li>High Transcendence scores (Purpose, Spirituality, Hope) signal that mission alignment is non-negotiable. Salary alone will not retain this client.</li>
+        <li>Cross-reference VIA with Work Values. A Relationships-primary client with a Kindness VIA strength has very high convergence for people-centered roles.</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <span class="block-label">Coach Notes — VIA</span>
+      <div style="min-height:80px;border:1px dashed rgba(212,160,23,0.2);padding:12px;"></div>
+    </div>
+  </div>
+
+  <!-- Framework 5: Barriers & Motivators -->
+  <div class="framework">
+    <span class="framework-number">Framework 5</span>
+    <h4>Barriers, Motivators &amp; Intake Qualitative Fields</h4>
+
+    <div class="block">
+      <span class="block-label">Framework Purpose</span>
+      <p>The open-ended intake responses — peak experience, transferable skill, barriers, and motivators — are unscored but often the most diagnostic data in the entire assessment. They capture the client's own language before the assessment shaped their thinking.</p>
+    </div>
+
+    <div class="block">
+      <span class="block-label">Validation Prompt</span>
+      <div class="quote-block">"I'm going to read back what you wrote before you answered any assessment questions. Tell me if it still sounds right, or if you'd say it differently now."</div>
+    </div>
+
+    <div class="block">
+      <span class="block-label">Coaching Prompts</span>
+      <ul class="prompt-list">
+        <li>"The barrier you described — is that a fixed constraint, or an assumption you've never tested?"</li>
+        <li>"If the thing that would make you genuinely excited were actually possible — what's the smallest first step toward it?"</li>
+        <li>"Looking at your Holland code and Work Values — does the barrier you named actually show up in the roles those frameworks point toward?"</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <span class="block-label">Coach Notes — Barriers &amp; Motivators</span>
+      <div style="min-height:80px;border:1px dashed rgba(212,160,23,0.2);padding:12px;"></div>
+    </div>
+  </div>
+
+  <div class="block">
+    <span class="block-label">Full Career Charting Synthesis</span>
+    <p>After all four frameworks and intake qualitatives have been debriefed, identify cross-framework convergence. Career directions with the strongest evidence are those supported by three or more frameworks simultaneously.</p>
+    <table class="synthesis-table">
+      <thead><tr><th>Theme / Pattern</th><th>Frameworks Supporting It</th><th>Confidence Level</th><th>Direction to Explore</th></tr></thead>
+      <tbody>
+        <tr><td style="min-height:40px;"></td><td></td><td></td><td></td></tr>
+        <tr><td style="min-height:40px;"></td><td></td><td></td><td></td></tr>
+        <tr><td style="min-height:40px;"></td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="block">
+    <span class="block-label">Session 2 Action Items</span>
+    <table class="action-table">
+      <thead><tr><th>#</th><th>Action Item</th><th>Deadline</th><th>Done?</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td></td><td></td><td></td></tr>
+        <tr><td>2</td><td></td><td></td><td></td></tr>
+        <tr><td>3</td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- PART B -->
+  <div class="part-header" id="part-b">
+    <span class="part-label">Part B</span>
+    <h2>Education Path Planner Debrief Guide</h2>
+    <p>The Education Path Planner spans 3 sessions across 5 frameworks: Holland RIASEC, VARK, VIA, Academic Interests, and Practical Priorities. Total question count: 79.</p>
+    <div class="part-meta">
+      <span>3 Sessions</span>
+      <span>5 Frameworks</span>
+      <span>79 Questions</span>
+    </div>
+    <table class="ref-table" style="margin-top:24px;">
+      <thead><tr><th>Session</th><th>Frameworks</th><th>Questions</th><th>Focus</th><th>Approx. Length</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Holland RIASEC</td><td>24</td><td>What environments and fields fit this student?</td><td>60–90 min assessment + 20–30 min debrief</td></tr>
+        <tr><td>2</td><td>VARK + VIA</td><td>32</td><td>How does this student learn and what drives them?</td><td>45–60 min assessment + 30–45 min debrief</td></tr>
+        <tr><td>3</td><td>Academic Interests + Practical Priorities</td><td>23</td><td>What do they genuinely want, and what is realistic?</td><td>45–60 min assessment + 45–60 min debrief</td></tr>
+      </tbody>
+    </table>
+    <div class="coach-note" style="margin-top:16px;">
+      <strong>Coach Note:</strong> Session 3 is the most critical conversation. By then the student has had time to process Sessions 1 and 2, and their reactions tend to be significantly more honest. Before any session, read the Exploration Readiness and Self-Efficacy intake fields.
+    </div>
+    <table class="ref-table" style="margin-top:16px;">
+      <thead><tr><th>Readiness Level</th><th>Coaching Posture</th></tr></thead>
+      <tbody>
+        <tr><td>Actively Exploring</td><td>Present all options equally. Avoid steering too early. Use open-ended prompts.</td></tr>
+        <tr><td>Leaning — Seeking Confirmation</td><td>Use results to validate or gently challenge the existing direction. Do not simply confirm.</td></tr>
+        <tr><td>Stuck / Uncertain</td><td>Prioritize 2–3 viable options rather than the full picture. Simplify ruthlessly.</td></tr>
+        <tr><td>Under Pressure to Decide</td><td>Check whether responses reflect genuine preference or external expectation before interpreting any result.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SESSION B1 -->
+  <div class="session-header" id="session-b1">
+    <span class="session-label">Part B — Session 1</span>
+    <h3>Holland RIASEC</h3>
+  </div>
+
+  <div class="quote-block">"Before we look at your results — when you were answering those questions, was there a field or subject that kept coming up in your mind? Something you found yourself drawn back to?"</div>
+
+  <div class="framework">
+    <span class="framework-number">Framework 1</span>
+    <h4>Holland RIASEC</h4>
+
+    <div class="block">
+      <span class="block-label">Framework Purpose</span>
+      <p>Maps interest patterns to academic fields and degree types. Holland code match is one of the strongest predictors of academic engagement, program completion, and post-graduation satisfaction. Students who study in a mismatched field show significantly higher rates of major-switching, dropout, and post-graduation dissatisfaction.</p>
+    </div>
+
+    <div class="block">
+      <span class="block-label">How to Present the Result</span>
+      <p>Show the bar chart first. Describe the shape explicitly before naming the code — a sharp spike in two areas is a fundamentally different profile than evenly distributed scores across six.</p>
+    </div>
+
+    <div class="block">
+      <span class="block-label">Validation Prompt</span>
+      <div class="quote-block">"Looking at this chart — does the shape feel like an honest picture of what genuinely interests you? Or does it reflect what you think you're supposed to be interested in?"</div>
+    </div>
+
+    <div class="block">
+      <span class="block-label">Coaching Prompts</span>
+      <ul class="prompt-list">
+        <li>"What subject has ever made you lose track of time completely — where you were genuinely absorbed and didn't want to stop?"</li>
+        <li>"Is your top interest area something you've had real opportunity to explore, or is it mostly theoretical?"</li>
+        <li>"If you could design a major from scratch using your top two letters, what would it include?"</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <span class="block-label">Code-to-Field Reference</span>
+      <table class="ref-table">
+        <thead><tr><th>Code</th><th>Field Cluster</th><th>Strong Program Fits</th></tr></thead>
+        <tbody>
+          <tr><td><strong style="color:var(--amber-light);">R</strong></td><td>Applied &amp; Technical</td><td>Engineering, architecture, skilled trades, kinesiology, agriculture, construction, aviation</td></tr>
+          <tr><td><strong style="color:var(--amber-light);">I</strong></td><td>Science &amp; Research</td><td>Biology, chemistry, physics, computer science, mathematics, data science, pre-medicine</td></tr>
+          <tr><td><strong style="color:var(--amber-light);">A</strong></td><td>Arts &amp; Design</td><td>Fine arts, graphic design, film, music, theatre, creative writing, fashion, interior design</td></tr>
+          <tr><td><strong style="color:var(--amber-light);">S</strong></td><td>People &amp; Community</td><td>Education, social work, nursing, psychology, counseling, public health, nonprofit management</td></tr>
+          <tr><td><strong style="color:var(--amber-light);">E</strong></td><td>Business &amp; Leadership</td><td>Business, marketing, law, political science, entrepreneurship, sports management</td></tr>
+          <tr><td><strong style="color:var(--amber-light);">C</strong></td><td>Systems &amp; Data</td><td>Accounting, finance, information systems, health information management, library science</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="block">
+      <span class="block-label">Coach Notes — Holland RIASEC</span>
+      <div style="min-height:80px;border:1px dashed rgba(212,160,23,0.2);padding:12px;"></div>
+    </div>
+  </div>
+
+  <div class="block">
+    <span class="block-label">Session 1 Action Items</span>
+    <table class="action-table">
+      <thead><tr><th>#</th><th>Action Item</th><th>Deadline</th><th>Done?</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td></td><td></td><td></td></tr>
+        <tr><td>2</td><td></td><td></td><td></td></tr>
+        <tr><td>3</td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SESSION B2 -->
+  <div class="session-header" id="session-b2">
+    <span class="session-label">Part B — Session 2</span>
+    <h3>VARK Learning Style &amp; VIA Character Strengths</h3>
+  </div>
+
+  <div class="quote-block">"Before we look at today's results — has anything shifted since we last talked? Does the Holland result still feel accurate, or do you see it differently now?"</div>
+
+  <div class="framework">
+    <span class="framework-number">Framework 2</span>
+    <h4>VARK Learning Style</h4>
+
+    <div class="block">
+      <span class="block-label">Framework Purpose</span>
+      <p>Identifies how the student prefers to receive and process new information. VARK is the most directly actionable result in the Education Path Planner — it determines which program formats produce the best outcomes. Format mismatch between learning style and program design is one of the most preventable causes of academic underperformance. The validated VARK questionnaire at vark-learn.com is free.</p>
+    </div>
+
+    <div class="block">
+      <span class="block-label">Validation Prompt</span>
+      <div class="quote-block">"When you've genuinely learned something difficult — something that actually stuck — how did you learn it? Does this result match that experience?"</div>
+    </div>
+
+    <div class="block">
+      <span class="block-label">Coaching Prompts</span>
+      <ul class="prompt-list">
+        <li>"Think about the class where you performed best. What was the format? How did the teacher teach?"</li>
+        <li>"Think about the class where you performed worst. What made it hard to absorb the material?"</li>
+        <li>"Given your learning style, what type of program or institution is most likely to help you succeed?"</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <span class="block-label">VARK Format Reference</span>
+      <table class="ref-table">
+        <thead><tr><th>Style</th><th>Best Program Formats</th><th>Study Strategies</th><th>Watch Out For</th></tr></thead>
+        <tbody>
+          <tr><td><strong style="color:var(--amber-light);">Visual</strong></td><td>Slide-heavy lectures, video-based, infographic-rich curricula</td><td>Mind maps, color-coding, visual note systems</td><td>Purely audio-lecture or text-heavy programs</td></tr>
+          <tr><td><strong style="color:var(--amber-light);">Aural</strong></td><td>Seminars, discussion-heavy, podcast-format, live group interaction</td><td>Recording lectures, study groups, verbal self-testing</td><td>Text-only or purely self-paced online programs</td></tr>
+          <tr><td><strong style="color:var(--amber-light);">Read/Write</strong></td><td>Traditional university, reading-heavy, essay assessment</td><td>Rewriting notes, detailed outlines, annotating texts</td><td>Programs assessed only by project or performance</td></tr>
+          <tr><td><strong style="color:var(--amber-light);">Kinesthetic</strong></td><td>Labs, clinicals, co-ops, apprenticeships, project-based</td><td>Worked examples, practice problems, real application</td><td>Purely theoretical lecture-based programs</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="block">
+      <span class="block-label">Coach Notes — VARK</span>
+      <div style="min-height:80px;border:1px dashed rgba(212,160,23,0.2);padding:12px;"></div>
+    </div>
+  </div>
+
+  <div class="framework">
+    <span class="framework-number">Framework 3</span>
+    <h4>VIA Character Strengths</h4>
+
+    <div class="block">
+      <span class="block-label">Framework Purpose</span>
+      <p>Identifies the student's core character strengths. For education planning, VIA is most useful for identifying campus cultures and program missions that will feel energizing over four or more years. Younger students often have lower character strength self-awareness — the debrief conversation matters more than the scored result. The full free VIA at viacharacter.org should be completed before Session 3.</p>
+    </div>
+
+    <div class="block">
+      <span class="block-label">Validation Prompt</span>
+      <div class="quote-block">"When you hear that your signature strength is [name] — does that feel like the truest version of you as a student?"</div>
+    </div>
+
+    <div class="block">
+      <span class="block-label">Coaching Prompts</span>
+      <ul class="prompt-list">
+        <li>"When have you felt most alive in a school setting? What were you doing, and which strength was most active?"</li>
+        <li>"What kind of campus community or program culture would let you express this strength every day?"</li>
+        <li>"Is there a subject area that tends to attract people with this strength?"</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <span class="block-label">Strength-to-Campus Culture Reference</span>
+      <table class="ref-table">
+        <thead><tr><th>Signature Strength</th><th>Best-Fit Academic Environment</th></tr></thead>
+        <tbody>
+          <tr><td>Curiosity &amp; Love of Learning</td><td>Research universities, honors programs, inquiry-driven liberal arts colleges.</td></tr>
+          <tr><td>Honesty &amp; Integrity</td><td>Programs with strong ethics components — law, medicine, journalism, public policy.</td></tr>
+          <tr><td>Kindness &amp; Compassion</td><td>Service-learning programs: social work, healthcare, education, community development.</td></tr>
+          <tr><td>Leadership &amp; Teamwork</td><td>Programs with student leadership development, real agency, and group project culture.</td></tr>
+          <tr><td>Creativity &amp; Originality</td><td>Studio-based, project-driven programs that reward original thinking.</td></tr>
+          <tr><td>Humor &amp; Gratitude</td><td>Campuses with strong community culture, extracurriculars, and genuine social warmth.</td></tr>
+          <tr><td>Bravery &amp; Perseverance</td><td>Rigorous, competitive programs where persistence is genuinely tested and rewarded.</td></tr>
+          <tr><td>Prudence &amp; Self-Discipline</td><td>Self-paced, independent, or online programs that reward structure and self-management.</td></tr>
+          <tr><td>Purpose &amp; Spirituality</td><td>Mission-driven institutions or programs with strong connection to service and purpose.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="block">
+      <span class="block-label">Coach Notes — VIA</span>
+      <div style="min-height:80px;border:1px dashed rgba(212,160,23,0.2);padding:12px;"></div>
+    </div>
+  </div>
+
+  <div class="block">
+    <span class="block-label">Session 2 Action Items</span>
+    <p style="font-size:0.85rem;margin-bottom:8px;">Assign 1–2 research tasks before Session 3. Strongly recommend completing the full VIA at viacharacter.org before Session 3.</p>
+    <table class="action-table">
+      <thead><tr><th>#</th><th>Action Item</th><th>Deadline</th><th>Done?</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td></td><td></td><td></td></tr>
+        <tr><td>2</td><td></td><td></td><td></td></tr>
+        <tr><td>3</td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SESSION B3 -->
+  <div class="session-header" id="session-b3">
+    <span class="session-label">Part B — Session 3</span>
+    <h3>Academic Interests, Practical Priorities &amp; Full Synthesis</h3>
+  </div>
+
+  <div class="coach-note"><strong>Coach Note:</strong> Session 3 is the most critical conversation. Begin with a two-minute recap of Sessions 1 and 2 before presenting new results.</div>
+  <div class="quote-block" style="margin-top:16px;">"Before we look at today's results, let's revisit where we've landed. Does the Holland code still feel right? Has the VIA result shifted how you think about what you want from a program?"</div>
+
+  <div class="framework">
+    <span class="framework-number">Framework 4</span>
+    <h4>Academic Interest Inventory</h4>
+
+    <div class="block">
+      <span class="block-label">Framework Purpose</span>
+      <p>Maps pure intellectual curiosity to field clusters, independent of job market pressure or perceived ability. Genuine interest is one of the strongest predictors of academic persistence and completion.</p>
+    </div>
+
+    <div class="block">
+      <span class="block-label">Holland Alignment</span>
+      <table class="ref-table">
+        <thead><tr><th>Scenario</th><th>What It Means</th><th>How to Debrief</th></tr></thead>
+        <tbody>
+          <tr><td>Holland and Academic Interest align</td><td>High confidence. Both frameworks independently confirm the same cluster.</td><td>Name the convergence explicitly. Use it to anchor all program recommendations.</td></tr>
+          <tr><td>Holland and Academic Interest diverge</td><td>Often reveals external pressure or an unexplored interdisciplinary option.</td><td>Probe which result feels more genuinely their own. Explore bridging programs.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="block">
+      <span class="block-label">Validation Prompt</span>
+      <div class="quote-block">"Looking at this ranking — is that your genuine passion, or what you feel pressure to be interested in?"</div>
+    </div>
+
+    <div class="block">
+      <span class="block-label">Coaching Prompts</span>
+      <ul class="prompt-list">
+        <li>"What is the last thing you read, watched, or looked up purely because it interested you — with no assignment attached?"</li>
+        <li>"If you could study anything for a year with no grades, no degree requirement, and no job market pressure, what would you study?"</li>
+        <li>"Is there a gap between what interests you most and what you think you're supposed to study? Where does that pressure come from?"</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <span class="block-label">Coach Notes — Academic Interests</span>
+      <div style="min-height:80px;border:1px dashed rgba(212,160,23,0.2);padding:12px;"></div>
+    </div>
+  </div>
+
+  <div class="framework">
+    <span class="framework-number">Framework 5</span>
+    <h4>Practical Priorities</h4>
+
+    <div class="block">
+      <span class="block-label">Framework Purpose</span>
+      <p>Surfaces the real-world constraints that determine which paths are actually viable. The results page applies a GPA-based filter to program suggestions — reference this explicitly. For students below program minimums, identify bridge options: community college transfer paths, grade improvement plans, or open-access programs that feed into target programs.</p>
+    </div>
+
+    <div class="block">
+      <span class="block-label">Validation Prompt</span>
+      <div class="quote-block">"Do these answers reflect your actual situation — or were some of them based on what you wish were true?"</div>
+    </div>
+
+    <div class="block">
+      <span class="block-label">Coaching Prompts</span>
+      <ul class="prompt-list">
+        <li>"Given the financial profile we're working with, which program types are realistically on the table and which aren't?"</li>
+        <li>"Is the income goal driven by genuine need — or by comparison to others? Would a lower starting salary in the right field actually be acceptable?"</li>
+        <li>"Are there constraints here that feel fixed but might actually be flexible — with family, an employer, or a financial aid office?"</li>
+      </ul>
+    </div>
+
+    <div class="coach-note">
+      <strong>Coach Note:</strong> The most common practical blocker is a fixed belief about financial constraints that has never been tested. Before ruling out any path on cost grounds, always ask: "Have you actually researched scholarships, grants, and aid for this specific program?" The answer is almost always no.
+    </div>
+
+    <div class="block">
+      <span class="block-label">Coach Notes — Practical Priorities</span>
+      <div style="min-height:80px;border:1px dashed rgba(212,160,23,0.2);padding:12px;"></div>
+    </div>
+  </div>
+
+  <div class="block">
+    <span class="block-label">Full Education Path Planner Synthesis</span>
+    <p>After all five frameworks, identify cross-framework convergence. Program recommendations with the strongest evidence are those supported by three or more frameworks pointing in the same direction.</p>
+    <ul class="watch-list" style="margin-bottom:20px;">
+      <li>Does the top Academic Interest cluster align with the Holland code? Alignment = high confidence. Divergence = explore why.</li>
+      <li>Does the VARK result eliminate any program formats on the shortlist? Remove those programs before proceeding.</li>
+      <li>Does the VIA signature strength align with the campus culture of the top programs?</li>
+      <li>Do the Practical Priorities constraints accommodate the top program directions?</li>
+      <li>Does the Career Destination Vision from intake align with what these programs produce?</li>
+    </ul>
+    <table class="synthesis-table">
+      <thead><tr><th>Theme / Pattern</th><th>Frameworks Supporting It</th><th>Confidence Level</th><th>Direction to Explore</th></tr></thead>
+      <tbody>
+        <tr><td style="min-height:40px;"></td><td></td><td></td><td></td></tr>
+        <tr><td style="min-height:40px;"></td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="block">
+    <span class="block-label">Program Shortlist</span>
+    <p style="font-size:0.85rem;margin-bottom:8px;">After synthesis, list the 2–3 programs that survive all five framework filters.</p>
+    <table class="ref-table">
+      <thead><tr><th>Program / Institution</th><th>Degree</th><th>Holland Fit</th><th>VARK Fit</th><th>GPA OK?</th><th>Practical Fit</th></tr></thead>
+      <tbody>
+        <tr><td style="min-height:36px;"></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td style="min-height:36px;"></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td style="min-height:36px;"></td><td></td><td></td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="block">
+    <span class="block-label">Session 3 Action Items</span>
+    <table class="action-table">
+      <thead><tr><th>#</th><th>Action Item</th><th>Deadline</th><th>Done?</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td></td><td></td><td></td></tr>
+        <tr><td>2</td><td></td><td></td><td></td></tr>
+        <tr><td>3</td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- PART C -->
+  <div class="part-header" id="part-c">
+    <span class="part-label">Part C</span>
+    <h2>Combined Profile Report — Debrief Guide</h2>
+    <p>The Combined Profile Report is generated when a client has completed both the Career Charting and Education Path Planner assessments. It is accessed from the results page of either tool when a matching session is found in the database.</p>
+  </div>
+
+  <div class="coach-note">
+    <strong>Combined Note:</strong> Do not share the Combined Profile Report with clients before the debrief conversation. The document is most valuable as a live coaching tool — the conversation it generates is more important than the document itself.
+  </div>
+
+  <div class="block" style="margin-top:32px;">
+    <span class="block-label">What the Report Shows</span>
+    <table class="ref-table">
+      <thead><tr><th>Section</th><th>Purpose</th></tr></thead>
+      <tbody>
+        <tr><td>Side-by-side Holland codes</td><td>Identifies whether career environment fit and academic field interest point in the same direction.</td></tr>
+        <tr><td>VIA convergence across both tools</td><td>Confirms whether character strength is consistent across career and education contexts.</td></tr>
+        <tr><td>DISC style + VARK learning style</td><td>Shows how the client operates (DISC) and how they learn best (VARK).</td></tr>
+        <tr><td>Top Work Value vs. Academic cluster</td><td>Cross-references the deepest career need with the academic interest direction.</td></tr>
+        <tr><td>Career Destination Anchoring</td><td>Displays the client's own vision for their career — the gut-check for all recommendations.</td></tr>
+        <tr><td>Three Combined Pathway Recommendations</td><td>Synthesizes all frameworks into actionable paths with confidence levels.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="block">
+    <span class="block-label">Reading the Convergence Levels</span>
+    <table class="ref-table">
+      <thead><tr><th>Level</th><th>What It Means</th><th>How to Debrief</th></tr></thead>
+      <tbody>
+        <tr><td><strong style="color:#4ade80;">High Confidence</strong><br><span style="font-size:0.78rem;color:var(--text-faint);">Holland + VIA align</span></td><td>Both assessments point in the same direction independently. Strongest possible signal.</td><td>Validate and move to action. Name the convergence explicitly.</td></tr>
+        <tr><td><strong style="color:var(--amber-light);">Moderate Confidence</strong><br><span style="font-size:0.78rem;color:var(--text-faint);">partial alignment</span></td><td>One or two frameworks align, others diverge.</td><td>Identify which frameworks align and which diverge. Explore divergence before finalizing.</td></tr>
+        <tr><td><strong style="color:#f87171;">Divergence Detected</strong><br><span style="font-size:0.78rem;color:var(--text-faint);">low alignment</span></td><td>Career and education profiles point in meaningfully different directions.</td><td>Most diagnostic finding in a combined profile. Explore whether external pressure is driving one side.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="block">
+    <span class="block-label">Combined Debrief Prompts</span>
+
+    <div style="margin-bottom:16px;">
+      <span style="font-size:0.65rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--amber);display:block;margin-bottom:6px;">Opening the Combined Session</span>
+      <div class="quote-block">"We have now completed both assessments. Before I show you the combined picture, I want to ask you one question: if you had to choose between the career your scores suggest and the education direction your scores suggest — which one would you choose without hesitation?"</div>
+    </div>
+
+    <div style="margin-bottom:16px;">
+      <span style="font-size:0.65rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--amber);display:block;margin-bottom:6px;">When Holland Codes Align</span>
+      <div class="quote-block">"Both your career and education assessments independently pointed toward [Holland type] environments. That level of consistency is significant — what does that tell you about what you've known for a long time that you maybe haven't admitted yet?"</div>
+    </div>
+
+    <div style="margin-bottom:16px;">
+      <span style="font-size:0.65rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--amber);display:block;margin-bottom:6px;">When Holland Codes Diverge</span>
+      <div class="quote-block">"Your career interests point toward [Career Holland], but your academic interests point toward [Education Holland]. Before I interpret anything — which of those two feels more genuinely yours, and which might reflect what you thought you were supposed to want?"</div>
+    </div>
+
+    <div style="margin-bottom:16px;">
+      <span style="font-size:0.65rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--amber);display:block;margin-bottom:6px;">Values-Anchored Unified Direction</span>
+      <div class="quote-block">"Regardless of where the other frameworks land — your top work value is [Value] and your signature strength is [VIA]. Every career and program recommendation I make is filtered through those two things. If any option doesn't honor both of them, it comes off the list. Does that feel right?"</div>
+    </div>
+
+    <div style="margin-bottom:16px;">
+      <span style="font-size:0.65rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--amber);display:block;margin-bottom:6px;">Career Destination Gut-Check</span>
+      <div class="quote-block">"You described your ideal career as [Career Destination]. Looking at the combined recommendations — does this path actually lead there? If not — what would need to change?"</div>
+    </div>
+
+    <div style="margin-bottom:16px;">
+      <span style="font-size:0.65rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--amber);display:block;margin-bottom:6px;">VARK-to-Career Format Alignment</span>
+      <div class="quote-block">"Your VARK result shows you learn best through [style]. That has implications beyond program selection — careers that require ongoing learning in a format that matches your style produce significantly higher long-term satisfaction. Does the career direction we're building toward actually involve learning that way?"</div>
+    </div>
+  </div>
+
+  <div class="block">
+    <span class="block-label">Combined Session Synthesis</span>
+    <table class="synthesis-table">
+      <thead><tr><th>Framework Pair</th><th>Aligned?</th><th>Key Insight</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr><td>Holland (Career vs. Education)</td><td></td><td></td><td></td></tr>
+        <tr><td>VIA (Career vs. Education)</td><td></td><td></td><td></td></tr>
+        <tr><td>Work Value + Academic Interest</td><td></td><td></td><td></td></tr>
+        <tr><td>DISC Style + VARK Style</td><td></td><td></td><td></td></tr>
+        <tr><td>Career Destination vs. Program Direction</td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="block">
+    <span class="block-label">Combined Session Action Items</span>
+    <table class="action-table">
+      <thead><tr><th>#</th><th>Action Item</th><th>Deadline</th><th>Done?</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td></td><td></td><td></td></tr>
+        <tr><td>2</td><td></td><td></td><td></td></tr>
+        <tr><td>3</td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<div class="greek-key"></div>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-brand">Apothena</span>
+    <span class="footer-copy">&copy; <span id="footer-year"></span> Apothena Career Services by Ryan Myers. Internal use only.</span>
+    <span style="font-family:'Playfair Display',serif;font-style:italic;font-size:0.75rem;color:rgba(212,160,23,0.35);">apothena.com</span>
+  </div>
+</footer>
+
+<script>
+  var fy = document.getElementById('footer-year');
+  if (fy) fy.textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
