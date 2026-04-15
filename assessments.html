@@ -46,7 +46,7 @@
   .cards-section{flex:1;padding:72px 80px 80px;background:linear-gradient(to bottom,#0d1e33 0%,#080f1c 100%);position:relative;overflow:hidden;}
   .cards-section::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:100%;height:100%;background-image:url('images/glaux-owl.jpg');background-size:contain;background-repeat:no-repeat;background-position:center center;opacity:0.22;pointer-events:none;z-index:0;}
   .cards-grid{display:grid;grid-template-columns:1fr 1fr;gap:120px;max-width:1200px;margin:0 auto;position:relative;z-index:1;}
-  .assess-card{position:relative;background:linear-gradient(155deg,rgba(10,18,32,0.9) 0%,rgba(15,28,46,0.95) 100%);border:1px solid rgba(212,160,23,0.22);border-left:3px solid rgba(212,160,23,0.6);padding:44px 36px 40px;cursor:pointer;text-decoration:none;display:flex;flex-direction:column;gap:18px;transition:border-color 0.3s,transform 0.3s,box-shadow 0.3s;backdrop-filter:blur(2px);opacity:0;transform:translateY(20px);}
+  .assess-card{position:relative;background:linear-gradient(135deg,rgba(10,18,32,0.65) 0%,rgba(15,28,46,0.72) 100%);border:1px solid rgba(212,160,23,0.22);border-left:3px solid rgba(212,160,23,0.6);padding:44px 36px 40px;cursor:pointer;text-decoration:none;display:flex;flex-direction:column;gap:18px;transition:border-color 0.3s,transform 0.3s,box-shadow 0.3s;opacity:0;transform:translateY(20px);}
   .assess-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,rgba(212,160,23,0.5),transparent);}
   .assess-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,rgba(212,160,23,0.18),transparent);}
   .assess-card:hover{border-color:rgba(212,160,23,0.5);border-left-color:var(--amber);transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,0.4),0 0 0 1px rgba(212,160,23,0.1);}
@@ -393,7 +393,14 @@
 
   // On page load — show password modal unless already authenticated this session
   window.addEventListener('load', function() {
-    setTimeout(openPwModal, 300);
+    var params = new URLSearchParams(window.location.search);
+    if (params.get('auth') === '1') {
+      // Arriving from index.html after correct password - skip modal, show gold pulse
+      history.replaceState(null, '', window.location.pathname);
+      setTimeout(showGoldPulse, 300);
+    } else {
+      setTimeout(openPwModal, 300);
+    }
   });
 
 })();
