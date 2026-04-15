@@ -43,8 +43,8 @@
   .page-hero h1{font-size:clamp(2rem,4vw,3.2rem);color:#fff;margin-bottom:16px;}
   .page-hero h1 em{font-style:italic;color:var(--amber-light);}
   .page-hero p{font-size:1rem;font-weight:300;color:rgba(255,255,255,0.5);max-width:480px;margin:0 auto;line-height:1.8;font-family:'Playfair Display',serif;font-style:italic;}
-  .cards-section{flex:1;padding:72px 80px 80px;background:linear-gradient(to bottom,#0d1e33 0%,#080f1c 100%);position:relative;}
-  .cards-section::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:620px;height:620px;background-image:url('images/glaux-owl.jpg');background-size:contain;background-repeat:no-repeat;background-position:center;opacity:0.22;pointer-events:none;z-index:0;}
+  .cards-section{flex:1;padding:72px 80px 80px;background:linear-gradient(to bottom,#0d1e33 0%,#080f1c 100%);position:relative;overflow:hidden;}
+  .cards-section::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:100%;height:100%;background-image:url('images/glaux-owl.jpg');background-size:contain;background-repeat:no-repeat;background-position:center center;opacity:0.22;pointer-events:none;z-index:0;}
   .cards-grid{display:grid;grid-template-columns:1fr 1fr;gap:120px;max-width:1200px;margin:0 auto;position:relative;z-index:1;}
   .assess-card{position:relative;background:linear-gradient(155deg,rgba(10,18,32,0.9) 0%,rgba(15,28,46,0.95) 100%);border:1px solid rgba(212,160,23,0.22);border-left:3px solid rgba(212,160,23,0.6);padding:44px 36px 40px;cursor:pointer;text-decoration:none;display:flex;flex-direction:column;gap:18px;transition:border-color 0.3s,transform 0.3s,box-shadow 0.3s;backdrop-filter:blur(2px);opacity:0;transform:translateY(20px);}
   .assess-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,rgba(212,160,23,0.5),transparent);}
@@ -366,7 +366,6 @@
     var err = document.getElementById('pw-error');
     if (!input || !err) return;
     if (input.value === 'Glaux3000') {
-      sessionStorage.setItem('apothena_auth', '1');
       closePwModal();
       showGoldPulse();
     } else {
@@ -394,11 +393,7 @@
 
   // On page load — show password modal unless already authenticated this session
   window.addEventListener('load', function() {
-    if (sessionStorage.getItem('apothena_auth')) {
-      revealCards();
-    } else {
-      setTimeout(openPwModal, 300);
-    }
+    setTimeout(openPwModal, 300);
   });
 
 })();
