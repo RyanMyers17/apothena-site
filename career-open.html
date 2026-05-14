@@ -1,0 +1,1659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apothena Career Charting (Open)</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#1e3a5f;--gold:#c9a84c;--gold-light:#f5e9cc;--gold-muted:#e8d5a3;
+  --ink:#1a1a2e;--muted:#5a6070;--soft:#9aa0ad;
+  --cream:#faf8f4;--white:#ffffff;--border:#e4dfd6;--border2:#d0c9be;
+  --teal:#0f6e56;--teal-bg:#e1f5ee;
+  --blue:#1c4e80;--blue-bg:#eef4fb;
+  --amber:#7a4800;--amber-bg:#faeeda;
+  --purple:#3c3489;--purple-bg:#ede9f7;
+  --green:#3b6d11;--green-bg:#eaf3de;
+  --coral:#8b2500;--coral-bg:#faece7;
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;background:var(--cream);color:var(--ink);font-size:15px;line-height:1.6;min-height:100vh}
+#topbar{background:var(--navy);color:#fff;padding:0 28px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;height:60px}
+.topbar-left{display:flex;align-items:center;gap:14px}
+.topbar-divider{width:1px;height:28px;background:rgba(255,255,255,.2)}
+.topbar-title{font-size:.95rem;font-weight:600;color:var(--gold);letter-spacing:.01em}
+#top-label{font-size:12px;color:rgba(255,255,255,.45)}
+#shell{display:flex;min-height:calc(100vh - 60px)}
+#sidebar{width:248px;background:var(--white);border-right:1px solid var(--border);flex-shrink:0;padding:22px 0;overflow-y:auto;display:flex;flex-direction:column}
+.sb-label{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);padding:0 20px 10px;font-weight:600}
+.nav-item{display:flex;align-items:center;gap:9px;padding:9px 20px;cursor:pointer;border-left:3px solid transparent;font-size:13px;color:var(--muted);transition:all .15s;user-select:none}
+.nav-item:hover{background:var(--cream);color:var(--ink)}
+.nav-item.active{border-left-color:var(--gold);background:var(--gold-light);color:var(--navy);font-weight:600}
+.nav-item.visited{color:var(--teal);cursor:pointer}
+.nav-item.skipped{color:var(--soft);font-style:italic}
+.nav-dot{width:7px;height:7px;border-radius:50%;border:1.5px solid currentColor;flex-shrink:0;transition:all .15s}
+.nav-item.active .nav-dot{background:var(--gold);border-color:var(--gold)}
+.nav-item.visited .nav-dot{background:var(--teal);border-color:var(--teal)}
+.nav-item.skipped .nav-dot{background:var(--soft);border-color:var(--soft)}
+#sidebar-footer{margin-top:auto;padding:16px 16px 8px;border-top:1px solid var(--border)}
+#client-chip{font-size:12px;color:var(--muted);padding:9px 11px;background:var(--cream);border-radius:8px;border:1px solid var(--border);display:none;margin-bottom:10px}
+#client-chip strong{display:block;color:var(--ink);font-size:13px;margin-bottom:1px}
+.save-btn{width:100%;padding:8px 0;border-radius:8px;font-size:12px;font-family:inherit;font-weight:600;cursor:pointer;border:1px solid var(--border2);background:var(--white);color:var(--muted);transition:all .15s;text-align:center;margin-bottom:6px}
+.save-btn:hover{border-color:var(--navy);color:var(--navy)}
+.save-btn.resume{background:var(--gold-light);border-color:var(--gold);color:var(--amber)}
+.brand-link{display:block;text-align:center;font-size:11px;color:var(--soft);margin-top:8px;text-decoration:none}
+.brand-link:hover{color:var(--gold)}
+#content{flex:1;padding:34px 42px;max-width:820px}
+#progress-bar{height:3px;background:var(--border);border-radius:2px;margin-bottom:34px;overflow:hidden}
+#progress-fill{height:100%;background:linear-gradient(90deg,var(--navy),var(--gold));border-radius:2px;transition:width .35s ease;width:11%}
+#section-wrap{min-height:200px}
+.sec-head{margin-bottom:26px;padding-bottom:18px;border-bottom:1px solid var(--border)}
+.fw-tag{display:inline-block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;padding:3px 11px;border-radius:20px;margin-bottom:10px}
+.sec-head h2{font-size:1.7rem;font-weight:700;margin-bottom:5px;letter-spacing:-.02em}
+.sec-head p{font-size:13px;color:var(--muted);max-width:480px;line-height:1.6}
+.coach-box{background:var(--blue-bg);border:1px solid #b5d4f4;border-radius:8px;padding:11px 14px;font-size:12px;color:var(--blue);margin-top:12px;line-height:1.6}
+.coach-box b{display:block;font-size:10px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:3px}
+.ref-toggle{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--navy);cursor:pointer;margin-top:12px;padding:6px 12px;border:1px solid var(--gold-muted);border-radius:20px;background:var(--gold-light);user-select:none;transition:all .15s}
+.ref-toggle:hover{background:var(--gold-muted)}
+.ref-panel{display:none;margin-top:12px;background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px 18px}
+.ref-panel.open{display:block}
+.ref-panel h4{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+.ref-list{display:flex;flex-direction:column;gap:7px}
+.ref-list-item{display:flex;gap:10px;padding:8px 10px;border-radius:8px;background:var(--cream);border:1px solid var(--border)}
+.ref-list-item .rl-code{font-size:12px;font-weight:700;color:var(--navy);min-width:32px;flex-shrink:0}
+.ref-list-item .rl-body{font-size:12px;color:var(--muted);line-height:1.45}
+.ref-list-item .rl-body b{color:var(--ink)}
+.intake-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px}
+.fg{display:flex;flex-direction:column;gap:5px}
+.fg.full{grid-column:1/-1}
+.fg label{font-size:11px;font-weight:600;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.fg input,.fg select,.fg textarea{border:1px solid var(--border2);border-radius:8px;padding:9px 13px;font-size:14px;font-family:inherit;color:var(--ink);background:#fff;outline:none;transition:border .15s;width:100%}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,.12)}
+.fg textarea{resize:vertical;min-height:74px}
+.q-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:20px 22px;margin-bottom:12px}
+.q-num{font-size:11px;color:var(--soft);margin-bottom:5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase}
+.q-text{font-size:15px;font-weight:600;line-height:1.5;margin-bottom:14px;color:var(--ink)}
+.scale-wrap{display:flex;flex-direction:column;gap:6px}
+.scale-btns{display:flex;border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.sc-btn{flex:1;padding:9px 0;text-align:center;font-size:13px;font-weight:600;cursor:pointer;background:#fff;color:var(--muted);border:none;border-right:1px solid var(--border);font-family:inherit;transition:all .12s}
+.sc-btn:last-child{border-right:none}
+.sc-btn:hover{background:var(--gold-light);color:var(--amber)}
+.sc-btn.picked{background:var(--navy);color:#fff}
+.scale-legend{display:flex;justify-content:space-between;font-size:11px;color:var(--soft);padding:0 2px}
+#btn-row{display:flex;justify-content:space-between;align-items:center;margin-top:26px;padding-top:20px;border-top:1px solid var(--border);gap:10px;flex-wrap:wrap}
+.btn{padding:10px 24px;border-radius:8px;font-size:14px;font-family:inherit;font-weight:600;cursor:pointer;transition:all .15s;border:1px solid var(--border2);background:#fff;color:var(--ink)}
+.btn:hover{border-color:var(--navy)}
+.btn:disabled{opacity:.3;cursor:not-allowed}
+.btn-primary{background:var(--navy);color:#fff;border-color:var(--navy)}
+.btn-primary:hover{background:#152d4a}
+.btn-skip{background:#fff;color:var(--soft);border:1px dashed var(--border2);font-size:13px;padding:10px 18px}
+.btn-skip:hover{color:var(--muted);border-color:var(--muted)}
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:500;display:flex;align-items:center;justify-content:center}
+.modal-overlay.hidden{display:none}
+.modal{background:#fff;border-radius:14px;padding:28px 32px;max-width:420px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,.2)}
+.modal h3{font-size:1.2rem;font-weight:700;margin-bottom:6px;color:var(--navy)}
+.modal p{font-size:13px;color:var(--muted);margin-bottom:18px;line-height:1.6}
+.modal-row{display:flex;gap:10px;flex-wrap:wrap}
+.modal-row .btn{flex:1}
+.modal-input{width:100%;border:1px solid var(--border2);border-radius:8px;padding:10px 13px;font-size:1rem;font-family:inherit;outline:none;margin-bottom:12px}
+.modal-input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,.12)}
+.modal-error{font-size:12px;color:#c0392b;margin-bottom:10px;text-align:center}
+.results-hero{background:var(--navy);color:#fff;border-radius:12px;padding:26px 30px;margin-bottom:22px;position:relative;overflow:hidden}
+.results-hero::after{content:'';position:absolute;right:-20px;top:-20px;width:140px;height:140px;border-radius:50%;background:rgba(201,168,76,.08);pointer-events:none}
+.results-hero h2{font-size:1.75rem;font-weight:700;margin-bottom:3px;letter-spacing:-.02em}
+.results-hero .sub{font-size:13px;color:rgba(255,255,255,.5);margin-bottom:18px}
+.type-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.type-chip{border-radius:8px;padding:12px 14px;text-align:center;background:rgba(201,168,76,.15)}
+.type-chip .tv{font-size:1.3rem;font-weight:700;line-height:1.1;color:var(--gold)}
+.type-chip .tl{font-size:10px;letter-spacing:.08em;text-transform:uppercase;opacity:.6;margin-bottom:3px}
+.rs{margin-bottom:20px}
+.rs-label{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);font-weight:600;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.fw-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin-bottom:9px}
+.fw-card-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px}
+.fw-card-title{font-size:14px;font-weight:700}
+.fw-card-sub{font-size:12px;color:var(--muted);margin-top:1px}
+.fw-badge{font-size:10px;padding:3px 9px;border-radius:20px;font-weight:700;white-space:nowrap}
+.fw-body{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:10px}
+.coaching-prompt{background:var(--gold-light);border-left:3px solid var(--gold);border-radius:0 6px 6px 0;padding:9px 12px;font-size:12px;color:var(--amber);line-height:1.6}
+.coaching-prompt b{color:var(--navy);font-size:10px;text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:3px}
+.skipped-note{font-size:12px;color:var(--soft);font-style:italic}
+.bar-row{display:flex;align-items:center;gap:8px;margin-bottom:7px}
+.bar-lbl{font-size:12px;min-width:140px;color:var(--muted)}
+.bar-track{flex:1;height:5px;background:var(--cream);border-radius:3px;border:1px solid var(--border);overflow:hidden}
+.bar-fill{height:100%;background:var(--navy);border-radius:3px}
+.bar-val{font-size:11px;color:var(--soft);min-width:34px;text-align:right}
+.steps-list{background:var(--white);border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.step-row{display:flex;gap:12px;padding:13px 16px;border-bottom:1px solid var(--border)}
+.step-row:last-child{border-bottom:none}
+.step-num{width:22px;height:22px;border-radius:50%;background:var(--navy);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.step-text{font-size:13px;color:var(--muted);line-height:1.55}
+.step-text strong{color:var(--ink);display:block;margin-bottom:1px}
+.print-btn-row{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
+.results-footer{text-align:center;margin-top:28px;padding-top:18px;border-top:1px solid var(--border);font-size:12px;color:var(--soft);line-height:1.7}
+.results-footer a{color:var(--gold);text-decoration:none;font-weight:600}
+.tag-ip{background:var(--teal-bg);color:var(--teal)}
+.tag-wv{background:var(--blue-bg);color:var(--blue)}
+.tag-hx{background:var(--purple-bg);color:var(--purple)}
+.tag-gse{background:var(--green-bg);color:var(--green)}
+.tag-ts{background:var(--amber-bg);color:var(--amber)}
+.tag-int{background:var(--gold-light);color:var(--amber)}
+.hist-row{display:flex;align-items:center;justify-content:space-between;padding:11px 14px;border-bottom:1px solid var(--border)}
+.hist-row:last-child{border-bottom:none}
+.hist-name{font-size:13px;font-weight:600;color:var(--ink)}
+.hist-date{font-size:11px;color:var(--soft);margin-top:2px}
+.hist-actions{display:flex;gap:6px;flex-shrink:0}
+.hist-load-btn{padding:6px 14px;font-size:12px;background:var(--navy);color:#fff;border-color:var(--navy)}
+.hist-load-btn:hover{background:#152d4a}
+.hist-del-btn{padding:6px 10px;font-size:12px;color:var(--soft);border-color:var(--border)}
+.hist-del-btn:hover{color:#c0392b;border-color:#c0392b}
+#confirm-banner{display:none;position:fixed;bottom:24px;right:24px;background:var(--navy);color:#fff;padding:11px 18px;border-radius:8px;font-size:13px;font-weight:600;z-index:600;box-shadow:0 4px 20px rgba(0,0,0,.2)}
+@media print{
+  #topbar,#sidebar,#btn-row,.print-btn-row,.ref-toggle,.modal-overlay,#confirm-banner{display:none!important}
+  #shell{display:block}
+  #content{padding:0;max-width:100%}
+  body{font-size:12px}
+  .results-hero{background:var(--navy)!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .type-chip{background:rgba(201,168,76,.15)!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .fw-card,.steps-list,.ref-panel{break-inside:avoid}
+  .ref-panel{display:block!important}
+  @page{margin:1.8cm}
+  .results-footer{display:block!important}
+}
+</style>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+
+<div id="topbar">
+  <div class="topbar-left">
+    <div class="topbar-title">Career Charting (Open)</div>
+  </div>
+  <span id="top-label">Step 1</span>
+</div>
+
+<div id="shell">
+  <div id="sidebar">
+    <div class="sb-label">Assessment Sections</div>
+    <div id="sidebar-nav"></div>
+    <div id="sidebar-footer">
+      <div id="client-chip"><strong id="chip-name"></strong><span id="chip-date"></span></div>
+      <button class="save-btn" onclick="showSaveModal()">&#128190; Save &amp; Quit</button>
+      <button class="save-btn resume" onclick="showHistoryModal()">&#128065; Previous Assessments</button>
+      <a class="brand-link" href="https://apothena.com" target="_blank">apothena.com</a>
+    </div>
+  </div>
+  <div id="content">
+    <div id="progress-bar"><div id="progress-fill"></div></div>
+    <div id="section-wrap"></div>
+    <div id="btn-row">
+      <button class="btn" id="btn-back">&#8592; Back</button>
+      <button class="btn btn-skip" id="btn-skip">Skip section</button>
+      <button class="btn btn-primary" id="btn-next">Continue &#8594;</button>
+    </div>
+  </div>
+</div>
+
+<!-- SAVE MODAL -->
+<div class="modal-overlay hidden" id="save-modal">
+  <div class="modal">
+    <h3>Save Session</h3>
+    <p>Confirm the client name to save this session. You can resume it later from <strong>Previous Assessments</strong>.</p>
+    <div style="font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--soft);margin-bottom:5px;font-weight:600">Client Name</div>
+    <input class="modal-input" id="save-name-input" placeholder="Client full name">
+    <div class="modal-error" id="save-error"></div>
+    <div class="modal-row">
+      <button class="btn" onclick="closeSaveModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="doSave()">Save &amp; Quit &#8594;</button>
+    </div>
+  </div>
+</div>
+
+<!-- HISTORY MODAL -->
+<div class="modal-overlay hidden" id="history-modal">
+  <div class="modal" style="max-width:500px">
+    <h3>Previous Assessments</h3>
+    <p>Select a saved session to resume, or delete sessions you no longer need.</p>
+    <div id="history-list" style="max-height:320px;overflow-y:auto;margin-bottom:16px;border:1px solid var(--border);border-radius:8px"></div>
+    <div class="modal-row"><button class="btn btn-primary" onclick="closeHistoryModal()">Close</button></div>
+  </div>
+</div>
+
+<div id="confirm-banner"></div>
+
+<script>
+var TOOL_ID = "career-open";
+
+// ── FIREBASE INIT ─────────────────────────────────────────────────────────────
+var _db = null;
+var _fbReady = false;
+function initFirebase(){
+  try{
+    var cfg = {
+      apiKey: "AIzaSyCqx2vzzpJCTkUiymDbhjtsi6NpF5pgi6U",
+      authDomain: "apothena-assessments.firebaseapp.com",
+      projectId: "apothena-assessments",
+      storageBucket: "apothena-assessments.firebasestorage.app",
+      messagingSenderId: "161975263646",
+      appId: "1:161975263646:web:dd30980809e3593601b68f"
+    };
+    firebase.initializeApp(cfg);
+    _db = firebase.firestore();
+    _fbReady = true;
+  }catch(e){
+    console.warn('Firebase init failed, falling back to localStorage', e);
+    _fbReady = false;
+  }
+}
+
+// ── DATA MODEL ────────────────────────────────────────────────────────────────
+var SECTIONS = [
+  { id: 'intake',       label: 'Client Intake',          noSkip: true, session: 0 },
+  { id: 'ip_mini',      label: 'Interests',              tag: 'tag-ip',  tagLabel: 'O*NET Interests',     session: 1 },
+  { id: 'work_values',  label: 'Work Values',            tag: 'tag-wv',  tagLabel: 'O*NET Work Values',   session: 1 },
+  { id: 'hexaco',       label: 'Personality Snapshot',   tag: 'tag-hx',  tagLabel: 'HEXACO Snapshot',     session: 2 },
+  { id: 'gse',          label: 'Self-Efficacy',          tag: 'tag-gse', tagLabel: 'General Self-Efficacy', session: 2 },
+  { id: 'transferable', label: 'Transferable Skills',    tag: 'tag-ts',  tagLabel: 'Transferable Skills', session: 2 },
+  { id: 'results',      label: 'Career Profile',         noSkip: true, session: 0 }
+];
+
+var REFERENCES = {
+  ip_mini: {
+    title: 'Holland RIASEC Interests (O*NET Interest Profiler Mini)',
+    intro: 'Six interest types developed by John Holland and operationalized by the U.S. Department of Labor in O*NET. Items are public domain. The top three letters form a Holland code that signals career environments most likely to fit.',
+    listLabel: 'The Six RIASEC Types',
+    types: [
+      { code:'R', name:'Realistic',     desc:'Hands-on, mechanical, physical work. Trades, engineering, applied sciences.' },
+      { code:'I', name:'Investigative', desc:'Research, analysis, intellectual inquiry. Science, medicine, technology, data.' },
+      { code:'A', name:'Artistic',      desc:'Creative, expressive, unstructured work. Design, writing, music, film.' },
+      { code:'S', name:'Social',        desc:'Working with and helping people. Teaching, counseling, healthcare, community.' },
+      { code:'E', name:'Enterprising',  desc:'Leading, persuading, influencing. Business, law, sales, management.' },
+      { code:'C', name:'Conventional',  desc:'Organized, structured, detail work. Finance, administration, compliance, operations.' }
+    ]
+  },
+  work_values: {
+    title: 'Work Values (adapted from O*NET)',
+    intro: 'Six work-value dimensions from the Theory of Work Adjustment (Dawis and Lofquist), as operationalized by O*NET. The published O*NET Work Importance Profiler is a card-sort. This Likert adaptation rates each work need on importance.',
+    listLabel: 'The Six Work-Value Dimensions',
+    types: [
+      { code:'Achievement',        name:'Achievement',         desc:'Using one\'s abilities to accomplish results that feel meaningful.' },
+      { code:'Independence',       name:'Independence',        desc:'Working autonomously, planning and deciding for oneself.' },
+      { code:'Recognition',        name:'Recognition',         desc:'Advancement, prestige, authority, and being acknowledged.' },
+      { code:'Relationships',      name:'Relationships',       desc:'Service to others, harmonious co-worker relationships, and ethics.' },
+      { code:'Support',            name:'Support',             desc:'Supportive supervisors, fair company policies, training.' },
+      { code:'WorkingConditions',  name:'Working Conditions',  desc:'Steady employment, fair pay, safe and comfortable workplace.' }
+    ]
+  },
+  hexaco: {
+    title: 'HEXACO Personality Snapshot',
+    intro: 'Six personality factors from the HEXACO model (Ashton and Lee). The added Honesty-Humility factor distinguishes HEXACO from the Big Five and contributes incremental validity for workplace behaviors. This 24-item snapshot is for coaching, not selection.',
+    listLabel: 'The Six HEXACO Factors',
+    types: [
+      { code:'H', name:'Honesty-Humility',      desc:'Sincerity, fairness, modesty, and avoidance of greed or manipulation.' },
+      { code:'E', name:'Emotionality',          desc:'Anxiousness, sentimentality, and need for emotional support.' },
+      { code:'X', name:'eXtraversion',          desc:'Social self-esteem, sociability, liveliness, and social boldness.' },
+      { code:'A', name:'Agreeableness',         desc:'Forgiveness, gentleness, flexibility, and patience.' },
+      { code:'C', name:'Conscientiousness',     desc:'Organization, diligence, perfectionism, and prudence.' },
+      { code:'O', name:'Openness to Experience',desc:'Aesthetic appreciation, curiosity, creativity, and unconventionality.' }
+    ]
+  },
+  gse: {
+    title: 'General Self-Efficacy Scale (Schwarzer and Jerusalem, 1995)',
+    intro: 'A widely used 10-item measure of generalized self-efficacy: the belief in one\'s ability to cope with novel and difficult demands. Free for non-commercial use with attribution. Total score ranges from 10 to 40 on the published 4-point scale.',
+    listLabel: 'How to Read the Score',
+    types: [
+      { code:'10-20', name:'Lower band',  desc:'Self-efficacy beliefs that may benefit from focused coaching around mastery experiences.' },
+      { code:'21-29', name:'Middle band', desc:'Common range. Coach toward strengthening self-efficacy in domains the client cares most about.' },
+      { code:'30-40', name:'Upper band',  desc:'High self-efficacy. Coach toward channeling confidence into well-chosen targets.' }
+    ]
+  },
+  transferable: {
+    title: 'Transferable Skills (drawn from O*NET Skills taxonomy)',
+    intro: 'Fifteen skills selected from the public-domain O*NET Skills taxonomy. Self-rated on a five-point proficiency scale. Use the top five for resume, interview, and target-role conversations.',
+    listLabel: 'How to Use the Ratings',
+    types: [
+      { code:'Top 5',     name:'Lead with these',          desc:'Highlight on resumes, in interviews, and as decision lenses for target roles.' },
+      { code:'Middle',    name:'Build deliberately',       desc:'Identify a stretch role or project that develops one of these in context.' },
+      { code:'Lower',     name:'Decide whether to invest', desc:'Either deprioritize or commit to a specific learning plan.' }
+    ]
+  }
+};
+
+var COACH_TIPS = {
+  ip_mini:      'Watch the client\'s engagement on Realistic and Conventional items. Those two often surface preferences that have been suppressed by past advice. The Holland code is a starting point, not a final answer.',
+  work_values:  'Encourage the client to read each item slowly. The published O*NET work-value tool is a card-sort; this Likert adaptation can produce a flatter profile. Look at the top two and bottom two for the strongest signal.',
+  hexaco:      'Personality results are coach-facing first. Avoid presenting the four-letter labels (high, moderate, low) directly to the client. Use them to frame open coaching questions. Note: this is an Apothena-authored HEXACO-aligned snapshot, not the Brief HEXACO Inventory.',
+  gse:         'GSE is a stable trait measure; avoid confusing it with task-specific confidence. If the score feels inconsistent with what you observe, ask about a recent setback or success and listen for attribution patterns.',
+  transferable: 'Self-ratings are anchored to the client\'s own reference group. Before scoring, ask the client to picture a peer they consider expert in each skill. The Top 5 list is the most actionable output.'
+};
+
+var QUESTIONS = {
+  "ip_mini": [
+    {
+      "id": "ip_r1",
+      "text": "Build kitchen cabinets",
+      "type": "scale5",
+      "lo": "Strongly dislike",
+      "hi": "Strongly like",
+      "track": "Realistic"
+    },
+    {
+      "id": "ip_r2",
+      "text": "Repair household appliances",
+      "type": "scale5",
+      "lo": "Strongly dislike",
+      "hi": "Strongly like",
+      "track": "Realistic"
+    },
+    {
+      "id": "ip_r3",
+      "text": "Lay brick or tile",
+      "type": "scale5",
+      "lo": "Strongly dislike",
+      "hi": "Strongly like",
+      "track": "Realistic"
+    },
+    {
+      "id": "ip_r4",
+      "text": "Operate a grinding machine in a factory",
+      "type": "scale5",
+      "lo": "Strongly dislike",
+      "hi": "Strongly like",
+      "track": "Realistic"
+    },
+    {
+      "id": "ip_r5",
+      "text": "Drive a truck to deliver packages to homes and offices",
+      "type": "scale5",
+      "lo": "Strongly dislike",
+      "hi": "Strongly like",
+      "track": "Realistic"
+    },
+    {
+      "id": "ip_i1",
+      "text": "Develop a new medical treatment or procedure",
+      "type": "scale5",
+      "lo": "Strongly dislike",
+      "hi": "Strongly like",
+      "track": "Investigative"
+    },
+    {
+      "id": "ip_i2",
+      "text": "Conduct chemical experiments",
+      "type": "scale5",
+      "lo": "Strongly dislike",
+      "hi": "Strongly like",
+      "track": "Investigative"
+    },
+    {
+      "id": "ip_i3",
+      "text": "Study the movement of planets",
+      "type": "scale5",
+      "lo": "Strongly dislike",
+      "hi": "Strongly like",
+      "track": "Investigative"
+    },
+    {
+      "id": "ip_i4",
+      "text": "Examine blood samples using a microscope",
+      "type": "scale5",
+      "lo": "Strongly dislike",
+      "hi": "Strongly like",
+      "track": "Investigative"
+    },
+    {
+      "id": "ip_i5",
+      "text": "Investigate the cause of a fire",
+      "type": "scale5",
+      "lo": "Strongly dislike",
+      "hi": "Strongly like",
+      "track": "Investigative"
+    },
+    {
+      "id": "ip_a1",
+      "text": "Compose or arrange music",
+      "type": "scale5",
+      "lo": "Strongly dislike",
+      "hi": "Strongly like",
+      "track": "Artistic"
+    },
+    {
+      "id": "ip_a2",
+      "text": "Write books or plays",
+      "type": "scale5",
+      "lo": "Strongly dislike",
+      "hi": "Strongly like",
+      "track": "Artistic"
+    },
+    {
+      "id": "ip_a3",
+      "text": "Paint sets for plays",
+      "type": "scale5",
+      "lo": "Strongly dislike",
+      "hi": "Strongly like",
+      "track": "Artistic"
+    },
+    {
+      "id": "ip_a4",
+      "text": "Edit movies",
+      "type": "scale5",
+      "lo": "Strongly dislike",
+      "hi": "Strongly like",
+      "track": "Artistic"
+    },
+    {
+      "id": "ip_a5",
+      "text": "Design artwork for magazines",
+      "type": "scale5",
+      "lo": "Strongly dislike",
+      "hi": "Strongly like",
+      "track": "Artistic"
+    },
+    {
+      "id": "ip_s1",
+      "text": "Teach an individual an exercise routine",
+      "type": "scale5",
+      "lo": "Strongly dislike",
+      "hi": "Strongly like",
+      "track": "Social"
+    },
+    {
+      "id": "ip_s2",
+      "text": "Help people with personal or emotional problems",
+      "type": "scale5",
+      "lo": "Strongly dislike",
+      "hi": "Strongly like",
+      "track": "Social"
+    },
+    {
+      "id": "ip_s3",
+      "text": "Give career guidance to people",
+      "type": "scale5",
+      "lo": "Strongly dislike",
+      "hi": "Strongly like",
+      "track": "Social"
+    },
+    {
+      "id": "ip_s4",
+      "text": "Take care of children at a daycare center",
+      "type": "scale5",
+      "lo": "Strongly dislike",
+      "hi": "Strongly like",
+      "track": "Social"
+    },
+    {
+      "id": "ip_s5",
+      "text": "Teach a high school class",
+      "type": "scale5",
+      "lo": "Strongly dislike",
+      "hi": "Strongly like",
+      "track": "Social"
+    },
+    {
+      "id": "ip_e1",
+      "text": "Buy and sell stocks and bonds",
+      "type": "scale5",
+      "lo": "Strongly dislike",
+      "hi": "Strongly like",
+      "track": "Enterprising"
+    },
+    {
+      "id": "ip_e2",
+      "text": "Manage a retail store",
+      "type": "scale5",
+      "lo": "Strongly dislike",
+      "hi": "Strongly like",
+      "track": "Enterprising"
+    },
+    {
+      "id": "ip_e3",
+      "text": "Sell merchandise at a department store",
+      "type": "scale5",
+      "lo": "Strongly dislike",
+      "hi": "Strongly like",
+      "track": "Enterprising"
+    },
+    {
+      "id": "ip_e4",
+      "text": "Negotiate business contracts",
+      "type": "scale5",
+      "lo": "Strongly dislike",
+      "hi": "Strongly like",
+      "track": "Enterprising"
+    },
+    {
+      "id": "ip_e5",
+      "text": "Represent a client in a lawsuit",
+      "type": "scale5",
+      "lo": "Strongly dislike",
+      "hi": "Strongly like",
+      "track": "Enterprising"
+    },
+    {
+      "id": "ip_c1",
+      "text": "Develop a spreadsheet using computer software",
+      "type": "scale5",
+      "lo": "Strongly dislike",
+      "hi": "Strongly like",
+      "track": "Conventional"
+    },
+    {
+      "id": "ip_c2",
+      "text": "Proofread records or forms",
+      "type": "scale5",
+      "lo": "Strongly dislike",
+      "hi": "Strongly like",
+      "track": "Conventional"
+    },
+    {
+      "id": "ip_c3",
+      "text": "Maintain employee records",
+      "type": "scale5",
+      "lo": "Strongly dislike",
+      "hi": "Strongly like",
+      "track": "Conventional"
+    },
+    {
+      "id": "ip_c4",
+      "text": "Compute and record statistical data",
+      "type": "scale5",
+      "lo": "Strongly dislike",
+      "hi": "Strongly like",
+      "track": "Conventional"
+    },
+    {
+      "id": "ip_c5",
+      "text": "Calculate the wages of employees",
+      "type": "scale5",
+      "lo": "Strongly dislike",
+      "hi": "Strongly like",
+      "track": "Conventional"
+    }
+  ],
+  "work_values": [
+    {
+      "id": "wv_ach1",
+      "text": "I could use my best abilities every day.",
+      "type": "scale5",
+      "lo": "Not important",
+      "hi": "Extremely important",
+      "track": "Achievement"
+    },
+    {
+      "id": "wv_ach2",
+      "text": "I could see the results of my work.",
+      "type": "scale5",
+      "lo": "Not important",
+      "hi": "Extremely important",
+      "track": "Achievement"
+    },
+    {
+      "id": "wv_ach3",
+      "text": "I could feel a sense of accomplishment from what I do.",
+      "type": "scale5",
+      "lo": "Not important",
+      "hi": "Extremely important",
+      "track": "Achievement"
+    },
+    {
+      "id": "wv_ind1",
+      "text": "I could make decisions on my own.",
+      "type": "scale5",
+      "lo": "Not important",
+      "hi": "Extremely important",
+      "track": "Independence"
+    },
+    {
+      "id": "wv_ind2",
+      "text": "I could try out my own ideas.",
+      "type": "scale5",
+      "lo": "Not important",
+      "hi": "Extremely important",
+      "track": "Independence"
+    },
+    {
+      "id": "wv_ind3",
+      "text": "I could plan my own work with little supervision.",
+      "type": "scale5",
+      "lo": "Not important",
+      "hi": "Extremely important",
+      "track": "Independence"
+    },
+    {
+      "id": "wv_rec1",
+      "text": "I could advance to higher-level positions.",
+      "type": "scale5",
+      "lo": "Not important",
+      "hi": "Extremely important",
+      "track": "Recognition"
+    },
+    {
+      "id": "wv_rec2",
+      "text": "I could receive recognition for the work I do.",
+      "type": "scale5",
+      "lo": "Not important",
+      "hi": "Extremely important",
+      "track": "Recognition"
+    },
+    {
+      "id": "wv_rec3",
+      "text": "I could have prestige in the eyes of others.",
+      "type": "scale5",
+      "lo": "Not important",
+      "hi": "Extremely important",
+      "track": "Recognition"
+    },
+    {
+      "id": "wv_rec4",
+      "text": "I could have authority over others.",
+      "type": "scale5",
+      "lo": "Not important",
+      "hi": "Extremely important",
+      "track": "Recognition"
+    },
+    {
+      "id": "wv_rel1",
+      "text": "I would be of service to other people.",
+      "type": "scale5",
+      "lo": "Not important",
+      "hi": "Extremely important",
+      "track": "Relationships"
+    },
+    {
+      "id": "wv_rel2",
+      "text": "I would have co-workers who are easy to get along with.",
+      "type": "scale5",
+      "lo": "Not important",
+      "hi": "Extremely important",
+      "track": "Relationships"
+    },
+    {
+      "id": "wv_rel3",
+      "text": "I would never be pressured to do things that go against my sense of right and wrong.",
+      "type": "scale5",
+      "lo": "Not important",
+      "hi": "Extremely important",
+      "track": "Relationships"
+    },
+    {
+      "id": "wv_sup1",
+      "text": "I would have supervisors who train their employees well.",
+      "type": "scale5",
+      "lo": "Not important",
+      "hi": "Extremely important",
+      "track": "Support"
+    },
+    {
+      "id": "wv_sup2",
+      "text": "I would have supervisors who back up their employees with management.",
+      "type": "scale5",
+      "lo": "Not important",
+      "hi": "Extremely important",
+      "track": "Support"
+    },
+    {
+      "id": "wv_sup3",
+      "text": "I would work for a company that has fair policies.",
+      "type": "scale5",
+      "lo": "Not important",
+      "hi": "Extremely important",
+      "track": "Support"
+    },
+    {
+      "id": "wv_sup4",
+      "text": "I would have a supportive work environment.",
+      "type": "scale5",
+      "lo": "Not important",
+      "hi": "Extremely important",
+      "track": "Support"
+    },
+    {
+      "id": "wv_wc1",
+      "text": "I would have steady employment.",
+      "type": "scale5",
+      "lo": "Not important",
+      "hi": "Extremely important",
+      "track": "WorkingConditions"
+    },
+    {
+      "id": "wv_wc2",
+      "text": "I would be paid well in comparison with other workers.",
+      "type": "scale5",
+      "lo": "Not important",
+      "hi": "Extremely important",
+      "track": "WorkingConditions"
+    },
+    {
+      "id": "wv_wc3",
+      "text": "I would have good working conditions (such as a safe and comfortable workplace).",
+      "type": "scale5",
+      "lo": "Not important",
+      "hi": "Extremely important",
+      "track": "WorkingConditions"
+    },
+    {
+      "id": "wv_wc4",
+      "text": "I could be busy all the time.",
+      "type": "scale5",
+      "lo": "Not important",
+      "hi": "Extremely important",
+      "track": "WorkingConditions"
+    }
+  ],
+  "hexaco": [
+    {
+      "id": "hx_h1",
+      "text": "I would feel uncomfortable taking credit for someone else's work.",
+      "type": "scale5",
+      "lo": "Strongly disagree",
+      "hi": "Strongly agree",
+      "track": "H",
+      "reverse": false
+    },
+    {
+      "id": "hx_h2",
+      "text": "I would never accept a bribe, even a large one.",
+      "type": "scale5",
+      "lo": "Strongly disagree",
+      "hi": "Strongly agree",
+      "track": "H",
+      "reverse": false
+    },
+    {
+      "id": "hx_h3",
+      "text": "I sometimes feel that I deserve special treatment.",
+      "type": "scale5",
+      "lo": "Strongly disagree",
+      "hi": "Strongly agree",
+      "track": "H",
+      "reverse": true
+    },
+    {
+      "id": "hx_h4",
+      "text": "I would be tempted to use flattery to get ahead at work.",
+      "type": "scale5",
+      "lo": "Strongly disagree",
+      "hi": "Strongly agree",
+      "track": "H",
+      "reverse": true
+    },
+    {
+      "id": "hx_e1",
+      "text": "I worry a lot about things that might go wrong.",
+      "type": "scale5",
+      "lo": "Strongly disagree",
+      "hi": "Strongly agree",
+      "track": "E",
+      "reverse": false
+    },
+    {
+      "id": "hx_e2",
+      "text": "I rarely feel anxious or fearful.",
+      "type": "scale5",
+      "lo": "Strongly disagree",
+      "hi": "Strongly agree",
+      "track": "E",
+      "reverse": true
+    },
+    {
+      "id": "hx_e3",
+      "text": "I get emotional support from talking with people I trust.",
+      "type": "scale5",
+      "lo": "Strongly disagree",
+      "hi": "Strongly agree",
+      "track": "E",
+      "reverse": false
+    },
+    {
+      "id": "hx_e4",
+      "text": "I tend to stay calm in the face of difficulty.",
+      "type": "scale5",
+      "lo": "Strongly disagree",
+      "hi": "Strongly agree",
+      "track": "E",
+      "reverse": true
+    },
+    {
+      "id": "hx_x1",
+      "text": "I feel energized by being around other people.",
+      "type": "scale5",
+      "lo": "Strongly disagree",
+      "hi": "Strongly agree",
+      "track": "X",
+      "reverse": false
+    },
+    {
+      "id": "hx_x2",
+      "text": "I prefer quiet, solitary activities to lively social ones.",
+      "type": "scale5",
+      "lo": "Strongly disagree",
+      "hi": "Strongly agree",
+      "track": "X",
+      "reverse": true
+    },
+    {
+      "id": "hx_x3",
+      "text": "I am usually cheerful and optimistic.",
+      "type": "scale5",
+      "lo": "Strongly disagree",
+      "hi": "Strongly agree",
+      "track": "X",
+      "reverse": false
+    },
+    {
+      "id": "hx_x4",
+      "text": "I feel comfortable taking the lead in a group.",
+      "type": "scale5",
+      "lo": "Strongly disagree",
+      "hi": "Strongly agree",
+      "track": "X",
+      "reverse": false
+    },
+    {
+      "id": "hx_a1",
+      "text": "I forgive people who have wronged me fairly easily.",
+      "type": "scale5",
+      "lo": "Strongly disagree",
+      "hi": "Strongly agree",
+      "track": "A",
+      "reverse": false
+    },
+    {
+      "id": "hx_a2",
+      "text": "I tend to hold grudges against people who have treated me unfairly.",
+      "type": "scale5",
+      "lo": "Strongly disagree",
+      "hi": "Strongly agree",
+      "track": "A",
+      "reverse": true
+    },
+    {
+      "id": "hx_a3",
+      "text": "I am patient with people who disagree with me.",
+      "type": "scale5",
+      "lo": "Strongly disagree",
+      "hi": "Strongly agree",
+      "track": "A",
+      "reverse": false
+    },
+    {
+      "id": "hx_a4",
+      "text": "I get irritated easily by other people's mistakes.",
+      "type": "scale5",
+      "lo": "Strongly disagree",
+      "hi": "Strongly agree",
+      "track": "A",
+      "reverse": true
+    },
+    {
+      "id": "hx_c1",
+      "text": "I plan ahead and organize things rather than going with the flow.",
+      "type": "scale5",
+      "lo": "Strongly disagree",
+      "hi": "Strongly agree",
+      "track": "C",
+      "reverse": false
+    },
+    {
+      "id": "hx_c2",
+      "text": "I often delay decisions until the last possible moment.",
+      "type": "scale5",
+      "lo": "Strongly disagree",
+      "hi": "Strongly agree",
+      "track": "C",
+      "reverse": true
+    },
+    {
+      "id": "hx_c3",
+      "text": "I work hard to do things accurately and carefully.",
+      "type": "scale5",
+      "lo": "Strongly disagree",
+      "hi": "Strongly agree",
+      "track": "C",
+      "reverse": false
+    },
+    {
+      "id": "hx_c4",
+      "text": "I sometimes leave tasks half-finished.",
+      "type": "scale5",
+      "lo": "Strongly disagree",
+      "hi": "Strongly agree",
+      "track": "C",
+      "reverse": true
+    },
+    {
+      "id": "hx_o1",
+      "text": "I enjoy learning about subjects that have nothing to do with my job.",
+      "type": "scale5",
+      "lo": "Strongly disagree",
+      "hi": "Strongly agree",
+      "track": "O",
+      "reverse": false
+    },
+    {
+      "id": "hx_o2",
+      "text": "I find unusual or unfamiliar ideas interesting rather than uncomfortable.",
+      "type": "scale5",
+      "lo": "Strongly disagree",
+      "hi": "Strongly agree",
+      "track": "O",
+      "reverse": false
+    },
+    {
+      "id": "hx_o3",
+      "text": "I prefer the familiar to the new and untested.",
+      "type": "scale5",
+      "lo": "Strongly disagree",
+      "hi": "Strongly agree",
+      "track": "O",
+      "reverse": true
+    },
+    {
+      "id": "hx_o4",
+      "text": "I rarely think about abstract or philosophical topics.",
+      "type": "scale5",
+      "lo": "Strongly disagree",
+      "hi": "Strongly agree",
+      "track": "O",
+      "reverse": true
+    }
+  ],
+  "gse": [
+    {
+      "id": "gse_1",
+      "text": "I can always manage to solve difficult problems if I try hard enough.",
+      "type": "scale4",
+      "lo": "Not at all true",
+      "hi": "Exactly true",
+      "track": "GSE"
+    },
+    {
+      "id": "gse_2",
+      "text": "If someone opposes me, I can find the means and ways to get what I want.",
+      "type": "scale4",
+      "lo": "Not at all true",
+      "hi": "Exactly true",
+      "track": "GSE"
+    },
+    {
+      "id": "gse_3",
+      "text": "It is easy for me to stick to my aims and accomplish my goals.",
+      "type": "scale4",
+      "lo": "Not at all true",
+      "hi": "Exactly true",
+      "track": "GSE"
+    },
+    {
+      "id": "gse_4",
+      "text": "I am confident that I could deal efficiently with unexpected events.",
+      "type": "scale4",
+      "lo": "Not at all true",
+      "hi": "Exactly true",
+      "track": "GSE"
+    },
+    {
+      "id": "gse_5",
+      "text": "Thanks to my resourcefulness, I know how to handle unforeseen situations.",
+      "type": "scale4",
+      "lo": "Not at all true",
+      "hi": "Exactly true",
+      "track": "GSE"
+    },
+    {
+      "id": "gse_6",
+      "text": "I can solve most problems if I invest the necessary effort.",
+      "type": "scale4",
+      "lo": "Not at all true",
+      "hi": "Exactly true",
+      "track": "GSE"
+    },
+    {
+      "id": "gse_7",
+      "text": "I can remain calm when facing difficulties because I can rely on my coping abilities.",
+      "type": "scale4",
+      "lo": "Not at all true",
+      "hi": "Exactly true",
+      "track": "GSE"
+    },
+    {
+      "id": "gse_8",
+      "text": "When I am confronted with a problem, I can usually find several solutions.",
+      "type": "scale4",
+      "lo": "Not at all true",
+      "hi": "Exactly true",
+      "track": "GSE"
+    },
+    {
+      "id": "gse_9",
+      "text": "If I am in trouble, I can usually think of a solution.",
+      "type": "scale4",
+      "lo": "Not at all true",
+      "hi": "Exactly true",
+      "track": "GSE"
+    },
+    {
+      "id": "gse_10",
+      "text": "I can usually handle whatever comes my way.",
+      "type": "scale4",
+      "lo": "Not at all true",
+      "hi": "Exactly true",
+      "track": "GSE"
+    }
+  ],
+  "transferable": [
+    {
+      "id": "ts_1",
+      "text": "Active Listening · Giving full attention to what others are saying and asking questions as appropriate.",
+      "type": "scale5",
+      "lo": "Beginner",
+      "hi": "Expert",
+      "track": "ts_ts_1"
+    },
+    {
+      "id": "ts_2",
+      "text": "Critical Thinking · Using logic and reasoning to identify the strengths and weaknesses of approaches.",
+      "type": "scale5",
+      "lo": "Beginner",
+      "hi": "Expert",
+      "track": "ts_ts_2"
+    },
+    {
+      "id": "ts_3",
+      "text": "Speaking · Talking to others to convey information effectively.",
+      "type": "scale5",
+      "lo": "Beginner",
+      "hi": "Expert",
+      "track": "ts_ts_3"
+    },
+    {
+      "id": "ts_4",
+      "text": "Writing · Communicating effectively in writing as appropriate for the audience.",
+      "type": "scale5",
+      "lo": "Beginner",
+      "hi": "Expert",
+      "track": "ts_ts_4"
+    },
+    {
+      "id": "ts_5",
+      "text": "Reading Comprehension · Understanding written sentences and paragraphs in work-related documents.",
+      "type": "scale5",
+      "lo": "Beginner",
+      "hi": "Expert",
+      "track": "ts_ts_5"
+    },
+    {
+      "id": "ts_6",
+      "text": "Coordination · Adjusting actions in relation to others' actions.",
+      "type": "scale5",
+      "lo": "Beginner",
+      "hi": "Expert",
+      "track": "ts_ts_6"
+    },
+    {
+      "id": "ts_7",
+      "text": "Service Orientation · Actively looking for ways to help people.",
+      "type": "scale5",
+      "lo": "Beginner",
+      "hi": "Expert",
+      "track": "ts_ts_7"
+    },
+    {
+      "id": "ts_8",
+      "text": "Social Perceptiveness · Being aware of others' reactions and understanding why they react as they do.",
+      "type": "scale5",
+      "lo": "Beginner",
+      "hi": "Expert",
+      "track": "ts_ts_8"
+    },
+    {
+      "id": "ts_9",
+      "text": "Time Management · Managing one's own time and the time of others.",
+      "type": "scale5",
+      "lo": "Beginner",
+      "hi": "Expert",
+      "track": "ts_ts_9"
+    },
+    {
+      "id": "ts_10",
+      "text": "Complex Problem Solving · Identifying complex problems and reviewing related information to develop options.",
+      "type": "scale5",
+      "lo": "Beginner",
+      "hi": "Expert",
+      "track": "ts_ts_10"
+    },
+    {
+      "id": "ts_11",
+      "text": "Judgment and Decision Making · Considering the relative costs and benefits of potential actions to choose the best.",
+      "type": "scale5",
+      "lo": "Beginner",
+      "hi": "Expert",
+      "track": "ts_ts_11"
+    },
+    {
+      "id": "ts_12",
+      "text": "Active Learning · Understanding the implications of new information for both current and future problem-solving.",
+      "type": "scale5",
+      "lo": "Beginner",
+      "hi": "Expert",
+      "track": "ts_ts_12"
+    },
+    {
+      "id": "ts_13",
+      "text": "Monitoring · Monitoring/assessing performance of yourself, other individuals, or organizations to make improvements.",
+      "type": "scale5",
+      "lo": "Beginner",
+      "hi": "Expert",
+      "track": "ts_ts_13"
+    },
+    {
+      "id": "ts_14",
+      "text": "Persuasion · Persuading others to change their minds or behavior.",
+      "type": "scale5",
+      "lo": "Beginner",
+      "hi": "Expert",
+      "track": "ts_ts_14"
+    },
+    {
+      "id": "ts_15",
+      "text": "Negotiation · Bringing others together and trying to reconcile differences.",
+      "type": "scale5",
+      "lo": "Beginner",
+      "hi": "Expert",
+      "track": "ts_ts_15"
+    }
+  ]
+};
+
+var cur = 0, maxVisited = 0, skipped = {}, answers = {};
+var scaleScores = {
+  Realistic:0, Investigative:0, Artistic:0, Social:0, Enterprising:0, Conventional:0,
+  Achievement:0, Independence:0, Recognition:0, Relationships:0, Support:0, WorkingConditions:0,
+  H:0, E:0, X:0, A:0, C:0, O:0,
+  GSE:0
+};
+var intake = { name:'', age:'', date:'', coach:'', goal:'', skill:'', value:'', concerns:'' };
+
+// ── SAVE / RESUME (same pattern as existing tools) ────────────────────────────
+function getSavePayload(){
+  return { cur:cur, maxVisited:maxVisited, skipped:skipped, answers:answers, scaleScores:scaleScores, intake:intake, savedAt:new Date().toISOString() };
+}
+function applySavePayload(d){
+  try{
+    if(typeof d === 'string') d = JSON.parse(d);
+    if(d.payload && typeof d.payload === 'string'){ try{ d = JSON.parse(d.payload); }catch(e){} }
+    cur = d.cur||0; maxVisited = d.maxVisited||0; skipped = d.skipped||{}; answers = d.answers||{};
+    if(d.scaleScores) Object.keys(d.scaleScores).forEach(function(k){ if(scaleScores.hasOwnProperty(k)) scaleScores[k] = d.scaleScores[k]; });
+    if(d.intake) Object.keys(d.intake).forEach(function(k){ intake[k] = d.intake[k]||''; });
+    return true;
+  }catch(e){ return false; }
+}
+function getClientName(){ var el = document.getElementById('f-name'); var n = (el?el.value:'') || intake.name || ''; return n.trim(); }
+function showSaveModal(){
+  var n = getClientName();
+  document.getElementById('save-name-input').value = n;
+  document.getElementById('save-error').textContent = '';
+  document.getElementById('save-modal').classList.remove('hidden');
+}
+function closeSaveModal(){ document.getElementById('save-modal').classList.add('hidden'); }
+function doSave(){
+  var name = document.getElementById('save-name-input').value.trim();
+  if(!name){ document.getElementById('save-error').textContent = 'Please enter a client name to save.'; return; }
+  if(SECTIONS[cur].id === 'intake') saveIntakeFields();
+  intake.name = name;
+  var payload = getSavePayload();
+  var docId = name.toLowerCase().replace(/[^a-z0-9]+/g,'_') + '_' + TOOL_ID;
+  if(_fbReady){
+    _db.collection('assessments').doc(docId).set({
+      clientName: name,
+      tool: TOOL_ID,
+      savedAt: payload.savedAt,
+      cur: payload.cur,
+      maxVisited: payload.maxVisited,
+      intakeName: name,
+      intakeDate: (payload.intake && payload.intake.date) || '',
+      payload: JSON.stringify(payload)
+    }).then(function(){ closeSaveModal(); showConfirmBanner('Saved to cloud: ' + name); })
+      .catch(function(e){ console.error('Firebase save failed', e); document.getElementById('save-error').textContent = 'Cloud save failed. Check your connection.'; });
+  } else {
+    try{
+      localStorage.setItem('apothena_' + TOOL_ID + '_' + docId, JSON.stringify(payload));
+      closeSaveModal();
+      showConfirmBanner('Saved locally: ' + name);
+    }catch(e){ document.getElementById('save-error').textContent = 'Could not save session.'; }
+  }
+}
+function showConfirmBanner(msg){ var b = document.getElementById('confirm-banner'); if(!b) return; b.textContent = msg; b.style.display = 'block'; setTimeout(function(){ b.style.display = 'none'; }, 3000); }
+function showHistoryModal(){
+  document.getElementById('history-list').innerHTML = '<div style="padding:20px;text-align:center;color:var(--soft);font-size:13px">Loading...</div>';
+  document.getElementById('history-modal').classList.remove('hidden');
+  loadHistoryList();
+}
+function closeHistoryModal(){ document.getElementById('history-modal').classList.add('hidden'); }
+function loadHistoryList(){
+  if(_fbReady){
+    _db.collection('assessments').where('tool','==',TOOL_ID).get()
+      .then(function(snap){
+        var sessions = [];
+        snap.forEach(function(doc){ sessions.push({ id:doc.id, data:doc.data() }); });
+        sessions.sort(function(a,b){ return (b.data.savedAt||'').localeCompare(a.data.savedAt||''); });
+        renderHistoryList(sessions);
+      }).catch(function(e){ console.error('Firebase load failed:', e.code, e.message); renderHistoryList(getLocalSessions()); });
+  } else { renderHistoryList(getLocalSessions()); }
+}
+function getLocalSessions(){
+  var sessions = [];
+  for(var i=0;i<localStorage.length;i++){
+    var key = localStorage.key(i);
+    if(key && key.indexOf('apothena_' + TOOL_ID + '_') === 0){
+      try{ var d = JSON.parse(localStorage.getItem(key)); sessions.push({ id:key, data:Object.assign({}, d, { clientName: d.intake && d.intake.name || key }) }); }catch(e){}
+    }
+  }
+  sessions.sort(function(a,b){ return (b.data.savedAt||'').localeCompare(a.data.savedAt||''); });
+  return sessions;
+}
+function renderHistoryList(sessions){
+  var list = document.getElementById('history-list');
+  if(!sessions || !sessions.length){
+    list.innerHTML = '<div style="padding:20px;text-align:center;color:var(--soft);font-size:13px">No saved assessments yet.</div>';
+    return;
+  }
+  list.innerHTML = '';
+  sessions.forEach(function(s){
+    var d = s.data;
+    var name = d.clientName || (d.intake && d.intake.name) || 'Unknown';
+    var dateStr = '';
+    try{ dateStr = new Date(d.savedAt).toLocaleDateString('en-US',{ month:'short', day:'numeric', year:'numeric', hour:'2-digit', minute:'2-digit' }); }catch(e){}
+    var row = document.createElement('div'); row.className = 'hist-row';
+    row.innerHTML = '<div class="hist-info"><div class="hist-name">' + esc(name) + '</div><div class="hist-date">' + dateStr + '</div></div>'
+      + '<div class="hist-actions">'
+      + '<button class="btn hist-load-btn" data-id="' + esc(s.id) + '">Resume</button>'
+      + '<button class="btn hist-del-btn" data-id="' + esc(s.id) + '" data-name="' + esc(name) + '">&#10005;</button>'
+      + '</div>';
+    list.appendChild(row);
+  });
+  list.querySelectorAll('.hist-load-btn').forEach(function(btn){ btn.addEventListener('click', function(){ loadSession(this.getAttribute('data-id')); }); });
+  list.querySelectorAll('.hist-del-btn').forEach(function(btn){ btn.addEventListener('click', function(){ deleteSession(this.getAttribute('data-id'), this.getAttribute('data-name')); }); });
+}
+function loadSession(id){
+  if(_fbReady){
+    _db.collection('assessments').doc(id).get()
+      .then(function(doc){ if(doc.exists && applySavePayload(doc.data())){ closeHistoryModal(); render(); updateClientChip(); } })
+      .catch(function(e){ console.error('Load failed', e); var local = localStorage.getItem(id); if(local && applySavePayload(local)){ closeHistoryModal(); render(); updateClientChip(); } });
+  } else { var local = localStorage.getItem(id); if(local && applySavePayload(local)){ closeHistoryModal(); render(); updateClientChip(); } }
+}
+function deleteSession(id, name){
+  if(!confirm('Delete saved assessment for ' + name + '?')) return;
+  if(_fbReady){ _db.collection('assessments').doc(id).delete().then(function(){ loadHistoryList(); }).catch(function(e){ console.error('Delete failed', e); }); }
+  else { localStorage.removeItem(id); loadHistoryList(); }
+}
+function updateClientChip(){
+  if(intake.name){
+    var chip = document.getElementById('client-chip'); if(chip) chip.style.display = 'block';
+    var cn = document.getElementById('chip-name'); if(cn) cn.textContent = intake.name;
+    var cd = document.getElementById('chip-date'); if(cd) cd.textContent = intake.date || '';
+  }
+}
+
+// ── SHARED INTERACTION ────────────────────────────────────────────────────────
+function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function findQ(qid){ for(var k in QUESTIONS){ var qs = QUESTIONS[k]; for(var i=0;i<qs.length;i++){ if(qs[i].id === qid) return qs[i]; } } return null; }
+
+function pickScale(el){
+  var qid = el.getAttribute('data-qid');
+  var val = parseInt(el.getAttribute('data-val'));
+  var track = el.getAttribute('data-track');
+  var q = findQ(qid);
+  // Reverse-key handling for HEXACO
+  var contribution = (q && q.reverse) ? (6 - val) : val;
+  var prevContribution;
+  if(answers[qid] !== undefined){
+    prevContribution = (q && q.reverse) ? (6 - answers[qid]) : answers[qid];
+    scaleScores[track] = (scaleScores[track]||0) - prevContribution;
+  }
+  answers[qid] = val;
+  scaleScores[track] = (scaleScores[track]||0) + contribution;
+  document.querySelectorAll('[data-qid="' + qid + '"].sc-btn').forEach(function(b){ b.classList.toggle('picked', parseInt(b.getAttribute('data-val')) === val); });
+}
+
+function pickScale4(el){
+  var qid = el.getAttribute('data-qid');
+  var val = parseInt(el.getAttribute('data-val'));
+  var track = el.getAttribute('data-track');
+  if(answers[qid] !== undefined) scaleScores[track] = (scaleScores[track]||0) - answers[qid];
+  answers[qid] = val;
+  scaleScores[track] = (scaleScores[track]||0) + val;
+  document.querySelectorAll('[data-qid="' + qid + '"].sc-btn').forEach(function(b){ b.classList.toggle('picked', parseInt(b.getAttribute('data-val')) === val); });
+}
+
+function saveTextAnswers(){ document.querySelectorAll('.text-ans').forEach(function(ta){ var qid = ta.getAttribute('data-qid'); if(qid) answers[qid] = ta.value; }); }
+
+function saveIntakeFields(){
+  var g = function(id){ var el = document.getElementById(id); return el ? el.value : ''; };
+  intake.name = g('f-name'); intake.age = g('f-age'); intake.date = g('f-date'); intake.coach = g('f-coach');
+  intake.goal = g('f-goal'); intake.skill = g('f-skill'); intake.value = g('f-value'); intake.concerns = g('f-concerns');
+  updateClientChip();
+}
+
+function toggleRef(el){
+  var panel = el.nextElementSibling;
+  panel.classList.toggle('open');
+  el.innerHTML = panel.classList.contains('open') ? '&#8593; Hide Reference Guide' : '&#9432; Assessment Reference Guide';
+}
+
+function buildRefPanel(ref){
+  if(!ref) return '';
+  var typesHtml = '<h4>' + esc(ref.listLabel || 'Key Concepts') + '</h4><div class="ref-list">';
+  ref.types.forEach(function(t){
+    typesHtml += '<div class="ref-list-item"><div class="rl-code">' + esc(t.code) + '</div><div class="rl-body"><b>' + esc(t.name) + '</b>. ' + esc(t.desc) + '</div></div>';
+  });
+  typesHtml += '</div>';
+  return '<div class="ref-toggle" onclick="toggleRef(this)">&#9432; Assessment Reference Guide</div>'
+    + '<div class="ref-panel"><div style="font-size:13px;font-weight:700;margin-bottom:4px">' + esc(ref.title) + '</div>'
+    + '<div style="font-size:12px;color:var(--muted);margin-bottom:14px;line-height:1.6">' + esc(ref.intro) + '</div>'
+    + typesHtml + '</div>';
+}
+
+// ── RENDER ────────────────────────────────────────────────────────────────────
+function renderQBlock(q, qi, total){
+  var html = '<div class="q-card"><div class="q-num">Question ' + (qi+1) + ' of ' + total + '</div><div class="q-text">' + esc(q.text) + '</div>';
+  if(q.type === 'scale5'){
+    html += '<div class="scale-wrap"><div class="scale-btns">';
+    for(var v=1;v<=5;v++){
+      var pk = answers[q.id] === v ? ' picked' : '';
+      html += '<button class="sc-btn' + pk + '" data-qid="' + q.id + '" data-val="' + v + '" data-track="' + q.track + '" onclick="pickScale(this)">' + v + '</button>';
+    }
+    html += '</div><div class="scale-legend"><span>' + esc(q.lo) + '</span><span>' + esc(q.hi) + '</span></div></div>';
+  } else if(q.type === 'scale4'){
+    html += '<div class="scale-wrap"><div class="scale-btns">';
+    for(var v=1;v<=4;v++){
+      var pk = answers[q.id] === v ? ' picked' : '';
+      html += '<button class="sc-btn' + pk + '" data-qid="' + q.id + '" data-val="' + v + '" data-track="' + q.track + '" onclick="pickScale4(this)">' + v + '</button>';
+    }
+    html += '</div><div class="scale-legend"><span>' + esc(q.lo) + '</span><span>' + esc(q.hi) + '</span></div></div>';
+  }
+  return html + '</div>';
+}
+
+function renderSection(sid){
+  var sec = null;
+  for(var i=0;i<SECTIONS.length;i++){ if(SECTIONS[i].id === sid){ sec = SECTIONS[i]; break; } }
+  var qs = QUESTIONS[sid];
+  if(!sec || !qs) return '<p style="color:red">Error loading: ' + sid + '</p>';
+  var tip = COACH_TIPS[sid] || '';
+  var sessionNum = sec.session || 0;
+  var sessionBadge = sessionNum ? '<span style="float:right;font-size:11px;font-weight:600;padding:2px 10px;border-radius:12px;background:var(--gold-light);color:var(--amber)">Session ' + sessionNum + '</span>' : '';
+  var html = '<div class="sec-head"><div class="fw-tag ' + esc(sec.tag||'') + '" style="display:flex;align-items:center;justify-content:space-between;width:100%">' + esc(sec.tagLabel || sec.label) + sessionBadge + '</div><h2>' + esc(sec.label) + '</h2>'
+    + (tip ? '<div class="coach-box"><b>Coach Note</b>' + esc(tip) + '</div>' : '')
+    + buildRefPanel(REFERENCES[sid])
+    + '</div>';
+  for(var qi=0;qi<qs.length;qi++) html += renderQBlock(qs[qi], qi, qs.length);
+  return html;
+}
+
+function renderIntake(){
+  return '<div class="sec-head"><div class="fw-tag tag-int">Client Intake</div><h2>Begin Session</h2><p>Capture intake context before starting. Fields are coach-facing only.</p></div>'
+    + '<div class="intake-grid">'
+    + '<div class="fg"><label>Client Full Name</label><input type="text" id="f-name" placeholder="Jane Smith"></div>'
+    + '<div class="fg"><label>Age</label><input type="number" id="f-age" placeholder="34"></div>'
+    + '<div class="fg"><label>Session Date</label><input type="date" id="f-date"></div>'
+    + '<div class="fg"><label>Coach Name</label><input type="text" id="f-coach" placeholder="Your name"></div>'
+    + '<div class="fg full"><label>Primary Goal</label><textarea id="f-goal" placeholder="What does this client most want to figure out professionally?"></textarea></div>'
+    + '<div class="fg full"><label>Strongest Transferable Skill</label><textarea id="f-skill" placeholder="The one skill they would carry into any role."></textarea></div>'
+    + '<div class="fg full"><label>Core Career Value</label><textarea id="f-value" placeholder="What matters most to them at work, such as autonomy, impact, security, creativity."></textarea></div>'
+    + '<div class="fg full"><label>Concerns or Constraints</label><textarea id="f-concerns" placeholder="e.g. financial obligations, location limits, accommodations needed"></textarea></div>'
+    + '</div>';
+}
+
+// ── SCORE COMPUTATIONS ────────────────────────────────────────────────────────
+function getRiasec(){
+  var dims = [
+    { code:'R', label:'Realistic',     score:scaleScores.Realistic },
+    { code:'I', label:'Investigative', score:scaleScores.Investigative },
+    { code:'A', label:'Artistic',      score:scaleScores.Artistic },
+    { code:'S', label:'Social',        score:scaleScores.Social },
+    { code:'E', label:'Enterprising',  score:scaleScores.Enterprising },
+    { code:'C', label:'Conventional',  score:scaleScores.Conventional }
+  ];
+  var sorted = dims.slice().sort(function(a,b){ return b.score - a.score; });
+  var top3 = sorted.slice(0,3);
+  var code = top3.map(function(x){ return x.code; }).join('');
+  var maxPossible = 25;
+  var bars = dims.map(function(d){ return { label:d.label, pct:Math.round((d.score/maxPossible)*100) }; });
+  // Flat-profile flag: top 3 within 2 points
+  var flat = (top3[0].score - top3[2].score) <= 2;
+  return { code:code, top:top3[0].label, bars:bars, dims:dims, flat:flat };
+}
+
+function getWorkValues(){
+  var counts = { Achievement:3, Independence:3, Recognition:4, Relationships:3, Support:4, WorkingConditions:4 };
+  var dims = Object.keys(counts).map(function(k){
+    var mean = counts[k] ? scaleScores[k] / counts[k] : 0;
+    var label = k === 'WorkingConditions' ? 'Working Conditions' : k;
+    return { code:k, label:label, mean:mean };
+  });
+  var sorted = dims.slice().sort(function(a,b){ return b.mean - a.mean; });
+  var bars = dims.map(function(d){ return { label:d.label, pct:Math.round((d.mean/5)*100), val:d.mean.toFixed(2) }; });
+  return { ranked:sorted, bars:bars };
+}
+
+function getHexaco(){
+  // 4 items per factor; mean range 1.0 to 5.0
+  var factors = [
+    { code:'H', label:'Honesty-Humility' },
+    { code:'E', label:'Emotionality' },
+    { code:'X', label:'Extraversion' },
+    { code:'A', label:'Agreeableness' },
+    { code:'C', label:'Conscientiousness' },
+    { code:'O', label:'Openness to Experience' }
+  ];
+  factors.forEach(function(f){
+    f.mean = (scaleScores[f.code] || 0) / 4;
+    if(f.mean >= 3.5) f.cat = 'high';
+    else if(f.mean >= 2.5) f.cat = 'moderate';
+    else f.cat = 'low';
+  });
+  var bars = factors.map(function(f){ return { label:f.label, pct:Math.round((f.mean/5)*100), val:f.mean.toFixed(2) }; });
+  return { factors:factors, bars:bars };
+}
+
+function getGSE(){
+  var total = scaleScores.GSE || 0;
+  var mean = total / 10;
+  var band;
+  if(total <= 20) band = 'Lower band';
+  else if(total <= 29) band = 'Middle band';
+  else band = 'Upper band';
+  return { total:total, mean:mean.toFixed(2), band:band };
+}
+
+function getTransferable(){
+  var ratings = [];
+  [{"id":"ts_1","text":"Active Listening","desc":"Giving full attention to what others are saying and asking questions as appropriate."},{"id":"ts_2","text":"Critical Thinking","desc":"Using logic and reasoning to identify the strengths and weaknesses of approaches."},{"id":"ts_3","text":"Speaking","desc":"Talking to others to convey information effectively."},{"id":"ts_4","text":"Writing","desc":"Communicating effectively in writing as appropriate for the audience."},{"id":"ts_5","text":"Reading Comprehension","desc":"Understanding written sentences and paragraphs in work-related documents."},{"id":"ts_6","text":"Coordination","desc":"Adjusting actions in relation to others' actions."},{"id":"ts_7","text":"Service Orientation","desc":"Actively looking for ways to help people."},{"id":"ts_8","text":"Social Perceptiveness","desc":"Being aware of others' reactions and understanding why they react as they do."},{"id":"ts_9","text":"Time Management","desc":"Managing one's own time and the time of others."},{"id":"ts_10","text":"Complex Problem Solving","desc":"Identifying complex problems and reviewing related information to develop options."},{"id":"ts_11","text":"Judgment and Decision Making","desc":"Considering the relative costs and benefits of potential actions to choose the best."},{"id":"ts_12","text":"Active Learning","desc":"Understanding the implications of new information for both current and future problem-solving."},{"id":"ts_13","text":"Monitoring","desc":"Monitoring/assessing performance of yourself, other individuals, or organizations to make improvements."},{"id":"ts_14","text":"Persuasion","desc":"Persuading others to change their minds or behavior."},{"id":"ts_15","text":"Negotiation","desc":"Bringing others together and trying to reconcile differences."}].forEach(function(it){
+    var v = answers[it.id];
+    if(typeof v === 'number') ratings.push({ id:it.id, label:it.text, val:v });
+  });
+  ratings.sort(function(a,b){ return b.val - a.val; });
+  return { ratings:ratings, top5:ratings.slice(0,5), all:ratings };
+}
+
+function fwCard(title, sub, tagCls, tagLabel, body, prompt, rawBody){
+  return '<div class="fw-card"><div class="fw-card-head"><div><div class="fw-card-title">' + esc(title) + '</div>' + (sub ? '<div class="fw-card-sub">' + esc(sub) + '</div>' : '') + '</div><span class="fw-badge ' + tagCls + '">' + esc(tagLabel) + '</span></div>'
+    + (rawBody ? '<div class="fw-body">' + body + '</div>' : '<div class="fw-body">' + esc(body) + '</div>')
+    + (prompt ? '<div class="coaching-prompt"><b>Coaching Prompt</b>' + esc(prompt) + '</div>' : '') + '</div>';
+}
+function skippedCard(label, tag, tagLbl){
+  return '<div class="fw-card"><div class="fw-card-head"><div class="fw-card-title">' + esc(label) + '</div><span class="fw-badge ' + tag + '">' + esc(tagLbl) + '</span></div><div class="skipped-note">This section was skipped during the assessment.</div></div>';
+}
+
+function renderResults(){
+  var ip = getRiasec();
+  var wv = getWorkValues();
+  var hx = getHexaco();
+  var gse = getGSE();
+  var ts = getTransferable();
+
+  var dateStr = '';
+  try{ dateStr = intake.date ? new Date(intake.date + 'T12:00:00').toLocaleDateString('en-US',{ year:'numeric', month:'long', day:'numeric' }) : new Date().toLocaleDateString('en-US',{ year:'numeric', month:'long', day:'numeric' }); }catch(e){ dateStr = intake.date || ''; }
+
+  var html = '<div class="results-hero"><h2>Career Charting (Open) Profile</h2><div class="sub">' + esc(intake.name || 'Client') + ' &nbsp;&middot;&nbsp; ' + dateStr + (intake.coach ? ' &nbsp;&middot;&nbsp; ' + esc(intake.coach) : '') + '</div>'
+    + '<div class="type-strip">'
+    + '<div class="type-chip"><div class="tl">Holland Code</div><div class="tv">' + (skipped['ip_mini'] ? '&mdash;' : ip.code) + '</div></div>'
+    + '<div class="type-chip"><div class="tl">Top Work Value</div><div class="tv">' + (skipped['work_values'] ? '&mdash;' : (wv.ranked[0] ? wv.ranked[0].label : '')) + '</div></div>'
+    + '<div class="type-chip"><div class="tl">GSE Total</div><div class="tv">' + (skipped['gse'] ? '&mdash;' : gse.total + ' / 40') + '</div></div>'
+    + '</div></div>';
+
+  if(intake.goal) html += '<div class="fw-card" style="margin-bottom:9px"><div class="fw-card-head"><div class="fw-card-title">Coaching Goal</div></div><div class="fw-body">' + esc(intake.goal) + '</div></div>';
+
+  html += '<div class="rs"><div class="rs-label">Framework Results</div>';
+
+  // Holland / RIASEC
+  if(skipped['ip_mini']){ html += skippedCard('O*NET Interests','tag-ip','Interests'); }
+  else{
+    var bars = ip.bars.map(function(b){ return '<div class="bar-row"><div class="bar-lbl">' + esc(b.label) + '</div><div class="bar-track"><div class="bar-fill" style="width:' + b.pct + '%"></div></div><div class="bar-val">' + b.pct + '%</div></div>'; }).join('');
+    var sub = 'Top interest: ' + ip.top + (ip.flat ? ' (flat profile, top three within two points)' : '');
+    var prompt = '"What does the highest-scoring interest tell us about the work environments worth exploring? What surprises you about the lowest?"';
+    html += fwCard('Holland Code (O*NET) ' + ip.code, sub, 'tag-ip', 'Interests', bars, prompt, true);
+  }
+
+  // Work values
+  if(skipped['work_values']){ html += skippedCard('Work Values','tag-wv','Work Values'); }
+  else{
+    var wvBars = wv.bars.map(function(b){ return '<div class="bar-row"><div class="bar-lbl">' + esc(b.label) + '</div><div class="bar-track"><div class="bar-fill" style="width:' + b.pct + '%"></div></div><div class="bar-val">' + b.val + '</div></div>'; }).join('');
+    html += fwCard('Work Values (adapted from O*NET)', 'Top: ' + wv.ranked[0].label + '. Lowest: ' + wv.ranked[wv.ranked.length-1].label + '.', 'tag-wv', 'Work Values', wvBars, '"Looking at the top two values, what would have to be true about a role for those needs to be met? What is the lowest, and is that real or just stated?"', true);
+  }
+
+  // HEXACO
+  if(skipped['hexaco']){ html += skippedCard('HEXACO Snapshot','tag-hx','HEXACO'); }
+  else{
+    var hxBars = hx.bars.map(function(b,idx){ var f = hx.factors[idx]; return '<div class="bar-row"><div class="bar-lbl">' + esc(b.label) + '</div><div class="bar-track"><div class="bar-fill" style="width:' + b.pct + '%"></div></div><div class="bar-val">' + b.val + '</div></div>'; }).join('');
+    var coachLabels = '<div style="font-size:11px;color:var(--muted);margin-top:8px;line-height:1.5"><strong style="color:var(--ink)">Coach-facing categorical labels:</strong> '
+      + hx.factors.map(function(f){ return esc(f.label) + ' (' + f.cat + ')'; }).join('; ')
+      + '. These labels are intentionally not shown to the client by default.</div>';
+    html += fwCard('HEXACO Personality Snapshot', 'Six factors. Coaching tool, not selection.', 'tag-hx', 'HEXACO', hxBars + coachLabels, '"Which factor result feels most true to how you operate at work? Which one would surprise people who know you well?"', true);
+  }
+
+  // GSE
+  if(skipped['gse']){ html += skippedCard('General Self-Efficacy','tag-gse','GSE'); }
+  else{
+    var gseBody = '<div style="font-size:14px;font-weight:600;color:var(--ink);margin-bottom:6px">Total: ' + gse.total + ' / 40 &nbsp;&middot;&nbsp; Mean: ' + gse.mean + '</div><div style="font-size:13px">Band: <strong>' + gse.band + '</strong>. Range 10-40 on the published 4-point scale.</div>';
+    html += fwCard('General Self-Efficacy (Schwarzer and Jerusalem, 1995)', '', 'tag-gse', 'GSE', gseBody, '"Tell me about a recent moment when you handled something difficult well. What did you draw on?"', true);
+  }
+
+  // Transferable Skills
+  if(skipped['transferable']){ html += skippedCard('Transferable Skills','tag-ts','Skills'); }
+  else{
+    var top5Html = ts.top5.map(function(r){ return '<div class="bar-row"><div class="bar-lbl">' + esc(r.label.split(' · ')[0]) + '</div><div class="bar-track"><div class="bar-fill" style="width:' + (r.val*20) + '%"></div></div><div class="bar-val">' + r.val + '/5</div></div>'; }).join('');
+    var allHtml = '<div style="margin-top:10px;font-size:12px;color:var(--muted)"><strong style="color:var(--ink)">All 15 ratings:</strong> ' + ts.all.map(function(r){ return esc(r.label.split(' · ')[0]) + ' (' + r.val + ')'; }).join('; ') + '</div>';
+    html += fwCard('Transferable Skills (O*NET-derived)', 'Top 5 by self-rated proficiency', 'tag-ts', 'Skills', top5Html + allHtml, '"For your top skill, what is one specific result you produced with it that you are proud of? Is your top skill on your resume right now?"', true);
+  }
+
+  if(intake.skill || intake.value){
+    var transferBody = (intake.skill ? '<strong>Self-named transferable skill:</strong> ' + esc(intake.skill) : '')
+      + (intake.skill && intake.value ? '<br>' : '')
+      + (intake.value ? '<strong>Core value:</strong> ' + esc(intake.value) : '');
+    html += fwCard('Client Self-Assessment', 'From intake', 'tag-int', 'Intake', transferBody, '"Where specifically has this skill produced results? Does the value you named show up in your career history?"', true);
+  }
+
+  html += '</div>';
+
+  // Recommended next steps
+  var steps = [
+    { title:'Walk through the Holland code together', text:'Brainstorm five concrete roles for the top letter and three roles for the second. Note which feel exciting and which feel obligatory.' },
+    { title:'Pressure-test the top two work values', text:'Ask the client to describe a job (real or hypothetical) where the top two values would be met daily. Then ask what would have to be sacrificed.' },
+    { title:'Translate the Top 5 transferable skills into resume language', text:'Take the top three skills and write one specific accomplishment that demonstrates each. These become resume bullet candidates.' },
+    { title:'Use the GSE band as a coaching frame', text:'For lower-band scores, plan a small mastery experience this week. For middle-band, target a specific domain to strengthen. For upper-band, channel confidence into a focused commitment.' },
+    { title:'Schedule a 30-day check-in', text:'Reassess after the client has had three to five real conversations or learning experiences in their target direction.' }
+  ];
+  html += '<div class="rs"><div class="rs-label">Recommended Next Steps</div><div class="steps-list">'
+    + steps.map(function(s,i){ return '<div class="step-row"><div class="step-num">' + (i+1) + '</div><div class="step-text"><strong>' + esc(s.title) + '</strong>' + esc(s.text) + '</div></div>'; }).join('')
+    + '</div></div>';
+
+  // About + attributions
+  html += '<div class="fw-card" style="margin-top:16px;border-color:var(--gold-muted);background:var(--gold-light)">'
+    + '<div class="fw-card-title" style="color:var(--navy);margin-bottom:8px">About This Assessment</div>'
+    + '<div class="fw-body" style="font-size:12px;color:var(--amber);line-height:1.7">'
+    + 'Career Charting (Open) is the license-free counterpart to Apothena\'s standard Career Charting tool. It is built entirely on public-domain and openly licensed instruments. Use the results as a structured starting point for coaching, not as a clinical or selection assessment.'
+    + '</div></div>';
+
+  html += '<div class="print-btn-row"><button class="btn btn-primary" onclick="window.print()">Print / Save as PDF</button><button class="btn" onclick="doRestart()">New Assessment</button></div>';
+
+  html += '<div class="results-footer">'
+    + 'Powered by <a href="https://apothena.com" target="_blank">Apothena Career Services</a>.<br>'
+    + 'Items in the Interests, Work Values, and Transferable Skills sections are adapted from O*NET, developed by the U.S. Department of Labor, Employment and Training Administration. O*NET is a trademark of USDOL/ETA. '
+    + 'Personality items are an Apothena-authored snapshot aligned with the HEXACO model (Ashton and Lee). '
+    + 'General Self-Efficacy items copyright Schwarzer and Jerusalem (1995); used with permission for non-commercial coaching.'
+    + '</div>';
+
+  return html;
+}
+
+// ── PAGE LIFECYCLE ────────────────────────────────────────────────────────────
+function render(){
+  var s = SECTIONS[cur];
+  saveTextAnswers();
+  var wrap = document.getElementById('section-wrap');
+  if(s.id === 'intake') wrap.innerHTML = renderIntake();
+  else if(s.id === 'results') wrap.innerHTML = renderResults();
+  else wrap.innerHTML = renderSection(s.id);
+  if(s.id === 'intake'){
+    var sv = function(id, v){ var el = document.getElementById(id); if(el) el.value = v || ''; };
+    sv('f-name', intake.name); sv('f-age', intake.age); sv('f-date', intake.date); sv('f-coach', intake.coach);
+    sv('f-goal', intake.goal); sv('f-skill', intake.skill || ''); sv('f-value', intake.value || ''); sv('f-concerns', intake.concerns);
+  }
+  // Sidebar
+  var nav = document.getElementById('sidebar-nav');
+  nav.innerHTML = '';
+  var lastSession = -1;
+  SECTIONS.forEach(function(sec, i){
+    if(sec.session && sec.session !== lastSession){
+      var div = document.createElement('div');
+      div.style.cssText = 'font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-weight:700;padding:14px 20px 4px;border-top:' + (lastSession > 0 ? '1px solid var(--border)' : 'none');
+      div.textContent = 'Session ' + sec.session;
+      nav.appendChild(div);
+      lastSession = sec.session;
+    }
+    var d = document.createElement('div');
+    d.className = 'nav-item' + (i === cur ? ' active' : skipped[sec.id] ? ' skipped' : i <= maxVisited ? ' visited' : '');
+    d.innerHTML = '<div class="nav-dot"></div><span>' + esc(sec.label) + '</span>';
+    d.setAttribute('data-i', String(i));
+    d.addEventListener('click', function(){
+      var idx = parseInt(this.getAttribute('data-i'));
+      if(cur === 0) saveIntakeFields();
+      saveTextAnswers();
+      cur = idx;
+      if(cur > maxVisited) maxVisited = cur;
+      render();
+    });
+    nav.appendChild(d);
+  });
+  var pct = Math.round(((cur+1) / SECTIONS.length) * 100);
+  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('top-label').textContent = 'Step ' + (cur+1) + ' of ' + SECTIONS.length;
+  document.getElementById('btn-back').disabled = (cur === 0);
+  var nxt = document.getElementById('btn-next');
+  nxt.style.display = (cur === SECTIONS.length-1) ? 'none' : '';
+  nxt.textContent = (cur === SECTIONS.length-2) ? 'Generate Report \u2192' : 'Continue \u2192';
+  document.getElementById('btn-skip').style.display = s.noSkip ? 'none' : '';
+  window.scrollTo(0, 0);
+}
+function goNext(){ if(cur === 0) saveIntakeFields(); if(cur < SECTIONS.length-1){ cur++; if(cur > maxVisited) maxVisited = cur; render(); } }
+function goBack(){ if(cur === 0) saveIntakeFields(); if(cur > 0){ cur--; render(); } }
+function doSkip(){ skipped[SECTIONS[cur].id] = true; goNext(); }
+function doRestart(){
+  cur = 0; maxVisited = 0; skipped = {}; answers = {};
+  intake = { name:'', age:'', date:'', coach:'', goal:'', skill:'', value:'', concerns:'' };
+  Object.keys(scaleScores).forEach(function(k){ scaleScores[k] = 0; });
+  var chip = document.getElementById('client-chip'); if(chip) chip.style.display = 'none';
+  render();
+}
+
+initFirebase();
+document.getElementById('btn-next').addEventListener('click', goNext);
+document.getElementById('btn-back').addEventListener('click', goBack);
+document.getElementById('btn-skip').addEventListener('click', doSkip);
+render();
+</script>
+
+</body>
+</html>
