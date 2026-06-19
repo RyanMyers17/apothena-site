@@ -1,1837 +1,1562 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Assessment Debrief Guide — Apothena Career Services</title>
-  <meta name="robots" content="noindex, nofollow">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Assessment Debrief — Apothena</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
 <style>
-  :root {
-    --navy: #0a1220;
-    --navy-mid: #0d1e33;
-    --stone: #1A4B7A;
-    --amber: #D4A017;
-    --amber-light: #F0C060;
-    --amber-pale: #FDF3D0;
-    --white: #FFFFFF;
-    --ink: #1A2E44;
-    --ink-soft: #3A5068;
-    --text: rgba(255,255,255,0.88);
-    --text-soft: rgba(255,255,255,0.65);
-    --text-faint: rgba(255,255,255,0.4);
-    --rule: rgba(212,160,23,0.25);
-    --rule-bright: rgba(212,160,23,0.5);
-  }
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-  html { font-size: 16px; scroll-behavior: smooth; }
-  body {
-    font-family: 'Lato', sans-serif;
-    background: var(--navy);
-    color: var(--text);
-    line-height: 1.8;
-    min-height: 100vh;
-  }
-  a { color: var(--amber-light); text-decoration: none; }
-  a:hover { text-decoration: underline; }
+/* ── RESET + ROOT ── */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#0a1220;
+  --navy-mid:#0d1e33;
+  --stone:#1A4B7A;
+  --amber:#D4A017;
+  --amber-light:#F0C060;
+  --amber-pale:#FDF3D0;
+  --white:#FFFFFF;
+  --ink:#1A2E44;
+  --ink-soft:#3A5068;
+  --text:rgba(255,255,255,0.88);
+  --text-soft:rgba(255,255,255,0.65);
+  --text-faint:rgba(255,255,255,0.4);
+  --rule:rgba(212,160,23,0.25);
+  --rule-bright:rgba(212,160,23,0.5);
+  --green:#4ade80;
+  --red:#f87171;
+}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:'Lato',sans-serif;background:var(--navy);color:var(--text);line-height:1.8;min-height:100vh}
 
-  /* ── GREEK KEY ── */
-  .greek-key {
-    width: 100%;
-    height: 18px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='18'%3E%3Cpath d='M0 16 L0 2 L14 2 L14 8 L8 8 L8 14 L20 14 L20 2 L34 2 L34 8 L28 8 L28 14 L40 14 L40 16 Z' fill='none' stroke='%23D4A017' stroke-width='1.2' opacity='0.45'/%3E%3C/svg%3E");
-    background-repeat: repeat-x;
-    background-position: center;
-  }
+/* ── GREEK KEY ── */
+.greek-key{
+  width:100%;height:18px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='18'%3E%3Cpath d='M0 16 L0 2 L14 2 L14 8 L8 8 L8 14 L20 14 L20 2 L34 2 L34 8 L28 8 L28 14 L40 14 L40 16 Z' fill='none' stroke='%23D4A017' stroke-width='1.2' opacity='0.45'/%3E%3C/svg%3E");
+  background-repeat:repeat-x;background-position:center;
+}
 
-  /* ── HEADER ── */
-  header {
-    background: linear-gradient(135deg, #0a1220 0%, #0d1e33 60%, #0a1525 100%);
-    border-bottom: 1px solid var(--rule-bright);
-    padding: 56px 80px 48px;
-    position: relative;
-    overflow: hidden;
-  }
-  header::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: radial-gradient(ellipse 60% 100% at 50% 100%, rgba(212,160,23,0.06) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .header-inner {
-    max-width: 960px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
-  }
-  .header-label {
-    font-family: 'Lato', sans-serif;
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--amber);
-    margin-bottom: 14px;
-    display: block;
-  }
-  header h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 700;
-    color: var(--white);
-    margin-bottom: 8px;
-    line-height: 1.15;
-  }
-  header h1 em {
-    font-style: italic;
-    color: var(--amber-light);
-  }
-  .header-sub {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 1rem;
-    color: var(--text-soft);
-    margin-bottom: 32px;
-  }
-  .header-meta {
-    display: flex;
-    gap: 24px;
-    flex-wrap: wrap;
-  }
-  .meta-pill {
-    background: rgba(212,160,23,0.08);
-    border: 1px solid var(--rule);
-    padding: 6px 16px;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--amber-light);
-  }
+/* ── AUTH GATE ── */
+#auth-gate{
+  display:flex;align-items:center;justify-content:center;
+  min-height:100vh;flex-direction:column;gap:20px;
+  background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 100%);
+}
+#auth-gate .brand{
+  font-family:'Playfair Display',serif;font-size:2rem;
+  font-weight:700;color:var(--amber-light);letter-spacing:.05em;
+}
+#auth-gate p{font-size:.9rem;color:var(--text-soft);text-align:center;max-width:340px}
+#sign-in-btn{
+  display:flex;align-items:center;gap:10px;
+  background:var(--white);color:var(--ink);
+  border:none;border-radius:8px;padding:12px 22px;
+  font-size:.95rem;font-family:'Lato',sans-serif;font-weight:700;
+  cursor:pointer;transition:opacity .15s;
+}
+#sign-in-btn:hover{opacity:.9}
+#sign-in-btn img{width:20px;height:20px}
+#auth-error{font-size:.82rem;color:var(--red);text-align:center}
 
-  /* ── LAYOUT ── */
-  .page-body {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 56px 80px 80px;
-  }
+/* ── TOPBAR ── */
+#topbar{
+  background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 60%,#0a1525 100%);
+  border-bottom:1px solid var(--rule-bright);
+  padding:0 40px;
+  display:flex;align-items:center;justify-content:space-between;
+  position:sticky;top:0;z-index:100;height:58px;
+}
+.topbar-brand{
+  font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;
+  color:var(--amber-light);letter-spacing:.06em;
+}
+.topbar-right{display:flex;align-items:center;gap:16px}
+.topbar-label{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text-faint)}
+#user-email{font-size:.78rem;color:var(--text-soft)}
+#sign-out-btn{
+  font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--amber);background:none;border:1px solid var(--rule);
+  padding:5px 12px;border-radius:4px;cursor:pointer;font-family:'Lato',sans-serif;
+  transition:border-color .15s;
+}
+#sign-out-btn:hover{border-color:var(--amber)}
 
-  /* ── TABLE OF CONTENTS ── */
-  .toc {
-    background: rgba(212,160,23,0.04);
-    border: 1px solid var(--rule);
-    border-left: 3px solid var(--amber);
-    padding: 32px 36px;
-    margin-bottom: 56px;
-  }
-  .toc-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--amber-light);
-    letter-spacing: 0.06em;
-    margin-bottom: 18px;
-    text-transform: uppercase;
-    font-size: 0.75rem;
-  }
-  .toc-list {
-    list-style: none;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6px 32px;
-  }
-  .toc-list a {
-    font-size: 0.88rem;
-    color: var(--text-soft);
-    transition: color 0.2s;
-  }
-  .toc-list a:hover { color: var(--amber-light); text-decoration: none; }
+/* ── SESSION PICKER ── */
+#picker{max-width:820px;margin:0 auto;padding:48px 40px}
+.picker-head{
+  font-family:'Playfair Display',serif;font-size:2rem;
+  color:var(--white);margin-bottom:8px;
+}
+.picker-sub{font-size:.9rem;color:var(--text-soft);margin-bottom:36px}
+.filter-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}
+.filter-btn{
+  font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  padding:6px 16px;border-radius:4px;border:1px solid var(--rule);
+  background:transparent;color:var(--text-soft);cursor:pointer;font-family:'Lato',sans-serif;
+  transition:all .15s;
+}
+.filter-btn:hover,.filter-btn.active{border-color:var(--amber);color:var(--amber);background:rgba(212,160,23,.07)}
+#sessions-list{display:flex;flex-direction:column;gap:10px}
+.session-card{
+  background:rgba(255,255,255,.04);border:1px solid var(--rule);
+  padding:18px 22px;cursor:pointer;transition:border-color .15s;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+}
+.session-card:hover{border-color:var(--amber)}
+.sc-left{flex:1;min-width:0}
+.sc-name{font-size:1rem;font-weight:700;color:var(--white);margin-bottom:3px}
+.sc-meta{font-size:.78rem;color:var(--text-soft)}
+.sc-right{display:flex;gap:8px;flex-shrink:0}
+.pill{
+  font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  padding:4px 10px;border-radius:3px;
+}
+.pill-career{background:rgba(212,160,23,.12);color:var(--amber-light)}
+.pill-edu{background:rgba(74,222,128,.1);color:var(--green)}
+.sc-actions{display:flex;gap:8px;flex-shrink:0}
+.btn-debrief{
+  font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  padding:6px 14px;border-radius:4px;cursor:pointer;font-family:'Lato',sans-serif;
+  border:1px solid var(--amber);background:rgba(212,160,23,.1);color:var(--amber-light);
+  transition:all .15s;
+}
+.btn-debrief:hover{background:rgba(212,160,23,.2)}
+.btn-cumulative{
+  font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  padding:6px 14px;border-radius:4px;cursor:pointer;font-family:'Lato',sans-serif;
+  border:1px solid var(--rule);background:transparent;color:var(--text-soft);
+  transition:all .15s;
+}
+.btn-cumulative:hover{border-color:var(--amber);color:var(--amber)}
+.empty-state{
+  text-align:center;padding:60px 20px;
+  font-size:.9rem;color:var(--text-faint);
+}
 
-  /* ── HOW TO USE TABLE ── */
-  .how-to-use {
-    margin-bottom: 56px;
-  }
+/* ── DEBRIEF PAGE ── */
+#debrief-page{display:none;max-width:900px;margin:0 auto;padding:48px 40px 80px}
 
-  /* ── PART HEADER ── */
-  .part-header {
-    background: linear-gradient(135deg, rgba(212,160,23,0.08) 0%, rgba(212,160,23,0.03) 100%);
-    border: 1px solid var(--rule-bright);
-    border-top: 3px solid var(--amber);
-    padding: 36px 40px;
-    margin: 56px 0 40px;
-    position: relative;
-  }
-  .part-header::before {
-    content: '';
-    position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
-    background: linear-gradient(90deg, var(--amber), transparent);
-  }
-  .part-label {
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--amber);
-    margin-bottom: 8px;
-    display: block;
-  }
-  .part-header h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.6rem, 3vw, 2.2rem);
-    color: var(--white);
-    margin-bottom: 12px;
-  }
-  .part-header p {
-    font-size: 0.92rem;
-    color: var(--text-soft);
-    max-width: 560px;
-    line-height: 1.7;
-  }
-  .part-meta {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-top: 18px;
-  }
-  .part-meta span {
-    background: rgba(212,160,23,0.1);
-    border: 1px solid var(--rule);
-    padding: 4px 12px;
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--amber-light);
-  }
+/* Print / PDF button */
+.sticky-print{
+  position:fixed;top:68px;right:24px;z-index:200;
+  display:flex;gap:8px;
+}
+.btn-print{
+  font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  padding:8px 16px;border-radius:4px;cursor:pointer;font-family:'Lato',sans-serif;
+  background:var(--amber);color:var(--navy);border:none;transition:opacity .15s;
+}
+.btn-print:hover{opacity:.88}
+.btn-back-pick{
+  font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  padding:8px 16px;border-radius:4px;cursor:pointer;font-family:'Lato',sans-serif;
+  background:transparent;color:var(--text-soft);border:1px solid var(--rule);transition:all .15s;
+}
+.btn-back-pick:hover{border-color:var(--amber);color:var(--amber)}
 
-  /* ── SESSION HEADER ── */
-  .session-header {
-    border-bottom: 1px solid var(--rule-bright);
-    padding-bottom: 16px;
-    margin: 48px 0 32px;
-  }
-  .session-label {
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--amber);
-    margin-bottom: 6px;
-    display: block;
-  }
-  .session-header h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
-    color: var(--white);
-  }
+/* Debrief header */
+.db-header{
+  border-bottom:1px solid var(--rule-bright);
+  padding-bottom:28px;margin-bottom:40px;
+}
+.db-eyebrow{
+  font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--amber);margin-bottom:10px;display:block;
+}
+.db-title{
+  font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.6rem);
+  font-weight:700;color:var(--white);line-height:1.15;margin-bottom:6px;
+}
+.db-title em{font-style:italic;color:var(--amber-light)}
+.db-meta{display:flex;gap:20px;flex-wrap:wrap;margin-top:16px}
+.db-meta-pill{
+  background:rgba(212,160,23,.07);border:1px solid var(--rule);
+  padding:5px 14px;font-size:.7rem;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--amber-light);
+}
 
-  /* ── FRAMEWORK SECTION ── */
-  .framework {
-    margin-bottom: 48px;
-    padding-left: 20px;
-    border-left: 2px solid var(--rule);
-  }
-  .framework-number {
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--amber);
-    margin-bottom: 4px;
-    display: block;
-  }
-  .framework h4 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
-    color: var(--amber-light);
-    margin-bottom: 16px;
-  }
+/* Score hero */
+.score-hero{
+  background:linear-gradient(135deg,rgba(212,160,23,.08) 0%,rgba(212,160,23,.03) 100%);
+  border:1px solid var(--rule-bright);border-top:3px solid var(--amber);
+  padding:28px 32px;margin-bottom:36px;
+}
+.score-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;margin-top:16px}
+.score-chip{
+  background:rgba(0,0,0,.2);border:1px solid var(--rule);
+  padding:14px 16px;text-align:center;
+}
+.score-chip .sc-label{font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text-faint);margin-bottom:6px}
+.score-chip .sc-value{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--amber-light);line-height:1}
+.score-chip .sc-sub{font-size:.72rem;color:var(--text-soft);margin-top:4px}
 
-  /* ── CONTENT BLOCKS ── */
-  .block {
-    margin-bottom: 24px;
-  }
-  .block-label {
-    font-size: 0.62rem;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--amber);
-    margin-bottom: 8px;
-    display: block;
-  }
-  p {
-    font-size: 0.95rem;
-    color: var(--text-soft);
-    margin-bottom: 12px;
-    line-height: 1.8;
-  }
+/* Bar chart */
+.bar-chart{margin:12px 0}
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.bar-lbl{font-size:.8rem;color:var(--text-soft);min-width:130px}
+.bar-track{flex:1;height:6px;background:rgba(255,255,255,.07);border-radius:3px;overflow:hidden}
+.bar-fill{height:100%;background:linear-gradient(90deg,var(--stone),var(--amber));border-radius:3px}
+.bar-val{font-size:.75rem;color:var(--text-faint);min-width:40px;text-align:right}
 
-  /* ── QUOTE BLOCK ── */
-  .quote-block {
-    background: rgba(212,160,23,0.05);
-    border-left: 3px solid var(--amber);
-    padding: 16px 20px;
-    margin: 16px 0;
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 0.92rem;
-    color: rgba(255,255,255,0.75);
-    line-height: 1.7;
-  }
+/* Framework sections */
+.part-divider{
+  border-top:1px solid var(--rule-bright);
+  margin:48px 0 36px;padding-top:24px;
+}
+.part-label-tag{
+  font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--amber);margin-bottom:6px;display:block;
+}
+.part-title{
+  font-family:'Playfair Display',serif;font-size:1.5rem;
+  color:var(--white);margin-bottom:4px;
+}
+.framework-block{
+  border-left:2px solid var(--rule);
+  padding-left:20px;margin:32px 0;
+}
+.fw-number{
+  font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--amber);margin-bottom:4px;display:block;
+}
+.fw-title{
+  font-family:'Playfair Display',serif;font-size:1.15rem;
+  color:var(--amber-light);margin-bottom:16px;
+}
+.block-label{
+  font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--amber);margin-bottom:6px;display:block;margin-top:16px;
+}
+.block-body{font-size:.88rem;color:var(--text-soft);line-height:1.75;margin-bottom:8px}
 
-  /* ── PROMPT LIST ── */
-  .prompt-list {
-    list-style: none;
-    margin: 12px 0;
-  }
-  .prompt-list li {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 0.9rem;
-    color: rgba(255,255,255,0.7);
-    padding: 10px 0 10px 20px;
-    border-bottom: 1px solid rgba(212,160,23,0.1);
-    position: relative;
-    line-height: 1.65;
-  }
-  .prompt-list li::before {
-    content: '—';
-    position: absolute;
-    left: 0;
-    color: var(--amber);
-  }
-  .prompt-list li:last-child { border-bottom: none; }
+/* Result callout */
+.result-callout{
+  background:rgba(212,160,23,.07);border:1px solid var(--rule-bright);
+  border-left:3px solid var(--amber);padding:14px 18px;margin:12px 0;
+}
+.result-callout .rc-label{font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-bottom:4px}
+.result-callout .rc-value{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--white);font-weight:700}
+.result-callout .rc-sub{font-size:.78rem;color:var(--text-soft);margin-top:3px}
 
-  /* ── REFERENCE TABLE ── */
-  .ref-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 16px 0 24px;
-    font-size: 0.85rem;
-  }
-  .ref-table th {
-    background: rgba(212,160,23,0.1);
-    border: 1px solid var(--rule);
-    padding: 10px 14px;
-    text-align: left;
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--amber-light);
-  }
-  .ref-table td {
-    border: 1px solid rgba(212,160,23,0.12);
-    padding: 10px 14px;
-    color: var(--text-soft);
-    vertical-align: top;
-    line-height: 1.65;
-  }
-  .ref-table tr:nth-child(even) td {
-    background: rgba(255,255,255,0.02);
-  }
+/* Validation prompt */
+.validation-prompt{
+  background:rgba(212,160,23,.04);border-left:3px solid var(--amber);
+  padding:14px 18px;margin:12px 0;
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:.9rem;color:rgba(255,255,255,.72);line-height:1.7;
+}
 
-  /* ── COACH NOTE ── */
-  .coach-note {
-    background: rgba(212,160,23,0.06);
-    border: 1px solid var(--rule);
-    border-left: 3px solid var(--amber-light);
-    padding: 16px 20px;
-    margin: 20px 0;
-    font-size: 0.88rem;
-    color: var(--text-soft);
-    line-height: 1.7;
-  }
-  .coach-note strong {
-    color: var(--amber-light);
-    font-weight: 700;
-  }
+/* Coaching prompts */
+.prompt-list{list-style:none;margin:8px 0}
+.prompt-list li{
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:.87rem;color:rgba(255,255,255,.68);
+  padding:9px 0 9px 18px;
+  border-bottom:1px solid rgba(212,160,23,.1);
+  position:relative;line-height:1.65;
+}
+.prompt-list li::before{content:'—';position:absolute;left:0;color:var(--amber)}
+.prompt-list li:last-child{border-bottom:none}
 
-  /* ── WATCH FOR ── */
-  .watch-list {
-    list-style: none;
-    margin: 12px 0;
-  }
-  .watch-list li {
-    font-size: 0.88rem;
-    color: var(--text-soft);
-    padding: 8px 0 8px 20px;
-    border-bottom: 1px solid rgba(212,160,23,0.08);
-    position: relative;
-    line-height: 1.65;
-  }
-  .watch-list li::before {
-    content: '•';
-    position: absolute;
-    left: 0;
-    color: var(--amber);
-    font-weight: 700;
-  }
-  .watch-list li:last-child { border-bottom: none; }
+/* Reference table (filtered) */
+.ref-table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.82rem}
+.ref-table th{
+  background:rgba(212,160,23,.08);border:1px solid var(--rule);
+  padding:8px 12px;text-align:left;font-size:.62rem;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--amber-light);
+}
+.ref-table td{
+  border:1px solid rgba(212,160,23,.1);padding:9px 12px;
+  color:var(--text-soft);vertical-align:top;line-height:1.6;
+}
+.ref-table tr.highlight td{background:rgba(212,160,23,.06)}
 
-  /* ── ACTION ITEMS TABLE ── */
-  .action-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 16px 0;
-    font-size: 0.85rem;
-  }
-  .action-table th {
-    background: rgba(212,160,23,0.08);
-    border: 1px solid var(--rule);
-    padding: 8px 14px;
-    text-align: left;
-    font-size: 0.62rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--amber);
-  }
-  .action-table td {
-    border: 1px solid rgba(212,160,23,0.1);
-    padding: 10px 14px;
-    color: var(--text-faint);
-    min-height: 36px;
-  }
-  .action-table td:first-child {
-    width: 40px;
-    text-align: center;
-    color: var(--amber);
-    font-weight: 700;
-  }
+/* Coach notes */
+.coach-notes-wrap{margin:14px 0}
+.coach-notes-label{
+  font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--amber);margin-bottom:6px;display:flex;align-items:center;gap:8px;
+}
+.save-indicator{font-size:.62rem;color:var(--text-faint);font-weight:400;letter-spacing:.05em;text-transform:none}
+.coach-notes-field{
+  width:100%;min-height:90px;
+  background:rgba(255,255,255,.03);border:1px dashed rgba(212,160,23,.3);
+  padding:12px;color:var(--text);font-family:'Lato',sans-serif;font-size:.85rem;
+  line-height:1.7;resize:vertical;outline:none;
+  transition:border-color .2s;
+}
+.coach-notes-field:focus{border-color:var(--amber);background:rgba(255,255,255,.05)}
 
-  /* ── SYNTHESIS TABLE ── */
-  .synthesis-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 16px 0;
-    font-size: 0.85rem;
-  }
-  .synthesis-table th {
-    background: rgba(212,160,23,0.08);
-    border: 1px solid var(--rule);
-    padding: 8px 14px;
-    text-align: left;
-    font-size: 0.62rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--amber);
-  }
-  .synthesis-table td {
-    border: 1px solid rgba(212,160,23,0.1);
-    padding: 10px 14px;
-    color: var(--text-faint);
-    min-height: 40px;
-  }
+/* Synthesis + action tables */
+.editable-table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.82rem}
+.editable-table th{
+  background:rgba(212,160,23,.07);border:1px solid var(--rule);
+  padding:7px 12px;text-align:left;font-size:.62rem;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--amber);
+}
+.editable-table td{border:1px solid rgba(212,160,23,.1);padding:0}
+.editable-table td input,.editable-table td select{
+  width:100%;background:transparent;border:none;
+  color:var(--text-soft);font-family:'Lato',sans-serif;font-size:.82rem;
+  padding:8px 10px;outline:none;
+}
+.editable-table td input:focus{background:rgba(212,160,23,.05)}
+.editable-table td.num-cell{width:36px;text-align:center;color:var(--amber);font-weight:700;padding:8px 0}
 
-  /* ── DIVIDER ── */
-  .section-divider {
-    height: 1px;
-    background: linear-gradient(90deg, var(--amber), transparent);
-    margin: 40px 0;
-    opacity: 0.4;
-  }
+/* Section divider */
+.section-divider{height:1px;background:linear-gradient(90deg,var(--amber),transparent);margin:36px 0;opacity:.35}
 
-  /* ── FOOTER ── */
-  footer {
-    border-top: 1px solid var(--rule);
-    padding: 32px 80px;
-    text-align: center;
-    background: rgba(0,0,0,0.3);
-  }
-  .footer-inner {
-    max-width: 960px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-  .footer-brand {
-    font-family: 'Playfair Display', serif;
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--amber-light);
-    letter-spacing: 0.08em;
-  }
-  .footer-copy {
-    font-size: 0.75rem;
-    color: var(--text-faint);
-  }
+/* Coach note box */
+.coach-note-box{
+  background:rgba(212,160,23,.05);border:1px solid var(--rule);border-left:3px solid var(--amber-light);
+  padding:14px 18px;margin:14px 0;font-size:.85rem;color:var(--text-soft);line-height:1.7;
+}
+.coach-note-box strong{color:var(--amber-light)}
 
-  /* ── PRINT ── */
-  @media print {
-    body { background: #fff; color: #000; }
-    .toc, .coach-note, .quote-block { border-color: #ccc; background: #f9f9f9; }
-    header { background: #fff; border-bottom: 2px solid #D4A017; }
-    .part-header { background: #f5f5f5; }
-    a { color: #000; }
-  }
+/* Skipped badge */
+.skipped-badge{
+  display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;padding:4px 12px;border:1px dashed var(--rule);
+  color:var(--text-faint);
+}
 
-  @media (max-width: 768px) {
-    header { padding: 40px 24px 36px; }
-    .page-body { padding: 40px 24px 56px; }
-    .toc-list { grid-template-columns: 1fr; }
-    .ref-table { font-size: 0.78rem; }
-    footer { padding: 24px; }
-    .footer-inner { flex-direction: column; text-align: center; }
+/* ── FOOTER ── */
+footer{
+  border-top:1px solid var(--rule);padding:28px 40px;
+  text-align:center;background:rgba(0,0,0,.3);
+}
+.footer-inner{
+  max-width:900px;margin:0 auto;
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:10px;
+}
+.footer-brand{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;color:var(--amber-light)}
+.footer-copy{font-size:.72rem;color:var(--text-faint)}
+
+/* ── PRINT ── */
+@media print{
+  #auth-gate,#topbar,.sticky-print,#picker{display:none!important}
+  #debrief-page{display:block!important;padding:0;max-width:100%}
+  body{background:#fff;color:#000;font-size:11px}
+  .db-header{border-color:#ccc}
+  .score-hero{background:#f5f5f5;border-color:#ccc}
+  .score-chip{background:#eee;border-color:#ccc}
+  .score-chip .sc-value{color:#7a4800}
+  .score-chip .sc-label,.score-chip .sc-sub{color:#666}
+  .framework-block{border-left-color:#ccc}
+  .validation-prompt{border-left-color:#c9a84c;background:#fff8e6;color:#333}
+  .result-callout{background:#fff8e6;border-color:#c9a84c;color:#000}
+  .result-callout .rc-value{color:#7a4800;font-size:1rem}
+  .result-callout .rc-sub,.result-callout .rc-label{color:#666}
+  .prompt-list li{color:#444;border-color:#ddd}
+  .prompt-list li::before{color:#c9a84c}
+  .ref-table th{background:#f0e8d0;color:#5a3a00}
+  .ref-table td{color:#333}
+  .ref-table tr.highlight td{background:#fffbf0}
+  .coach-notes-field{
+    border:1px solid #ccc;background:#fff;color:#000;
+    min-height:80px;
   }
+  .editable-table th{background:#f0e8d0;color:#5a3a00}
+  .editable-table td input{color:#000}
+  .coach-note-box{background:#fff8e6;border-color:#c9a84c;color:#444}
+  .part-divider{border-color:#ccc}
+  .section-divider{background:#c9a84c;opacity:.4}
+  .db-eyebrow,.part-label-tag,.fw-number,.block-label,.coach-notes-label{color:#7a4800}
+  .db-title,.fw-title{color:#000}
+  .db-title em,.fw-title{color:#7a4800}
+  .db-meta-pill{background:#f0e8d0;border-color:#c9a84c;color:#5a3a00}
+  .bar-fill{background:#c9a84c}
+  .bar-lbl{color:#444}
+  .bar-val{color:#666}
+  footer,.greek-key{display:none}
+  .framework-block{break-inside:avoid}
+  .coach-notes-wrap{break-inside:avoid}
+  @page{margin:1.6cm;size:A4}
+  /* Print header on each page */
+  .print-page-header{display:block!important}
+}
+.print-page-header{display:none;font-size:.7rem;color:#888;margin-bottom:8px;border-bottom:1px solid #ddd;padding-bottom:4px}
+
+@media(max-width:768px){
+  #topbar{padding:0 20px}
+  #picker,#debrief-page{padding:32px 20px 60px}
+  .sticky-print{top:64px;right:12px}
+  .score-grid{grid-template-columns:1fr 1fr}
+  .db-meta{gap:10px}
+}
 </style>
+
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
 </head>
 <body>
 
-<div class="greek-key"></div>
-
-<header>
-  <div class="header-inner">
-    <span class="header-label">Apothena Career Services — Internal Reference</span>
-    <h1>Assessment <em>Debrief Guide</em></h1>
-    <p class="header-sub">Coach's Reference for Interpreting Assessment Results Across All Sessions</p>
-    <div class="header-meta">
-      <span class="meta-pill">Part A — Career Charting</span>
-      <span class="meta-pill">Part B — Education Planner</span>
-      <span class="meta-pill">Part C — Combined Profile</span>
-      <span class="meta-pill">Part D · Career Charting (Open)</span>
-      <span class="meta-pill">Part E · Education Path Planner (Open)</span>
-    </div>
-  </div>
-</header>
-
-<div class="greek-key"></div>
-
-<div class="page-body">
-
-  <!-- TABLE OF CONTENTS -->
-  <div class="toc">
-    <div class="toc-title">Contents</div>
-    <ul class="toc-list">
-      <li><a href="#how-to-use">How to Use This Guide</a></li>
-      <li><a href="#official-instruments">Official Instrument Referrals</a></li>
-      <li><a href="#intake-context">Reading Intake Context Fields</a></li>
-      <li><a href="#part-a">Part A — Career Charting</a></li>
-      <li><a href="#session-a1">Session 1 — Work Values + Holland</a></li>
-      <li><a href="#session-a2">Session 2 — DISC + VIA</a></li>
-      <li><a href="#part-b">Part B — Education Path Planner</a></li>
-      <li><a href="#session-b1">Session 1 — Holland RIASEC</a></li>
-      <li><a href="#session-b2">Session 2 — VARK + VIA</a></li>
-      <li><a href="#session-b3">Session 3 — Academic Interests + Practical Priorities</a></li>
-      <li><a href="#part-d">Part D · Career Charting (Open)</a></li>
-      <li><a href="#session-d1">Session 1 · O*NET Interests + O*NET Work Values</a></li>
-      <li><a href="#session-d2">Session 2 · HEXACO + GSE + Transferable Skills</a></li>
-      <li><a href="#part-e">Part E · Education Path Planner (Open)</a></li>
-      <li><a href="#session-e1">Session 1 · O*NET Interests</a></li>
-      <li><a href="#session-e2">Session 2 · Program-Format Preferences + Academic Self-Efficacy</a></li>
-      <li><a href="#session-e3">Session 3 · Academic Interests + Practical Priorities</a></li>
-      <li><a href="#part-c">Part C — Combined Profile</a></li>
-    </ul>
-  </div>
-
-  <!-- HOW TO USE -->
-  <section id="how-to-use" class="how-to-use">
-    <span class="part-label">Reference</span>
-    <h2 style="font-family:'Playfair Display',serif;font-size:1.6rem;color:#fff;margin-bottom:20px;">How to Use This Guide</h2>
-    <p>Each framework section follows the same five-step pattern. Use it consistently across every section in every session.</p>
-    <table class="ref-table" style="margin-top:20px;">
-      <thead>
-        <tr>
-          <th>Step</th>
-          <th>What to Do</th>
-          <th>Why It Matters</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td><strong style="color:var(--amber-light);">1. Orient</strong></td><td>Briefly explain what the framework measures and why it matters.</td><td>Gives context before results — prevents misinterpretation.</td></tr>
-        <tr><td><strong style="color:var(--amber-light);">2. Present</strong></td><td>State the result clearly. Read the description. Then pause.</td><td>Silence after presenting gives the client space to react authentically.</td></tr>
-        <tr><td><strong style="color:var(--amber-light);">3. Validate</strong></td><td>Use the validation prompt before offering any interpretation.</td><td>The client's first reaction is often the most diagnostic data in the session.</td></tr>
-        <tr><td><strong style="color:var(--amber-light);">4. Probe</strong></td><td>Use the coaching prompts to deepen the conversation.</td><td>Prompts move the session from data review to genuine self-discovery.</td></tr>
-        <tr><td><strong style="color:var(--amber-light);">5. Connect</strong></td><td>Link this result to others across frameworks.</td><td>Cross-framework convergence is the strongest signal in the entire assessment.</td></tr>
-      </tbody>
-    </table>
-    <div class="coach-note">
-      <strong>Coach Note:</strong> The most valuable moment in any debrief is when a client says "That's exactly right" or "That's not me at all." Both reactions are equally useful. Build around confirmations. Investigate disagreements.
-    </div>
-  </section>
-
-  <!-- OFFICIAL INSTRUMENTS -->
-  <section id="official-instruments">
-    <span class="part-label">Reference</span>
-    <h2 style="font-family:'Playfair Display',serif;font-size:1.6rem;color:#fff;margin-bottom:20px;">Official Instrument Referrals</h2>
-    <p>Both assessments direct clients to full official versions on the results page. Reinforce these referrals in the debrief.</p>
-    <table class="ref-table">
-      <thead><tr><th>Framework</th><th>Official Assessment</th><th>Access</th></tr></thead>
-      <tbody>
-        <tr><td>Work Values (DOL)</td><td>CareerOneStop Work Values Matcher</td><td>careeronestop.org (free)</td></tr>
-        <tr><td>Holland RIASEC</td><td>Self-Directed Search (SDS) by PAR</td><td>self-directed-search.com</td></tr>
-        <tr><td>DISC Profile</td><td>Everything DiSC by Wiley</td><td>discprofile.com</td></tr>
-        <tr><td>VIA Character Strengths</td><td>VIA Survey by VIA Institute</td><td>viacharacter.org (free)</td></tr>
-        <tr><td>VARK Learning Styles</td><td>Official VARK Questionnaire</td><td>vark-learn.com (free)</td></tr>
-        <tr><td>Career Data</td><td>O*NET OnLine</td><td>onetonline.org (free)</td></tr>
-        <tr><td>Program Data</td><td>College Scorecard</td><td>collegescorecard.ed.gov (free)</td></tr>
-      </tbody>
-    </table>
-  </section>
-
-  <div class="section-divider"></div>
-
-  <!-- INTAKE CONTEXT -->
-  <section id="intake-context">
-    <span class="part-label">Reference</span>
-    <h2 style="font-family:'Playfair Display',serif;font-size:1.6rem;color:#fff;margin-bottom:20px;">Reading Intake Context Fields</h2>
-    <p>Both assessments capture several unscored intake fields that appear verbatim on the results page. These qualitative responses are often more diagnostic than any scored section.</p>
-    <table class="ref-table">
-      <thead><tr><th>Intake Field</th><th>What It Reveals</th><th>How to Use in Debrief</th></tr></thead>
-      <tbody>
-        <tr><td>Career Transition Stage</td><td>Where the client is in their career arc.</td><td>Calibrates ambition level. New entrants need different guidance than mid-career changers.</td></tr>
-        <tr><td>Peak Professional Experience</td><td>When and why they felt most alive at work.</td><td>Read their words back verbatim. Identify which frameworks their peak story confirms or contradicts.</td></tr>
-        <tr><td>Barriers &amp; Motivators</td><td>What has held them back and what would excite them.</td><td>Most actionable coaching conversation. Return to these explicitly in every session.</td></tr>
-        <tr><td>Work Environment Preferences</td><td>Concrete working conditions they need.</td><td>Filter career direction suggestions.</td></tr>
-        <tr><td>Career Destination Vision (Edu)</td><td>Where the student imagines themselves at 30.</td><td>The gut-check for every program recommendation.</td></tr>
-        <tr><td>Exploration Readiness (Edu)</td><td>Whether the student is genuinely open or under pressure.</td><td>Shapes the entire coaching posture.</td></tr>
-        <tr><td>Academic Self-Efficacy (Edu)</td><td>How confident the student is academically.</td><td>Low: prioritize accessible programs. High: do not undersell options based on GPA alone.</td></tr>
-        <tr><td>Support System &amp; Expectations (Edu)</td><td>Who else is influencing this decision.</td><td>Surfaces external pressure.</td></tr>
-      </tbody>
-    </table>
-  </section>
-
-  <!-- PART A -->
-  <div class="part-header" id="part-a">
-    <span class="part-label">Part A</span>
-    <h2>Career Charting Debrief Guide</h2>
-    <p>The Career Charting assessment spans 2 sessions across 4 frameworks: Work Values Inventory, Holland RIASEC, DISC, and VIA. Total question count: 70.</p>
-    <div class="part-meta">
-      <span>2 Sessions</span>
-      <span>4 Frameworks</span>
-      <span>70 Questions</span>
-    </div>
-    <table class="ref-table" style="margin-top:24px;">
-      <thead><tr><th>Session</th><th>Frameworks</th><th>Questions</th><th>Focus</th><th>Approx. Length</th></tr></thead>
-      <tbody>
-        <tr><td>1</td><td>Work Values + Holland</td><td>38</td><td>Who are you and what environments fit you?</td><td>60–90 min assessment + 30–45 min debrief</td></tr>
-        <tr><td>2</td><td>DISC + VIA</td><td>32</td><td>How do you operate and what drives you?</td><td>30–45 min assessment + 45–60 min debrief</td></tr>
-      </tbody>
-    </table>
-    <div class="coach-note" style="margin-top:16px;">
-      <strong>Coach Note:</strong> Session 2 carries the heavier debrief load. VIA benefits most from extended conversation — character strengths are harder to self-identify than behavioral style. The Barriers and Motivators intake fields should be revisited explicitly in Session 2.
-    </div>
-  </div>
-
-  <!-- SESSION A1 -->
-  <div class="session-header" id="session-a1">
-    <span class="session-label">Part A — Session 1</span>
-    <h3>Work Values Inventory &amp; Holland RIASEC</h3>
-  </div>
-
-  <p>Begin Session 1 debrief after the client completes both Work Values and Holland sections. These two frameworks together answer the foundational career question: What environments fit this person, and what do they most need from work to feel satisfied?</p>
-  <div class="quote-block">"Last session we gathered the data. Today we look at what it means together — and more importantly, what you think it means. I'll share each result and I want your honest reaction before I interpret anything."</div>
-
-  <!-- Framework 1: Work Values -->
-  <div class="framework">
-    <span class="framework-number">Framework 1</span>
-    <h4>Work Values Inventory (DOL)</h4>
-
-    <div class="block">
-      <span class="block-label">Framework Purpose</span>
-      <p>Identifies which of six occupational value domains are most important to the client: Achievement, Independence, Recognition, Relationships, Support, and Working Conditions. Work value alignment is one of the strongest long-term predictors of career satisfaction and retention.</p>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Validation Prompt</span>
-      <div class="quote-block">"Before I say anything — when you see that your top value is [name], does that feel like the real reason you work, or like what you think sounds most professional?"</div>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Coaching Prompts</span>
-      <ul class="prompt-list">
-        <li>"Think about the role where you felt most satisfied. What did it provide that honored this value? What has every other role been missing?"</li>
-        <li>"Have you ever explicitly factored this value into a career decision? If not — what would change if you started?"</li>
-        <li>"If you could only preserve one of your top two values in your next role — which one is truly non-negotiable?"</li>
-      </ul>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Value-to-Career Reference</span>
-      <table class="ref-table">
-        <thead><tr><th>Top Value</th><th>Strong Career Directions</th></tr></thead>
-        <tbody>
-          <tr><td>Achievement</td><td>Roles with clear performance metrics and merit-based advancement — engineering, consulting, research, competitive sales.</td></tr>
-          <tr><td>Independence</td><td>Roles with autonomy and self-direction — entrepreneurship, independent consulting, remote research, creative direction.</td></tr>
-          <tr><td>Recognition</td><td>Roles with visibility and advancement track — management, law, politics, public-facing leadership, performing arts.</td></tr>
-          <tr><td>Relationships</td><td>Roles centered on people — healthcare, social work, education, coaching, community development, client services.</td></tr>
-          <tr><td>Support</td><td>Roles within organizations known for investing in people — mission-driven nonprofits, progressive corporations, people-first healthcare.</td></tr>
-          <tr><td>Working Conditions</td><td>Roles with competitive compensation and stability — government, established corporations, healthcare administration, trades.</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Coach Notes — Work Values</span>
-      <div style="min-height:80px;border:1px dashed rgba(212,160,23,0.2);padding:12px;"></div>
-    </div>
-  </div>
-
-  <!-- Framework 2: Holland -->
-  <div class="framework">
-    <span class="framework-number">Framework 2</span>
-    <h4>Holland RIASEC</h4>
-
-    <div class="block">
-      <span class="block-label">Framework Purpose</span>
-      <p>Maps interest patterns to career environments using a three-letter code. Holland code match is the single highest-validity predictor of career satisfaction. The bar chart is often more useful than the code itself — it shows the full interest profile. Refer clients to the full Self-Directed Search at self-directed-search.com when any two dimensions score within 5 points of each other.</p>
-    </div>
-
-    <div class="block">
-      <span class="block-label">How to Present the Result</span>
-      <p>Show the bar chart first. Let the client absorb the visual shape before naming the code. Then state the three-letter code and ask the validation prompt.</p>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Validation Prompt</span>
-      <div class="quote-block">"Looking at this bar chart — does the shape feel like an honest picture of what genuinely interests you? Or does it reflect what you think you should be interested in?"</div>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Coaching Prompts</span>
-      <ul class="prompt-list">
-        <li>"When have you lost track of time at work? What were you doing, and which letter does that fall under?"</li>
-        <li>"Is your highest-scoring area something you've had real opportunity to explore professionally, or is it mostly untested?"</li>
-        <li>"If you had to design a role from scratch using your top two letters, what would it look like?"</li>
-      </ul>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Cross-Reference: Work Values + Holland</span>
-      <table class="ref-table">
-        <thead><tr><th>Top Value</th><th>Holland Combination</th><th>Refined Direction</th></tr></thead>
-        <tbody>
-          <tr><td>Achievement</td><td>RIE / IER</td><td>Applied technical engineering or research leadership where excellence is measurable.</td></tr>
-          <tr><td>Achievement</td><td>ESC / ECS</td><td>Business leadership, management consulting, or competitive commercial roles.</td></tr>
-          <tr><td>Independence</td><td>AIE / IAE</td><td>Independent creative research, design, writing, or consulting with full creative control.</td></tr>
-          <tr><td>Relationships</td><td>SAI / SIA</td><td>Counseling, healthcare, social work, teaching, or community-centered human services.</td></tr>
-          <tr><td>Recognition</td><td>ESA / EAS</td><td>Public leadership, law, advocacy, marketing, or performance roles with high visibility.</td></tr>
-          <tr><td>Working Conditions</td><td>CSE / CES</td><td>Finance, government, healthcare administration, or compliance — stable and well-compensated.</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Coach Notes — Holland RIASEC</span>
-      <div style="min-height:80px;border:1px dashed rgba(212,160,23,0.2);padding:12px;"></div>
-    </div>
-  </div>
-
-  <div class="block">
-    <span class="block-label">Session 1 Cross-Framework Synthesis</span>
-    <table class="synthesis-table">
-      <thead><tr><th>Theme / Pattern</th><th>Frameworks Supporting It</th><th>Confidence Level</th><th>Direction to Explore</th></tr></thead>
-      <tbody>
-        <tr><td style="min-height:40px;"></td><td></td><td></td><td></td></tr>
-        <tr><td style="min-height:40px;"></td><td></td><td></td><td></td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="block">
-    <span class="block-label">Session 1 Action Items</span>
-    <table class="action-table">
-      <thead><tr><th>#</th><th>Action Item</th><th>Deadline</th><th>Done?</th></tr></thead>
-      <tbody>
-        <tr><td>1</td><td></td><td></td><td></td></tr>
-        <tr><td>2</td><td></td><td></td><td></td></tr>
-        <tr><td>3</td><td></td><td></td><td></td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- SESSION A2 -->
-  <div class="session-header" id="session-a2">
-    <span class="session-label">Part A — Session 2</span>
-    <h3>DISC &amp; VIA Character Strengths</h3>
-  </div>
-
-  <p>Begin Session 2 with a two-minute recap of Work Values and Holland before moving into DISC and VIA. Session 2 is the deeper behavioral and values layer — it explains how the client operates within the environments Session 1 identified.</p>
-  <div class="quote-block">"Before we look at today's results — has anything shifted since our last session? Do the Work Values and Holland results still ring true, or do you see them differently now?"</div>
-
-  <!-- Framework 3: DISC -->
-  <div class="framework">
-    <span class="framework-number">Framework 3</span>
-    <h4>DISC Profile</h4>
-
-    <div class="block">
-      <span class="block-label">Framework Purpose</span>
-      <p>Describes behavioral style — how the client communicates, handles pressure, responds to conflict, and prefers to work with others. DISC is the most immediately actionable result for job search: it directly informs resume language, interview preparation, and role fit. Refer clients to the full Everything DiSC at discprofile.com for blended style profiles.</p>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Validation Prompt</span>
-      <div class="quote-block">"Does this feel like an accurate picture of how you naturally show up at work — or more like how you're trying to show up?"</div>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Coaching Prompts</span>
-      <ul class="prompt-list">
-        <li>"Think of a week at work where you felt completely in your element. What was the environment, team, and type of task?"</li>
-        <li>"When have you felt most frustrated or drained? What does that tell us about what your style genuinely needs?"</li>
-        <li>"How has your natural style been your greatest asset? Where has it created the most friction?"</li>
-      </ul>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Style Reference</span>
-      <table class="ref-table">
-        <thead><tr><th>Style</th><th>Thrives In</th><th>Drains When</th><th>Strong Role Fits</th></tr></thead>
-        <tbody>
-          <tr><td><strong style="color:var(--amber-light);">D</strong></td><td>Autonomy, authority, fast decisions, competitive stakes</td><td>Bureaucracy, slow consensus, micromanagement</td><td>Executive, entrepreneur, operations lead, sales director</td></tr>
-          <tr><td><strong style="color:var(--amber-light);">I</strong></td><td>Collaboration, recognition, variety, social energy</td><td>Isolation, rigid process, detailed solo work</td><td>Sales, marketing, communications, coaching, PR, training</td></tr>
-          <tr><td><strong style="color:var(--amber-light);">S</strong></td><td>Stability, clear roles, team harmony, reliable rhythms</td><td>Constant change, conflict, unclear expectations</td><td>HR, healthcare, social work, support services, coordination</td></tr>
-          <tr><td><strong style="color:var(--amber-light);">C</strong></td><td>Accuracy, expertise, high standards, structured processes</td><td>Rushing, ambiguity, frequent interruptions</td><td>Finance, research, engineering, compliance, data analysis</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Coach Notes — DISC</span>
-      <div style="min-height:80px;border:1px dashed rgba(212,160,23,0.2);padding:12px;"></div>
-    </div>
-  </div>
-
-  <!-- Framework 4: VIA -->
-  <div class="framework">
-    <span class="framework-number">Framework 4</span>
-    <h4>VIA Character Strengths</h4>
-
-    <div class="block">
-      <span class="block-label">Framework Purpose</span>
-      <p>Identifies the client's core character strengths — stable, values-based qualities that feel most authentic and energizing. VIA is the only framework in Career Charting that addresses why a client works. It is particularly powerful for clients who are technically skilled but feel chronically empty. Refer every client to the full free VIA at viacharacter.org.</p>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Validation Prompt</span>
-      <div class="quote-block">"When you hear that your signature strength is [name] — does that feel like the real you, or like who you think you should be?"</div>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Coaching Prompts</span>
-      <ul class="prompt-list">
-        <li>"Think of a week where you felt most like yourself professionally. What were you doing that activated this strength?"</li>
-        <li>"What would your work look like if you were using this strength every single day in a way that genuinely mattered?"</li>
-        <li>"Is there a role or environment from your past where this strength was actively suppressed? What was the cost of that?"</li>
-      </ul>
-    </div>
-
-    <div class="block">
-      <span class="block-label">What to Watch For</span>
-      <ul class="watch-list">
-        <li>High Humanity scores (Kindness, Love, Social Intelligence) in data-heavy or isolated roles almost always explain chronic dissatisfaction — even in well-compensated positions.</li>
-        <li>High Courage scores (Bravery, Perseverance, Zest) suggest the client needs high-stakes environments. They may be underperforming in roles that are too comfortable.</li>
-        <li>High Transcendence scores (Purpose, Spirituality, Hope) signal that mission alignment is non-negotiable. Salary alone will not retain this client.</li>
-        <li>Cross-reference VIA with Work Values. A Relationships-primary client with a Kindness VIA strength has very high convergence for people-centered roles.</li>
-      </ul>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Coach Notes — VIA</span>
-      <div style="min-height:80px;border:1px dashed rgba(212,160,23,0.2);padding:12px;"></div>
-    </div>
-  </div>
-
-  <!-- Framework 5: Barriers & Motivators -->
-  <div class="framework">
-    <span class="framework-number">Framework 5</span>
-    <h4>Barriers, Motivators &amp; Intake Qualitative Fields</h4>
-
-    <div class="block">
-      <span class="block-label">Framework Purpose</span>
-      <p>The open-ended intake responses — peak experience, transferable skill, barriers, and motivators — are unscored but often the most diagnostic data in the entire assessment. They capture the client's own language before the assessment shaped their thinking.</p>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Validation Prompt</span>
-      <div class="quote-block">"I'm going to read back what you wrote before you answered any assessment questions. Tell me if it still sounds right, or if you'd say it differently now."</div>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Coaching Prompts</span>
-      <ul class="prompt-list">
-        <li>"The barrier you described — is that a fixed constraint, or an assumption you've never tested?"</li>
-        <li>"If the thing that would make you genuinely excited were actually possible — what's the smallest first step toward it?"</li>
-        <li>"Looking at your Holland code and Work Values — does the barrier you named actually show up in the roles those frameworks point toward?"</li>
-      </ul>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Coach Notes — Barriers &amp; Motivators</span>
-      <div style="min-height:80px;border:1px dashed rgba(212,160,23,0.2);padding:12px;"></div>
-    </div>
-  </div>
-
-  <div class="block">
-    <span class="block-label">Full Career Charting Synthesis</span>
-    <p>After all four frameworks and intake qualitatives have been debriefed, identify cross-framework convergence. Career directions with the strongest evidence are those supported by three or more frameworks simultaneously.</p>
-    <table class="synthesis-table">
-      <thead><tr><th>Theme / Pattern</th><th>Frameworks Supporting It</th><th>Confidence Level</th><th>Direction to Explore</th></tr></thead>
-      <tbody>
-        <tr><td style="min-height:40px;"></td><td></td><td></td><td></td></tr>
-        <tr><td style="min-height:40px;"></td><td></td><td></td><td></td></tr>
-        <tr><td style="min-height:40px;"></td><td></td><td></td><td></td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="block">
-    <span class="block-label">Session 2 Action Items</span>
-    <table class="action-table">
-      <thead><tr><th>#</th><th>Action Item</th><th>Deadline</th><th>Done?</th></tr></thead>
-      <tbody>
-        <tr><td>1</td><td></td><td></td><td></td></tr>
-        <tr><td>2</td><td></td><td></td><td></td></tr>
-        <tr><td>3</td><td></td><td></td><td></td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- PART B -->
-  <div class="part-header" id="part-b">
-    <span class="part-label">Part B</span>
-    <h2>Education Path Planner Debrief Guide</h2>
-    <p>The Education Path Planner spans 3 sessions across 5 frameworks: Holland RIASEC, VARK, VIA, Academic Interests, and Practical Priorities. Total question count: 79.</p>
-    <div class="part-meta">
-      <span>3 Sessions</span>
-      <span>5 Frameworks</span>
-      <span>79 Questions</span>
-    </div>
-    <table class="ref-table" style="margin-top:24px;">
-      <thead><tr><th>Session</th><th>Frameworks</th><th>Questions</th><th>Focus</th><th>Approx. Length</th></tr></thead>
-      <tbody>
-        <tr><td>1</td><td>Holland RIASEC</td><td>24</td><td>What environments and fields fit this student?</td><td>60–90 min assessment + 20–30 min debrief</td></tr>
-        <tr><td>2</td><td>VARK + VIA</td><td>32</td><td>How does this student learn and what drives them?</td><td>45–60 min assessment + 30–45 min debrief</td></tr>
-        <tr><td>3</td><td>Academic Interests + Practical Priorities</td><td>23</td><td>What do they genuinely want, and what is realistic?</td><td>45–60 min assessment + 45–60 min debrief</td></tr>
-      </tbody>
-    </table>
-    <div class="coach-note" style="margin-top:16px;">
-      <strong>Coach Note:</strong> Session 3 is the most critical conversation. By then the student has had time to process Sessions 1 and 2, and their reactions tend to be significantly more honest. Before any session, read the Exploration Readiness and Self-Efficacy intake fields.
-    </div>
-    <table class="ref-table" style="margin-top:16px;">
-      <thead><tr><th>Readiness Level</th><th>Coaching Posture</th></tr></thead>
-      <tbody>
-        <tr><td>Actively Exploring</td><td>Present all options equally. Avoid steering too early. Use open-ended prompts.</td></tr>
-        <tr><td>Leaning — Seeking Confirmation</td><td>Use results to validate or gently challenge the existing direction. Do not simply confirm.</td></tr>
-        <tr><td>Stuck / Uncertain</td><td>Prioritize 2–3 viable options rather than the full picture. Simplify ruthlessly.</td></tr>
-        <tr><td>Under Pressure to Decide</td><td>Check whether responses reflect genuine preference or external expectation before interpreting any result.</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- SESSION B1 -->
-  <div class="session-header" id="session-b1">
-    <span class="session-label">Part B — Session 1</span>
-    <h3>Holland RIASEC</h3>
-  </div>
-
-  <div class="quote-block">"Before we look at your results — when you were answering those questions, was there a field or subject that kept coming up in your mind? Something you found yourself drawn back to?"</div>
-
-  <div class="framework">
-    <span class="framework-number">Framework 1</span>
-    <h4>Holland RIASEC</h4>
-
-    <div class="block">
-      <span class="block-label">Framework Purpose</span>
-      <p>Maps interest patterns to academic fields and degree types. Holland code match is one of the strongest predictors of academic engagement, program completion, and post-graduation satisfaction. Students who study in a mismatched field show significantly higher rates of major-switching, dropout, and post-graduation dissatisfaction.</p>
-    </div>
-
-    <div class="block">
-      <span class="block-label">How to Present the Result</span>
-      <p>Show the bar chart first. Describe the shape explicitly before naming the code — a sharp spike in two areas is a fundamentally different profile than evenly distributed scores across six.</p>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Validation Prompt</span>
-      <div class="quote-block">"Looking at this chart — does the shape feel like an honest picture of what genuinely interests you? Or does it reflect what you think you're supposed to be interested in?"</div>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Coaching Prompts</span>
-      <ul class="prompt-list">
-        <li>"What subject has ever made you lose track of time completely — where you were genuinely absorbed and didn't want to stop?"</li>
-        <li>"Is your top interest area something you've had real opportunity to explore, or is it mostly theoretical?"</li>
-        <li>"If you could design a major from scratch using your top two letters, what would it include?"</li>
-      </ul>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Code-to-Field Reference</span>
-      <table class="ref-table">
-        <thead><tr><th>Code</th><th>Field Cluster</th><th>Strong Program Fits</th></tr></thead>
-        <tbody>
-          <tr><td><strong style="color:var(--amber-light);">R</strong></td><td>Applied &amp; Technical</td><td>Engineering, architecture, skilled trades, kinesiology, agriculture, construction, aviation</td></tr>
-          <tr><td><strong style="color:var(--amber-light);">I</strong></td><td>Science &amp; Research</td><td>Biology, chemistry, physics, computer science, mathematics, data science, pre-medicine</td></tr>
-          <tr><td><strong style="color:var(--amber-light);">A</strong></td><td>Arts &amp; Design</td><td>Fine arts, graphic design, film, music, theatre, creative writing, fashion, interior design</td></tr>
-          <tr><td><strong style="color:var(--amber-light);">S</strong></td><td>People &amp; Community</td><td>Education, social work, nursing, psychology, counseling, public health, nonprofit management</td></tr>
-          <tr><td><strong style="color:var(--amber-light);">E</strong></td><td>Business &amp; Leadership</td><td>Business, marketing, law, political science, entrepreneurship, sports management</td></tr>
-          <tr><td><strong style="color:var(--amber-light);">C</strong></td><td>Systems &amp; Data</td><td>Accounting, finance, information systems, health information management, library science</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Coach Notes — Holland RIASEC</span>
-      <div style="min-height:80px;border:1px dashed rgba(212,160,23,0.2);padding:12px;"></div>
-    </div>
-  </div>
-
-  <div class="block">
-    <span class="block-label">Session 1 Action Items</span>
-    <table class="action-table">
-      <thead><tr><th>#</th><th>Action Item</th><th>Deadline</th><th>Done?</th></tr></thead>
-      <tbody>
-        <tr><td>1</td><td></td><td></td><td></td></tr>
-        <tr><td>2</td><td></td><td></td><td></td></tr>
-        <tr><td>3</td><td></td><td></td><td></td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- SESSION B2 -->
-  <div class="session-header" id="session-b2">
-    <span class="session-label">Part B — Session 2</span>
-    <h3>VARK Learning Style &amp; VIA Character Strengths</h3>
-  </div>
-
-  <div class="quote-block">"Before we look at today's results — has anything shifted since we last talked? Does the Holland result still feel accurate, or do you see it differently now?"</div>
-
-  <div class="framework">
-    <span class="framework-number">Framework 2</span>
-    <h4>VARK Learning Style</h4>
-
-    <div class="block">
-      <span class="block-label">Framework Purpose</span>
-      <p>Identifies how the student prefers to receive and process new information. VARK is the most directly actionable result in the Education Path Planner — it determines which program formats produce the best outcomes. Format mismatch between learning style and program design is one of the most preventable causes of academic underperformance. The validated VARK questionnaire at vark-learn.com is free.</p>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Validation Prompt</span>
-      <div class="quote-block">"When you've genuinely learned something difficult — something that actually stuck — how did you learn it? Does this result match that experience?"</div>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Coaching Prompts</span>
-      <ul class="prompt-list">
-        <li>"Think about the class where you performed best. What was the format? How did the teacher teach?"</li>
-        <li>"Think about the class where you performed worst. What made it hard to absorb the material?"</li>
-        <li>"Given your learning style, what type of program or institution is most likely to help you succeed?"</li>
-      </ul>
-    </div>
-
-    <div class="block">
-      <span class="block-label">VARK Format Reference</span>
-      <table class="ref-table">
-        <thead><tr><th>Style</th><th>Best Program Formats</th><th>Study Strategies</th><th>Watch Out For</th></tr></thead>
-        <tbody>
-          <tr><td><strong style="color:var(--amber-light);">Visual</strong></td><td>Slide-heavy lectures, video-based, infographic-rich curricula</td><td>Mind maps, color-coding, visual note systems</td><td>Purely audio-lecture or text-heavy programs</td></tr>
-          <tr><td><strong style="color:var(--amber-light);">Aural</strong></td><td>Seminars, discussion-heavy, podcast-format, live group interaction</td><td>Recording lectures, study groups, verbal self-testing</td><td>Text-only or purely self-paced online programs</td></tr>
-          <tr><td><strong style="color:var(--amber-light);">Read/Write</strong></td><td>Traditional university, reading-heavy, essay assessment</td><td>Rewriting notes, detailed outlines, annotating texts</td><td>Programs assessed only by project or performance</td></tr>
-          <tr><td><strong style="color:var(--amber-light);">Kinesthetic</strong></td><td>Labs, clinicals, co-ops, apprenticeships, project-based</td><td>Worked examples, practice problems, real application</td><td>Purely theoretical lecture-based programs</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Coach Notes — VARK</span>
-      <div style="min-height:80px;border:1px dashed rgba(212,160,23,0.2);padding:12px;"></div>
-    </div>
-  </div>
-
-  <div class="framework">
-    <span class="framework-number">Framework 3</span>
-    <h4>VIA Character Strengths</h4>
-
-    <div class="block">
-      <span class="block-label">Framework Purpose</span>
-      <p>Identifies the student's core character strengths. For education planning, VIA is most useful for identifying campus cultures and program missions that will feel energizing over four or more years. Younger students often have lower character strength self-awareness — the debrief conversation matters more than the scored result. The full free VIA at viacharacter.org should be completed before Session 3.</p>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Validation Prompt</span>
-      <div class="quote-block">"When you hear that your signature strength is [name] — does that feel like the truest version of you as a student?"</div>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Coaching Prompts</span>
-      <ul class="prompt-list">
-        <li>"When have you felt most alive in a school setting? What were you doing, and which strength was most active?"</li>
-        <li>"What kind of campus community or program culture would let you express this strength every day?"</li>
-        <li>"Is there a subject area that tends to attract people with this strength?"</li>
-      </ul>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Strength-to-Campus Culture Reference</span>
-      <table class="ref-table">
-        <thead><tr><th>Signature Strength</th><th>Best-Fit Academic Environment</th></tr></thead>
-        <tbody>
-          <tr><td>Curiosity &amp; Love of Learning</td><td>Research universities, honors programs, inquiry-driven liberal arts colleges.</td></tr>
-          <tr><td>Honesty &amp; Integrity</td><td>Programs with strong ethics components — law, medicine, journalism, public policy.</td></tr>
-          <tr><td>Kindness &amp; Compassion</td><td>Service-learning programs: social work, healthcare, education, community development.</td></tr>
-          <tr><td>Leadership &amp; Teamwork</td><td>Programs with student leadership development, real agency, and group project culture.</td></tr>
-          <tr><td>Creativity &amp; Originality</td><td>Studio-based, project-driven programs that reward original thinking.</td></tr>
-          <tr><td>Humor &amp; Gratitude</td><td>Campuses with strong community culture, extracurriculars, and genuine social warmth.</td></tr>
-          <tr><td>Bravery &amp; Perseverance</td><td>Rigorous, competitive programs where persistence is genuinely tested and rewarded.</td></tr>
-          <tr><td>Prudence &amp; Self-Discipline</td><td>Self-paced, independent, or online programs that reward structure and self-management.</td></tr>
-          <tr><td>Purpose &amp; Spirituality</td><td>Mission-driven institutions or programs with strong connection to service and purpose.</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Coach Notes — VIA</span>
-      <div style="min-height:80px;border:1px dashed rgba(212,160,23,0.2);padding:12px;"></div>
-    </div>
-  </div>
-
-  <div class="block">
-    <span class="block-label">Session 2 Action Items</span>
-    <p style="font-size:0.85rem;margin-bottom:8px;">Assign 1–2 research tasks before Session 3. Strongly recommend completing the full VIA at viacharacter.org before Session 3.</p>
-    <table class="action-table">
-      <thead><tr><th>#</th><th>Action Item</th><th>Deadline</th><th>Done?</th></tr></thead>
-      <tbody>
-        <tr><td>1</td><td></td><td></td><td></td></tr>
-        <tr><td>2</td><td></td><td></td><td></td></tr>
-        <tr><td>3</td><td></td><td></td><td></td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- SESSION B3 -->
-  <div class="session-header" id="session-b3">
-    <span class="session-label">Part B — Session 3</span>
-    <h3>Academic Interests, Practical Priorities &amp; Full Synthesis</h3>
-  </div>
-
-  <div class="coach-note"><strong>Coach Note:</strong> Session 3 is the most critical conversation. Begin with a two-minute recap of Sessions 1 and 2 before presenting new results.</div>
-  <div class="quote-block" style="margin-top:16px;">"Before we look at today's results, let's revisit where we've landed. Does the Holland code still feel right? Has the VIA result shifted how you think about what you want from a program?"</div>
-
-  <div class="framework">
-    <span class="framework-number">Framework 4</span>
-    <h4>Academic Interest Inventory</h4>
-
-    <div class="block">
-      <span class="block-label">Framework Purpose</span>
-      <p>Maps pure intellectual curiosity to field clusters, independent of job market pressure or perceived ability. Genuine interest is one of the strongest predictors of academic persistence and completion.</p>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Holland Alignment</span>
-      <table class="ref-table">
-        <thead><tr><th>Scenario</th><th>What It Means</th><th>How to Debrief</th></tr></thead>
-        <tbody>
-          <tr><td>Holland and Academic Interest align</td><td>High confidence. Both frameworks independently confirm the same cluster.</td><td>Name the convergence explicitly. Use it to anchor all program recommendations.</td></tr>
-          <tr><td>Holland and Academic Interest diverge</td><td>Often reveals external pressure or an unexplored interdisciplinary option.</td><td>Probe which result feels more genuinely their own. Explore bridging programs.</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Validation Prompt</span>
-      <div class="quote-block">"Looking at this ranking — is that your genuine passion, or what you feel pressure to be interested in?"</div>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Coaching Prompts</span>
-      <ul class="prompt-list">
-        <li>"What is the last thing you read, watched, or looked up purely because it interested you — with no assignment attached?"</li>
-        <li>"If you could study anything for a year with no grades, no degree requirement, and no job market pressure, what would you study?"</li>
-        <li>"Is there a gap between what interests you most and what you think you're supposed to study? Where does that pressure come from?"</li>
-      </ul>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Coach Notes — Academic Interests</span>
-      <div style="min-height:80px;border:1px dashed rgba(212,160,23,0.2);padding:12px;"></div>
-    </div>
-  </div>
-
-  <div class="framework">
-    <span class="framework-number">Framework 5</span>
-    <h4>Practical Priorities</h4>
-
-    <div class="block">
-      <span class="block-label">Framework Purpose</span>
-      <p>Surfaces the real-world constraints that determine which paths are actually viable. The results page applies a GPA-based filter to program suggestions — reference this explicitly. For students below program minimums, identify bridge options: community college transfer paths, grade improvement plans, or open-access programs that feed into target programs.</p>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Validation Prompt</span>
-      <div class="quote-block">"Do these answers reflect your actual situation — or were some of them based on what you wish were true?"</div>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Coaching Prompts</span>
-      <ul class="prompt-list">
-        <li>"Given the financial profile we're working with, which program types are realistically on the table and which aren't?"</li>
-        <li>"Is the income goal driven by genuine need — or by comparison to others? Would a lower starting salary in the right field actually be acceptable?"</li>
-        <li>"Are there constraints here that feel fixed but might actually be flexible — with family, an employer, or a financial aid office?"</li>
-      </ul>
-    </div>
-
-    <div class="coach-note">
-      <strong>Coach Note:</strong> The most common practical blocker is a fixed belief about financial constraints that has never been tested. Before ruling out any path on cost grounds, always ask: "Have you actually researched scholarships, grants, and aid for this specific program?" The answer is almost always no.
-    </div>
-
-    <div class="block">
-      <span class="block-label">Coach Notes — Practical Priorities</span>
-      <div style="min-height:80px;border:1px dashed rgba(212,160,23,0.2);padding:12px;"></div>
-    </div>
-  </div>
-
-  <div class="block">
-    <span class="block-label">Full Education Path Planner Synthesis</span>
-    <p>After all five frameworks, identify cross-framework convergence. Program recommendations with the strongest evidence are those supported by three or more frameworks pointing in the same direction.</p>
-    <ul class="watch-list" style="margin-bottom:20px;">
-      <li>Does the top Academic Interest cluster align with the Holland code? Alignment = high confidence. Divergence = explore why.</li>
-      <li>Does the VARK result eliminate any program formats on the shortlist? Remove those programs before proceeding.</li>
-      <li>Does the VIA signature strength align with the campus culture of the top programs?</li>
-      <li>Do the Practical Priorities constraints accommodate the top program directions?</li>
-      <li>Does the Career Destination Vision from intake align with what these programs produce?</li>
-    </ul>
-    <table class="synthesis-table">
-      <thead><tr><th>Theme / Pattern</th><th>Frameworks Supporting It</th><th>Confidence Level</th><th>Direction to Explore</th></tr></thead>
-      <tbody>
-        <tr><td style="min-height:40px;"></td><td></td><td></td><td></td></tr>
-        <tr><td style="min-height:40px;"></td><td></td><td></td><td></td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="block">
-    <span class="block-label">Program Shortlist</span>
-    <p style="font-size:0.85rem;margin-bottom:8px;">After synthesis, list the 2–3 programs that survive all five framework filters.</p>
-    <table class="ref-table">
-      <thead><tr><th>Program / Institution</th><th>Degree</th><th>Holland Fit</th><th>VARK Fit</th><th>GPA OK?</th><th>Practical Fit</th></tr></thead>
-      <tbody>
-        <tr><td style="min-height:36px;"></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td style="min-height:36px;"></td><td></td><td></td><td></td><td></td><td></td></tr>
-        <tr><td style="min-height:36px;"></td><td></td><td></td><td></td><td></td><td></td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="block">
-    <span class="block-label">Session 3 Action Items</span>
-    <table class="action-table">
-      <thead><tr><th>#</th><th>Action Item</th><th>Deadline</th><th>Done?</th></tr></thead>
-      <tbody>
-        <tr><td>1</td><td></td><td></td><td></td></tr>
-        <tr><td>2</td><td></td><td></td><td></td></tr>
-        <tr><td>3</td><td></td><td></td><td></td></tr>
-      </tbody>
-    </table>
-  </div>
-  <!-- PART D (license-free Career Charting) -->
-  <div class="part-header" id="part-d">
-    <span class="part-label">Part D</span>
-    <h2>Career Charting (Open) Debrief Guide</h2>
-    <p>Career Charting (Open) is the license-free counterpart to Apothena's standard Career Charting tool. It uses the public-domain O*NET Interest Profiler Mini for interests and an O*NET-derived Likert for work values, the General Self-Efficacy Scale for confidence, an Apothena-authored HEXACO snapshot for personality, and an O*NET-derived transferable skills inventory. Total items: about 100 across 2 sessions.</p>
-    <div class="part-meta">
-      <span>2 Sessions</span>
-      <span>5 Frameworks</span>
-      <span>About 100 Items</span>
-    </div>
-    <table class="ref-table" style="margin-top:24px;">
-      <thead><tr><th>Session</th><th>Frameworks</th><th>Items</th><th>Focus</th><th>Approx. Length</th></tr></thead>
-      <tbody>
-        <tr><td>1</td><td>O*NET Interests + O*NET Work Values</td><td>51</td><td>What environments fit you? What do you most need from work?</td><td>30 to 45 min assessment + 30 to 45 min debrief</td></tr>
-        <tr><td>2</td><td>HEXACO Snapshot + GSE + Transferable Skills</td><td>49</td><td>How do you operate, how confident are you, and what do you bring with you?</td><td>30 to 45 min assessment + 45 to 60 min debrief</td></tr>
-      </tbody>
-    </table>
-    <div class="coach-note" style="margin-top:16px;">
-      <strong>Coach Note:</strong> Personality results are coach-facing first by default. Hold the high, moderate, low labels for yourself and use them to shape open coaching questions. The HEXACO Honesty-Humility factor is most useful as a conversation lens, not a diagnostic label.
-    </div>
-  </div>
-
-  <!-- SESSION D1 -->
-  <div class="session-header" id="session-d1">
-    <span class="session-label">Part D · Session 1</span>
-    <h3>O*NET Interests &amp; O*NET Work Values</h3>
-  </div>
-
-  <p>Begin Session 1 debrief after the client completes both the O*NET Interest Profiler Mini and the work values items. Together these answer the foundational career-fit question: what kinds of work environments and which work needs are most likely to keep this client engaged?</p>
-  <div class="quote-block">"We will look at your interests first, then what you need from work. I'll show you each result and I want your honest reaction before I interpret anything."</div>
-
-  <!-- Framework D1: O*NET Interest Profiler Mini -->
-  <div class="framework">
-    <span class="framework-number">Framework 1</span>
-    <h4>O*NET Interest Profiler Mini (Holland RIASEC)</h4>
-
-    <div class="block">
-      <span class="block-label">Framework Purpose</span>
-      <p>Maps interests to the six Holland types using 30 public-domain items from the U.S. Department of Labor. The top three letters form a Holland code that points to career environments most likely to fit. The bar chart is often more useful than the code itself: it shows the full interest profile.</p>
-    </div>
-
-    <div class="block">
-      <span class="block-label">How to Present the Result</span>
-      <p>Show the bar chart first. Let the client absorb the visual shape before naming the code. State the three-letter code and ask the validation prompt. If the top three are within two points of each other, name the flat profile out loud.</p>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Validation Prompt</span>
-      <div class="quote-block">"Looking at this bar chart, does the shape feel like an honest picture of what genuinely interests you? Or does it reflect what you think you should be interested in?"</div>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Coaching Prompts</span>
-      <ul class="prompt-list">
-        <li>"When have you lost track of time at work? What were you doing, and which RIASEC letter does that fall under?"</li>
-        <li>"Is your highest-scoring area something you have actually been able to test in a real job, or is it mostly untested?"</li>
-        <li>"If we redesigned your next role around your top two letters, what would change about a typical day?"</li>
-        <li>"Your lowest letter, is that a real dislike or just lack of exposure?"</li>
-      </ul>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Coach Notes · O*NET Interests</span>
-      <div style="min-height:80px;border:1px dashed rgba(212,160,23,0.2);padding:12px;"></div>
-    </div>
-  </div>
-
-  <!-- Framework D2: O*NET Work Values -->
-  <div class="framework">
-    <span class="framework-number">Framework 2</span>
-    <h4>O*NET Work Values (21-item Likert adaptation)</h4>
-
-    <div class="block">
-      <span class="block-label">Framework Purpose</span>
-      <p>Identifies which of six work-value dimensions matter most: Achievement, Independence, Recognition, Relationships, Support, Working Conditions. Note: the published O*NET Work Importance Profiler is a card-sort. This Likert version is an adaptation, useful for coaching and quicker to administer.</p>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Validation Prompt</span>
-      <div class="quote-block">"Before I say anything, when you see your top value is the one we are about to discuss, does that feel like the real reason you work, or like what you think sounds most professional?"</div>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Coaching Prompts</span>
-      <ul class="prompt-list">
-        <li>"Think about the role where you felt most satisfied. What did it provide that honored this top value? What has every other role been missing?"</li>
-        <li>"Have you ever explicitly factored this value into a career decision? If not, what would change if you started?"</li>
-        <li>"If you could only preserve one of your top two values in your next role, which one is truly non-negotiable?"</li>
-        <li>"Look at your bottom value. Is that genuinely unimportant to you, or is it something you have learned to suppress?"</li>
-      </ul>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Value-to-Career Reference</span>
-      <table class="ref-table">
-        <thead><tr><th>Top Value</th><th>Strong Career Directions</th></tr></thead>
-        <tbody>
-          <tr><td>Achievement</td><td>Roles with clear performance metrics and merit-based advancement: engineering, consulting, research, competitive sales.</td></tr>
-          <tr><td>Independence</td><td>Roles with autonomy and self-direction: entrepreneurship, independent consulting, remote research, creative direction.</td></tr>
-          <tr><td>Recognition</td><td>Roles with visibility and an advancement track: management, law, public-facing leadership, performing arts.</td></tr>
-          <tr><td>Relationships</td><td>People-centered roles: healthcare, social work, education, coaching, community development, client services.</td></tr>
-          <tr><td>Support</td><td>Roles in organizations known for investing in their people: mission-driven nonprofits, people-first healthcare, supportive corporates.</td></tr>
-          <tr><td>Working Conditions</td><td>Roles with stable pay and conditions: government, established corporations, healthcare administration, the trades.</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Coach Notes · Work Values</span>
-      <div style="min-height:80px;border:1px dashed rgba(212,160,23,0.2);padding:12px;"></div>
-    </div>
-  </div>
-
-  <!-- SESSION D2 -->
-  <div class="session-header" id="session-d2">
-    <span class="session-label">Part D · Session 2</span>
-    <h3>HEXACO Snapshot &amp; GSE &amp; Transferable Skills</h3>
-  </div>
-
-  <p>Session 2 covers personality, confidence, and skill self-rating. Order the conversation: HEXACO first (most introspective), GSE next (still introspective but easier to discuss), Transferable Skills last (concrete and actionable).</p>
-
-  <!-- Framework D3: HEXACO -->
-  <div class="framework">
-    <span class="framework-number">Framework 3</span>
-    <h4>HEXACO Personality Snapshot (Apothena, 24 items)</h4>
-
-    <div class="block">
-      <span class="block-label">Framework Purpose</span>
-      <p>Six personality factors from the HEXACO model: Honesty-Humility, Emotionality, Extraversion, Agreeableness, Conscientiousness, Openness to Experience. Honesty-Humility is the factor that distinguishes HEXACO from the Big Five and is the most useful for vocational coaching about workplace integrity, exploitation tendencies, and counterproductive behavior.</p>
-      <p>This is an Apothena-authored snapshot aligned with HEXACO theory (Ashton and Lee). It is not the Brief HEXACO Inventory itself.</p>
-    </div>
-
-    <div class="block">
-      <span class="block-label">How to Present the Result</span>
-      <p>Show the per-factor means as a bar chart. Hold the categorical labels (high, moderate, low) for yourself. Use them to frame coaching questions, not to label the client. The client typically engages best with two or three factors at a time, not all six at once.</p>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Validation Prompt</span>
-      <div class="quote-block">"Looking at the bars, which factor result feels most true to how you operate at work? Which one would surprise the people who know you best?"</div>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Coaching Prompts (by factor)</span>
-      <ul class="prompt-list">
-        <li>Honesty-Humility: "Tell me about a time at work when this showed up. What did it cost you, or earn you?"</li>
-        <li>Emotionality: "How do you tend to handle stress at work? When does it serve you and when does it get in the way?"</li>
-        <li>Extraversion: "What kinds of work environments leave you energized versus drained? Be specific."</li>
-        <li>Agreeableness: "When do you push back at work? When do you stay silent? What makes the difference?"</li>
-        <li>Conscientiousness: "Where in your work do you over-prepare? Where do you under-prepare? Why?"</li>
-        <li>Openness: "When was the last time you sought out something new at work? What was it?"</li>
-      </ul>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Coach Notes · HEXACO</span>
-      <div style="min-height:80px;border:1px dashed rgba(212,160,23,0.2);padding:12px;"></div>
-    </div>
-  </div>
-
-  <!-- Framework D4: GSE -->
-  <div class="framework">
-    <span class="framework-number">Framework 4</span>
-    <h4>General Self-Efficacy Scale (Schwarzer and Jerusalem, 1995)</h4>
-
-    <div class="block">
-      <span class="block-label">Framework Purpose</span>
-      <p>Ten-item measure of generalized self-efficacy: the belief in one's ability to cope with novel and difficult demands. Total range 10 to 40. Free for non-commercial use with attribution. GSE is a relatively stable trait measure; do not confuse it with task-specific confidence.</p>
-    </div>
-
-    <div class="block">
-      <span class="block-label">How to Present the Result</span>
-      <p>Show the total and the band (Lower, Middle, Upper). Avoid using GSE as a quick read on the client's mood today. If the score feels inconsistent with what you observe in session, ask about a recent setback and listen for attribution patterns.</p>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Validation Prompt</span>
-      <div class="quote-block">"This is your overall confidence in handling difficult situations. Does the band feel about right, or does it feel too high or too low for who you are right now?"</div>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Coaching Prompts</span>
-      <ul class="prompt-list">
-        <li>"Tell me about a recent moment when you handled something difficult well. What did you draw on?"</li>
-        <li>"And a recent moment when you did not handle something well. What got in the way?"</li>
-        <li>"Where in your career do you feel most confident? Where do you feel least?"</li>
-        <li>"If your GSE went up by five points in 30 days, what would have happened to make that change?"</li>
-      </ul>
-    </div>
-
-    <div class="block">
-      <span class="block-label">GSE Band Reference</span>
-      <table class="ref-table">
-        <thead><tr><th>Band</th><th>Range</th><th>Coaching Frame</th></tr></thead>
-        <tbody>
-          <tr><td>Lower</td><td>10 to 20</td><td>Plan a small, real mastery experience this week. Avoid abstract pep talks.</td></tr>
-          <tr><td>Middle</td><td>21 to 29</td><td>Common range. Strengthen self-efficacy in domains the client cares most about.</td></tr>
-          <tr><td>Upper</td><td>30 to 40</td><td>High self-efficacy. Channel into a focused commitment with a clear deadline.</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Coach Notes · GSE</span>
-      <div style="min-height:80px;border:1px dashed rgba(212,160,23,0.2);padding:12px;"></div>
-    </div>
-  </div>
-
-  <!-- Framework D5: Transferable Skills -->
-  <div class="framework">
-    <span class="framework-number">Framework 5</span>
-    <h4>Transferable Skills (O*NET-derived, 15 items)</h4>
-
-    <div class="block">
-      <span class="block-label">Framework Purpose</span>
-      <p>Self-rated proficiency on 15 skills selected from the public-domain O*NET Skills taxonomy. There is no aggregate score. The Top 5 list is the most actionable output. Self-ratings are anchored to the client's own reference group, so frame the conversation accordingly.</p>
-    </div>
-
-    <div class="block">
-      <span class="block-label">How to Present the Result</span>
-      <p>Show the Top 5 first. Ask the client to rank them again from memory. Note any movement: a skill the client puts higher on second look is often the skill they actually lead with.</p>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Validation Prompt</span>
-      <div class="quote-block">"For your top skill, what is one specific result you produced with it that you are proud of? Is your top skill on your resume right now?"</div>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Coaching Prompts</span>
-      <ul class="prompt-list">
-        <li>"Take your top three skills. Write one accomplishment that demonstrates each one. Those become resume bullet candidates."</li>
-        <li>"Of your top five, which one do you most want to grow? What would the next level look like?"</li>
-        <li>"Pick a skill from the bottom five. Are you OK with leaving it where it is, or do you want to invest in it deliberately?"</li>
-        <li>"If a friend who knows your work were rating you on these 15 skills, where would they disagree with you most?"</li>
-      </ul>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Coach Notes · Transferable Skills</span>
-      <div style="min-height:80px;border:1px dashed rgba(212,160,23,0.2);padding:12px;"></div>
-    </div>
-  </div>
-
-  <div class="block" style="margin-top:32px;">
-    <span class="block-label">Session 2 Synthesis Worksheet (Part D)</span>
-    <table class="ref-table">
-      <thead><tr><th>Framework</th><th>Headline Result</th><th>Coach’s Top Question</th><th>Client’s Reaction</th></tr></thead>
-      <tbody>
-        <tr><td>HEXACO</td><td></td><td></td><td></td></tr>
-        <tr><td>GSE</td><td></td><td></td><td></td></tr>
-        <tr><td>Transferable Skills</td><td></td><td></td><td></td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- PART E (license-free Education Path Planner) -->
-  <div class="part-header" id="part-e">
-    <span class="part-label">Part E</span>
-    <h2>Education Path Planner (Open) Debrief Guide</h2>
-    <p>Education Path Planner (Open) is the license-free counterpart to Apothena's standard Education Path Planner. It uses the public-domain O*NET Interest Profiler Mini for interests and four Apothena-authored scales for the rest: Program-Format Preferences (replacing VARK), Academic Self-Efficacy, Academic Interests mapped to CIP codes, and Practical Priorities. Total items: about 77 across 3 sessions.</p>
-    <div class="part-meta">
-      <span>3 Sessions</span>
-      <span>5 Frameworks</span>
-      <span>About 77 Items</span>
-    </div>
-    <table class="ref-table" style="margin-top:24px;">
-      <thead><tr><th>Session</th><th>Frameworks</th><th>Items</th><th>Focus</th><th>Approx. Length</th></tr></thead>
-      <tbody>
-        <tr><td>1</td><td>O*NET Interests</td><td>30</td><td>What kinds of work environments and tasks engage you?</td><td>20 to 30 min assessment + 25 to 35 min debrief</td></tr>
-        <tr><td>2</td><td>Program-Format Preferences + Academic Self-Efficacy</td><td>24</td><td>What program format fits, and how confident are you about school?</td><td>20 to 30 min assessment + 30 to 45 min debrief</td></tr>
-        <tr><td>3</td><td>Academic Interests + Practical Priorities</td><td>23</td><td>Which subjects pull at you, and what real constraints shape the choice?</td><td>20 to 30 min assessment + 30 to 45 min debrief</td></tr>
-      </tbody>
-    </table>
-    <div class="coach-note" style="margin-top:16px;">
-      <strong>Coach Note:</strong> Session 2 in this tool inverts the standard section order: program preferences come before academic self-efficacy. Education clients tend to engage faster with concrete program questions before they self-rate confidence. Honor that sequencing; do not reverse it.
-    </div>
-  </div>
-
-  <!-- SESSION E1 -->
-  <div class="session-header" id="session-e1">
-    <span class="session-label">Part E · Session 1</span>
-    <h3>O*NET Interests</h3>
-  </div>
-
-  <p>Session 1 is interests only, using the same 30-item O*NET Interest Profiler Mini as Career Charting (Open). If the client also took Career Charting (Open), this is a re-administration. Note any drift; small shifts are normal, larger shifts are worth probing.</p>
-
-  <div class="framework">
-    <span class="framework-number">Framework 1</span>
-    <h4>O*NET Interest Profiler Mini</h4>
-
-    <div class="block">
-      <span class="block-label">Framework Purpose</span>
-      <p>Maps interests to the six Holland types. In the education tool, the Holland code is used to point at academic environments and CIP categories that line up with strong interests. We will cross-reference this code with the Academic Interests result in Session 3.</p>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Validation Prompt</span>
-      <div class="quote-block">"Looking at the bars, does this look like an honest map of what genuinely interests you, or what someone in your life expects you to be interested in?"</div>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Coaching Prompts</span>
-      <ul class="prompt-list">
-        <li>"Which subjects in school did you actually look forward to? Map those to a RIASEC letter."</li>
-        <li>"Your top letter, has any school environment ever genuinely matched it? If not, that is data."</li>
-        <li>"Your lowest letter, is that real or untested?"</li>
-      </ul>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Coach Notes · Interests</span>
-      <div style="min-height:80px;border:1px dashed rgba(212,160,23,0.2);padding:12px;"></div>
-    </div>
-  </div>
-
-  <!-- SESSION E2 -->
-  <div class="session-header" id="session-e2">
-    <span class="session-label">Part E · Session 2</span>
-    <h3>Program-Format Preferences &amp; Academic Self-Efficacy</h3>
-  </div>
-
-  <p>Session 2 covers the practical (preferences) before the introspective (confidence). Read each preference item slowly with the client. Many clients race through; the contradictions and surprises are where the coaching value lives.</p>
-
-  <div class="framework">
-    <span class="framework-number">Framework 2</span>
-    <h4>Program-Format Preferences (Apothena, 16 items)</h4>
-
-    <div class="block">
-      <span class="block-label">Framework Purpose</span>
-      <p>Direct preference measurement, not a learning-style typology. We are intentionally not using VARK; the learning-styles matching hypothesis is not supported by experimental evidence (Pashler 2008, Riener and Willingham 2010, Kirschner 2017). Instead, we ask the client about the program characteristics that actually matter to fit and persistence: pace, modality, schedule, cohort vs self-paced, hands-on vs theoretical, and so on.</p>
-      <p>There is no aggregate score. Each rating is reported on its own.</p>
-    </div>
-
-    <div class="block">
-      <span class="block-label">How to Present the Result</span>
-      <p>Walk through the 16 ratings as a list. Highlight the strongest five preferences and the strongest five anti-preferences. Look for contradictions (for example, a high score on both online and in-person) and ask about them.</p>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Validation Prompt</span>
-      <div class="quote-block">"Looking at your strongest preferences, which two are non-negotiable for a program to even be considered? Which two are nice-to-have?"</div>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Coaching Prompts</span>
-      <ul class="prompt-list">
-        <li>"For your strongest preference, what past learning experience taught you that?"</li>
-        <li>"Look at any contradictions in your ratings. Talk me through them."</li>
-        <li>"If a program met all your top three preferences but failed on the fourth, would you still take it?"</li>
-        <li>"Which of your preferences would your last teacher disagree with?"</li>
-      </ul>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Coach Notes · Program-Format Preferences</span>
-      <div style="min-height:80px;border:1px dashed rgba(212,160,23,0.2);padding:12px;"></div>
-    </div>
-  </div>
-
-  <div class="framework">
-    <span class="framework-number">Framework 3</span>
-    <h4>Academic Self-Efficacy (Apothena, 8 items)</h4>
-
-    <div class="block">
-      <span class="block-label">Framework Purpose</span>
-      <p>Eight items grounded in Bandura (1977, 1997) and Pajares on academic self-efficacy. Domain-specific to school or training, not general life. Mean score range 1.0 to 5.0. These are confidence ratings, not skill ratings.</p>
-    </div>
-
-    <div class="block">
-      <span class="block-label">How to Present the Result</span>
-      <p>Show the mean and band (Lower, Moderate, Higher). Then walk through the per-item ratings. The lowest item is usually the highest-leverage coaching target. Be careful: a low rating on item 5 (registrar, financial aid, disability services) often signals a logistical fix, not a confidence problem.</p>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Validation Prompt</span>
-      <div class="quote-block">"Looking at your lowest item, would the issue go away with information, with experience, or with a different kind of support?"</div>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Coaching Prompts</span>
-      <ul class="prompt-list">
-        <li>"Pick the single lowest item. What is one small action this week that would test or grow that?"</li>
-        <li>"Pick the highest item. Where did that confidence come from? Can it transfer?"</li>
-        <li>"Has your academic confidence changed in the last two years? In which direction?"</li>
-        <li>"If you went back to school tomorrow, which item would worry you most?"</li>
-      </ul>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Coach Notes · Academic Self-Efficacy</span>
-      <div style="min-height:80px;border:1px dashed rgba(212,160,23,0.2);padding:12px;"></div>
-    </div>
-  </div>
-
-  <!-- SESSION E3 -->
-  <div class="session-header" id="session-e3">
-    <span class="session-label">Part E · Session 3</span>
-    <h3>Academic Interests &amp; Practical Priorities</h3>
-  </div>
-
-  <p>Session 3 closes the loop: pair what the client wants academically with what they can actually do practically. The synthesis at the end of this session is where most clients change their first answer.</p>
-
-  <div class="framework">
-    <span class="framework-number">Framework 4</span>
-    <h4>Academic Interests (CIP-mapped, 18 items)</h4>
-
-    <div class="block">
-      <span class="block-label">Framework Purpose</span>
-      <p>Eighteen academic domains drawn from the U.S. Department of Education Classification of Instructional Programs (CIP) two-digit categories. Each domain carries its CIP code so the top picks can be linked to program search downstream. This is interest in academic content, not interest in work tasks (which is what the Holland section measures).</p>
-    </div>
-
-    <div class="block">
-      <span class="block-label">How to Present the Result</span>
-      <p>Show the Top 5 with CIP codes. Ask the client to rank the top three again from memory. Movement matters. Then ask the validation prompt about expectation versus genuine interest.</p>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Validation Prompt</span>
-      <div class="quote-block">"Looking at your top three, which one is genuinely interesting versus which one feels expected of you?"</div>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Coaching Prompts</span>
-      <ul class="prompt-list">
-        <li>"For each of your top three, name one specific program you have heard of, and one you would have to research."</li>
-        <li>"Cross-reference your top academic interest with your top Holland letter. Do they line up? If not, what does the difference tell us?"</li>
-        <li>"What is your lowest-rated academic interest? Is that real or just no exposure?"</li>
-      </ul>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Coach Notes · Academic Interests</span>
-      <div style="min-height:80px;border:1px dashed rgba(212,160,23,0.2);padding:12px;"></div>
-    </div>
-  </div>
-
-  <div class="framework">
-    <span class="framework-number">Framework 5</span>
-    <h4>Practical Priorities (Apothena, 5 items)</h4>
-
-    <div class="block">
-      <span class="block-label">Framework Purpose</span>
-      <p>Five constraints commonly surfaced in VR-funded program selection: time-to-credential, cost tolerance, commute or relocation, childcare or caregiving, and funding-source fit. Each item also has an optional open text field. The optional notes are the highest-value output of the section.</p>
-    </div>
-
-    <div class="block">
-      <span class="block-label">How to Present the Result</span>
-      <p>Read each item importance rating with the client. Then read the open notes back to them verbatim. Ask which one is genuinely a deal-breaker, not just a preference. That is the real constraint.</p>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Validation Prompt</span>
-      <div class="quote-block">"Of these five, which one would actually disqualify a program if it failed? That one is the real constraint."</div>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Coaching Prompts</span>
-      <ul class="prompt-list">
-        <li>"For your top constraint, what is the specific number or limit? (Months, dollars, miles.)"</li>
-        <li>"Would you trade flexibility on a lower-priority item to get more on the top one? Where is the line?"</li>
-        <li>"Have any of these constraints changed in the last six months? Are any expected to change in the next six?"</li>
-      </ul>
-    </div>
-
-    <div class="block">
-      <span class="block-label">Coach Notes · Practical Priorities</span>
-      <div style="min-height:80px;border:1px dashed rgba(212,160,23,0.2);padding:12px;"></div>
-    </div>
-  </div>
-
-  <div class="block" style="margin-top:32px;">
-    <span class="block-label">Session 3 Synthesis Worksheet (Part E)</span>
-    <p style="font-size:13px;color:rgba(255,255,255,0.65);margin-bottom:12px;">Take the client's Top 5 academic interests and walk each one against the strongest practical constraint. The first three that survive both filters are the next-step program search list.</p>
-    <table class="ref-table">
-      <thead><tr><th>Top Academic Interest</th><th>CIP</th><th>Survives top constraint?</th><th>Next-step program candidate</th></tr></thead>
-      <tbody>
-        <tr><td>1.</td><td></td><td></td><td></td></tr>
-        <tr><td>2.</td><td></td><td></td><td></td></tr>
-        <tr><td>3.</td><td></td><td></td><td></td></tr>
-        <tr><td>4.</td><td></td><td></td><td></td></tr>
-        <tr><td>5.</td><td></td><td></td><td></td></tr>
-      </tbody>
-    </table>
-  </div>
-
-
-  <!-- PART C -->
-  <div class="part-header" id="part-c">
-    <span class="part-label">Part C</span>
-    <h2>Combined Profile Report — Debrief Guide</h2>
-    <p>The Combined Profile Report is generated when a client has completed both the Career Charting and Education Path Planner assessments. It is accessed from the results page of either tool when a matching session is found in the database.</p>
-  </div>
-
-  <div class="coach-note">
-    <strong>Combined Note:</strong> Do not share the Combined Profile Report with clients before the debrief conversation. The document is most valuable as a live coaching tool — the conversation it generates is more important than the document itself.
-  </div>
-
-  <div class="block" style="margin-top:32px;">
-    <span class="block-label">What the Report Shows</span>
-    <table class="ref-table">
-      <thead><tr><th>Section</th><th>Purpose</th></tr></thead>
-      <tbody>
-        <tr><td>Side-by-side Holland codes</td><td>Identifies whether career environment fit and academic field interest point in the same direction.</td></tr>
-        <tr><td>VIA convergence across both tools</td><td>Confirms whether character strength is consistent across career and education contexts.</td></tr>
-        <tr><td>DISC style + VARK learning style</td><td>Shows how the client operates (DISC) and how they learn best (VARK).</td></tr>
-        <tr><td>Top Work Value vs. Academic cluster</td><td>Cross-references the deepest career need with the academic interest direction.</td></tr>
-        <tr><td>Career Destination Anchoring</td><td>Displays the client's own vision for their career — the gut-check for all recommendations.</td></tr>
-        <tr><td>Three Combined Pathway Recommendations</td><td>Synthesizes all frameworks into actionable paths with confidence levels.</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="block">
-    <span class="block-label">Reading the Convergence Levels</span>
-    <table class="ref-table">
-      <thead><tr><th>Level</th><th>What It Means</th><th>How to Debrief</th></tr></thead>
-      <tbody>
-        <tr><td><strong style="color:#4ade80;">High Confidence</strong><br><span style="font-size:0.78rem;color:var(--text-faint);">Holland + VIA align</span></td><td>Both assessments point in the same direction independently. Strongest possible signal.</td><td>Validate and move to action. Name the convergence explicitly.</td></tr>
-        <tr><td><strong style="color:var(--amber-light);">Moderate Confidence</strong><br><span style="font-size:0.78rem;color:var(--text-faint);">partial alignment</span></td><td>One or two frameworks align, others diverge.</td><td>Identify which frameworks align and which diverge. Explore divergence before finalizing.</td></tr>
-        <tr><td><strong style="color:#f87171;">Divergence Detected</strong><br><span style="font-size:0.78rem;color:var(--text-faint);">low alignment</span></td><td>Career and education profiles point in meaningfully different directions.</td><td>Most diagnostic finding in a combined profile. Explore whether external pressure is driving one side.</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="block">
-    <span class="block-label">Combined Debrief Prompts</span>
-
-    <div style="margin-bottom:16px;">
-      <span style="font-size:0.65rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--amber);display:block;margin-bottom:6px;">Opening the Combined Session</span>
-      <div class="quote-block">"We have now completed both assessments. Before I show you the combined picture, I want to ask you one question: if you had to choose between the career your scores suggest and the education direction your scores suggest — which one would you choose without hesitation?"</div>
-    </div>
-
-    <div style="margin-bottom:16px;">
-      <span style="font-size:0.65rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--amber);display:block;margin-bottom:6px;">When Holland Codes Align</span>
-      <div class="quote-block">"Both your career and education assessments independently pointed toward [Holland type] environments. That level of consistency is significant — what does that tell you about what you've known for a long time that you maybe haven't admitted yet?"</div>
-    </div>
-
-    <div style="margin-bottom:16px;">
-      <span style="font-size:0.65rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--amber);display:block;margin-bottom:6px;">When Holland Codes Diverge</span>
-      <div class="quote-block">"Your career interests point toward [Career Holland], but your academic interests point toward [Education Holland]. Before I interpret anything — which of those two feels more genuinely yours, and which might reflect what you thought you were supposed to want?"</div>
-    </div>
-
-    <div style="margin-bottom:16px;">
-      <span style="font-size:0.65rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--amber);display:block;margin-bottom:6px;">Values-Anchored Unified Direction</span>
-      <div class="quote-block">"Regardless of where the other frameworks land — your top work value is [Value] and your signature strength is [VIA]. Every career and program recommendation I make is filtered through those two things. If any option doesn't honor both of them, it comes off the list. Does that feel right?"</div>
-    </div>
-
-    <div style="margin-bottom:16px;">
-      <span style="font-size:0.65rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--amber);display:block;margin-bottom:6px;">Career Destination Gut-Check</span>
-      <div class="quote-block">"You described your ideal career as [Career Destination]. Looking at the combined recommendations — does this path actually lead there? If not — what would need to change?"</div>
-    </div>
-
-    <div style="margin-bottom:16px;">
-      <span style="font-size:0.65rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--amber);display:block;margin-bottom:6px;">VARK-to-Career Format Alignment</span>
-      <div class="quote-block">"Your VARK result shows you learn best through [style]. That has implications beyond program selection — careers that require ongoing learning in a format that matches your style produce significantly higher long-term satisfaction. Does the career direction we're building toward actually involve learning that way?"</div>
-    </div>
-  </div>
-
-  <div class="block">
-    <span class="block-label">Combined Session Synthesis</span>
-    <table class="synthesis-table">
-      <thead><tr><th>Framework Pair</th><th>Aligned?</th><th>Key Insight</th><th>Action</th></tr></thead>
-      <tbody>
-        <tr><td>Holland (Career vs. Education)</td><td></td><td></td><td></td></tr>
-        <tr><td>VIA (Career vs. Education)</td><td></td><td></td><td></td></tr>
-        <tr><td>Work Value + Academic Interest</td><td></td><td></td><td></td></tr>
-        <tr><td>DISC Style + VARK Style</td><td></td><td></td><td></td></tr>
-        <tr><td>Career Destination vs. Program Direction</td><td></td><td></td><td></td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="block">
-    <span class="block-label">Combined Session Action Items</span>
-    <table class="action-table">
-      <thead><tr><th>#</th><th>Action Item</th><th>Deadline</th><th>Done?</th></tr></thead>
-      <tbody>
-        <tr><td>1</td><td></td><td></td><td></td></tr>
-        <tr><td>2</td><td></td><td></td><td></td></tr>
-        <tr><td>3</td><td></td><td></td><td></td></tr>
-      </tbody>
-    </table>
-  </div>
-
+<!-- ── AUTH GATE ── -->
+<div id="auth-gate">
+  <div class="brand">Apothena</div>
+  <p>Assessment Debrief is for authorized coaches only. Sign in with your Apothena Google account to continue.</p>
+  <button id="sign-in-btn">
+    <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google">
+    Sign in with Google
+  </button>
+  <div id="auth-error"></div>
 </div>
 
-<div class="greek-key"></div>
+<!-- ── TOPBAR ── -->
+<div id="topbar" style="display:none">
+  <div class="topbar-brand">Apothena &mdash; Debrief</div>
+  <div class="topbar-right">
+    <span class="topbar-label">Coach</span>
+    <span id="user-email"></span>
+    <button id="sign-out-btn">Sign Out</button>
+  </div>
+</div>
 
-<footer>
+<!-- ── GREEK KEY ── -->
+<div class="greek-key" id="top-key" style="display:none"></div>
+
+<!-- ── SESSION PICKER ── -->
+<div id="picker" style="display:none">
+  <h1 class="picker-head">Assessment <em style="font-style:italic;color:var(--amber-light)">Debrief</em></h1>
+  <p class="picker-sub">Select a saved assessment session to open the debrief, or load a cumulative view for a client who has completed multiple tools.</p>
+  <div class="filter-row">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="career-open">Career Charting (Open)</button>
+    <button class="filter-btn" data-filter="education-open">Education Planner (Open)</button>
+  </div>
+  <div id="sessions-list"><div class="empty-state">Loading sessions&hellip;</div></div>
+</div>
+
+<!-- ── DEBRIEF PAGE ── -->
+<div id="debrief-page">
+  <div class="sticky-print" id="sticky-print" style="display:none">
+    <button class="btn-back-pick" onclick="showPicker()">&#8592; All Sessions</button>
+    <button class="btn-print" onclick="window.print()">&#8681; Print / Save PDF</button>
+  </div>
+  <div id="debrief-content"></div>
+</div>
+
+<div class="greek-key" id="bot-key" style="display:none"></div>
+<footer id="main-footer" style="display:none">
   <div class="footer-inner">
     <span class="footer-brand">Apothena</span>
-    <span class="footer-copy">&copy; <span id="footer-year"></span> Apothena Career Services by Ryan Myers. Internal use only.</span>
-    <span style="font-family:'Playfair Display',serif;font-style:italic;font-size:0.75rem;color:rgba(212,160,23,0.35);">apothena.com</span>
+    <span class="footer-copy">&copy; <span id="footer-year"></span> Apothena Career Services &mdash; Internal Use Only</span>
+    <span style="font-family:'Playfair Display',serif;font-style:italic;font-size:.72rem;color:rgba(212,160,23,.35)">apothena.com</span>
   </div>
 </footer>
 
 <script>
-  var fy = document.getElementById('footer-year');
-  if (fy) fy.textContent = new Date().getFullYear();
-</script>
+// ── FIREBASE INIT ──────────────────────────────────────────────────────────────
+var _db = null, _auth = null, _fbReady = false, _currentUser = null;
+var _currentDocId = null, _currentTool = null, _notesSaveTimers = {};
 
+function initFirebase(){
+  try{
+    var cfg = {
+      apiKey:"AIzaSyCqx2vzzpJCTkUiymDbhjtsi6NpF5pgi6U",
+      authDomain:"apothena-assessments.firebaseapp.com",
+      projectId:"apothena-assessments",
+      storageBucket:"apothena-assessments.firebasestorage.app",
+      messagingSenderId:"161975263646",
+      appId:"1:161975263646:web:dd30980809e3593601b68f"
+    };
+    firebase.initializeApp(cfg);
+    _db = firebase.firestore();
+    _auth = firebase.auth();
+    _fbReady = true;
+
+    _auth.onAuthStateChanged(function(user){
+      if(user){
+        _currentUser = user;
+        document.getElementById('auth-gate').style.display = 'none';
+        document.getElementById('topbar').style.display = 'flex';
+        document.getElementById('top-key').style.display = 'block';
+        document.getElementById('bot-key').style.display = 'block';
+        document.getElementById('main-footer').style.display = 'block';
+        document.getElementById('user-email').textContent = user.email || '';
+        showPicker();
+        loadSessions();
+      } else {
+        _currentUser = null;
+        document.getElementById('auth-gate').style.display = 'flex';
+        document.getElementById('topbar').style.display = 'none';
+        document.getElementById('picker').style.display = 'none';
+        document.getElementById('debrief-page').style.display = 'none';
+        document.getElementById('top-key').style.display = 'none';
+        document.getElementById('bot-key').style.display = 'none';
+        document.getElementById('main-footer').style.display = 'none';
+      }
+    });
+  } catch(e){
+    console.error('Firebase init failed', e);
+    document.getElementById('auth-error').textContent = 'Firebase connection failed. Check your network.';
+  }
+}
+
+document.getElementById('sign-in-btn').addEventListener('click', function(){
+  var provider = new firebase.auth.GoogleAuthProvider();
+  _auth.signInWithPopup(provider).catch(function(e){
+    document.getElementById('auth-error').textContent = e.message;
+  });
+});
+document.getElementById('sign-out-btn').addEventListener('click', function(){
+  _auth.signOut();
+});
+
+// ── UTILITY ───────────────────────────────────────────────────────────────────
+function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+function parsePayload(docData){
+  try{
+    var raw = docData.payload;
+    if(typeof raw === 'string') return JSON.parse(raw);
+    return raw || {};
+  } catch(e){ return {}; }
+}
+
+// ── SESSION PICKER ────────────────────────────────────────────────────────────
+var _allSessions = [];
+var _activeFilter = 'all';
+
+function showPicker(){
+  document.getElementById('picker').style.display = 'block';
+  document.getElementById('debrief-page').style.display = 'none';
+  document.getElementById('sticky-print').style.display = 'none';
+  document.title = 'Assessment Debrief — Apothena';
+}
+
+function loadSessions(){
+  if(!_fbReady) return;
+  var list = document.getElementById('sessions-list');
+  list.innerHTML = '<div class="empty-state">Loading sessions&hellip;</div>';
+  _db.collection('assessments').get().then(function(snap){
+    _allSessions = [];
+    snap.forEach(function(doc){
+      var d = doc.data();
+      if(d.tool === 'career-open' || d.tool === 'education-open'){
+        _allSessions.push({ id: doc.id, data: d });
+      }
+    });
+    _allSessions.sort(function(a,b){ return (b.data.savedAt||'').localeCompare(a.data.savedAt||''); });
+    renderSessions();
+  }).catch(function(e){
+    list.innerHTML = '<div class="empty-state">Could not load sessions: ' + esc(e.message) + '</div>';
+  });
+}
+
+function renderSessions(){
+  var list = document.getElementById('sessions-list');
+  var filtered = _activeFilter === 'all' ? _allSessions : _allSessions.filter(function(s){ return s.data.tool === _activeFilter; });
+  if(!filtered.length){ list.innerHTML = '<div class="empty-state">No saved assessments found.</div>'; return; }
+
+  // Group by clientName for cumulative button
+  var byClient = {};
+  filtered.forEach(function(s){
+    var name = s.data.clientName || s.data.intakeName || 'Unknown';
+    if(!byClient[name]) byClient[name] = [];
+    byClient[name].push(s);
+  });
+
+  list.innerHTML = '';
+  filtered.forEach(function(s){
+    var d = s.data;
+    var name = d.clientName || d.intakeName || 'Unknown';
+    var toolLabel = d.tool === 'career-open' ? 'Career Charting (Open)' : 'Education Path Planner (Open)';
+    var pillCls = d.tool === 'career-open' ? 'pill-career' : 'pill-edu';
+    var dateStr = '';
+    try{ dateStr = new Date(d.savedAt).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}); }catch(e){}
+
+    var payload = parsePayload(d);
+    var sessionNum = payload.cur !== undefined ? identifySessionLabel(d.tool, payload.cur) : '';
+
+    var card = document.createElement('div');
+    card.className = 'session-card';
+    card.innerHTML =
+      '<div class="sc-left">'
+      + '<div class="sc-name">' + esc(name) + '</div>'
+      + '<div class="sc-meta">' + esc(toolLabel) + (sessionNum ? ' &middot; Last at: ' + esc(sessionNum) : '') + (dateStr ? ' &middot; Saved ' + dateStr : '') + '</div>'
+      + '</div>'
+      + '<div class="sc-right">'
+      + '<span class="pill ' + pillCls + '">' + esc(toolLabel) + '</span>'
+      + '</div>'
+      + '<div class="sc-actions">'
+      + '<button class="btn-debrief" data-id="' + esc(s.id) + '">Open Debrief</button>'
+      + (byClient[name].length > 1 ? '<button class="btn-cumulative" data-name="' + esc(name) + '">Cumulative</button>' : '')
+      + '</div>';
+    list.appendChild(card);
+  });
+
+  list.querySelectorAll('.btn-debrief').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      openDebrief(this.getAttribute('data-id'), false);
+    });
+  });
+  list.querySelectorAll('.btn-cumulative').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      openCumulative(this.getAttribute('data-name'));
+    });
+  });
+  list.querySelectorAll('.session-card').forEach(function(card){
+    card.addEventListener('click', function(){
+      var btn = this.querySelector('.btn-debrief');
+      if(btn) btn.click();
+    });
+  });
+}
+
+// Filter buttons
+document.querySelectorAll('.filter-btn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    _activeFilter = this.getAttribute('data-filter');
+    document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+    this.classList.add('active');
+    renderSessions();
+  });
+});
+
+function identifySessionLabel(tool, cur){
+  var maps = {
+    'career-open':  ['Intake','Session 1','Session 1','Session 2','Session 2','Session 2','Complete'],
+    'education-open':['Intake','Session 1','Session 2','Session 2','Session 3','Session 3','Complete']
+  };
+  var arr = maps[tool] || [];
+  return arr[cur] || ('Step ' + cur);
+}
+
+// ── OPEN DEBRIEF (single session doc) ─────────────────────────────────────────
+function openDebrief(docId, isCumulative){
+  _db.collection('assessments').doc(docId).get().then(function(doc){
+    if(!doc.exists){ alert('Session not found.'); return; }
+    var data = doc.data();
+    var payload = parsePayload(data);
+    _currentDocId = docId;
+    _currentTool = data.tool;
+    document.getElementById('picker').style.display = 'none';
+    document.getElementById('debrief-page').style.display = 'block';
+    document.getElementById('sticky-print').style.display = 'flex';
+    var html = renderDebriefForTool(data.tool, payload, data, docId, false);
+    document.getElementById('debrief-content').innerHTML = html;
+    document.title = 'Debrief — ' + (data.clientName || 'Client') + ' — Apothena';
+    attachNoteListeners(docId);
+    window.scrollTo(0,0);
+  }).catch(function(e){ alert('Could not load session: ' + e.message); });
+}
+
+// ── OPEN CUMULATIVE (all docs for a client name) ───────────────────────────────
+function openCumulative(clientName){
+  var clientSessions = _allSessions.filter(function(s){
+    return (s.data.clientName || s.data.intakeName || '') === clientName;
+  });
+  if(!clientSessions.length){ alert('No sessions found for ' + clientName); return; }
+  document.getElementById('picker').style.display = 'none';
+  document.getElementById('debrief-page').style.display = 'block';
+  document.getElementById('sticky-print').style.display = 'flex';
+
+  var html = renderCumulative(clientName, clientSessions);
+  document.getElementById('debrief-content').innerHTML = html;
+  document.title = 'Cumulative Debrief — ' + clientName + ' — Apothena';
+
+  clientSessions.forEach(function(s){ attachNoteListeners(s.id); });
+  window.scrollTo(0,0);
+}
+
+// ── RENDER: TOOL ROUTER ───────────────────────────────────────────────────────
+function renderDebriefForTool(tool, payload, docData, docId, isCumulative){
+  if(tool === 'career-open') return renderCareerOpen(payload, docData, docId, isCumulative);
+  if(tool === 'education-open') return renderEducationOpen(payload, docData, docId, isCumulative);
+  return '<p style="color:var(--red)">Unknown tool: ' + esc(tool) + '</p>';
+}
+
+// ── SHARED RENDER HELPERS ─────────────────────────────────────────────────────
+function debriefHeader(title, subtitle, pills, clientName, dateStr, coachName){
+  var pillHtml = pills.map(function(p){ return '<span class="db-meta-pill">' + esc(p) + '</span>'; }).join('');
+  return '<div class="print-page-header">Apothena Career Services &mdash; Confidential Coaching Document &mdash; ' + esc(clientName) + ' &mdash; ' + dateStr + '</div>'
+    + '<div class="db-header">'
+    + '<span class="db-eyebrow">Apothena Career Services &mdash; Coach Debrief</span>'
+    + '<h1 class="db-title">' + title + '</h1>'
+    + (subtitle ? '<p style="font-size:.9rem;color:var(--text-soft);margin-top:4px">' + subtitle + '</p>' : '')
+    + '<div class="db-meta">'
+    + '<span class="db-meta-pill">&#128100; ' + esc(clientName) + '</span>'
+    + (dateStr ? '<span class="db-meta-pill">&#128197; ' + dateStr + '</span>' : '')
+    + (coachName ? '<span class="db-meta-pill">&#128101; ' + esc(coachName) + '</span>' : '')
+    + pillHtml
+    + '</div>'
+    + '</div>';
+}
+
+function scoreHero(chips){
+  var chipsHtml = chips.map(function(c){
+    return '<div class="score-chip">'
+      + '<div class="sc-label">' + esc(c.label) + '</div>'
+      + '<div class="sc-value">' + esc(c.value) + '</div>'
+      + (c.sub ? '<div class="sc-sub">' + esc(c.sub) + '</div>' : '')
+      + '</div>';
+  }).join('');
+  return '<div class="score-hero"><span class="block-label">Score Summary</span><div class="score-grid">' + chipsHtml + '</div></div>';
+}
+
+function barChart(rows){
+  return '<div class="bar-chart">' + rows.map(function(r){
+    return '<div class="bar-row">'
+      + '<div class="bar-lbl">' + esc(r.label) + '</div>'
+      + '<div class="bar-track"><div class="bar-fill" style="width:' + Math.min(100,r.pct) + '%"></div></div>'
+      + '<div class="bar-val">' + esc(r.val) + '</div>'
+      + '</div>';
+  }).join('') + '</div>';
+}
+
+function resultCallout(label, value, sub){
+  return '<div class="result-callout">'
+    + '<div class="rc-label">' + esc(label) + '</div>'
+    + '<div class="rc-value">' + esc(value) + '</div>'
+    + (sub ? '<div class="rc-sub">' + esc(sub) + '</div>' : '')
+    + '</div>';
+}
+
+function validationPrompt(text){
+  return '<div class="validation-prompt">' + esc(text) + '</div>';
+}
+
+function promptList(items){
+  return '<ul class="prompt-list">' + items.map(function(i){ return '<li>' + esc(i) + '</li>'; }).join('') + '</ul>';
+}
+
+function coachNotesField(docId, noteKey, placeholder){
+  return '<div class="coach-notes-wrap">'
+    + '<div class="coach-notes-label">Coach Notes <span class="save-indicator" id="si-' + esc(docId) + '-' + esc(noteKey) + '"></span></div>'
+    + '<textarea class="coach-notes-field" data-doc="' + esc(docId) + '" data-key="' + esc(noteKey) + '" placeholder="' + esc(placeholder || 'Record observations, client reactions, and follow-up actions here.') + '"></textarea>'
+    + '</div>';
+}
+
+function synthesisTable(docId, noteKey, rows, headers){
+  headers = headers || ['Theme / Pattern','Frameworks Supporting It','Confidence Level','Direction to Explore'];
+  var thead = '<tr>' + headers.map(function(h){ return '<th>' + esc(h) + '</th>'; }).join('') + '</tr>';
+  var tbody = rows.map(function(r,i){
+    return '<tr>' + r.map(function(cell,ci){
+      if(ci === 0) return '<td><input type="text" placeholder="Theme ' + (i+1) + '..." data-doc="' + esc(docId) + '" data-key="' + esc(noteKey + '_r' + i + '_c' + ci) + '" class="synth-input"></td>';
+      if(ci === 1) return '<td><input type="text" value="' + esc(cell) + '" data-doc="' + esc(docId) + '" data-key="' + esc(noteKey + '_r' + i + '_c' + ci) + '" class="synth-input"></td>';
+      return '<td><input type="text" placeholder="' + (ci===2?'High / Moderate / Low':'') + '" data-doc="' + esc(docId) + '" data-key="' + esc(noteKey + '_r' + i + '_c' + ci) + '" class="synth-input"></td>';
+    }).join('') + '</tr>';
+  }).join('');
+  return '<table class="editable-table"><thead>' + thead + '</thead><tbody>' + tbody + '</tbody></table>';
+}
+
+function actionTable(docId, noteKey, rowCount){
+  rowCount = rowCount || 3;
+  var rows = '';
+  for(var i=0;i<rowCount;i++){
+    rows += '<tr>'
+      + '<td class="num-cell">' + (i+1) + '</td>'
+      + '<td><input type="text" placeholder="Action item..." data-doc="' + esc(docId) + '" data-key="' + esc(noteKey + '_action' + i) + '" class="synth-input"></td>'
+      + '<td style="width:110px"><input type="text" placeholder="Deadline..." data-doc="' + esc(docId) + '" data-key="' + esc(noteKey + '_deadline' + i) + '" class="synth-input"></td>'
+      + '<td style="width:60px"><input type="text" placeholder="Done?" data-doc="' + esc(docId) + '" data-key="' + esc(noteKey + '_done' + i) + '" class="synth-input"></td>'
+      + '</tr>';
+  }
+  return '<table class="editable-table"><thead><tr><th>#</th><th>Action Item</th><th>Deadline</th><th>Done?</th></tr></thead><tbody>' + rows + '</tbody></table>';
+}
+
+function skippedSection(label){
+  return '<div style="padding:12px 0"><span class="skipped-badge">Section Skipped: ' + esc(label) + '</span></div>';
+}
+
+function partDiv(labelTag, title, desc){
+  return '<div class="part-divider"><span class="part-label-tag">' + esc(labelTag) + '</span><h2 class="part-title">' + esc(title) + '</h2>'
+    + (desc ? '<p style="font-size:.85rem;color:var(--text-soft);margin-top:4px">' + esc(desc) + '</p>' : '')
+    + '</div>';
+}
+
+// ── SCORE COMPUTATION ─────────────────────────────────────────────────────────
+function computeRiasec(scaleScores){
+  var dims = [
+    {code:'R',label:'Realistic',     score:scaleScores.Realistic||0},
+    {code:'I',label:'Investigative', score:scaleScores.Investigative||0},
+    {code:'A',label:'Artistic',      score:scaleScores.Artistic||0},
+    {code:'S',label:'Social',        score:scaleScores.Social||0},
+    {code:'E',label:'Enterprising',  score:scaleScores.Enterprising||0},
+    {code:'C',label:'Conventional',  score:scaleScores.Conventional||0}
+  ];
+  var sorted = dims.slice().sort(function(a,b){ return b.score-a.score; });
+  var top3 = sorted.slice(0,3);
+  var code = top3.map(function(x){ return x.code; }).join('');
+  var bars = dims.map(function(d){ return {label:d.label,pct:Math.round((d.score/25)*100),val:d.score+'/25'}; });
+  var flat = (top3[0].score - top3[2].score) <= 2;
+  return {code:code, top:top3[0], dims:dims, bars:bars, flat:flat, sorted:sorted};
+}
+
+function computeWorkValues(scaleScores){
+  var items = [
+    {key:'Achievement',      label:'Achievement',        count:3},
+    {key:'Independence',     label:'Independence',       count:3},
+    {key:'Recognition',      label:'Recognition',        count:4},
+    {key:'Relationships',    label:'Relationships',      count:3},
+    {key:'Support',          label:'Support',            count:4},
+    {key:'WorkingConditions',label:'Working Conditions', count:4}
+  ];
+  items.forEach(function(it){
+    it.mean = it.count ? ((scaleScores[it.key]||0)/it.count) : 0;
+    it.pct = Math.round((it.mean/5)*100);
+  });
+  var sorted = items.slice().sort(function(a,b){ return b.mean-a.mean; });
+  return {sorted:sorted, bars:items.map(function(i){ return {label:i.label,pct:i.pct,val:i.mean.toFixed(2)}; })};
+}
+
+function computeHexaco(scaleScores){
+  var factors = [
+    {code:'H',label:'Honesty-Humility'},
+    {code:'E',label:'Emotionality'},
+    {code:'X',label:'Extraversion'},
+    {code:'A',label:'Agreeableness'},
+    {code:'C',label:'Conscientiousness'},
+    {code:'O',label:'Openness to Experience'}
+  ];
+  factors.forEach(function(f){
+    f.mean = (scaleScores[f.code]||0)/4;
+    f.cat = f.mean>=3.5?'High':f.mean>=2.5?'Moderate':'Lower';
+    f.pct = Math.round((f.mean/5)*100);
+  });
+  return {factors:factors};
+}
+
+function computeGSE(scaleScores){
+  var total = scaleScores.GSE||0;
+  var band = total<=20?'Lower band':total<=29?'Middle band':'Upper band';
+  return {total:total, band:band, pct:Math.round((total/40)*100)};
+}
+
+function computeTransferable(answers){
+  var SKILLS = [
+    {id:'ts_1',label:'Active Listening'},{id:'ts_2',label:'Critical Thinking'},{id:'ts_3',label:'Speaking'},
+    {id:'ts_4',label:'Writing'},{id:'ts_5',label:'Reading Comprehension'},{id:'ts_6',label:'Coordination'},
+    {id:'ts_7',label:'Service Orientation'},{id:'ts_8',label:'Social Perceptiveness'},{id:'ts_9',label:'Time Management'},
+    {id:'ts_10',label:'Complex Problem Solving'},{id:'ts_11',label:'Judgment & Decision Making'},
+    {id:'ts_12',label:'Active Learning'},{id:'ts_13',label:'Monitoring'},{id:'ts_14',label:'Persuasion'},
+    {id:'ts_15',label:'Negotiation'}
+  ];
+  var rated = SKILLS.map(function(s){ return {label:s.label,val:answers[s.id]||0}; }).filter(function(s){ return s.val>0; });
+  rated.sort(function(a,b){ return b.val-a.val; });
+  return {top5:rated.slice(0,5), all:rated};
+}
+
+function computeASE(scaleScores){
+  var total = scaleScores.ASE||0;
+  var mean = total/8;
+  var band = mean<2.5?'Lower':mean<3.5?'Moderate':'Higher';
+  return {total:total, mean:mean.toFixed(2), band:band, pct:Math.round((mean/5)*100)};
+}
+
+function computeAcademicInterests(answers){
+  var DOMAINS = [
+    {id:'ai_01',cip:'01',label:'Agriculture & Natural Resources'},
+    {id:'ai_03',cip:'03',label:'Natural Resources & Conservation'},
+    {id:'ai_09',cip:'09',label:'Communication & Media'},
+    {id:'ai_11',cip:'11',label:'Computer & Information Sciences'},
+    {id:'ai_13',cip:'13',label:'Education'},
+    {id:'ai_14',cip:'14',label:'Engineering'},
+    {id:'ai_15',cip:'15',label:'Engineering & Industrial Technologies'},
+    {id:'ai_19',cip:'19',label:'Family & Consumer Sciences'},
+    {id:'ai_22',cip:'22',label:'Legal Professions'},
+    {id:'ai_23',cip:'23',label:'English Language & Literature'},
+    {id:'ai_26',cip:'26',label:'Biological & Biomedical Sciences'},
+    {id:'ai_42',cip:'42',label:'Psychology'},
+    {id:'ai_43',cip:'43',label:'Public Safety & Protective Services'},
+    {id:'ai_44',cip:'44',label:'Public Administration & Social Services'},
+    {id:'ai_50',cip:'50',label:'Visual & Performing Arts'},
+    {id:'ai_51',cip:'51',label:'Health Professions & Clinical Sciences'},
+    {id:'ai_52',cip:'52',label:'Business, Management & Marketing'},
+    {id:'ai_54',cip:'54',label:'History & Social Sciences'}
+  ];
+  var rated = DOMAINS.map(function(d){ return {label:d.label,cip:d.cip,val:answers[d.id]||0}; }).filter(function(d){ return d.val>0; });
+  rated.sort(function(a,b){ return b.val-a.val; });
+  return {top5:rated.slice(0,5)};
+}
+
+function computePFP(answers){
+  var ITEMS = [
+    {id:'pfp_1',label:'Online from home'},
+    {id:'pfp_2',label:'In person on campus'},
+    {id:'pfp_3',label:'Self-paced'},
+    {id:'pfp_4',label:'Same cohort / peers'},
+    {id:'pfp_5',label:'Hands-on / project-based'},
+    {id:'pfp_6',label:'Lectures / reading / discussion'},
+    {id:'pfp_7',label:'Evening or weekend classes'},
+    {id:'pfp_8',label:'Short, focused credential'},
+    {id:'pfp_9',label:'Longer credential'},
+    {id:'pfp_10',label:'Frequent instructor access'},
+    {id:'pfp_11',label:'Clear, structured assignments'},
+    {id:'pfp_12',label:'Flexible approach to assignments'},
+    {id:'pfp_13',label:'Internships / practicums'},
+    {id:'pfp_14',label:'Tests & exams over projects'},
+    {id:'pfp_15',label:'Industry mentors & employers'},
+    {id:'pfp_16',label:'Hybrid (some online, some in-person)'}
+  ];
+  var rows = ITEMS.map(function(it){ return {label:it.label,val:answers[it.id]||null}; });
+  var sorted = rows.filter(function(r){ return r.val!==null; }).slice().sort(function(a,b){ return b.val-a.val; });
+  return {rows:rows, top3:sorted.slice(0,3), bottom3:sorted.slice(-3).reverse()};
+}
+
+function computePP(answers){
+  var ITEMS = [
+    {id:'pp_1',noteId:'pp_1_note',label:'Time-to-credential'},
+    {id:'pp_2',noteId:'pp_2_note',label:'Cost / budget'},
+    {id:'pp_3',noteId:'pp_3_note',label:'Location / commute'},
+    {id:'pp_4',noteId:'pp_4_note',label:'Childcare / caregiving'},
+    {id:'pp_5',noteId:'pp_5_note',label:'Funding-source fit'}
+  ];
+  return ITEMS.map(function(it){
+    return {label:it.label,val:answers[it.id]||null,note:answers[it.noteId]||''};
+  });
+}
+
+// ── RENDER: CAREER CHARTING (OPEN) ────────────────────────────────────────────
+function renderCareerOpen(payload, docData, docId, isCumulative){
+  var intake = payload.intake || {};
+  var answers = payload.answers || {};
+  var scaleScores = payload.scaleScores || {};
+  var skipped = payload.skipped || {};
+
+  var clientName = intake.name || docData.clientName || 'Client';
+  var dateStr = '';
+  try{ dateStr = intake.date ? new Date(intake.date+'T12:00:00').toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'}) : ''; }catch(e){}
+  var coachName = intake.coach || '';
+
+  var ip = computeRiasec(scaleScores);
+  var wv = computeWorkValues(scaleScores);
+  var hx = computeHexaco(scaleScores);
+  var gse = computeGSE(scaleScores);
+  var ts = computeTransferable(answers);
+
+  var html = debriefHeader(
+    'Career Charting <em>(Open)</em> Debrief',
+    'Coach-facing results and debrief guide. Do not share directly with client.',
+    ['Part D · Career Charting (Open)','2 Sessions · 5 Frameworks'],
+    clientName, dateStr, coachName
+  );
+
+  // Score hero
+  html += scoreHero([
+    {label:'Holland Code', value: skipped.ip_mini ? '—' : ip.code, sub: skipped.ip_mini ? 'Skipped' : 'Top: '+ip.top.label},
+    {label:'Top Work Value', value: skipped.work_values ? '—' : wv.sorted[0].label, sub: skipped.work_values ? 'Skipped' : 'Mean: '+wv.sorted[0].mean.toFixed(2)+'/5'},
+    {label:'GSE Total', value: skipped.gse ? '—' : gse.total+'/40', sub: skipped.gse ? 'Skipped' : gse.band},
+    {label:'Top Skill', value: skipped.transferable ? '—' : (ts.top5[0]?ts.top5[0].label:'—'), sub: skipped.transferable ? 'Skipped' : (ts.top5[0]?ts.top5[0].val+'/5':'')}
+  ]);
+
+  // Intake qualitatives
+  if(intake.goal || intake.skill || intake.value || intake.concerns){
+    html += '<span class="block-label">Intake Qualitatives</span>';
+    if(intake.goal) html += '<p style="font-size:.85rem;color:var(--text-soft);margin-bottom:6px"><strong style="color:var(--amber-light)">Primary Goal:</strong> ' + esc(intake.goal) + '</p>';
+    if(intake.skill) html += '<p style="font-size:.85rem;color:var(--text-soft);margin-bottom:6px"><strong style="color:var(--amber-light)">Transferable Skill (self-named):</strong> ' + esc(intake.skill) + '</p>';
+    if(intake.value) html += '<p style="font-size:.85rem;color:var(--text-soft);margin-bottom:6px"><strong style="color:var(--amber-light)">Core Career Value (self-named):</strong> ' + esc(intake.value) + '</p>';
+    if(intake.concerns) html += '<p style="font-size:.85rem;color:var(--text-soft);margin-bottom:6px"><strong style="color:var(--amber-light)">Concerns / Constraints:</strong> ' + esc(intake.concerns) + '</p>';
+  }
+
+  // ── SESSION 1 ──
+  html += partDiv('Part D · Session 1','O*NET Interests & O*NET Work Values','What environments fit this person? What do they most need from work?');
+
+  html += validationPrompt('"We will look at your interests first, then what you need from work. I\'ll show you each result and I want your honest reaction before I interpret anything."');
+
+  // Framework 1: O*NET Interests
+  html += '<div class="framework-block">';
+  html += '<span class="fw-number">Framework 1</span>';
+  html += '<h3 class="fw-title">O*NET Interest Profiler Mini (Holland RIASEC)</h3>';
+  if(skipped.ip_mini){
+    html += skippedSection('O*NET Interests');
+  } else {
+    html += resultCallout('Holland Code', ip.code, 'Top interest: '+ip.top.label + (ip.flat?' · Flat profile — top three within 2 points':''));
+    html += '<span class="block-label">Interest Bar Chart</span>';
+    html += barChart(ip.bars);
+    if(ip.flat){
+      html += '<div class="coach-note-box"><strong>Flat Profile:</strong> The top three letters score within 2 points of each other. This is high variability — refer to the full Self-Directed Search at self-directed-search.com and hold the three-letter code loosely.</div>';
+    }
+    html += '<span class="block-label">Validation Prompt</span>';
+    html += validationPrompt('"Looking at this bar chart, does the shape feel like an honest picture of what genuinely interests you? Or does it reflect what you think you should be interested in?"');
+    html += '<span class="block-label">Coaching Prompts — Pre-populated for Code: ' + ip.code + '</span>';
+    html += promptList([
+      '"When have you lost track of time at work? What were you doing, and which RIASEC letter does that fall under?"',
+      '"Is your highest-scoring area — ' + ip.top.label + ' — something you have actually been able to test in a real job, or is it mostly untested?"',
+      '"If we redesigned your next role around your top two letters, what would change about a typical day?"',
+      '"Your lowest letter is ' + ip.sorted[5].label + ' — is that a real dislike or just lack of exposure?"'
+    ]);
+    html += '<span class="block-label">Relevant Reference: Top-Code Career Directions</span>';
+    var codeRef = {
+      'R':'Applied & technical roles — engineering, architecture, skilled trades, applied sciences.',
+      'I':'Research & analytical roles — science, medicine, technology, data, academia.',
+      'A':'Creative & expressive roles — design, writing, music, film, theatre.',
+      'S':'People-centered roles — healthcare, social work, education, coaching, community.',
+      'E':'Leadership & influence roles — business, law, management, sales, advocacy.',
+      'C':'Systems & data roles — accounting, finance, compliance, operations, administration.'
+    };
+    html += '<table class="ref-table"><thead><tr><th>Code Letter</th><th>Career Direction</th></tr></thead><tbody>';
+    ip.code.split('').forEach(function(c){
+      html += '<tr class="highlight"><td><strong>' + esc(c) + '</strong></td><td>' + esc(codeRef[c]||'—') + '</td></tr>';
+    });
+    html += '</tbody></table>';
+  }
+  html += coachNotesField(docId, 'co_interests', 'Record client reaction, surprises, confirmations, and follow-up questions.');
+  html += '</div>';
+
+  // Framework 2: Work Values
+  html += '<div class="framework-block">';
+  html += '<span class="fw-number">Framework 2</span>';
+  html += '<h3 class="fw-title">O*NET Work Values (21-item Likert adaptation)</h3>';
+  if(skipped.work_values){
+    html += skippedSection('Work Values');
+  } else {
+    html += resultCallout('Top Work Value', wv.sorted[0].label, 'Mean: '+wv.sorted[0].mean.toFixed(2)+'/5 · Lowest: '+wv.sorted[wv.sorted.length-1].label);
+    html += '<span class="block-label">Work Values Bar Chart (mean score)</span>';
+    html += barChart(wv.bars);
+    html += '<span class="block-label">Validation Prompt</span>';
+    html += validationPrompt('"Before I say anything — when you see that your top value is ' + wv.sorted[0].label + ', does that feel like the real reason you work, or like what you think sounds most professional?"');
+    html += '<span class="block-label">Coaching Prompts — Pre-populated for: ' + wv.sorted[0].label + '</span>';
+    html += promptList([
+      '"Think about the role where you felt most satisfied. What did it provide that honored ' + wv.sorted[0].label + '? What has every other role been missing?"',
+      '"Have you ever explicitly factored ' + wv.sorted[0].label + ' into a career decision? If not, what would change if you started?"',
+      '"If you could only preserve one of your top two values — ' + wv.sorted[0].label + ' or ' + wv.sorted[1].label + ' — in your next role, which one is truly non-negotiable?"',
+      '"Look at your bottom value: ' + wv.sorted[5].label + '. Is that genuinely unimportant to you, or is it something you have learned to suppress?"'
+    ]);
+    html += '<span class="block-label">Reference: Top Value → Career Direction</span>';
+    var wvRef = {
+      'Achievement':'Roles with clear metrics and merit advancement — engineering, consulting, research, competitive sales.',
+      'Independence':'Roles with autonomy — entrepreneurship, consulting, remote research, creative direction.',
+      'Recognition':'Roles with visibility and advancement — management, law, public leadership, performing arts.',
+      'Relationships':'People-centered roles — healthcare, social work, education, coaching, client services.',
+      'Support':'Organizations known for investing in people — mission-driven nonprofits, people-first healthcare.',
+      'Working Conditions':'Stable, well-compensated roles — government, established corporations, healthcare administration, trades.'
+    };
+    html += '<table class="ref-table"><thead><tr><th>Top Value</th><th>Strong Career Directions</th></tr></thead><tbody>';
+    wv.sorted.slice(0,3).forEach(function(v,i){
+      html += '<tr' + (i===0?' class="highlight"':'') + '><td>' + esc(v.label) + '</td><td>' + esc(wvRef[v.key]||wvRef[v.label]||'—') + '</td></tr>';
+    });
+    html += '</tbody></table>';
+  }
+  html += coachNotesField(docId, 'co_workvalues', 'Record client reaction to top value. Note whether it matches their career history.');
+  html += '</div>';
+
+  // Session 1 Synthesis
+  html += '<span class="block-label">Session 1 Synthesis Worksheet</span>';
+  html += synthesisTable(docId, 'co_s1_synth', [
+    ['','Holland Code + Work Values','',''],
+    ['','','','']
+  ]);
+  html += '<span class="block-label">Session 1 Action Items</span>';
+  html += actionTable(docId, 'co_s1_actions');
+
+  html += '<div class="section-divider"></div>';
+
+  // ── SESSION 2 ──
+  html += partDiv('Part D · Session 2','HEXACO Snapshot · GSE · Transferable Skills','How does this person operate, how confident are they, and what do they bring with them?');
+
+  html += validationPrompt('"Before we look at today\'s results — has anything shifted since our last session? Do the Work Values and Holland results still ring true, or do you see them differently now?"');
+
+  // Framework 3: HEXACO
+  html += '<div class="framework-block">';
+  html += '<span class="fw-number">Framework 3</span>';
+  html += '<h3 class="fw-title">HEXACO Personality Snapshot (Apothena, 24 items)</h3>';
+  html += '<div class="coach-note-box"><strong>Coach Note:</strong> Hold the categorical labels (High / Moderate / Lower) for yourself. Use them to frame coaching questions, not to label the client. Present no more than 2–3 factors at a time.</div>';
+  if(skipped.hexaco){
+    html += skippedSection('HEXACO');
+  } else {
+    html += '<span class="block-label">Factor Means — Coach-Facing Labels</span>';
+    html += barChart(hx.factors.map(function(f){ return {label:f.label,pct:f.pct,val:f.mean.toFixed(2)+' ('+f.cat+')'}; }));
+    html += '<span class="block-label">Validation Prompt</span>';
+    html += validationPrompt('"Looking at the bars, which factor result feels most true to how you operate at work? Which one would surprise the people who know you best?"');
+    html += '<span class="block-label">Coaching Prompts by Factor</span>';
+    html += promptList([
+      'Honesty-Humility: "Tell me about a time at work when this showed up. What did it cost you, or earn you?"',
+      'Emotionality: "How do you tend to handle stress at work? When does it serve you and when does it get in the way?"',
+      'Extraversion: "What kinds of work environments leave you energized versus drained? Be specific."',
+      'Agreeableness: "When do you push back at work? When do you stay silent? What makes the difference?"',
+      'Conscientiousness: "Where in your work do you over-prepare? Where do you under-prepare? Why?"',
+      'Openness: "When was the last time you sought out something genuinely new at work? What was it?"'
+    ]);
+  }
+  html += coachNotesField(docId, 'co_hexaco', 'Note which factors felt most resonant. Flag any that contradicted what you observe in-session.');
+  html += '</div>';
+
+  // Framework 4: GSE
+  html += '<div class="framework-block">';
+  html += '<span class="fw-number">Framework 4</span>';
+  html += '<h3 class="fw-title">General Self-Efficacy Scale (Schwarzer & Jerusalem, 1995)</h3>';
+  if(skipped.gse){
+    html += skippedSection('GSE');
+  } else {
+    html += resultCallout('GSE Total', gse.total+' / 40', gse.band);
+    html += '<span class="block-label">Band Reference</span>';
+    html += '<table class="ref-table"><thead><tr><th>Band</th><th>Range</th><th>Coaching Frame</th></tr></thead><tbody>'
+      + '<tr' + (gse.total<=20?' class="highlight"':'') + '><td>Lower</td><td>10–20</td><td>Plan a small, real mastery experience this week. Avoid abstract pep talks.</td></tr>'
+      + '<tr' + (gse.total>20&&gse.total<=29?' class="highlight"':'') + '><td>Middle</td><td>21–29</td><td>Common range. Strengthen self-efficacy in domains the client cares most about.</td></tr>'
+      + '<tr' + (gse.total>=30?' class="highlight"':'') + '><td>Upper</td><td>30–40</td><td>High self-efficacy. Channel into a focused commitment with a clear deadline.</td></tr>'
+      + '</tbody></table>';
+    html += '<span class="block-label">Validation Prompt</span>';
+    html += validationPrompt('"This is your overall confidence in handling difficult situations. Does the band — ' + gse.band + ' — feel about right, or does it feel too high or too low for who you are right now?"');
+    html += '<span class="block-label">Coaching Prompts</span>';
+    html += promptList([
+      '"Tell me about a recent moment when you handled something difficult well. What did you draw on?"',
+      '"And a recent moment when you did not handle something well. What got in the way?"',
+      '"Where in your career do you feel most confident? Where do you feel least?"',
+      '"If your GSE went up by five points in 30 days, what would have happened to make that change?"'
+    ]);
+  }
+  html += coachNotesField(docId, 'co_gse', 'Note any inconsistency between the score and what you observe in session. Flag attribution patterns.');
+  html += '</div>';
+
+  // Framework 5: Transferable Skills
+  html += '<div class="framework-block">';
+  html += '<span class="fw-number">Framework 5</span>';
+  html += '<h3 class="fw-title">Transferable Skills (O*NET-derived, 15 items)</h3>';
+  if(skipped.transferable){
+    html += skippedSection('Transferable Skills');
+  } else {
+    html += '<span class="block-label">Top 5 by Self-Rated Proficiency</span>';
+    html += barChart(ts.top5.map(function(s){ return {label:s.label,pct:s.val*20,val:s.val+'/5'}; }));
+    if(ts.all.length>5){
+      html += '<div style="font-size:.78rem;color:var(--text-faint);margin-top:6px">All rated: '+ts.all.map(function(s){ return s.label+' ('+s.val+')'; }).join(', ')+'</div>';
+    }
+    html += '<span class="block-label">Validation Prompt</span>';
+    html += validationPrompt('"For your top skill — ' + (ts.top5[0]?ts.top5[0].label:'—') + ' — what is one specific result you produced with it that you are proud of? Is it on your resume right now?"');
+    html += '<span class="block-label">Coaching Prompts</span>';
+    html += promptList([
+      '"Take your top three skills. Write one accomplishment that demonstrates each one. Those become resume bullet candidates."',
+      '"Of your top five, which one do you most want to grow? What would the next level look like?"',
+      '"If a friend who knows your work were rating you on these 15 skills, where would they disagree with you most?"'
+    ]);
+  }
+  html += coachNotesField(docId, 'co_skills', 'Note whether the top skill appears on the resume. Flag any mismatch between self-rating and what you observe.');
+  html += '</div>';
+
+  // Session 2 Synthesis worksheet
+  html += '<span class="block-label">Session 2 Synthesis Worksheet</span>';
+  html += '<table class="ref-table" style="margin-bottom:12px"><thead><tr><th>Framework</th><th>Headline Result</th><th>Coach\'s Top Question</th><th>Client\'s Reaction</th></tr></thead><tbody>';
+  var s2rows = [['HEXACO','','',''],['GSE','','',''],['Transferable Skills','','','']];
+  s2rows.forEach(function(r,i){
+    html += '<tr><td style="color:var(--amber-light)">' + esc(r[0]) + '</td>'
+      + '<td><input type="text" placeholder="Result summary..." data-doc="' + esc(docId) + '" data-key="co_s2_synth_'+i+'_headline" class="synth-input" style="width:100%;background:transparent;border:none;color:var(--text-soft);font-family:Lato,sans-serif;font-size:.82rem;padding:6px 8px;outline:none"></td>'
+      + '<td><input type="text" placeholder="Key question..." data-doc="' + esc(docId) + '" data-key="co_s2_synth_'+i+'_question" class="synth-input" style="width:100%;background:transparent;border:none;color:var(--text-soft);font-family:Lato,sans-serif;font-size:.82rem;padding:6px 8px;outline:none"></td>'
+      + '<td><input type="text" placeholder="Reaction..." data-doc="' + esc(docId) + '" data-key="co_s2_synth_'+i+'_reaction" class="synth-input" style="width:100%;background:transparent;border:none;color:var(--text-soft);font-family:Lato,sans-serif;font-size:.82rem;padding:6px 8px;outline:none"></td>'
+      + '</tr>';
+  });
+  html += '</tbody></table>';
+
+  html += '<span class="block-label">Full Career Charting (Open) Synthesis</span>';
+  html += '<div class="coach-note-box">Career directions with the strongest evidence are those supported by three or more frameworks simultaneously. Holland + Work Value alignment is the strongest signal.</div>';
+  html += synthesisTable(docId, 'co_full_synth', [
+    ['','Holland Code + Work Values','',''],
+    ['','','',''],
+    ['','','','']
+  ]);
+  html += '<span class="block-label">Session 2 Action Items</span>';
+  html += actionTable(docId, 'co_s2_actions');
+
+  return html;
+}
+
+// ── RENDER: EDUCATION PATH PLANNER (OPEN) ─────────────────────────────────────
+function renderEducationOpen(payload, docData, docId, isCumulative){
+  var intake = payload.intake || {};
+  var answers = payload.answers || {};
+  var scaleScores = payload.scaleScores || {};
+  var skipped = payload.skipped || {};
+
+  var clientName = intake.name || docData.clientName || 'Client';
+  var dateStr = '';
+  try{ dateStr = intake.date ? new Date(intake.date+'T12:00:00').toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'}) : ''; }catch(e){}
+  var coachName = intake.coach || '';
+
+  var ip = computeRiasec(scaleScores);
+  var ase = computeASE(scaleScores);
+  var ai = computeAcademicInterests(answers);
+  var pfp = computePFP(answers);
+  var pp = computePP(answers);
+
+  var html = debriefHeader(
+    'Education Path Planner <em>(Open)</em> Debrief',
+    'Coach-facing results and debrief guide. Do not share directly with client.',
+    ['Part E · Education Path Planner (Open)','3 Sessions · 5 Frameworks'],
+    clientName, dateStr, coachName
+  );
+
+  // Score hero
+  html += scoreHero([
+    {label:'Holland Code', value: skipped.ip_mini?'—':ip.code, sub: skipped.ip_mini?'Skipped':'Top: '+ip.top.label},
+    {label:'Top Academic Area', value: skipped.ai?'—':(ai.top5[0]?ai.top5[0].label.split(' ')[0]+'…':'—'), sub: skipped.ai?'Skipped':(ai.top5[0]?'CIP '+ai.top5[0].cip:'')},
+    {label:'Academic Confidence', value: skipped.ase?'—':ase.mean+'/5', sub: skipped.ase?'Skipped':ase.band}
+  ]);
+
+  // Intake qualitatives
+  if(intake.goal||intake.current||intake.constraints||intake.concerns){
+    html += '<span class="block-label">Intake Qualitatives</span>';
+    if(intake.goal) html += '<p style="font-size:.85rem;color:var(--text-soft);margin-bottom:6px"><strong style="color:var(--amber-light)">Education Goal:</strong> '+esc(intake.goal)+'</p>';
+    if(intake.current) html += '<p style="font-size:.85rem;color:var(--text-soft);margin-bottom:6px"><strong style="color:var(--amber-light)">Current Education Level:</strong> '+esc(intake.current)+'</p>';
+    if(intake.constraints) html += '<p style="font-size:.85rem;color:var(--text-soft);margin-bottom:6px"><strong style="color:var(--amber-light)">Funding & Constraints:</strong> '+esc(intake.constraints)+'</p>';
+    if(intake.concerns) html += '<p style="font-size:.85rem;color:var(--text-soft);margin-bottom:6px"><strong style="color:var(--amber-light)">Concerns / Hesitations:</strong> '+esc(intake.concerns)+'</p>';
+  }
+
+  // ── SESSION 1 ──
+  html += partDiv('Part E · Session 1','O*NET Interests','What kinds of work environments and tasks engage this student?');
+  html += validationPrompt('"Before we look at your results — when you were answering those questions, was there a field or subject that kept coming up in your mind?"');
+
+  html += '<div class="framework-block">';
+  html += '<span class="fw-number">Framework 1</span>';
+  html += '<h3 class="fw-title">O*NET Interest Profiler Mini</h3>';
+  if(skipped.ip_mini){
+    html += skippedSection('O*NET Interests');
+  } else {
+    html += resultCallout('Holland Code', ip.code, 'Top interest: '+ip.top.label+(ip.flat?' · Flat profile':''));
+    html += '<span class="block-label">Interest Bar Chart</span>';
+    html += barChart(ip.bars);
+    html += '<span class="block-label">Validation Prompt</span>';
+    html += validationPrompt('"Looking at the bars, does this look like an honest map of what genuinely interests you, or what someone in your life expects you to be interested in?"');
+    html += '<span class="block-label">Coaching Prompts</span>';
+    html += promptList([
+      '"Which subjects in school did you actually look forward to? Map those to a RIASEC letter."',
+      '"Your top letter is ' + ip.top.label + ' — has any school environment ever genuinely matched it? If not, that is data."',
+      '"Your lowest letter is ' + ip.sorted[5].label + ' — is that real or just untested?"'
+    ]);
+    html += '<span class="block-label">Code → Academic Field Reference</span>';
+    var fieldRef = {
+      'R':'Engineering, architecture, skilled trades, kinesiology, agriculture, aviation.',
+      'I':'Biology, chemistry, computer science, mathematics, data science, pre-medicine.',
+      'A':'Fine arts, graphic design, film, music, theatre, creative writing, fashion.',
+      'S':'Education, social work, nursing, psychology, counseling, public health.',
+      'E':'Business, marketing, law, political science, entrepreneurship.',
+      'C':'Accounting, finance, information systems, health information management.'
+    };
+    html += '<table class="ref-table"><thead><tr><th>Code</th><th>Strong Program Fields</th></tr></thead><tbody>';
+    ip.code.split('').forEach(function(c){
+      html += '<tr class="highlight"><td><strong>'+esc(c)+'</strong></td><td>'+esc(fieldRef[c]||'—')+'</td></tr>';
+    });
+    html += '</tbody></table>';
+  }
+  html += coachNotesField(docId, 'eo_interests', 'Note any drift from previous Career Charting (Open) Holland result if applicable.');
+  html += '</div>';
+
+  html += '<span class="block-label">Session 1 Action Items</span>';
+  html += actionTable(docId, 'eo_s1_actions');
+  html += '<div class="section-divider"></div>';
+
+  // ── SESSION 2 ──
+  html += partDiv('Part E · Session 2','Program-Format Preferences & Academic Self-Efficacy','What program format fits? How confident is this student about school?');
+  html += validationPrompt('"Before we look at today\'s results — has anything shifted since we last talked? Does the Holland result still feel accurate, or do you see it differently now?"');
+
+  // Framework 2: PFP
+  html += '<div class="framework-block">';
+  html += '<span class="fw-number">Framework 2</span>';
+  html += '<h3 class="fw-title">Program-Format Preferences (Apothena, 16 items)</h3>';
+  html += '<div class="coach-note-box"><strong>Coach Note:</strong> No aggregate score. Each rating is individual. Highlight the top 3 and bottom 3 strongest preferences. Look for contradictions and ask about them.</div>';
+  if(skipped.pfp){
+    html += skippedSection('Program-Format Preferences');
+  } else {
+    html += '<span class="block-label">Top 3 Preferences</span>';
+    html += barChart(pfp.top3.map(function(r){ return {label:r.label,pct:(r.val||0)*20,val:(r.val||0)+'/5'}; }));
+    html += '<span class="block-label">Strongest Anti-Preferences (lowest)</span>';
+    html += barChart(pfp.bottom3.map(function(r){ return {label:r.label,pct:(r.val||0)*20,val:(r.val||0)+'/5'}; }));
+    html += '<span class="block-label">Validation Prompt</span>';
+    html += validationPrompt('"Looking at your strongest preferences, which two are non-negotiable for a program to even be considered? Which two are nice-to-have?"');
+    html += '<span class="block-label">Coaching Prompts</span>';
+    html += promptList([
+      '"For your strongest preference — ' + (pfp.top3[0]?pfp.top3[0].label:'—') + ' — what past learning experience taught you that?"',
+      '"Look at any contradictions in your ratings. Talk me through them."',
+      '"If a program met all your top three preferences but failed on the fourth, would you still take it?"'
+    ]);
+  }
+  html += coachNotesField(docId, 'eo_pfp', 'Note contradictions (e.g. high scores on both online and in-person). Ask about them explicitly.');
+  html += '</div>';
+
+  // Framework 3: ASE
+  html += '<div class="framework-block">';
+  html += '<span class="fw-number">Framework 3</span>';
+  html += '<h3 class="fw-title">Academic Self-Efficacy (Apothena, 8 items)</h3>';
+  if(skipped.ase){
+    html += skippedSection('Academic Self-Efficacy');
+  } else {
+    html += resultCallout('Academic Confidence Mean', ase.mean+' / 5', ase.band+' band');
+    var aseItems = [
+      {id:'ase_1',label:'Persist through a difficult course'},
+      {id:'ase_2',label:'Ask for help when needed'},
+      {id:'ase_3',label:'Manage time across a full term'},
+      {id:'ase_4',label:'Perform under time pressure (tests)'},
+      {id:'ase_5',label:'Navigate registrar / financial aid'},
+      {id:'ase_6',label:'Use feedback to improve'},
+      {id:'ase_7',label:'Keep going after a setback'},
+      {id:'ase_8',label:'Balance school with other responsibilities'}
+    ];
+    var aseRows = aseItems.map(function(it){
+      var v = answers[it.id]||0;
+      return {label:it.label,pct:v*20,val:v+'/5'};
+    });
+    html += '<span class="block-label">Per-Item Ratings</span>';
+    html += barChart(aseRows);
+    var lowestAse = aseItems.reduce(function(prev,curr){ return (answers[curr.id]||0)<(answers[prev.id]||6)?curr:prev; }, aseItems[0]);
+    html += '<span class="block-label">Validation Prompt — Lowest Item: ' + esc(lowestAse.label) + '</span>';
+    html += validationPrompt('"Looking at your lowest item — ' + lowestAse.label + ' — would the issue go away with information, with experience, or with a different kind of support?"');
+    html += '<span class="block-label">Coaching Prompts</span>';
+    html += promptList([
+      '"Pick the single lowest item: ' + lowestAse.label + '. What is one small action this week that would test or grow that confidence?"',
+      '"Pick the highest item. Where did that confidence come from? Can it transfer to other areas?"',
+      '"Has your academic confidence changed in the last two years? In which direction?"',
+      '"If you went back to school tomorrow, which item would worry you most?"'
+    ]);
+    html += '<span class="block-label">Band Reference</span>';
+    html += '<table class="ref-table"><thead><tr><th>Band</th><th>Mean</th><th>Coaching Frame</th></tr></thead><tbody>'
+      + '<tr'+(ase.band==='Lower'?' class="highlight"':'')+'><td>Lower</td><td>1.0–2.4</td><td>Plan one small mastery experience this week. Avoid abstract pep talk.</td></tr>'
+      + '<tr'+(ase.band==='Moderate'?' class="highlight"':'')+'><td>Moderate</td><td>2.5–3.4</td><td>Pick one academic behavior to strengthen this term.</td></tr>'
+      + '<tr'+(ase.band==='Higher'?' class="highlight"':'')+'><td>Higher</td><td>3.5–5.0</td><td>High academic confidence. Channel into a focused commitment with a deadline.</td></tr>'
+      + '</tbody></table>';
+  }
+  html += coachNotesField(docId, 'eo_ase', 'Note if low item 5 (registrar/financial aid) is a logistical fix vs. genuine confidence gap.');
+  html += '</div>';
+
+  html += '<span class="block-label">Session 2 Action Items</span>';
+  html += '<p style="font-size:.78rem;color:var(--text-soft);margin-bottom:6px">Assign 1–2 research tasks before Session 3.</p>';
+  html += actionTable(docId, 'eo_s2_actions');
+  html += '<div class="section-divider"></div>';
+
+  // ── SESSION 3 ──
+  html += partDiv('Part E · Session 3','Academic Interests & Practical Priorities','Which subjects pull at this student, and what real constraints shape the choice?');
+  html += '<div class="coach-note-box"><strong>Coach Note:</strong> Session 3 is the most critical conversation. Begin with a two-minute recap of Sessions 1 and 2 before presenting new results.</div>';
+  html += validationPrompt('"Before we look at today\'s results, let\'s revisit where we\'ve landed. Does the Holland code still feel right? Has the Academic Self-Efficacy result shifted how you think about what you want from a program?"');
+
+  // Framework 4: Academic Interests
+  html += '<div class="framework-block">';
+  html += '<span class="fw-number">Framework 4</span>';
+  html += '<h3 class="fw-title">Academic Interests (CIP-mapped, 18 domains)</h3>';
+  if(skipped.ai){
+    html += skippedSection('Academic Interests');
+  } else {
+    html += '<span class="block-label">Top 5 Academic Interests</span>';
+    if(ai.top5.length){
+      html += barChart(ai.top5.map(function(r){ return {label:r.label+' (CIP '+r.cip+')',pct:r.val*20,val:r.val+'/5'}; }));
+    } else {
+      html += '<p style="font-size:.82rem;color:var(--text-faint)">No ratings recorded for academic interests.</p>';
+    }
+    var topAiLabel = ai.top5[0]?ai.top5[0].label:'—';
+    html += '<span class="block-label">Holland Alignment Check</span>';
+    html += '<table class="ref-table"><thead><tr><th>Scenario</th><th>What It Means</th><th>How to Debrief</th></tr></thead><tbody>'
+      + '<tr><td>Holland and Academic Interest align</td><td>High confidence. Both frameworks independently confirm the same cluster.</td><td>Name the convergence explicitly. Anchor all program recommendations here.</td></tr>'
+      + '<tr><td>Holland and Academic Interest diverge</td><td>Often reveals external pressure or an unexplored interdisciplinary option.</td><td>Probe which result feels more genuinely their own.</td></tr>'
+      + '</tbody></table>';
+    html += '<span class="block-label">Validation Prompt</span>';
+    html += validationPrompt('"Looking at your top three — which one is genuinely interesting versus which one feels expected of you?"');
+    html += '<span class="block-label">Coaching Prompts</span>';
+    html += promptList([
+      '"For each of your top three, name one specific program you have heard of, and one you would have to research."',
+      '"Cross-reference your top academic interest — ' + topAiLabel + ' — with your top Holland letter — ' + ip.top.label + '. Do they line up?"',
+      '"What is your lowest-rated academic interest? Is that real or just no exposure?"'
+    ]);
+  }
+  html += coachNotesField(docId, 'eo_ai', 'Note whether top academic interest aligns with Holland code. Flag external pressure if interests diverge.');
+  html += '</div>';
+
+  // Framework 5: Practical Priorities
+  html += '<div class="framework-block">';
+  html += '<span class="fw-number">Framework 5</span>';
+  html += '<h3 class="fw-title">Practical Priorities (Apothena, 5 items)</h3>';
+  html += '<div class="coach-note-box"><strong>Coach Note:</strong> The optional notes are the highest-value field. Read them back verbatim. Ask which constraint is genuinely a deal-breaker, not just a preference.</div>';
+  if(skipped.pp){
+    html += skippedSection('Practical Priorities');
+  } else {
+    html += '<span class="block-label">Priority Ratings + Client Notes</span>';
+    var ppSorted = pp.slice().filter(function(r){ return r.val!==null; }).sort(function(a,b){ return (b.val||0)-(a.val||0); });
+    var topConstraint = ppSorted[0]?ppSorted[0].label:'—';
+    html += '<div class="bar-chart">';
+    pp.forEach(function(r){
+      html += '<div class="bar-row">'
+        + '<div class="bar-lbl">' + esc(r.label) + '</div>'
+        + '<div class="bar-track"><div class="bar-fill" style="width:'+(r.val?r.val*20:0)+'%"></div></div>'
+        + '<div class="bar-val">'+(r.val!==null?r.val+'/5':'—')+'</div>'
+        + '</div>';
+      if(r.note) html += '<div style="font-size:.75rem;color:var(--text-faint);font-style:italic;padding:0 0 8px 138px">&ldquo;'+esc(r.note)+'&rdquo;</div>';
+    });
+    html += '</div>';
+    html += '<span class="block-label">Validation Prompt — Top Constraint: '+esc(topConstraint)+'</span>';
+    html += validationPrompt('"Of these five, which one would actually disqualify a program if it failed? That one is the real constraint."');
+    html += '<span class="block-label">Coaching Prompts</span>';
+    html += promptList([
+      '"For your top constraint — ' + topConstraint + ' — what is the specific number or limit? (Months, dollars, miles.)"',
+      '"Would you trade flexibility on a lower-priority item to get more on ' + topConstraint + '? Where is the line?"',
+      '"Have any of these constraints changed in the last six months? Are any expected to change in the next six?"',
+      '"Have you actually researched scholarships, grants, and aid for the specific programs we\'re considering? The answer is almost always no."'
+    ]);
+  }
+  html += coachNotesField(docId, 'eo_pp', 'Record the single real deal-breaker constraint. Note any fixed beliefs about cost that have not been tested.');
+  html += '</div>';
+
+  // Session 3 Synthesis
+  html += '<span class="block-label">Session 3 Synthesis Worksheet</span>';
+  html += '<p style="font-size:.82rem;color:var(--text-soft);margin-bottom:8px">Take the Top 5 academic interests and walk each one against the strongest practical constraint. The first three that survive both filters are the next-step program search list.</p>';
+  html += '<table class="ref-table" style="margin-bottom:12px"><thead><tr><th>Top Academic Interest</th><th>CIP</th><th>Survives top constraint?</th><th>Next-step program candidate</th></tr></thead><tbody>';
+  var synRows = ai.top5.length ? ai.top5 : [{label:'',cip:''},{label:'',cip:''},{label:'',cip:''},{label:'',cip:''},{label:'',cip:''}];
+  while(synRows.length<5) synRows.push({label:'',cip:''});
+  synRows.slice(0,5).forEach(function(r,i){
+    html += '<tr>'
+      + '<td style="color:var(--text-soft)">'+esc(r.label||('Area '+(i+1)))+'</td>'
+      + '<td style="color:var(--amber-light)">'+esc(r.cip||'')+'</td>'
+      + '<td><input type="text" placeholder="Yes / No / Partial" data-doc="'+esc(docId)+'" data-key="eo_s3_synth_'+i+'_survives" class="synth-input" style="width:100%;background:transparent;border:none;color:var(--text-soft);font-family:Lato,sans-serif;font-size:.82rem;padding:6px 8px;outline:none"></td>'
+      + '<td><input type="text" placeholder="Program name..." data-doc="'+esc(docId)+'" data-key="eo_s3_synth_'+i+'_program" class="synth-input" style="width:100%;background:transparent;border:none;color:var(--text-soft);font-family:Lato,sans-serif;font-size:.82rem;padding:6px 8px;outline:none"></td>'
+      + '</tr>';
+  });
+  html += '</tbody></table>';
+  html += '<span class="block-label">Session 3 Action Items</span>';
+  html += actionTable(docId, 'eo_s3_actions');
+
+  return html;
+}
+
+// ── RENDER: CUMULATIVE ────────────────────────────────────────────────────────
+function renderCumulative(clientName, sessions){
+  var html = '<div class="db-header">'
+    + '<span class="db-eyebrow">Apothena Career Services &mdash; Cumulative Debrief</span>'
+    + '<h1 class="db-title">Cumulative <em>Profile</em></h1>'
+    + '<p style="font-size:.9rem;color:var(--text-soft);margin-top:4px">All completed assessments for ' + esc(clientName) + ' on one page.</p>'
+    + '<div class="db-meta"><span class="db-meta-pill">&#128100; '+esc(clientName)+'</span>'
+    + '<span class="db-meta-pill">'+sessions.length+' Assessment'+(sessions.length>1?'s':'')+' Combined</span>'
+    + '</div></div>';
+
+  sessions.forEach(function(s){
+    var payload = parsePayload(s.data);
+    var dateStr = '';
+    try{ dateStr = new Date(s.data.savedAt).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}); }catch(e){}
+    html += '<div style="border:1px solid var(--rule);padding:20px 24px;margin-bottom:20px;">';
+    html += '<span class="block-label">' + esc(s.data.tool==='career-open'?'Career Charting (Open)':'Education Path Planner (Open)') + ' &mdash; Saved ' + dateStr + '</span>';
+    html += renderDebriefForTool(s.data.tool, payload, s.data, s.id, true);
+    html += '</div>';
+  });
+
+  // Cross-tool synthesis (if both tools present)
+  var careerSessions = sessions.filter(function(s){ return s.data.tool==='career-open'; });
+  var eduSessions = sessions.filter(function(s){ return s.data.tool==='education-open'; });
+  if(careerSessions.length && eduSessions.length){
+    var cp = parsePayload(careerSessions[0].data);
+    var ep = parsePayload(eduSessions[0].data);
+    var cip = computeRiasec(cp.scaleScores||{});
+    var eip = computeRiasec(ep.scaleScores||{});
+    var codeMatch = cip.code && eip.code && cip.code[0]===eip.code[0];
+
+    html += '<div class="part-divider"><span class="part-label-tag">Combined Profile</span><h2 class="part-title">Cross-Tool Synthesis</h2></div>';
+    html += '<div class="coach-note-box"><strong>Holland Alignment:</strong> Career Holland Code: <strong>'+esc(cip.code)+'</strong> &nbsp;|&nbsp; Education Holland Code: <strong>'+esc(eip.code)+'</strong> &nbsp;&mdash;&nbsp; '+(codeMatch?'<span style="color:var(--green)">Leading letters match — high confidence signal.</span>':'<span style="color:var(--red)">Leading letters diverge — probe which feels more genuinely their own.</span>')+'</div>';
+
+    html += validationPrompt(codeMatch
+      ? '"Both your career and education assessments independently pointed toward ' + cip.top.label + ' environments. That level of consistency is significant — what does that tell you about what you\'ve known for a long time that you maybe haven\'t admitted yet?"'
+      : '"Your career interests point toward ' + cip.top.label + ', but your academic interests point toward ' + eip.top.label + '. Before I interpret anything — which of those two feels more genuinely yours, and which might reflect what you thought you were supposed to want?"'
+    );
+
+    html += '<span class="block-label">Combined Synthesis Worksheet</span>';
+    var firstDocId = careerSessions[0].id;
+    html += '<table class="ref-table" style="margin-bottom:12px"><thead><tr><th>Framework Pair</th><th>Aligned?</th><th>Key Insight</th><th>Action</th></tr></thead><tbody>';
+    [
+      'Holland Code (Career vs. Education)',
+      'Work Value + Academic Interest',
+      'Career Destination vs. Program Direction'
+    ].forEach(function(pair,i){
+      html += '<tr><td style="color:var(--amber-light)">'+esc(pair)+'</td>'
+        + '<td><input type="text" placeholder="Yes / No" data-doc="'+esc(firstDocId)+'" data-key="cum_synth_'+i+'_aligned" class="synth-input" style="width:100%;background:transparent;border:none;color:var(--text-soft);font-family:Lato,sans-serif;font-size:.82rem;padding:6px 8px;outline:none"></td>'
+        + '<td><input type="text" placeholder="Insight..." data-doc="'+esc(firstDocId)+'" data-key="cum_synth_'+i+'_insight" class="synth-input" style="width:100%;background:transparent;border:none;color:var(--text-soft);font-family:Lato,sans-serif;font-size:.82rem;padding:6px 8px;outline:none"></td>'
+        + '<td><input type="text" placeholder="Action..." data-doc="'+esc(firstDocId)+'" data-key="cum_synth_'+i+'_action" class="synth-input" style="width:100%;background:transparent;border:none;color:var(--text-soft);font-family:Lato,sans-serif;font-size:.82rem;padding:6px 8px;outline:none"></td>'
+        + '</tr>';
+    });
+    html += '</tbody></table>';
+    html += '<span class="block-label">Combined Session Action Items</span>';
+    html += actionTable(firstDocId, 'cum_actions', 4);
+  }
+
+  return html;
+}
+
+// ── NOTES: SAVE TO FIRESTORE ───────────────────────────────────────────────────
+function attachNoteListeners(docId){
+  // Textarea coach notes
+  document.querySelectorAll('.coach-notes-field[data-doc="'+docId+'"]').forEach(function(ta){
+    // Load existing value
+    loadNoteValue(docId, ta.getAttribute('data-key'), ta);
+    ta.addEventListener('input', function(){
+      scheduleNoteSave(docId, ta.getAttribute('data-key'), ta.value, 'si-'+docId+'-'+ta.getAttribute('data-key'));
+    });
+  });
+  // Inline synth inputs
+  document.querySelectorAll('.synth-input[data-doc="'+docId+'"]').forEach(function(inp){
+    loadNoteValue(docId, inp.getAttribute('data-key'), inp);
+    inp.addEventListener('input', function(){
+      scheduleNoteSave(docId, inp.getAttribute('data-key'), inp.value, null);
+    });
+  });
+}
+
+function loadNoteValue(docId, key, el){
+  if(!_fbReady) return;
+  _db.collection('debriefNotes').doc(docId).get().then(function(doc){
+    if(doc.exists){
+      var data = doc.data();
+      if(data[key] !== undefined){
+        if(el.tagName==='TEXTAREA') el.value = data[key];
+        else el.value = data[key];
+      }
+    }
+  }).catch(function(){});
+}
+
+function scheduleNoteSave(docId, key, value, indicatorId){
+  var timerKey = docId+'__'+key;
+  if(_notesSaveTimers[timerKey]) clearTimeout(_notesSaveTimers[timerKey]);
+  if(indicatorId){
+    var ind = document.getElementById(indicatorId);
+    if(ind) ind.textContent = 'Saving…';
+  }
+  _notesSaveTimers[timerKey] = setTimeout(function(){
+    if(!_fbReady) return;
+    var update = {};
+    update[key] = value;
+    update['_lastUpdated'] = new Date().toISOString();
+    update['_clientName'] = _currentDocId ? undefined : '';
+    _db.collection('debriefNotes').doc(docId).set(update, {merge:true}).then(function(){
+      if(indicatorId){
+        var ind = document.getElementById(indicatorId);
+        if(ind){ ind.textContent = 'Saved'; setTimeout(function(){ if(ind) ind.textContent=''; }, 2000); }
+      }
+    }).catch(function(e){
+      if(indicatorId){
+        var ind = document.getElementById(indicatorId);
+        if(ind) ind.textContent = 'Save failed';
+      }
+    });
+  }, 900);
+}
+
+// ── BOOT ──────────────────────────────────────────────────────────────────────
+document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+// Handle URL params for direct linking
+(function(){
+  var params = new URLSearchParams(window.location.search);
+  var docId = params.get('doc');
+  var cumName = params.get('client');
+  if(docId || cumName){
+    // Will open after auth resolves
+    window._pendingDoc = docId;
+    window._pendingClient = cumName;
+  }
+})();
+
+initFirebase();
+
+// After auth resolves, handle pending URL params
+var _origLoadSessions = loadSessions;
+loadSessions = function(){
+  _origLoadSessions();
+  if(window._pendingDoc){
+    setTimeout(function(){ openDebrief(window._pendingDoc, false); window._pendingDoc=null; }, 1200);
+  } else if(window._pendingClient){
+    setTimeout(function(){ openCumulative(decodeURIComponent(window._pendingClient)); window._pendingClient=null; }, 1200);
+  }
+};
+</script>
 </body>
 </html>
